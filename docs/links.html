@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles_download.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div id="topheader">
+    <div class="shortcut">
+        <a href="./index.html">
+            <div class="icon-container">
+                <img alt="ABINIT" class="shortcut-img" src="./logo/logo.png" title="" />
+                <span class="title"></span>
+            </div>
+            </a>
+    </div>
+    <div class="shortcut">
+        <a href="./pseudopotential.html">
+            <div class="icon-container">
+                <img alt="Pseudo and atomic data" class="shortcut-img" src="./img/Pseudos.png" title="Pseudo & atomic data" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/variables">
+            <div class="icon-container">
+                <img alt="input variables" class="shortcut-img" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/tutorial/">
+            <div class="icon-container">
+                <img alt="Tutorials" class="shortcut-img" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://discourse.abinit.org/">
+            <div class="icon-container">
+                <img alt="Forum" class="shortcut-img" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://wiki.abinit.org/doku.php?id=start">
+            <div class="icon-container">
+                <img alt="Wiki" class="shortcut-img" src="./img/wiki.png" title="Wiki" />
+                <span class="title">Wiki </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="./download.html">
+            <div class="icon-container">
+                <img alt="Download" class="shortcut-img" src="./img/Download.png" title="Download" />
+                <span class="title">Download </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/installation/">
+            <div class="icon-container">
+                <img alt="Compile" class="shortcut-img" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit">
+            <div class="icon-container">
+                <img alt="GitHub" class="shortcut-img" src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://gui.abinit.org/">
+            <div class="icon-container">
+                <img alt="GUI" class="shortcut-img" src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit/abipy">
+            <div class="icon-container">
+                <img alt="abipy" class="shortcut-img" src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+
+<div
+    class="field field--name-body field--type-text-with-summary field--label-hidden field--item"
+    style="margin-left: 350px; margin-right: 200px;">
+    <div class="separator">
+    <a name="links" id="links">&nbsp;</a>
+  </div>
+
+  <!-- Links -->
+  <h2><span style="font-size: xx-large;">Links</span></h2>
+
+  <div class="text-center">
+    <button class="btn btn-warning disable" type="button">WARNING: some links are outdated : update in progress...</button>
+  </div>
+
+  <p>&nbsp;</p>
+
+  <ul>
+    <li>Tools (Graphical user interfaces, ... )
+      <ul>
+        <li><a href="https://github.com/gmatteo/abipy" target="_blank"
+               title="" style="color: #F18F34;">Abipy</a><br>
+          <span>Abipy is an open-source library for the analysis of the results produced by ABINIT. Abipy is written in Python and is designed with the philosophy that you should be able to create simple plots with just a few commands.</span>
+        </li>
+        <li><a href="https://www.c2x.org.uk/" target="_blank" title=""  style="color: #F18F34;">c2x
+        </a><br>
+          <span>C2x is a command-line pre- and post- processor supporting many DFT codes, including Abinit. It can produce output suitable for XCrysden, Vesta, Jmol and other visualisation codes, it performs symmetry analysis using <a href="https://atztogo.github.io/spglib/">spglib</a>, and it can perform simple input cell transformations and output analysis.</span>
+        </li>
+        <li><a href="https://gitlab.com/l_sim/v_sim" target="_blank"  style="color: #F18F34;">V_Sim
+        </a><br>
+          <span>V_Sim visualizes atomic structures such as crystals, grain boundaries and so on (either in .d3 format as defined by F. Lançon, or in plain text format as described in the sample page). The rendering is done in pseudo-3D with colored sphere to represent the atoms. The user can interact through many functions to choose the view, the size of the atoms, their color, the background color, the type of fog...</span>
+        </li>
+        <li><a href="http://www.xcrysden.org/" target="_blank"  style="color: #F18F34;">XCrySDen</a><br>
+          <span>XCrySDen is a crystalline and molecular structure visualisation program, but its main goal is to be a property analyzer program. It can run on most UNIX platforms, without any special hardware requirements. Special efforts were made to allow for appropriate display of 3D isosurfaces and 2D contours, which can be superimposed on crystalline structure and interactively rotated and manipulated.</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <p>&nbsp;</p>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <ul>
+    <li>Other software packages
+      <ul>
+        <li><a href="http://etsf.polytechnique.fr/exc/Home" target="_blank"  style="color: #F18F34;">
+            EXC</a><br>
+          <span>EXC is an exciton code working in reciprocal space, frequency domain, and using plane waves basis. Its purpose is to calculate, ab initio, the dielectric and optical properties, like absorption, reflectivity, refraction index, electron and X-ray energy loss, for a large variety of systems, ranging from bulk systems, surfaces, to clusters or atoms (using the supercell method), by solving the Bethe-Salpeter equation.</span>
+        </li>
+        <li><a href="http://www.dp-code.org/" target="_blank"  style="color: #F18F34;">DP</a><br>
+          <span>The DP code is a Linear Response TDDFT code in Frequency Reciprocal space on a PlaneWaves basis.</span>
+        </li>
+        <li><a href="http://www.yambo-code.org/" target="_blank"  style="color: #F18F34;">Yambo</a><br>
+          <span>Yambo is a FORTRAN/C code for Many-Body calculations in solid state and molecular physics. Yambo relies on the Kohn-Sham wavefunctions generated by two DFT public codes: Abinit and PWscf. The code was originally developed in the Condensed Matter Theoretical Group of the Physics Department at the University of Rome "Tor Vergata" by Andrea Marini. Previous to its release under the GPL license, yambo was known as SELF.</span>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <ul>
+    <li>Links towards groups developing and using ABINIT
+      <ul>
+        <li><a href="https://www.physik.unibas.ch/people/prof-goedecker.html"
+               target="_blank"  style="color: #F18F34;">Stefan Goedecker's Web page</a></li>
+        <li><a href="https://uclouvain.be/en/research-institutes/imcn/naps"
+               target="_blank"  style="color: #F18F34;">Université catholique de Louvain</a> : Simulation team X. Gonze, G.-M. Rignanese, J.-C. Charlier</li>
+        <li><a href="http://www.ulg.ac.be/" target="_blank" title=""  style="color: #F18F34;"
+        >Université de Liège</a> : Homepages <a
+                href="http://www.phythema.ulg.ac.be/" target="_blank" title=""  style="color: #F18F34;">Ph. Ghosez</a> and <a class="external-link" href="http://www.nanomat.ulg.ac.be/" target="_blank" title="">M. Verstraete</a></li>
+        <li><a
+                href="http://physique.umontreal.ca/~michel_cote/Physique/Accueil.html" target="_blank"  style="color: #F18F34;">Université de Montréal</a> : Homepage M. Côté</li>
+        <li><a
+                href="http://www.theory.mat.ethz.ch/people/person-detail.html?persid=177264" target="_blank" title=""  style="color: #F18F34;">ETH Zürich Switzerland</a> : Homepage N. Spaldin</li>
+        <li><a href="http://mat-simresearch.com" target="_blank"  style="color: #F18F34;">Mat-Sim
+            Research</a> : Don Hamann's company.</li>
+        <li><a href="http://bigdft.org/Wiki/index.php?title=BigDFT_website"
+               target="_blank"  style="color: #F18F34;">The BigDFT Project</a></li>
+        <li><a
+                href="http://inac.cea.fr/Phocea/Vie_des_labos/Ast/ast_groupe.php?id_groupe=12" target="_blank"  style="color: #F18F34;">CEA L_Sim group (Thierry Deutsch, Yann-Michel Niquet ...)</a></li>
+        <li><a href="http://www.nanohub.org" target="_blank"  style="color: #F18F34;">The nanohub
+            facility</a> in the USA runs ABINIT <a
+                href="http://nanohub.org/resources/tools" target="_blank"  style="color: #F18F34;">as a tool</a> on its publicly accessible cluster (see the ab initio codes tab).</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <ul>
+    <li>Librarification efforts
+      <ul>
+        <li><a href="http://esl.cecam.org" target="_blank" title=""  style="color: #F18F34;">CECAM
+            Electronic Structure Library&nbsp;</a></li>
+        <li><a href="https://fossies.org/linux/abinit/shared/libpaw/README"  style="color: #F18F34;"
+        >LibPAW - low level PAW library</a> being developed by M Torrent at CEA</li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <ul>
+    <li>Links for data exchange and file sharing
+      <ul>
+        <li><a href="http://www.cmt.york.ac.uk/nanoquanta/nq_specs.htm"
+               target="_blank"  style="color: #F18F34;">Specification of file formats for Nanoquanta ETSF-io</a></li>
+        <li><a href="http://www.unidata.ucar.edu/software/netcdf"
+               target="_blank"  style="color: #F18F34;">NetCDF site</a></li>
+        <li><a href="http://www.w3.org/XML" target="_blank"  style="color: #F18F34;">XML site</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <ul>
+    <li>Links to documentation on the parallelism in ABINIT
+      <ul>
+        <li><a href="http://arxiv.org/abs/0707.3405" target="_blank"  style="color: #F18F34;">Large
+            scale ab initio calculations based on three levels of parallelization (2007)</a></li>
+        <li><a href="https://docs.abinit.org/tutorial/"  style="color: #F18F34;">Parallelism in
+            Abinit (Tutorials)</a></li>
+        <li>Prace documents : deliverables <a
+                href="/sites/default/files/praces/d8.1.4_2ip-abinit-only.pdf"
+                style="color: #F18F34;">D8.1.4</a>, <a
+                href="/sites/default/files/praces/d8.1.3_2ip-abinit-only.pdf"
+                style="color: #F18F34;">D8.1.3</a>, <a href="/sites/default/files/praces/d8.1.2_2ip-abinit-only.pdf"  style="color: #F18F34;">D8.1.2</a> and <a href="/sites/default/files/praces/d8.1.1_2ip-materials-only.pdf"  style="color: #F18F34;">D8.1.1</a> (2011-2012)<br>
+          [NOTE: these deliverables have been edited, and only the part related to ABINIT has been left, for convenience].
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="text">
+    <hr>
+  </div>
+
+  <p><a href="https://uclouvain.be/en/index.html" target="_blank"  style="color: #F18F34;">Webhosting
+      by the Université catholique de Louvain (Louvain-la-Neuve / Belgium)</a></p>
+</div>
+
+<script src="abinit_info_download.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
