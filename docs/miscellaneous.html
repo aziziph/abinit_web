@@ -113,7 +113,10 @@
 
     <h2 style="font-size:28px">Norm-conserving Pseudopotentials</h2>
 
-    <p>This page gathers links to miscellaneous norm-conserving pseudopotentials that can be used by ABINIT, but are not among <a href="https://www.abinit.org/psps_abinit" style="color: #F18F34;">the recommended ones</a>. Some of these (e.g., HGH) have been tested, but many others not. Although not recommended, they might still be perfectly fine, particularly for selected usages not permitted by the recommended ones.</p>
+    <p>This page gathers links to miscellaneous norm-conserving
+        pseudopotentials that can be used by ABINIT, but are not among <a
+                href="./psps_abinit.html" style="color: #F18F34;">the
+            recommended ones</a>. Some of these (e.g., HGH) have been tested, but many others not. Although not recommended, they might still be perfectly fine, particularly for selected usages not permitted by the recommended ones.</p>
 
     <ol>
         <li>GGA (PBE) pseudopotential files (might be used for other GGA, mGGA, or hybrid functional calculations with caution, see Borlido et al, J. Chem. Theory Comput., 16, 3620 (2020)):
@@ -121,10 +124,12 @@
                 <li><a href="http://sourceforge.net/p/cp2k/code/HEAD/tree/trunk/potentials/Goedecker/abinit/pbe/" style="color: #F18F34;">- Hartwigsen-Goedeker-Hutter (HGH) pseudopotentials</a> for 86 elements in the periodic table, from M. Krack, see Theor. Chem. Acc. 114, 145 (2005) and later improvements.
                     <blockquote>For some elements, a small core pseudopotential and a large core pseudopotential are available. These pseudopotentials do not include non-linear core corrections and can be used to perform mGGA calculations with the Tran-Blaha 09 XC functional, Phys. Rev. Lett. 102, 226401 (2009), also called modified Becke-Johnson. These pseudopotentials have been used in the publication by <a href="https://science.sciencemag.org/content/351/6280/aad3000" style="color: #F18F34;">Lejaeghere et al, Science 351 (6280) (2016)</a> and correspond to HGH/ABINIT. The pseudopotential for the Ta-Au series, Ru, Rh, Pd, Cr, and Mn should be avoided. Others are good or often very good.</blockquote>
                 </li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/gga_fhi.html" title="GGA_FHI" style="color: #F18F34;">- Fritz-Haber-Institute (FHI) pseudopotentials</a> for selected elements (Troullier-Martins scheme).
+                <li><a class="internal-link" href="./gga-fhi.html"
+                       title="GGA_FHI" style="color: #F18F34;">- Fritz-Haber-Institute (FHI) pseudopotentials</a> for selected elements (Troullier-Martins scheme).
                     <blockquote>These pseudopotentials have been used in the publication by <a href="https://science.sciencemag.org/content/351/6280/aad3000" style="color: #F18F34;">Lejaeghere et al, Science 351 (6280) (2016)</a> and correspond to FHI98pp/ABINIT. Some pseudopotentials are awful and completely screwed the result (W -especially-, Fe, Co, Ni, Ti, V, Tl, Ta, Re, Os, Ni).</blockquote>
                 </li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/gga.html" title="GGA" style="color: #F18F34;">- Hartwigsen-Goedecker-Hutter (HGH) pseudopotentials</a> for selected elements.</li>
+                <li><a class="internal-link" href="./gga.html" title="GGA"
+                       style="color: #F18F34;">- Hartwigsen-Goedecker-Hutter (HGH) pseudopotentials</a> for selected elements.</li>
                 <li><a href="http://www.sas.upenn.edu/rappegroup/research/pseudo-potential-gga.html" style="color: #F18F34;">- OPIUM generated pseudopotentials</a> for many elements.</li>
             </ul>
         </li>
@@ -150,15 +155,21 @@
         </li>
         <li>LDA pseudopotential files:
             <ul>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/hgh.html" title="HGH" style="color: #F18F34;">- Hartwigsen-Goedecker-Hutter (HGH) pseudopotentials</a> for most of the elements in the periodic table, see Phys. Rev. B 58, 3641 (1998).
+                <li><a class="internal-link" href="./hgh.html" title="HGH"
+                       style="color: #F18F34;">- Hartwigsen-Goedecker-Hutter (HGH) pseudopotentials</a> for most of the elements in the periodic table, see Phys. Rev. B 58, 3641 (1998).
                     <blockquote>These pseudopotentials do not include non-linear core corrections and can be used to perform mGGA calculations with the Tran-Blaha 09 XC functional, Phys. Rev. Lett. 102, 226401 (2009). They have been tested, but not as carefully as the ABINIT recommended pseudopotentials. Following the Delta project analysis for similar GGA pseudopotentials, the pseudopotential for the Ta-Au series, Ru, Rh, Pd, Cr, and Mn should be avoided. Others are good or often very good.</blockquote>
                 </li>
                 <li>- Another Web site with the <a href="http://sourceforge.net/p/cp2k/code/HEAD/tree/trunk/potentials/Goedecker/abinit/pade/" style="color: #F18F34;">Hartwigsen-Goedeker-Hutter (HGH) pseudopotentials</a></li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/lda_tm.html" title="LDA_TM" style="color: #F18F34;">- Troullier-Martins (TM) pseudopotentials</a> for most of the elements in the periodic table, generated by A. Khein and D.C. Allan.</li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/lda_gth.html" title="LDA_GTH" style="color: #F18F34;">- Goedecker-Teter-Hutter pseudopotentials</a> for selected elements.</li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/lda_ex.html" title="LDA_EX" style="color: #F18F34;">- Teter "extended norm-conserving" pseudopotentials</a> for selected elements.</li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/lda_fhi.html" title="LDA_FHI" style="color: #F18F34;">- Fritz-Haber-Institute (FHI) pseudopotentials</a> for selected elements (Troullier-Martins scheme).</li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/lda_core.html" title="LDA_CORE" style="color: #F18F34;">- LDA core-hole pseudopotential files</a> for selected elements.</li>
+                <li><a class="internal-link" href="./lda-tm.html"
+                       title="LDA_TM" style="color: #F18F34;">- Troullier-Martins (TM) pseudopotentials</a> for most of the elements in the periodic table, generated by A. Khein and D.C. Allan.</li>
+                <li><a class="internal-link" href="./lda-gth.html"
+                       title="LDA_GTH" style="color: #F18F34;">- Goedecker-Teter-Hutter pseudopotentials</a> for selected elements.</li>
+                <li><a class="internal-link" href="./lda-ex.html"
+                       title="LDA_EX" style="color: #F18F34;">- Teter "extended norm-conserving" pseudopotentials</a> for selected elements.</li>
+                <li><a class="internal-link" href="./lda-fhi.html"
+                       title="LDA_FHI" style="color: #F18F34;">- Fritz-Haber-Institute (FHI) pseudopotentials</a> for selected elements (Troullier-Martins scheme).</li>
+                <li><a class="internal-link" href="./lda-core.html"
+                       title="LDA_CORE" style="color: #F18F34;">- LDA core-hole pseudopotential files</a> for selected elements.</li>
                 <li><a href="http://www.sas.upenn.edu/rappegroup/research/pseudo-potential-lda.html" style="color: #F18F34;">- OPIUM generated pseudopotentials</a> for a few elements.</li>
             </ul>
         </li>
@@ -168,9 +179,14 @@
                 <li><a class="external-link" href="http://www.mat-simresearch.com/" target="_self" title="" style="color: #F18F34;">- ONCVPSP soft norm conserving generator by Don Hamann</a></li>
                 <li><a href="http://opium.sourceforge.net" style="color: #F18F34;">- The OPIUM pseudopotentials generator</a></li>
                 <li>- The FHI98PP code is freely available from the <a href="https://elsevier.digitalcommonsdata.com/datasets/kygjf563w3/1" style="color: #F18F34;">CPC library</a>.
-                    <blockquote>Pseudopotentials generated with FHI98PP have to be complemented by a header: <a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/format6_psp.html" title="Format6_PSP" style="color: #F18F34;">How to modify pseudopotentials generated using the FHI (FHI98PP) code?</a></blockquote>
+                    <blockquote>Pseudopotentials generated with FHI98PP have
+                        to be complemented by a header: <a
+                                class="internal-link" href="./format6-psp.dat"
+                                title="Format6_PSP" style="color: #F18F34;">How to modify pseudopotentials generated using the FHI (FHI98PP) code?</a></blockquote>
                 </li>
-                <li><a class="internal-link" href="/sites/default/files/PrevAtomicData/psp-links/MARTINS2ABINIT.tgz" title="MARTINS2ABINIT" style="color: #F18F34;">- J.L. Martins pseudopotentials generator and Martins2Abinit tool</a>: generating non-relativistic, scalar-relativistic, and <strong>SPIN_ORBIT</strong> Troullier-Martins pseudopotentials.</li>
+                <li><a class="internal-link"
+                       href="./fallbacks/MARTINS2ABINIT.tgz"
+                       title="MARTINS2ABINIT" style="color: #F18F34;">- J.L. Martins pseudopotentials generator and Martins2Abinit tool</a>: generating non-relativistic, scalar-relativistic, and <strong>SPIN_ORBIT</strong> Troullier-Martins pseudopotentials.</li>
             </ul>
         </li>
     </ol>
