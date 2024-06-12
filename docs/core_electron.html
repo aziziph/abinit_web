@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div id="topheader">
+    <div class="shortcut">
+        <a href="./index.html">
+            <div class="icon-container">
+                <img alt="ABINIT" class="shortcut-img" src="./logo/logo.png" title="" />
+                <span class="title"></span>
+            </div>
+            </a>
+    </div>
+    <div class="shortcut">
+        <a href="./pseudopotential.html">
+            <div class="icon-container">
+                <img alt="Pseudo and atomic data" class="shortcut-img" src="./img/Pseudos.png" title="Pseudo & atomic data" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/variables">
+            <div class="icon-container">
+                <img alt="input variables" class="shortcut-img" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/tutorial/">
+            <div class="icon-container">
+                <img alt="Tutorials" class="shortcut-img" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://discourse.abinit.org/">
+            <div class="icon-container">
+                <img alt="Forum" class="shortcut-img" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://wiki.abinit.org/doku.php?id=start">
+            <div class="icon-container">
+                <img alt="Wiki" class="shortcut-img" src="./img/wiki.png" title="Wiki" />
+                <span class="title">Wiki </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="./download.html">
+            <div class="icon-container">
+                <img alt="Download" class="shortcut-img" src="./img/Download.png" title="Download" />
+                <span class="title">Download </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/installation/">
+            <div class="icon-container">
+                <img alt="Compile" class="shortcut-img" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit">
+            <div class="icon-container">
+                <img alt="GitHub" class="shortcut-img" src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://gui.abinit.org/">
+            <div class="icon-container">
+                <img alt="GUI" class="shortcut-img" src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit/abipy">
+            <div class="icon-container">
+                <img alt="abipy" class="shortcut-img" src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+
+<div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"style="margin-left: 350px; margin-right: 200px;">
+    <div class="separator">&nbsp;</div>
+    <!-- ========================================================================== -->
+
+    <p>&nbsp;</p>
+
+    <p style="text-align: center;">
+        <span style="color: rgb(68, 68, 68); font-family: 'helvetica neue', arial, freesans, sans-serif; font-size: 1.75em; font-weight: bold;">
+            Core LDA density files for the Bader atomic charge analysis
+        </span>
+    </p>
+
+    <p style="text-align: center;">
+        <strong><em>Clicking on a blue-highlighted element in the periodic table will start a download procedure that will transfer a text file containing the density.</em></strong>
+    </p>
+
+    <hr>
+    <p style="text-align: center;">
+        <map name="map1" id="map1">
+            <area coords="7,8,33,33" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/01-H.8.fc" shape="rect">
+            <area coords="466,8,492,33" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/02-He.8.fc" shape="rect">
+            <area coords="8,34,34,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/03-Li.8.fc" shape="rect">
+            <area coords="35,34,61,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/04-Be.8.fc" shape="rect">
+            <area coords="331,34,358,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/05-B.8.fc" shape="rect">
+            <area coords="358,34,385,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/06-C.8.fc" shape="rect">
+            <area coords="386,34,412,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/07-N.8.fc" shape="rect">
+            <area coords="413,34,439,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/08-O.8.fc" shape="rect">
+            <area coords="440,34,466,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/09-F.8.fc" shape="rect">
+            <area coords="467,34,493,58" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/10-Ne.8.fc" shape="rect">
+            <area coords="8,59,33,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/11-Na.8.fc" shape="rect">
+            <area coords="35,59,61,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/12-Mg.8.fc" shape="rect">
+            <area coords="331,59,358,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/13-Al.8.fc" shape="rect">
+            <area coords="358,59,385,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/14-Si.8.fc" shape="rect">
+            <area coords="386,59,412,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/15-P.8.fc" shape="rect">
+            <area coords="413,59,439,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/16-S.8.fc" shape="rect">
+            <area coords="440,59,466,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/17-Cl.8.fc" shape="rect">
+            <area coords="467,59,493,83" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/18-Ar.8.fc" shape="rect">
+            <area coords="8,84,34,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/19-K.8.fc" shape="rect">
+            <area coords="35,84,60,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/20-Ca.8.fc" shape="rect">
+            <area coords="62,84,88,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/21-Sc.8.fc" shape="rect">
+            <area coords="89,84,115,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/22-Ti.8.fc" shape="rect">
+            <area coords="116,84,142,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/23-V.8.fc" shape="rect">
+            <area coords="143,84,168,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/24-Cr.8.fc" shape="rect">
+            <area coords="170,84,196,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/25-Mn.8.fc" shape="rect">
+            <area coords="197,84,223,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/26-Fe.8.fc" shape="rect">
+            <area coords="224,84,250,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/27-Co.8.fc" shape="rect">
+            <area coords="251,84,277,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/28-Ni.8.fc" shape="rect">
+            <area coords="278,84,304,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/29-Cu.8.fc" shape="rect">
+            <area coords="305,84,331,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/30-Zn.8.fc" shape="rect">
+            <area coords="332,84,357,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/31-Ga.8.fc" shape="rect">
+            <area coords="359,84,385,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/32-Ge.8.fc" shape="rect">
+            <area coords="386,84,412,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/33-As.8.fc" shape="rect">
+            <area coords="413,84,439,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/34-Se.8.fc" shape="rect">
+            <area coords="440,84,466,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/35-Br.8.fc" shape="rect">
+            <area coords="467,84,493,108" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/36-Kr.8.fc" shape="rect">
+            <area coords="8,109,34,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/37-Rb.8.fc" shape="rect">
+            <area coords="35,109,60,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/38-Sr.8.fc" shape="rect">
+            <area coords="62,109,88,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/39-Y.8.fc" shape="rect">
+            <area coords="89,109,115,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/40-Zr.8.fc" shape="rect">
+            <area coords="116,109,142,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/41-Nb.8.fc" shape="rect">
+            <area coords="143,109,168,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/42-Mo.8.fc" shape="rect">
+            <area coords="170,109,196,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/43-Tc.8.fc" shape="rect">
+            <area coords="197,109,223,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/44-Ru.8.fc" shape="rect">
+            <area coords="224,109,250,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/45-Rh.8.fc" shape="rect">
+            <area coords="251,109,277,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/46-Pd.8.fc" shape="rect">
+            <area coords="278,109,304,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/47-Ag.8.fc" shape="rect">
+            <area coords="305,109,331,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/48-Cd.8.fc" shape="rect">
+            <area coords="332,109,357,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/49-In.8.fc" shape="rect">
+            <area coords="359,109,385,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/50-Sn.8.fc" shape="rect">
+            <area coords="386,109,412,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/51-Sb.8.fc" shape="rect">
+            <area coords="413,109,439,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/52-Te.8.fc" shape="rect">
+            <area coords="440,109,466,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/53-I.8.fc" shape="rect">
+            <area coords="467,109,493,133" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/54-Xe.8.fc" shape="rect">
+            <area coords="8,134,34,158" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/55-Cs.8.fc" shape="rect">
+            <area coords="35,134,60,158" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/56-Ba.8.fc" shape="rect">
+            <area coords="62,185,88,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/57-La.8.fc" shape="rect">
+            <area coords="89,185,115,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/58-Ce.8.fc" shape="rect">
+            <area coords="116,185,142,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/59-Pr.8.fc" shape="rect">
+            <area coords="143,185,168,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/60-Nd.8.fc" shape="rect">
+            <area coords="170,185,196,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/61-Pm.8.fc" shape="rect">
+            <area coords="197,185,223,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/62-Sm.8.fc" shape="rect">
+            <area coords="224,185,250,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/63-Eu.8.fc" shape="rect">
+            <area coords="251,185,277,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/64-Gd.8.fc" shape="rect">
+            <area coords="278,185,304,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/65-Tb.8.fc" shape="rect">
+            <area coords="305,185,331,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/66-Dy.8.fc" shape="rect">
+            <area coords="332,185,357,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/67-Ho.8.fc" shape="rect">
+            <area coords="359,185,385,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/68-Er.8.fc" shape="rect">
+            <area coords="386,185,412,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/69-Tm.8.fc" shape="rect">
+            <area coords="413,185,439,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/70-Yb.8.fc" shape="rect">
+            <area coords="440,185,466,209" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/71-Lu.8.fc" shape="rect">
+            <area coords="62,135,88,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/72-Hf.8.fc" shape="rect">
+            <area coords="89,135,115,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/73-Ta.8.fc" shape="rect">
+            <area coords="116,135,142,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/74-W.8.fc" shape="rect">
+            <area coords="143,135,168,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/75-Re.8.fc" shape="rect">
+            <area coords="170,135,196,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/76-Os.8.fc" shape="rect">
+            <area coords="197,135,223,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/77-Ir.8.fc" shape="rect">
+            <area coords="224,135,250,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/78-Pt.8.fc" shape="rect">
+            <area coords="251,135,277,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/79-Au.8.fc" shape="rect">
+            <area coords="278,135,304,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/80-Hg.8.fc" shape="rect">
+            <area coords="305,135,331,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/81-Tl.8.fc" shape="rect">
+            <area coords="332,135,357,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/82-Pb.8.fc" shape="rect">
+            <area coords="359,135,385,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/83-Bi.8.fc" shape="rect">
+            <area coords="386,135,412,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/84-Po.8.fc" shape="rect">
+            <area coords="413,135,439,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/85-At.8.fc" shape="rect">
+            <area coords="440,135,466,159" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/86-Rn.8.fc" shape="rect">
+            <area coords="8,210,34,234" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/87-Fr.8.fc" shape="rect">
+            <area coords="35,210,60,234" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/88-Ra.8.fc" shape="rect">
+            <area coords="62,260,88,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/89-Ac.8.fc" shape="rect">
+            <area coords="89,260,115,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/90-Th.8.fc" shape="rect">
+            <area coords="116,260,142,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/91-Pa.8.fc" shape="rect">
+            <area coords="143,260,168,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/92-U.8.fc" shape="rect">
+            <area coords="170,260,196,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/93-Np.8.fc" shape="rect">
+            <area coords="197,260,223,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/94-Pu.8.fc" shape="rect">
+            <area coords="224,260,250,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/95-Am.8.fc" shape="rect">
+            <area coords="251,260,277,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/96-Cm.8.fc" shape="rect">
+            <area coords="278,260,304,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/97-Bk.8.fc" shape="rect">
+            <area coords="305,260,331,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/98-Cf.8.fc" shape="rect">
+            <area coords="332,260,357,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/99-Es.8.fc" shape="rect">
+            <area coords="359,260,385,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/100-Fm.8.fc" shape="rect">
+            <area coords="386,260,412,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/101-Md.8.fc" shape="rect">
+            <area coords="413,260,439,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/102-No.8.fc" shape="rect">
+            <area coords="440,260,466,284" href="https://www.abinit.org/sites/default/files/Psps/FC_DEN/103-Lr.8.fc" shape="rect">
+         </map>
+  <img alt="all core electron.gif" height="297"
+             src="./img/core-electrons.jpg"
+             usemap="#map1" width="527">
+<p style="text-align: center;">
+  <strong><em>Note : The size of the file may vary between 10 kB and 50 kB.</em></strong>
+</p>
+
+<p>&nbsp;</p>
+
+<hr>
+
+<p>
+  These core-electron density files have been generated using the FHI code, in the LDA (PW92 XC functional).<br>
+  The densities are very weakly dependent on the XC functional choice, and moreover, the Bader analysis is mostly a quantitative analysis tool.<br>
+  Because of these two reasons, we suggest that these files can be used also for the analysis of density generated with different XC functionals.<br>
+  Still, for accurate analysis, one should generate density files that are perfectly consistent with the XC functional of the ABINIT simulation.<br>
+  The FHI .ini file used to generate the density is commented at the end of each file. "nc" is the number of core states considered, and the occupations of the states follow. For example for Sn:
+</p>
+
+<pre>
+# 50.00 9 2 8 0.00 : z nc nv
+#     1  0   2.00      : n  l   f
+#     2  0   2.00
+#     2  1   6.00
+#     3  0   2.00
+#     3  1   6.00
+#     3  2  10.00
+#     4  0   2.00
+#     4  1   6.00
+#     4  2  10.00
+#     5  0   2.00
+#     5  1   2.00
+</pre>
+
+<p>
+  gives a core density with 9 states and 46 electrons. The files contain 4 columns: the radial r coordinate, the core density at r, and the first and second derivatives of the core density.
+</p>
+
+<hr>
+
+<p>28 June 2002.</p>
+
+</div>
+
+
+
+<script src="abinit_info.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>
