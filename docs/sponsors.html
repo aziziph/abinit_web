@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles_download.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div id="topheader">
+    <div class="shortcut">
+        <a href="./index.html">
+            <div class="icon-container">
+                <img alt="ABINIT" class="shortcut-img" src="./logo/logo.png" title="" />
+                <span class="title"></span>
+            </div>
+            </a>
+    </div>
+    <div class="shortcut">
+        <a href="./pseudopotential.html">
+            <div class="icon-container">
+                <img alt="Pseudo and atomic data" class="shortcut-img" src="./img/Pseudos.png" title="Pseudo & atomic data" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/variables">
+            <div class="icon-container">
+                <img alt="input variables" class="shortcut-img" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/tutorial/">
+            <div class="icon-container">
+                <img alt="Tutorials" class="shortcut-img" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://discourse.abinit.org/">
+            <div class="icon-container">
+                <img alt="Forum" class="shortcut-img" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://wiki.abinit.org/doku.php?id=start">
+            <div class="icon-container">
+                <img alt="Wiki" class="shortcut-img" src="./img/wiki.png" title="Wiki" />
+                <span class="title">Wiki </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="./download.html">
+            <div class="icon-container">
+                <img alt="Download" class="shortcut-img" src="./img/Download.png" title="Download" />
+                <span class="title">Download </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/installation/">
+            <div class="icon-container">
+                <img alt="Compile" class="shortcut-img" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit">
+            <div class="icon-container">
+                <img alt="GitHub" class="shortcut-img" src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://gui.abinit.org/">
+            <div class="icon-container">
+                <img alt="GUI" class="shortcut-img" src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit/abipy">
+            <div class="icon-container">
+                <img alt="abipy" class="shortcut-img" src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+
+<div class="field field--name-body field--type-text-with-summary field--label-hidden field--item"style="margin-left: 350px; margin-right: 200px;">
+
+
+        <h2><span style="font-size: xx-large;"><a name="sponsors" id="sponsors" style="color: #F18F34;">Sponsors</a></span></h2>
+
+        <div class="text" style="color: black;">
+            ABINIT being a free software project, we are grateful to the entities or individuals who have supported our activities, by helping to organize our developer workshops, our schools, or to populate our test farm.
+        </div>
+
+        <div class="text"><hr></div>
+
+        <h2><span><strong><em>Year 2024</em></strong></span></h2>
+
+        <blockquote>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+                                        <td><img alt="cea.logo"
+                                                 class="image-inline" height="50" src="./sponsors/logo_cea.png"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+                                        <td><img alt="psik.logo"
+                                                 class="image-inline" height="60" src="./sponsors/psik.png"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://fr-moser.cecam.org/" target="_blank" style="color: #F18F34;">CECAM-FR</a></span></strong></td>
+                                        <td><img alt="cecam.logo"
+                                                 class="image-inline" height="30" src="./sponsors/CECAM_FR_MOSER.jpg"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+                                        <td><img alt="cecam.logo"
+                                                 class="image-inline" height="30" src="./sponsors/cecam.jpg"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://nomad-lab.eu" target="_blank" style="color: #F18F34;">NOMAD</a></span></strong></td>
+                                        <td><img alt="cecam.logo"
+                                                 class="image-inline" height="30" src="./sponsors/NOMAD_Logo_srgb_web_whigh.jpg"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </blockquote>
+
+        <div class="text"><hr></div>
+
+        <h2><span><strong><em>Year 2023</em></strong></span></h2>
+
+        <blockquote>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+                                        <td><img alt="cea.logo"
+                                                 class="image-inline" height="50" src="./sponsors/logo_cea.png"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+                                        <td><img alt="psik.logo"
+                                                 class="image-inline" height="60" src="./sponsors/psik.png"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://nomad-lab.eu" target="_blank" style="color: #F18F34;">NOMAD</a></span></strong></td>
+                                        <td><img alt="cecam.logo"
+                                                 class="image-inline" height="30" src="./sponsors/NOMAD_Logo_srgb_web_whigh.jpg"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </blockquote>
+        <div class="text"><hr></div>
+        <h2><span><strong><em>Year 2022</em></strong></span></h2>
+
+<blockquote>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+                                <td><img alt="cea.logo" class="image-inline"
+                                         height="50" src="./sponsors/logo_cea.png"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+                                <td><img alt="psik.logo" class="image-inline"
+                                         height="60" src="./sponsors/psik.png"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+                                <td><img alt="nvidia.logo"
+                                         class="image-inline" height="50" src="./sponsors/nvidia2.jpg"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://fr-moser.cecam.org/" target="_blank" style="color: #F18F34;">CECAM-FR</a></span></strong></td>
+                                <td><img alt="cecam.logo"
+                                         class="image-inline" height="30" src="./sponsors/CECAM_FR_MOSER.jpg"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+                                <td><img alt="cecam.logo"
+                                         class="image-inline" height="30" src="./sponsors/cecam.jpg"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://nomad-lab.eu" target="_blank" style="color: #F18F34;">NOMAD</a></span></strong></td>
+                                <td><img alt="cecam.logo"
+                                         class="image-inline" height="30" src="./sponsors/NOMAD_Logo_srgb_web_whigh.jpg"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>
+            <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2021</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+                                <td><img alt="cea.logo" class="image-inline"
+                                         height="50" src="./sponsors/logo_cea.png"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+                                <td><img alt="psik.logo" class="image-inline"
+                                         height="60" src="./sponsors/psik.png"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+                                <td><img alt="nvidia.logo"
+                                         class="image-inline" height="50" src="./sponsors/nvidia2.jpg"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+                                <td><img alt="cecam.logo"
+                                         class="image-inline" height="30" src="./sponsors/cecam.jpg"></td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2020</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+            <tr>
+                <td>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+                                <td><img alt="cea.logo" class="image-inline"
+                                         height="50" src="./sponsors/logo_cea.png"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span
+                                        face="Arial, Helvetica, sans-serif"><a href="https://www.intel.com/content/www/us/en/homepage.html" target="_blank" style="color: #F18F34;">intel</a></span></strong></td>
+                                <td><img alt="intel.logo" class="image-inline"
+                                         height="60"
+                                         src="./sponsors/intel-logo-vector.jpeg"></td>
+                            </tr>
+                            <tr>
+                                <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+                                <td><img alt="nvidia.logo"
+                                         class="image-inline" height="50" src="./sponsors/nvidia2.jpg"></td>
+                            </tr>
+                            </tbody>
+                    </table>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2019</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+    <tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+    <td><img alt="nvidia.logo" class="image-inline" height="50"
+             src="./sponsors/nvidia2.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.frs-fnrs.be/" target="_blank" style="color: #F18F34;">FNRS</a></span></strong></td>
+    <td><img class="image-inline" height="60" src="./sponsors/fnrs.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+    <td><img alt="psik.logo" class="image-inline" height="60"
+             src="./sponsors/psik.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://we.vub.ac.be/%7Ealgc/algc_new/fwo_wog.html" target="_blank" style="color: #F18F34;">Electronic Structure WOG</a></span></strong></td>
+    <td><img class="image-inline" height="60" src="./sponsors/Logo_FWO.jpg"></td>
+</tr>
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2018</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+    <td><img alt="nvidia.logo" class="image-inline" height="50"
+             src="./sponsors/nvidia2.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+       </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2017</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://www.intel.com/content/www/us/en/homepage.html" target="_blank" style="color: #F18F34;">intel</a></span></strong></td>
+    <td><img alt="intel.logo" class="image-inline" height="50"
+             src="./sponsors/intel-logo-vector.jpeg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2016</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.frs-fnrs.be/" target="_blank" style="color: #F18F34;">FNRS</a></span></strong></td>
+    <td><img class="image-inline" height="60" src="./sponsors/fnrs.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+    <td><img alt="nvidia.logo" class="image-inline" height="50"
+             src="./sponsors/nvidia2.jpg"></td>
+</tr>
+       </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2015</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.ulg.be/" target="_blank" style="color: #F18F34;">L'Université de Liège</a></span></strong></td>
+    <td><img alt="ulg.logo" class="image-inline" height="60"
+             src="./sponsors/ULG2.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+    <td><img alt="psik.logo" class="image-inline" height="60"
+             src="./sponsors/psik.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://we.vub.ac.be/%7Ealgc/algc_new/fwo_wog.html" target="_blank" style="color: #F18F34;">Electronic Structure WOG</a></span></strong></td>
+    <td><img class="image-inline" height="60" src="./sponsors/Logo_FWO.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.frs-fnrs.be/" target="_blank" style="color: #F18F34;">FNRS</a></span></strong></td>
+    <td><img class="image-inline" height="60" src="./sponsors/fnrs.jpg"></td>
+</tr>
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2014</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://developer.ibm.com/academic/" target="_blank" style="color: #F18F34;">IBM Academic Initiative</a></span></strong></td>
+    <td><img alt="IAI.logo" class="image-inline" height="45"
+             src="./sponsors/IBM-Logo.jpg"><img alt="IAI.logo" class="image-inline" height="45" src="/themes/abinit/images/sponsors/IBM_AI.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+    <td><img alt="nvidia.logo" class="image-inline" height="50"
+             src="./sponsors/nvidia2.jpg"></td>
+</tr>
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2013</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="https://en.wikipedia.org/wiki/PathScale" target="_blank" style="color: #F18F34;">PathScale</a></span></strong></td>
+    <td><img alt="pathscale.logo" class="image-inline" height="32"
+             src="./sponsors/pathscale.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.nvidia.com/" target="_blank" style="color: #F18F34;">NVIDIA</a></span></strong></td>
+    <td><img alt="nvidia.logo" class="image-inline" height="50"
+             src="./sponsors/nvidia2.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+    <td><img alt="psik.logo" class="image-inline" height="60"
+             src="./sponsors/psik.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><!--a href="http://gdrcodft.grenoble.cnrs.fr/" target="_blank" style="color: #F18F34;"--><!--/a-->GDR coDFT</span></strong></td>
+    <td><img alt="codft.logo" class="image-inline" height="50"
+             src="./sponsors/logocodft.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.maisondelasimulation.fr/CFCAM/index.php" target="_blank" style="color: #F18F34;">CfCAM-IdF Maison de la simulation (France)</a></span></strong></td>
+    <td><img alt="CFCAM.logo" class="image-inline" height="40"
+             src="./sponsors/maison_sim.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.intelbiomat.org/" target="_blank" style="color: #F18F34;">IntelBioMat</a></span></strong></td>
+    <td><img alt="Intelbiomat.logo" class="image-inline" height="60"
+             src="./sponsors/Intelbiomat.png"></td>
+</tr>
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2012</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td colspan="2"><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.paulicenter.ch/" target="_blank" style="color: #F18F34;">Pauli center</a></span></strong></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2011</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network (with an ESF grant)</a></span></strong></td>
+    <td><img alt="psik.logo" class="image-inline" height="60"
+             src="./sponsors/psik.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cea.fr/" target="_blank" style="color: #F18F34;">CEA</a></span></strong></td>
+    <td><img alt="cea.logo" class="image-inline" height="50"
+             src="./sponsors/logo_cea.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.prace-project.eu/" target="_blank" style="color: #F18F34;">PRACE</a></span></strong></td>
+    <td><img alt="PRACE.logo" class="image-inline" height="60"
+             src="./sponsors/prace.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.maisondelasimulation.fr/CFCAM/index.php" target="_blank" style="color: #F18F34;">CfCAM-IdF Maison de la simulation<br>(France)</a></span></strong></td>
+    <td><img alt="CFCAM.logo" class="image-inline" height="40"
+             src="./sponsors/maison_sim.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.teratec.eu/gb/technopole/tgcc.html" target="_blank" style="color: #F18F34;">TGCC</a></span></strong></td>
+    <td><img alt="TGCC.logo" class="image-inline" height="60"
+             src="./sponsors/logo-tgcc.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td><img alt="cecam.logo" class="image-inline" height="30"
+             src="./sponsors/cecam.jpg"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.intelbiomat.org/" target="_blank" style="color: #F18F34;">IntelBioMat</a></span></strong></td>
+    <td><img alt="Intelbiomat.logo" class="image-inline" height="60"
+             src="./sponsors/Intelbiomat.png"></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.fnrs.be/" target="_blank" style="color: #F18F34;">FRS-FNRS</a></span></strong></td>
+    <td><img alt="FNRS.logo" class="image-inline" height="60"
+             src="./sponsors/fnrs.jpg"></td>
+</tr>
+
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2010</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td>
+        <div style="text-align: right;"><img alt="cecam.logo"
+                                             class="image-inline" height="30" src="./sponsors/cecam.jpg"></div>
+    </td>
+</tr>
+
+        </tbody>
+    </table>
+</blockquote>
+
+    <h2><span><strong><em>Year 2009</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network</a></span></strong></td>
+    <td><img alt="psik.logo" class="image-inline" height="60"
+             src="./sponsors/psik.png"></td>
+</tr>
+<tr>
+    <td colspan="2"><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.isen.fr/~gdr-reunion" target="_blank" style="color: #F18F34;">Groupe de Recherche (GDR) 'DFT++' (France)</a></span></strong></td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.scienomics.com" target="_blank" style="color: #F18F34;">Scienomics</a></span></strong></td>
+    <td>
+        <div style="text-align: center;"><img alt="scienomics.logo"
+                                              class="image-inline" height="60" src="./sponsors/logo_scienomics.png"></div>
+    </td>
+</tr>
+<tr>
+    <td><strong><span face="Arial, Helvetica, sans-serif"><a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a></span></strong></td>
+    <td>
+        <div style="text-align: center;"><img alt="cecam.logo"
+                                              class="image-inline" height="30" src="./sponsors/cecam.jpg"></div>
+    </td>
+</tr>
+
+
+        </tbody>
+    </table>
+</blockquote>
+            <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2008</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+      <tr>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.asee.org/nreip/index.cfm" target="_blank" style="color: #F18F34;">Office of Naval Research</a>
+                      <br>
+                      (Naval Research Enterprise Intern Program)
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="onr.logo" class="image-inline" height="60"
+                         src="./sponsors/onr.png">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.qro.cinvestav.mx/acerca-de-cinvestav" target="_blank" style="color: #F18F34;">Unidad Querétaro del Cinvestav</a>
+                      <br>
+                      (Instituto Politécnico Nacional (Cinvestav))
+                    </span>
+                  </strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.concyteq.edu.mx/" target="_blank" style="color: #F18F34;">CONCYTEQ</a>
+                      <br>
+                      (Consejo de Ciencia y Tecnología del Estado de Querétaro)
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="concyteq.logo"
+                         class="image-inline image-inline" height="70" src="./sponsors/concyteq.jpg" width="83">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.claffisica.org.br" target="_blank" style="color: #F18F34;">CLAF</a>
+                      <br>
+                      (El Centro Latinoamericano de Física)
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="claf.logo" class="image-inline image-inline"
+                         height="94" src="./sponsors/claf.jpg" width="90">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      Michael Scott, Los Altos
+                      <br>
+                      (A scientist who has been involved in many different projects.)
+                    </span>
+                  </strong>
+                  <br>
+                  &nbsp;
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="cecam.logo" class="image-inline image-inline"
+                         height="30" src="./sponsors/cecam.png">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+        </tbody>
+    </table>
+</blockquote>
+        <div class="text"><hr></div>
+
+    <h2><span><strong><em>Year 2007</em></strong></span></h2>
+<blockquote>
+    <table>
+        <tbody>
+      <tr>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://psi-k.net/" target="_blank" style="color: #F18F34;">Psi-k Network</a> (funded by ESF)
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="psik.logo" class="image-inline" height="60"
+                         src="./sponsors/psik.png">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      Groupe de Recherche (GDR) "DFT" (France).
+                    </span>
+                  </strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.famenoe.net/" target="_blank" style="color: #F18F34;">The FAME European Network of Excellence</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="fame.logo" class="image-inline" height="52"
+                         src="./sponsors/fame.jpg" width="112">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2">
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      Gouvernements du Québec et de la Belgique:<br>Coopération QUEBEC/WALLONIE-BRUXELLES.
+                    </span>
+                  </strong>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.fnrs.be/" target="_blank" style="color: #F18F34;">Fonds National de la Recherche Scientifique (Belgique)</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="FNRS.logo" class="image-inline" height="60"
+                         src="./sponsors/fnrs.jpg">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.ulg.be/" target="_blank" style="color: #F18F34;">L'Université de Liège</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="ulg.logo" class="image-inline" height="60"
+                         src="./sponsors/ULG2.png">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.m-kagaku.co.jp/index_en.htm" target="_blank" style="color: #F18F34;">The Mitsubishi Chemicals</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="mitsubishi.logo" class="image-inline"
+                         height="60" src="./MitsubishiC.png">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>
+                    <span face="Arial, Helvetica, sans-serif">
+                      <a href="http://www.cecam.org" target="_blank" style="color: #F18F34;">CECAM</a>
+                    </span>
+                  </strong>
+                </td>
+                <td>
+                  <div style="text-align: center;">
+                    <img alt="cecam.logo" class="image-inline" height="30"
+                         src="./sponsors/cecam.png">
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+      </tr>
+
+        </tbody>
+    </table>
+</blockquote>
+</div>
+</body>
+</html>
