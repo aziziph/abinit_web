@@ -67,18 +67,33 @@ body {
   color: #F18F34; /* Set the color to orange */
 }
 
-/* Set the width of the carousel container to 30% of the viewport width */
 .carousel-container {
-  max-width: 30vw;
-  margin: 0 auto; /* Center the carousel horizontally */
-  position: relative; /* Add position relative to create a stacking context */
-  margin-top: 50px;
+    width: 100%;
+    max-width: 600px; /* Set a max-width for the carousel */
+    height: 400px; /* Set a fixed height for the carousel */
+    margin: 0 auto; /* Center the carousel */
+    margin-top: 50px;
+    overflow: hidden; /* Hide any overflowing content */
+    position: relative; /* Position the carousel relative to its container */
 }
 
-/* Set the width of the images to 100% of their container */
-.carousel-container .carousel-item img {
-  width: 100%;
-  height: auto;
+.carousel-slide {
+    width: 100%;
+    height: 100%;
+    display: none; /* Hide all slides initially */
+    position: absolute; /* Position each slide absolutely within the container */
+    top: 0;
+    left: 0;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the entire slide area */
+}
+
+.carousel-slide.active {
+    display: block; /* Display the active slide */
 }
 
 .separator-line1 {
