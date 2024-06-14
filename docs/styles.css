@@ -69,8 +69,8 @@ body {
 
 .carousel-container {
     width: 100%;
-    max-width: 600px; /* Set a max-width for the carousel */
-    height: 400px; /* Set a fixed height for the carousel */
+    max-width: 500px; /* Set a max-width for the carousel */
+    height: 300px; /* Set a fixed height for the carousel */
     margin: 0 auto; /* Center the carousel */
     margin-top: 50px;
     overflow: hidden; /* Hide any overflowing content */
