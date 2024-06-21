@@ -165,14 +165,14 @@ body {
 .lower_block {
     margin-top: -20px; /* Adjust as needed */
     margin-left: 400px; /* Adjust left margin as needed */
-    margin-right: 500px; /* Adjust right margin as needed */
+    margin-right: 200px; /* Adjust right margin as needed */
 }
 .lower_block h4 {
     font-size: 14px; /* Example font size */
     color: black; /* Example color */
     font-weight: bold; /* Example font weight */
     margin-bottom: 10px; /* Example bottom margin */
-    margin-left: 40px;
+    margin-left: 35px;
 }
 
 .footer_desc {
