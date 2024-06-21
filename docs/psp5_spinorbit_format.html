@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Markdown Content in HTML</title>
+<style>
+  /* Optional: Add CSS styles for better presentation */
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  pre {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    overflow-x: auto;
+  }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+  <!-- Content Starts Here -->
+  <h3 class="sectionedit1" id="this_file_contains_information_about_the_use_of_spin-orbit_for_format_pspcod_5_of_pseudopotentials">This file contains information about the use of spin-orbit for format pspcod=5 of pseudopotentials</h3>
+
+  <div class="level3">
+    <p>
+      1) The line containing Haman grid parameters must be completed by
+      an information about the spin-orbit format of the pseudopotential.
+      So, one replaces
+    </p>
+    <pre class="code">
+ 2.508991628593723E-4  0.0125           r1,al
+    </pre>
+    <p>
+      by
+    </p>
+    <pre class="code">
+ 2.508991628593723E-4  0.0125  2        r1,al,pspso</pre>
+
+    <p>
+      pspso is 1 for non spin-orbit (optional), 2 for spin-orbit
+    </p>
+
+    <p>
+      2) The lines describing the number of projectors and some of their
+      characteristics must be duplicated, as soon as l/=0.
+      The number of projectors must be 2.
+    </p>
+
+    <p>
+      So, one replaces
+    </p>
+    <pre class="code">  0    0    0    1   2.76        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  1    0    0    1   3.91        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  2    0    0    1   1.57        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm</pre>
+
+    <p>
+      by
+    </p>
+    <pre class="code">  0    0    0    1   2.76        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  1    0    0    2   3.91        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  1    0    0    2   3.91        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  2    0    0    2   1.57        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm
+  2    0    0    2   1.57        l,e99.0,e99.9,nproj,rcpsp
+  .00000000    .0000000000    .0000000000    .00000000   rms,ekb1,ekb2,epsatm</pre>
+
+    <p>
+      3) The pseudopotentials and pseudowavefunctions are then entered,
+      in the order  s, p1/2, p3/2, d3/2, d5/2, f5/2, f7/2.
+    </p>
+
+    <p>
+      4) The local potential is specified by lloc with the following values:\
+    </p>
+    <pre class="code"> lloc=0  refers to the s potential
+ lloc=1  refers to the p3/2 potential
+ lloc=2  refers to the d5/2 potential
+ lloc=3  refers to the f7/2 potential
+ lloc=-1 refers to the p1/2 potential
+ lloc=-2 refers to the d3/2 potential
+ lloc=-3 refers to the f5/2 potential</pre>
+  </div>
+</body>
+</html>
