@@ -1,31 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./styles_wiki.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
     <meta charset="UTF-8">
     <title>Information on the Format 3 for Pseudopotentials</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-        p {
-            margin: 10px 0;
-        }
-        pre.code {
-            background-color: #f5f5f5;
-            border: 1px solid #ccc;
-            padding: 10px;
-            white-space: pre-wrap;
-            font-family: monospace;
-        }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin-left: 200px;
+  }
+  .sectionedit1 {
+    font-size: 1.5em;
+    margin-top: 0;
+  }
+  .level3 {
+    margin-top: 10px;
+  }
+  .code {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px 0;
+    white-space: pre-wrap;
+  }
+  .co0 {
+    color: green;
+  }
+  .shell {
+    color: blue;
+  }
     </style>
 </head>
 <body>
+<div id="topheader">
+    <div class="shortcut">
+        <a href="./index.html">
+            <div class="icon-container">
+                <img alt="ABINIT" class="shortcut-img" src="./logo/logo.png" title="" />
+                <span class="title"></span>
+            </div>
+            </a>
+    </div>
+    <div class="shortcut">
+        <a href="./pseudopotential.html">
+            <div class="icon-container">
+                <img alt="Pseudo and atomic data" class="shortcut-img" src="./img/Pseudos.png" title="Pseudo & atomic data" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/variables">
+            <div class="icon-container">
+                <img alt="input variables" class="shortcut-img" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/tutorial/">
+            <div class="icon-container">
+                <img alt="Tutorials" class="shortcut-img" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://discourse.abinit.org/">
+            <div class="icon-container">
+                <img alt="Forum" class="shortcut-img" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://wiki.abinit.org/doku.php?id=start">
+            <div class="icon-container">
+                <img alt="Wiki" class="shortcut-img" src="./img/wiki.png" title="Wiki" />
+                <span class="title">Wiki </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="./download.html">
+            <div class="icon-container">
+                <img alt="Download" class="shortcut-img" src="./img/Download.png" title="Download" />
+                <span class="title">Download </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://docs.abinit.org/installation/">
+            <div class="icon-container">
+                <img alt="Compile" class="shortcut-img" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile </span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit">
+            <div class="icon-container">
+                <img alt="GitHub" class="shortcut-img" src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://gui.abinit.org/">
+            <div class="icon-container">
+                <img alt="GUI" class="shortcut-img" src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+    <div class="shortcut">
+        <a href="https://github.com/abinit/abipy">
+            <div class="icon-container">
+                <img alt="abipy" class="shortcut-img" src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+            </div>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
     <h3 id="information_on_the_format_3_for_pseudopotentials">Information on the format 3 for pseudopotentials</h3>
     <p>(Note: the implementation of format 3 was done by Fr. Detraux).</p>
 
