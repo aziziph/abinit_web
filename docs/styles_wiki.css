@@ -249,3 +249,21 @@ body {
     margin-left: 200px;
     margin-right: 200px;
 }
+
+/* Ensure icons wrap to a new line only if the screen width is very small */
+@media (max-width: 1024px) {
+    .topheader {
+        flex-wrap: wrap;
+        justify-content: center; /* Center items when wrapping */
+    }
+
+    .header div {
+        flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
+    }
+}
+
+@media (max-width: 480px) {
+    .topheader {
+        flex-direction: column;
+    }
+}
