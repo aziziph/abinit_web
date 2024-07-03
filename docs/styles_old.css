@@ -1,6 +1,8 @@
 /* Set margin on top of the page */
 body {
   margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
 }
 
 #topheader {
@@ -161,7 +163,11 @@ body {
     font-weight: bold; /* Example font weight */
     margin-bottom: 10px; /* Example bottom margin */
 }
-
+.abinit-info h3 {
+    font-size: 16px; /* Example font size */
+    color: black; /* Example color */
+    margin-left: 20px; /* Example bottom margin */
+}
 .lower_block {
     margin-top: -20px; /* Adjust as needed */
     margin-left: 400px; /* Adjust left margin as needed */
