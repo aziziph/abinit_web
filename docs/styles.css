@@ -3,20 +3,22 @@ body {
   margin-top: 40px;
   width: 100vw;
   height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
 }
 
+/* Container for the header icons */
 #topheader {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
-  margin-left: calc(100% - 98%);
-  margin-right: calc(100% - 98%);
-  margin-bottom: calc(100% - 98%); /* Add margin between the shortcut icons and the carousel */
+  margin: 0 1%;
 }
 
+/* Each shortcut item */
 .shortcut {
-  margin-right: calc(100% - 98%);;
-  margin-bottom: 0px; /* Add margin to the bottom of each shortcut */
+  margin-right: 1%;
+  margin-bottom: 10px; /* Add margin to the bottom of each shortcut */
 }
 
 .icon-container {
@@ -24,44 +26,13 @@ body {
 }
 
 /* Set custom width and height for each shortcut item */
+.shortcut-img {
+  width: 50px;
+  height: auto;
+}
+
 .shortcut:nth-child(1) .shortcut-img {
   width: 300px;
-  height: auto;
-}
-
-.shortcut:nth-child(2) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(3) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(4) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(5) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(6) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(7) .shortcut-img {
-  width: 50px;
-  height: auto;
-}
-
-.shortcut:nth-child(8) .shortcut-img {
-  width: 50px;
-  height: auto;
 }
 
 .title {
@@ -70,47 +41,47 @@ body {
   color: #F18F34; /* Set the color to orange */
 }
 
+/* Carousel container */
 .carousel-container {
-    width: 100%;
-    max-width: 500px; /* Set a max-width for the carousel */
-    height: 300px; /* Set a fixed height for the carousel */
-    margin: 0 auto; /* Center the carousel */
-    margin-top: 50px;
-    overflow: hidden; /* Hide any overflowing content */
-    position: relative; /* Position the carousel relative to its container */
+  width: 100%;
+  max-width: 500px; /* Set a max-width for the carousel */
+  height: 300px; /* Set a fixed height for the carousel */
+  margin: 0 auto; /* Center the carousel */
+  margin-top: 50px;
+  overflow: hidden; /* Hide any overflowing content */
+  position: relative; /* Position the carousel relative to its container */
 }
 
 .carousel-slide {
-    width: 100%;
-    height: 100%;
-    display: none; /* Hide all slides initially */
-    position: absolute; /* Position each slide absolutely within the container */
-    top: 0;
-    left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hide all slides initially */
+  position: absolute; /* Position each slide absolutely within the container */
+  top: 0;
+  left: 0;
 }
 
 .carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensure images cover the entire slide area */
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure images cover the entire slide area */
 }
 
 .carousel-slide.active {
-    display: block; /* Display the active slide */
+  display: block; /* Display the active slide */
 }
 
-.separator-line1 {
+.separator-line1,
+.separator-line2 {
   border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
-  width: calc(100% - 600px); /* Adjust the width to accommodate margins */
+  width: calc(100% - 50%); /* Adjust the width to accommodate margins */
   margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
 }
 
 .separator-line2 {
-  border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
-  width: calc(100% - 650px); /* Adjust the width to accommodate margins */
-  margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
-  margin-left: 350px;
+  margin-left: 25%;
 }
+
 .icon-bar-container {
   position: absolute;
   top: 0;
@@ -130,70 +101,70 @@ body {
 }
 
 .abinit-info {
-    margin-top: 10px; /* Adjust as needed */
-    margin-left: 400px; /* Adjust left margin as needed */
-    margin-right: 400px; /* Adjust right margin as needed */
+  margin: 10px 20%;
+  color: black;
 }
-.abinit-info .toolong .more-link {
-    color: #F18F34;
-    font-weight: bold;
-    text-decoration: none;
-}
+
 .abinit-info .toolong .more-link,
 .abinit-info .toolong .less-link {
-    color: #F18F34;
-    font-weight: bold;
-    text-decoration: none;
+  color: #F18F34;
+  font-weight: bold;
+  text-decoration: none;
 }
+
 .toolong {
-    font-size: 14px; /* Adjust font size */
+  font-size: 14px; /* Adjust font size */
 }
 
 .toolong span {
-    display: block;
-    margin-bottom: 10px; /* Adjust spacing between paragraphs */
+  display: block;
+  margin-bottom: 10px; /* Adjust spacing between paragraphs */
 }
 
 .details {
-    display: none; /* Hide details by default */
+  display: none; /* Hide details by default */
 }
+
 .abinit-info h2 {
-    font-size: 16px; /* Example font size */
-    color: black; /* Example color */
-    font-weight: bold; /* Example font weight */
-    margin-bottom: 10px; /* Example bottom margin */
+  font-size: 16px; /* Example font size */
+  color: black; /* Example color */
+  font-weight: bold; /* Example font weight */
+  margin-bottom: 10px; /* Example bottom margin */
 }
+
 .abinit-info h3 {
-    font-size: 16px; /* Example font size */
-    color: black; /* Example color */
-    margin-left: 20px; /* Example bottom margin */
+  font-size: 16px; /* Example font size */
+  color: black; /* Example color */
+  margin-left: 20px; /* Example bottom margin */
 }
+
 .lower_block {
-    margin-top: -20px; /* Adjust as needed */
-    margin-left: 400px; /* Adjust left margin as needed */
-    margin-right: 200px; /* Adjust right margin as needed */
+  margin: -20px 18%;
 }
+
 .lower_block h4 {
-    font-size: 14px; /* Example font size */
-    color: black; /* Example color */
-    font-weight: bold; /* Example font weight */
-    margin-bottom: 10px; /* Example bottom margin */
-    margin-left: 35px;
+  font-size: 14px; /* Example font size */
+  color: black; /* Example color */
+  font-weight: bold; /* Example font weight */
+  margin-bottom: 10px; /* Example bottom margin */
+  margin-left: 35px;
 }
 
 .footer_desc {
-    font-size: 12px;
-    color: #F18F34; /* Set the color to orange */
+  font-size: 12px;
+  color: #F18F34; /* Set the color to orange */
 }
 
 .footer_desc ul li a {
-    color: #F18F34; /* Set the color of links inside the footer_desc to orange */
-    margin-left: 0px;
+  color: #F18F34; /* Set the color of links inside the footer_desc to orange */
+  margin-left: 0px;
 }
+
 .carousel-indicators {
   position: absolute;
   top: -10px; /* Adjust the distance from the bottom */
 }
+
 .carousel-indicators li {
   width: 8px; /* Set width of indicators */
   height: 8px; /* Set height of indicators */
@@ -201,22 +172,21 @@ body {
   border-radius: 50%; /* Make indicators round */
   background-color: black; /* Set default background color */
   border: 1px solid #fff; /* Add border to indicators */
-  border: 4px solid #9acfea; /* Add border to indicators with light blue color
-  */
+  border: 4px solid #9acfea; /* Add border to indicators with light blue color */
 }
 
 .carousel-indicators .active {
   background-color: black; /* Set background color for active indicator */
 }
+
 .content-bottom2 {
-  margin-left: 400px;
-  margin-right: 400px;
-  margin-bottom: 0px; /* Add margin to the bottom of each shortcut */
-  margin-bottom: 10px; /* Example bottom margin */
+  margin: 10px 20%;
 }
+
 .content-sponsors img {
   height: 30px;
 }
+
 .content {
   font-size: 5px; /* Example font size */
   color: gray; /* Example color */
@@ -228,28 +198,95 @@ body {
   top: 30px; /* Adjust the distance from the bottom */
   left: 40px;
 }
+
 .blink_me {
-        animation: blinker 1s linear infinite;
-    }
-    @keyframes blinker {
-        50% {
-            opacity: 0;
-        }
-    }
+  opacity: 1;
+  animation: fadeInOut 2s linear infinite;
+}
+
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 /* Ensure icons wrap to a new line only if the screen width is very small */
 @media (max-width: 1024px) {
-    .topheader {
-        flex-wrap: wrap;
-        justify-content: center; /* Center items when wrapping */
-    }
+  #topheader {
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when wrapping */
+  }
 
-    .header div {
-        flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
-    }
+  .header div {
+    flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
+  }
 }
 
+/* For smaller devices */
+@media (max-width: 768px) {
+  .separator-line1, .separator-line2 {
+    width: 90%; /* Adjust the width for smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lower_block, .abinit-info, .content-bottom2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .abinit-info h3 {
+    margin-left: 0;
+  }
+
+  .lower_block h4 {
+    margin-left: 0;
+  }
+
+  .LatestVersion {
+    left: 20px;
+  }
+}
+
+/* For very small devices */
 @media (max-width: 480px) {
-    .topheader {
-        flex-direction: column;
-    }
+  #topheader {
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+
+  .carousel-indicators {
+    top: 0; /* Adjust position for smaller screens */
+  }
+
+  .shortcut-img {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
 }
+
+
+    .icon-container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: -10px 5%;
+        font-size: 12px;
+    }
+    .icon {
+          width: 80%;
+          height: auto;
+          margin:  10px 0.2%;
+    }
+
+
