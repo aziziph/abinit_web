@@ -196,7 +196,7 @@ body {
 .LatestVersion {
   position: absolute;
   top: 30px; /* Adjust the distance from the bottom */
-  left: 40px;
+  left: 0px;
 }
 
 .blink_me {
