@@ -4,6 +4,7 @@ body {
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
+  padding: 0;
 }
 
 /* Container for the header icons */
@@ -138,7 +139,7 @@ body {
 }
 
 .lower_block {
-  margin: -20px 20%;
+  margin: -20px 18%;
 }
 
 .lower_block h4 {
@@ -268,3 +269,29 @@ body {
     font-size: 10px;
   }
 }
+
+
+    .icon-container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+<!--        background-color: #f0f0f0;-->
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    .icon {
+        margin: 0 10px; /* Adjust spacing between icons */
+    }
+    @media (max-width: 768px) {
+        .icon {
+            margin: 5px 5px; /* Reduce spacing between icons on small screens */
+            width: 40px; /* Adjust icon size for smaller screens */
+        }
+    }
+    @media (max-width: 480px) {
+        .icon {
+            margin: 3px 3px; /* Further reduce spacing for very small screens */
+            width: 30px; /* Further adjust icon size for very small screens */
+        }
+    }
+
