@@ -277,10 +277,11 @@ body {
         align-items: center; /* Center items vertically */
         padding: 10px;
         margin-bottom: 10px;
-        margin: 0 1%;
+        margin: 20px 5%;
+        font-size: 12px;
     }
     .icon {
-          width: 60%;
+          width: 50%;
           height: auto;
           margin:  10px 0.2%;
     }
