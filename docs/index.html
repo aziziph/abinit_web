@@ -27,6 +27,18 @@
     .icon {
         margin: 0 10px; /* Adjust spacing between icons */
     }
+    @media (max-width: 768px) {
+        .icon {
+            margin: 5px 5px; /* Reduce spacing between icons on small screens */
+            width: 40px; /* Adjust icon size for smaller screens */
+        }
+    }
+    @media (max-width: 480px) {
+        .icon {
+            margin: 3px 3px; /* Further reduce spacing for very small screens */
+            width: 30px; /* Further adjust icon size for very small screens */
+        }
+    }
 </style>
 </head>
 
@@ -34,7 +46,7 @@
 <div class="icon-container">
     <!-- Replace with your actual icons -->
     <div class="icon"><a href="./index.html">
-                <img height="80" alt="ABINIT" class="shortcut-img"
+                <img height="150" alt="ABINIT" class="icon"
                      src="./logo/logo.png" title="" />
                 <span class="title"></span>
             </a>
