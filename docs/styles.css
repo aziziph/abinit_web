@@ -200,15 +200,18 @@ body {
 }
 
 .blink_me {
-  animation: blinker 1s linear infinite;
+  opacity: 1;
+  animation: fadeInOut 2s linear infinite;
 }
 
-@keyframes blinker {
+@keyframes fadeInOut {
+  0%, 100% {
+    opacity: 1;
+  }
   50% {
     opacity: 0;
   }
 }
-
 /* Ensure icons wrap to a new line only if the screen width is very small */
 @media (max-width: 1024px) {
   #topheader {
@@ -277,7 +280,7 @@ body {
         align-items: center; /* Center items vertically */
         padding: 10px;
         margin-bottom: 10px;
-        margin: 20px 5%;
+        margin: -10px 5%;
         font-size: 12px;
     }
     .icon {
