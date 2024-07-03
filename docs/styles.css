@@ -196,22 +196,35 @@ body {
 .LatestVersion {
   position: absolute;
   top: 30px; /* Adjust the distance from the bottom */
-  left: 40px;
+  left: 0px;
+}
+.blinker {
+    display: flex;
+    align-items: center; /* Align items vertically in the center */
+    margin-left: 44%;
 }
 
 .blink_me {
-  opacity: 1;
-  animation: fadeInOut 2s linear infinite;
+    opacity: 1;
+    animation: fadeInOut 2s linear infinite;
+    margin-right: 10px; /* Adjust margin between "New :" and the link */
 }
 
 @keyframes fadeInOut {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0;
-  }
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
 }
+
+/* Ensure links are styled properly */
+.container a {
+    text-decoration: none; /* Remove default underline */
+    color: #F18F34; /* Set link color */
+}
+
 /* Ensure icons wrap to a new line only if the screen width is very small */
 @media (max-width: 1024px) {
   #topheader {
@@ -284,7 +297,7 @@ body {
         font-size: 12px;
     }
     .icon {
-          width: 80%;
+          width: 60%;
           height: auto;
           margin:  10px 0.2%;
     }
