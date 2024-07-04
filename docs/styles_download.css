@@ -1,6 +1,10 @@
 /* Set margin on top of the page */
 body {
   margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
 }
 
 #topheader {
