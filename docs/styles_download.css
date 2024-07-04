@@ -266,6 +266,29 @@ body {
         flex-direction: column;
     }
 }
+/* For very small devices */
+@media (max-width: 480px) {
+  #topheader {
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+
+  .carousel-indicators {
+    top: 0; /* Adjust position for smaller screens */
+  }
+
+  .shortcut-img {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+}
+
 
     .icon-container {
         display: flex;
