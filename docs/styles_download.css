@@ -1,6 +1,10 @@
 /* Set margin on top of the page */
 body {
   margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
 }
 
 #topheader {
@@ -81,19 +85,16 @@ body {
   height: auto;
 }
 
-.separator-line1 {
+.separator-line1,
+.separator-line2 {
   border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
-  width: calc(100% - 400px); /* Adjust the width to accommodate margins */
+  width: calc(100% - 50%); /* Adjust the width to accommodate margins */
   margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
-  margin-top: -80px
 }
 
 .separator-line2 {
-  border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
-  width: calc(100% - 550px); /* Adjust the width to accommodate margins */
-  margin: 200px auto; /* Set top and bottom margin to 20px, and center
-  horizontally */
-  margin-left: 350px;
+  margin-left: 25%;
+  margin-top: 10%;
 }
 .icon-bar-container {
   position: absolute;
@@ -219,30 +220,33 @@ body {
 
 .latest{
   position: absolute;
-  top: 150px; /* Adjust the distance from the bottom */
+  top: 15%; /* Adjust the distance from the bottom */
   left: 400px;
 }
 .latest-img {
-  width: 40px;
+  width: 15%;
   height: auto;
+  margin-top: -10%;
+  margin-left: -50%;
 }
 .latest h2 {
     font-size: 20px; /* Example font size */
     color: black; /* Example color */
     font-weight: bold; /* Example font weight */
-    margin-bottom: 10px; /* Example bottom margin */
+    margin-bottom: 10%; /* Example bottom margin */
+    margin-top: 15%;
 }
 .available h2{
   font-size: 20px; /* Example font size */
   position: absolute;
-  top: 400px; /* Adjust the distance from the bottom */
+  top: 45%; /* Adjust the distance from the bottom */
   left: 400px;
 }
 
 .release{
   font-size: 20px; /* Example font size */
   position: absolute;
-  top: 250px; /* Adjust the distance from the bottom */
+  top: 35%; /* Adjust the distance from the bottom */
   left: 400px;
 }
 .content-margin {
@@ -266,3 +270,41 @@ body {
         flex-direction: column;
     }
 }
+/* For very small devices */
+@media (max-width: 480px) {
+  #topheader {
+    flex-direction: column;
+  }
+
+  .carousel-container {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+
+  .carousel-indicators {
+    top: 0; /* Adjust position for smaller screens */
+  }
+
+  .shortcut-img {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+}
+
+
+    .icon-container {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: -10px 5%;
+        font-size: 12px;
+    }
+    .icon {
+          width: 60%;
+          height: auto;
+          margin:  10px 0.2%;
+    }
