@@ -23,6 +23,9 @@ body {
 
 .icon-container {
   text-align: center;
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  flex-wrap: wrap;
 }
 
 /* Set custom width and height for each shortcut item */
@@ -41,45 +44,77 @@ body {
   color: #F18F34; /* Set the color to orange */
 }
 
-/* Carousel container */
-.carousel-container {
-  width: 100%;
-  max-width: 500px; /* Set a max-width for the carousel */
-  height: 300px; /* Set a fixed height for the carousel */
-  margin: 0 auto; /* Center the carousel */
-  margin-top: 50px;
-  overflow: hidden; /* Hide any overflowing content */
-  position: relative; /* Position the carousel relative to its container */
+/* Ensure icons wrap to a new line only if the screen width is very small */
+@media (max-width: 1024px) {
+  #topheader {
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when wrapping */
+  }
+
+  .header div {
+    flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
+  }
 }
 
-.carousel-slide {
-  width: 100%;
-  height: 100%;
-  display: none; /* Hide all slides initially */
-  position: absolute; /* Position each slide absolutely within the container */
-  top: 0;
-  left: 0;
+/* For smaller devices */
+@media (max-width: 768px) {
+  .separator-line1, .separator-line2 {
+    width: 90%; /* Adjust the width for smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lower_block, .abinit-info, .content-bottom2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .abinit-info h3 {
+    margin-left: 0;
+  }
+
+  .lower_block h4 {
+    margin-left: 0;
+  }
+
+  .LatestVersion {
+    left: 20px;
+  }
+
+  /* Ensure all icons are shown on smaller screens */
+  .icon {
+    width: 100%; /* Make icons take full width */
+    margin: 10px 0; /* Add some margin for spacing */
+  }
 }
 
-.carousel-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure images cover the entire slide area */
-}
+/* For very small devices */
+@media (max-width: 480px) {
+  #topheader {
+    flex-direction: column;
+  }
 
-.carousel-slide.active {
-  display: block; /* Display the active slide */
-}
+  .carousel-container {
+    height: 200px; /* Adjust height for smaller screens */
+  }
 
-.separator-line1,
-.separator-line2 {
-  border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
-  width: calc(100% - 50%); /* Adjust the width to accommodate margins */
-  margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
-}
+  .carousel-indicators {
+    top: 0; /* Adjust position for smaller screens */
+  }
 
-.separator-line2 {
-  margin-left: 25%;
+  .shortcut-img {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
+
+  /* Ensure all icons are shown on very small screens */
+  .icon {
+    width: 100%; /* Make icons take full width */
+    margin: 10px 0; /* Add some margin for spacing */
+  }
 }
 
 .icon-bar-container {
@@ -198,105 +233,47 @@ body {
   top: 30px; /* Adjust the distance from the bottom */
   left: 0px;
 }
+
 .blinker {
-    display: flex;
-    align-items: center; /* Align items vertically in the center */
-    margin-left: 44%;
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  margin-left: 44%;
 }
 
 .blink_me {
-    opacity: 1;
-    animation: fadeInOut 2s linear infinite;
-    margin-right: 10px; /* Adjust margin between "New :" and the link */
+  opacity: 1;
+  animation: fadeInOut 2s linear infinite;
+  margin-right: 10px; /* Adjust margin between "New :" and the link */
 }
 
 @keyframes fadeInOut {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Ensure links are styled properly */
 .container a {
-    text-decoration: none; /* Remove default underline */
-    color: #F18F34; /* Set link color */
+  text-decoration: none; /* Remove default underline */
+  color: #F18F34; /* Set link color */
 }
 
-/* Ensure icons wrap to a new line only if the screen width is very small */
-@media (max-width: 1024px) {
-  #topheader {
-    flex-wrap: wrap;
-    justify-content: center; /* Center items when wrapping */
-  }
-
-  .header div {
-    flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
-  }
+.icon-container {
+  display: flex;
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  padding: 10px;
+  margin-bottom: 10px;
+  margin: -10px 5%;
+  font-size: 12px;
 }
 
-/* For smaller devices */
-@media (max-width: 768px) {
-  .separator-line1, .separator-line2 {
-    width: 90%; /* Adjust the width for smaller screens */
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .lower_block, .abinit-info, .content-bottom2 {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  .abinit-info h3 {
-    margin-left: 0;
-  }
-
-  .lower_block h4 {
-    margin-left: 0;
-  }
-
-  .LatestVersion {
-    left: 20px;
-  }
-}
-
-/* For very small devices */
-@media (max-width: 480px) {
-  #topheader {
-    flex-direction: column;
-  }
-
-  .carousel-container {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-
-  .carousel-indicators {
-    top: 0; /* Adjust position for smaller screens */
-  }
-
-  .shortcut-img {
-    width: 40px;
-  }
-
-  .title {
-    font-size: 10px;
-  }
-
-  .icon-container {
-    display: flex;
-    flex-wrap: wrap; /* Allow icons to wrap to the next line */
-    justify-content: center; /* Center items when wrapping */
-  }
-
-  .icon {
-    width: 45%; /* Adjust width for smaller screens */
-    margin: 5px; /* Adjust margin for better spacing */
-  }
-
-  .icon img {
-    width: 100%; /* Make images responsive */
-  }
+.icon {
+  width: auto;
+  height: auto;
+  margin: 10px 0.2%;
+  flex: 1 1 100px; /* Allow icons to shrink and grow */
 }
