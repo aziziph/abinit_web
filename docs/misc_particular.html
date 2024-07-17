@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">
+                                                           <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#particulars_of_the_use_of_buildbot_for_abinit">Particulars of the use of buildbot for ABINIT</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#triggering_the_execution_of_the_automatic_tests">Triggering the execution of the automatic tests</a></div></li>
+<li class="level2"><div class="li"><a href="#how_to_handle_failures">How to handle failures ?</a></div></li>
+<li class="level2"><div class="li"><a href="#accessing_directly_some_worker">Accessing directly some worker.</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="particulars_of_the_use_of_buildbot_for_abinit">Particulars of the use of buildbot for ABINIT</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="triggering_the_execution_of_the_automatic_tests">Triggering the execution of the automatic tests</h2>
+<div class="level2">
+
+<p>
+Although the ETSF test farm might be accessed independently of buildbot, the usual mode of interaction with the test farm is through the buildbot system.
+In the following, we suppose that you are a well-identified developer of ABINIT, hence, you have your own git branches.
+</p>
+
+<p>
+There are two ways to trigger the tests on the test farm:
+</p>
+<ul>
+<li class="level1"><div class="li">     a merge request of your branch to trunk/develop will trigger nightly (the bunch starts around 10:30pm European time) the launch of automatic tests on all the “nightly” workers ;</div>
+</li>
+<li class="level1"><div class="li">     a general “on-demand” Web page on bbportal. You can contact Xavier if you think you are sufficiently expert to use it, provided (of course) you need it for your development.</div>
+</li>
+</ul>
+
+<p>
+You will receive by mail the results of the execution of the tests, concerning each nightly worker, one for each worker. Congratulation if your compilation succeeded, all the tests succeeded, etc !
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="how_to_handle_failures">How to handle failures ?</h2>
+<div class="level2">
+
+<p>
+Let's now analyze what to do in case of failure. The mail from buildbot is rather self-explanatory, and one is quickly lead, through hyperlinks (“further details”) to a list of the steps that were executed by buildbot, the failing one being indicated in red.
+</p>
+
+<p>
+If it is step “10 make_core”, you have to click on the “10.2 make” or “10.3 stderr” hyperlink, and you will see the usual log/err file produced by the compiler. In case you would like to have direct access on the machine, this is possible, see below.
+</p>
+
+<p>
+If it is step “12 testsuite”, you have to click on the “12.4 summary” hyperlink, to identify whether tests “passed” or “failed”, and to identify the test directories where such things happened. Remember : on the reference machine “abiref”, all tests must “succeed”, while on the other machines, no one test can “fail”, but a “pass” is OK. More execution information is found in the “12.2 xreport” hyperlink.
+</p>
+
+<p>
+In order to correct the test in the other series, use “12.5 All Results” hyperlink to identify precisely the tests that must be corrected.
+</p>
+
+<p>
+The links “12.1 stdio” and “12.3 testsbot” are not very often used in the debugging process by standard users, but more by the maintainers.
+</p>
+<pre class="code">12.1 stdio     = the stdout of buildbot (Usually NOT useful for debugging)
+12.2 xreport   = detailed output of execution
+12.3 testbot   = output of the configuration use to drive // tests (Usually NOT useful for debugging)
+12.4 summary   = a short table, summarizing the status (succeeded, passed, failed) of the tests, per directory
+12.5 All Results = all results grouped by number of "cpu" (np= 1,2,4,10,...).</pre>
+
+<p>
+In order to correct the test in the “22. abirules” or “23. buildsys” series executed with abiref_gnu_5.3_debug, the “diff” hyperlink will likely be the most useful for you to correct your source code. Perhaps you will need also to complete the information from  “22.4 log” by a look to the “20.2 make” hyperlink. Do not hesitate to contact Xavier Gonze to find some reasonably elegant way to get rid of the “unused variable” or “unused arguments” problems in delicate cases.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="accessing_directly_some_worker">Accessing directly some worker.</h2>
+<div class="level2">
+
+<p>
+If you have git branches, you are entitled to have interactive access to each of the workers. Moreover, you can login as “buildbot” user, and place yourself as if you were the one who just made the run reported in the mail that you received. Hence, you are directly placed in an environment ready to debug.
+</p>
+<ol>
+<li class="level1"><div class="li">  Login on a gateway (well, the first time, contact Jean-Michel Beuken, to allow your machine to connect to the private network - the following instruction assumes your public key is ~/.ssh/id_rsa_abinit ) : <br>
+create a new section in ~/.ssh/config <br>
+<pre class="code">Host abifarm
+   Hostname hall.abinit.org
+   Port XXXX
+   User USERNAME
+   IdentityFile ~/.ssh/id_rsa_abinit</pre>
+
+<p>
+ and use <br>
+
+</p>
+<pre class="code">ssh abifarm</pre>
+</div>
+</li>
+<li class="level1"><div class="li">  To take the hand over buildbot, execute :<br>
+<strong>sudo su - buildbot</strong> <br>
+ </div>
+</li>
+<li class="level1"><div class="li"> Now, you need to access other machines of the testfarm, use the supplementary step<br>
+<strong>ssh &lt;name_of_the_machine&gt;</strong> <br>
+where &lt;name_of_the_machine&gt; might be alps, ubu, scope, etc. e.g. <strong>ssh alps</strong><br>
+The first part of the name of the bot is the name_of_the_machine.</div>
+</li>
+<li class="level1"><div class="li">  <strong>cd ABINIT</strong></div>
+</li>
+<li class="level1"><div class="li">  <strong>cd</strong>    to the directory for the particular builder that you want to debug (the machine might support more than one builder) ( ex: cd alps_gnu_9.3_openmpi )</div>
+</li>
+<li class="level1"><div class="li">  <strong>cd</strong>    to the directory for the particular branch that you want to debug (the one bearing your name)  ( ex : cd trunk_develop )</div>
+</li>
+<li class="level1"><div class="li">  Use the command “module load NAME_OF_BUILDER” to select the compiler that you want to use (type “module avail” to see the list of options). <br>
+Try to solve your problem … ! You can modify the files, recompile, etc …</div>
+</li>
+<li class="level1"><div class="li">  The worker can handle usual git commands. So you might make modifications, commit and push to your branch. Note however that by default, buildbot is in a “detached HEAD” state. You can check this by issuing <strong>git branch -a</strong>. You need to checkout your branch, with the command <strong>git checkout &lt;name_of_your_branch&gt;</strong>.</div>
+</li>
+<li class="level1"><div class="li"> Of course, after commit and push, it is also advised to test your modifications on your own machine, before using again the test farm, although this is no mandatory.</div>
+</li>
+</ol>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/b/b3834572a8f98d5f6deb1ca771f0250a.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

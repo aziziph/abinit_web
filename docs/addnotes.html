@@ -10,6 +10,42 @@
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="./styles.css"
         rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -88,50 +124,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
-<div class="abinit-info">
-    <ul><li><a href="./planning.html"target="_self" style="color: #F18F34;">
-        Planning</a></li></ul>
-    <ul><li>Git</a></li></ul>
-    <ul><h3><li><a href="./access_configuration.html"target="_self"
-               style="color: #F18F34;">Access configuration</a></li></h3></ul>
-    <ul><h3><li><a href="./gitlab.html"target="_self"
-               style="color: #F18F34;">git(Lab) ABINIT specificities</a></li></h3></ul>
-    <ul><li>ABINIT coding</a></li></ul>
-    <ul><h3><li><a href="./rules.html"target="_self"
-               style="color: #F18F34;">Coding rules</a></li></h3></ul>
-    <ul><h3><li><a href="./fortran_2023.html"target="_self"
-               style="color: #F18F34;">Fortran 2023</a></li></h3></ul>
-    <ul><h3><li><a href="https://docs.abinit.org/developers/developers_howto/#how-to-add-a-new-input-variable"target="_self"
-               style="color: #F18F34;">How to add a new variable</a></li></h3></ul>
-    <ul><h3><li><a href="https://docs.abinit.org/developers/developers_howto/#how-to-add-a-new-test-in-the-test-suite"target="_self"
-               style="color: #F18F34;">How to add new test</a></li></h3></ul>
-    <ul><h3><li><a href="./Programmer_guide.html"target="_self"
-               style="color: #F18F34;">Programmer's guide (old)</a></li></h3></ul>
-    <ul><li><a href="./testing_buildbot_testfarm.html"target="_self"
-                   style="color: #F18F34;">Testing, buildbot & testfarm</a></li></ul>
-        <ul><h3><li><a href="https://buildbot.abinit.org/#/waterfall"
-                    target="_blank"
-            style="color: #F18F34;">
-            Buildbot</a></li></h3></ul>
-    <ul><h3><li><a href="https://bbportal.abinit.org" target="_blank"
-            style="color: #F18F34;">BBPortal
-        (restricted access)</a></li></h3></ul>
-    <ul><h3><li><a href="./buildbot.html"target="_self"
-               style="color: #F18F34;">Use of buildbot for ABINIT</a></li></h3></ul>
-    <ul><h3><li><a href="./coverage.html"target="_self"
-               style="color: #F18F34;">Code Coverage</a></li></h3></ul>
-    <ul><h3><li><a href="./workers.html"target="_self"
-               style="color: #F18F34;">Slave matrix</a></li></h3></ul>
-    <ul><h3><li><a href="./builder.html"target="_self"
-               style="color: #F18F34;">Builder matrix</a></li></h3></ul>
-    <ul><li><a href="./build_system_information.html"target="_self"
-               style="color: #F18F34;">Build-system information</a></li></ul>
-    <ul><li><a href="./hacking_fallbacks.html"target="_self"
-               style="color: #F18F34;">Fallbacks</a></li></ul>
-    <ul><li><a href="./forum_moderators.html"target="_self"
-               style="color: #F18F34;">Forum moderators</a></li></ul>
-    <ul><li><a
-        href="https://docs.abinit.org/developers/developers_howto/" target="_blank"
-        style="color: #F18F34;">For
-    developers</a></li></ul>
+<div class="section_highlight_wrapper" style="margin-left: 15%; margin-right: 20%;"><h1 class="sectionedit1"
+											id="additional_notes">Additional Notes</h1><div class="level1">
+<ul>
+<li class="level1"><div class="li">  Sometimes, during transition periods, the file config/specs/testfarm.conf is automatically replaced by the file with the same name, present on the gitlab machine,<br>
+with path  /home/buildbot/WorkSpace/abinit/Buildmaster/buildbot_slave/testfarm.conf.<br>
+When this is the case, there is a buildbot step entitled “downloading to…”</div>
+</li>
+</ul>
 </div>
+</div>
+</body>
+</html>
