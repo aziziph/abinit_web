@@ -6,8 +6,36 @@
   <title>ABINIT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="./styles_download.css" rel="stylesheet"> <!-- Link to your
-  external CSS file -->
+  <link href="./styles_download.css" rel="stylesheet"> <!-- Link to your  external CSS file -->
+    <style>
+.latest{
+  position: absolute;
+  top: 15%; /* Adjust the distance from the bottom */
+  left: 400px;
+}
+.latest-img {
+  width: 10%;
+  height: auto;
+  margin-top: -2%;
+  margin-left: -50%;
+}
+.latest h2 {
+    font-size: 18px; /* Example font size */
+    color: black; /* Example color */
+    font-weight: bold; /* Example font weight */
+    margin-bottom: 10%; /* Example bottom margin */
+    margin-top: 15%;
+}
+            .icon-container-download {
+        display: flex;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin: -2% 5%;
+        font-size: 14px;
+    }
+    </style>
 </head>
 
 <body>
@@ -87,21 +115,31 @@
 
 <div class="separator-line1"></div>
 
-<div class="field field--name-body field--type-text-with-summary field--label-hidden field--item" style="margin-left: 15%; margin-right: 10%;">
-    <div class="separator">&nbsp;</div>
-        <div class="separator">&nbsp;</div>
+
+    <div class="latest">
+        <div class="latest">&nbsp;</div>
         <h2>Latest production release</h2>
     <a href="https://github.com/abinit/abinit/releases/tag/10.0.5">
-        <div class="icon-container">
+        <div class="icon-container-download">
         <img alt="Download" class="latest-img" src="./img/Download.png"
         title="Lastest production release"/>
         <span style="color: #F18F34;">Download</span>
         </div>
         </a>
     </div>
+<div class="separator-line2" style="margin: 10% auto;"></div>
+
+<div id="available-versions"  style="margin-left: 15%; margin-right: 10%;">
+    <div class="available"  style="margin-left: 15%; margin-right: 10%;">
+    <h2>Please find all the available versions of the code and associated help
+        files
+        <a href="https://github.com/abinit/abinit/releases">
+        <span style="color: #F18F34;">here</span>
+        </a>
+    </h2>
+    </div>
 </div>
 
-    </div>
 <script src="abinit_info_download.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
