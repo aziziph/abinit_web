@@ -6,8 +6,46 @@
   <title>ABINIT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./styles.css" rel="stylesheet"> <!-- Link to your external CSS file -->
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
@@ -86,47 +124,15 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
-
-    <div style="margin-top: 0%; margin-left:20%; font-size: 18px;">
-    <h2 style="font-size: 18px;">Latest production release</h2>
-    <a href="https://github.com/abinit/abinit/releases/tag/10.0.5">
-        <div class="icon-container" style="display: flex; align-items: center;">
-            <img alt="Download" class="latest-img" src="./img/Download.png"
-                 title="Lastest production release"
-                 style="width: 10%; height: auto;  margin-left:-80%;"/>
-            <span style="color: #F18F34; margin-left: 10px;">Download</span>
-        </div>
-    </a>
+<div class="section_highlight_wrapper" style="margin-left: 15%; margin-right: 20%;"><h1 class="sectionedit1"
+											id="additional_notes">Additional Notes</h1><div class="level1">
+<ul>
+<li class="level1"><div class="li">  Sometimes, during transition periods, the file config/specs/testfarm.conf is automatically replaced by the file with the same name, present on the gitlab machine,<br>
+with path  /home/buildbot/WorkSpace/abinit/Buildmaster/buildbot_slave/testfarm.conf.<br>
+When this is the case, there is a buildbot step entitled “downloading to…”</div>
+</li>
+</ul>
 </div>
-<div id="release">
-    <div class="release">
-        <a href="https://docs.abinit.org/about/release-notes/">
-        <span style="color: #F18F34; font-size: 18px; margin-left:20%;">Release note</span>
-        </a>
-    </div>
 </div>
-
-
-<div class="separator-line2"></div>
-
-    <div class="available"  style="margin-left: 15%; margin-right: 10%;">
-    <h2 style="font-size: 18px; margin-left:7%;">Please find all the
-        available versions of the code and associated help
-        files
-        <a href="https://github.com/abinit/abinit/releases">
-        <span style="color: #F18F34;">here</span>
-        </a>
-    </h2>
-    </div>
-
-
-
-
-
-<script src="abinit_info.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 </html>

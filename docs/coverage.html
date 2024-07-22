@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#code_coverage">Code Coverage</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#motivations">Motivations</a></div></li>
+<li class="level2"><div class="li"><a href="#how_does_it_work">How does it work?</a></div></li>
+<li class="level2"><div class="li"><a href="#how_to_trigger_a_coverage_report">How to trigger a coverage report ?</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="code_coverage">Code Coverage</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="motivations">Motivations</h2>
+<div class="level2">
+
+<p>
+In computer science, code coverage is a measure used to describe the degree to which the source code of a program is tested by a particular test suite. A program with high code coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low code coverage. Many different metrics can be used to calculate code coverage; some of the most basic are the percent of program subroutines and the percent of program statements called during execution of the test suite.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">1</a></span> ]
+</p>
+
+<p>
+We aim that the test suite covers all the functionalities of ABINIT.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="how_does_it_work">How does it work?</h2>
+<div class="level2">
+
+<p>
+ABINIT is built with special options such that every function that is exercised (executed) in the program(s) is mapped back to the function points in the source code.
+</p>
+
+<p>
+A .gcno file is generated when the source file is compiled with the GCC <em>-ftest-coverage</em> option. It contains information to reconstruct the basic block graphs and assign source line numbers to blocks.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ]
+</p>
+
+<p>
+A .gcda file is generated when a program containing object files built with the GCC <em>-fprofile-arcs</em> option is executed. A separate .gcda file is created for each object file compiled with this option. It contains arc transition counts, and some summary information[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ].
+</p>
+
+<p>
+We use lcov to analyze the .gcda files for generating a html report  (<a href="http://ltp.sourceforge.net/coverage/lcov.php" class="urlextern" title="http://ltp.sourceforge.net/coverage/lcov.php" rel="ugc nofollow">http://ltp.sourceforge.net/coverage/lcov.php</a>)
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="how_to_trigger_a_coverage_report">How to trigger a coverage report ?</h2>
+<div class="level2">
+
+<p>
+There is one slave dedicated to “on-demand” execution of branches by the developers, that produces a code coverage report, at present, higgs_gnu_7.5_cov. It can be launched by the general “<a href="https://bbportal.abinit.org" class="urlextern" title="https://bbportal.abinit.org" rel="ugc nofollow">on-demand</a>” interface (see <a href="/doku.php?id=bb:misc" class="wikilink1" title="bb:misc" data-wiki-id="bb:misc">Use of buildbot for ABINIT</a>, contact Jean-Michel or Xavier if you do not yet have access to it).
+Code coverage reports from recent runs of the tests are available <a href="http://coverage.abinit.org/" class="urlextern" title="http://coverage.abinit.org/" rel="ugc nofollow">here</a>
+If you see parts of the code which are not well tested, please contribute to improving coverage by writing new tests ! <br>
+
+</p>
+<hr>
+
+<p>
+References <br>
+
+[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">1</a></span> ] <a href="http://en.wikipedia.org/wiki/Code_coverage" class="urlextern" title="http://en.wikipedia.org/wiki/Code_coverage" rel="ugc nofollow">http://en.wikipedia.org/wiki/Code_coverage</a> <br>
+
+[ <span class="curid"><a href="/doku.php?id=developers:coverage#gcov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ] <a href="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" class="urlextern" title="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" rel="ugc nofollow">http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov</a>
+</p>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/a/a70c8b0691cb112470f0437fd32c1499.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

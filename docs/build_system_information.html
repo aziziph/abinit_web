@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group" style="margin-left: 15%; margin-right: 20%;">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#build-system_information">Build-system information</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#target_audience">Target audience</a></div></li>
+<li class="level2"><div class="li"><a href="#linear_algebra">Linear algebra</a></div></li>
+<li class="level2"><div class="li"><a href="#fft_specifications">FFT specifications</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="build-system_information">Build-system information</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="target_audience">Target audience</h2>
+<div class="level2">
+
+<p>
+This document contains miscellaneous information about the build system.
+Might contain helpful info for Abinit maintainers who want to hack the build system, and for collaborators who want to enhance the interoperability of their projects with Abinit.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="linear_algebra">Linear algebra</h2>
+<div class="level2">
+
+<p>
+The following simplified diagram summarizes how the build system detects linear algebra features. The starting point is colored in blue, the ending point in green, and the decision points in pink. Enhancements are framed with dashed lines.
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=developers%3Abuildsys%3Ainternals&amp;media=developers:buildsys:ditaa.png" class="media" title="developers:buildsys:ditaa.png"><img src="/lib/exe/fetch.php?w=800&amp;tok=af89dc&amp;media=developers:buildsys:ditaa.png" class="mediacenter" loading="lazy" alt="" width="800"></a>
+</p>
+
+<p>
+The driving parameter of the detection process is the <em>with_linalg_libs</em> option. When specified, the locations of the libraries are known but their features are unknown. When not specified, the other options of configure provide hints on what should be looked for, but the possible locations and names of the libraries are only partly known. Enters the <em>with_linalg_flavor</em> option into play, orientating the search for libraries and/or features. As can be seen here, the most influencing parameters are the kinds of parallelisms selected at configure-time. They determine the number of tests performed and the priorities attributed to each linear algebra component. For sake of simplicity, we will not go any further into the details, the essential being the overall picture and the interactions between the involved options of <em>configure</em>.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="fft_specifications">FFT specifications</h2>
+<div class="level2">
+<div class="wrap_important plugin_wrap">
+<p>
+The following specifications were initially proposed by Matteo Giantomassi in a Gitlab issue on February 7, 2020.
+</p>
+</div>
+<p>
+I think that the release of Abinit9 gives us the opportunity to simplify a bit the treatment of the FFT libraries. We should indeed clarify the procedure that <strong>must be followed</strong> by users to link an external FFT library.
+</p>
+
+<p>
+So far the approach has been “I have an external FFT library –&gt; I use fft_flavor=“fftw3” and I expect that everything will work out of the box”.
+</p>
+
+<p>
+Unfortunately, this approach is error prone because MKL and FFTW3 exports the same (<code>fftw3_*</code>) symbols although the two APIs are not equivalent especially if OpenMP threads are used. More specifically, the fftw3 wrappers provided by MKL are not thread-safe hence the results are unpredictable due to race conditions if the user specifies fftw3-threads to link against MKL.
+</p>
+
+<p>
+In a nutshell, the (highly) recommended procedure for Abinit9 should be:
+</p>
+<ul>
+<li class="level1"><div class="li"> If you are linking against the true FFTW3 library, use “fftw3” or “fftw3-threads”</div>
+</li>
+<li class="level1"><div class="li"> If you are linking against MKL, use “dfti” or “dfti-threads”</div>
+</li>
+<li class="level1"><div class="li"> Don't mix FFTW3 with MKL but use the MKL library for BLAS/LAPACK/FFTs (and optionally BLACS/SCALAPACK) On intel architecture, indeed, DFTI-MKL is significantly faster than FFTW3 so I don't see the point in mixing the two libraries.</div>
+</li>
+</ul>
+
+<p>
+From the programmer's perspective, we need the <code>-threads</code> switch and the associated CPP variable so that we know that the FFT library supports threads. In the case of FFTW3, indeed, we need to initialize the threaded version and the <abbr title="Application Programming Interface">API</abbr> call must be enclosed between CPP options because this function is not available in FFTW3 sequential. Knowing that threads are supported is also useful to implement optimizations at runtime in fourwf when ndat &gt; 1 Besides I think that the build system should issue a Warning if either fftw3-threads or dfti-threads are used without <code>enable_openmp</code> because there are sections in the Abinit FFT routines that are parallelized with OpenMP.
+</p>
+
+<p>
+I hope I've clarified the reason why we need the -thread switch. Now let's have a look at the different FFT options available in the build system
+</p>
+<pre class="code"># Supported libraries:
+#
+#   * auto          : select library depending on build environment (default)
+#   * custom        : bypass build-system checks
+#   * dfti          : native MKL FFT library
+#   * dfti-threads  : threaded MKL FFT library
+#   * fftw3         : serial FFTW3 library
+#   * fftw3-mkl     : FFTW3 over MKL library
+#   * fftw3-threads : threaded FFTW3 library
+#   * fftw3-mpi     : MPI-parallel FFTW3 library
+#   * pfft          : MPI-parallel PFFT library (for maintainers only)
+#   * goedecker     : Abinit internal FFT</pre>
+
+<p>
+According to the previous discussion about threads, the four options (fftw3, fftw3-threads, dfti and dfti-threads) are needed.
+</p>
+
+<p>
+fftw3-mkl, on the other hand, is redundant with dfti and can be removed.
+</p>
+
+<p>
+As concerns fftw3-mpi: in principle there are routines in Abinit in which the MPI version of FFTW3 is used to transform densities or potentials. Note, however, that as far as I know these routines are not used in the production version. My version of fftalg 312 uses a routine inspired to Goedecker's algorithm for dense MPI-FFTs in which only the sequential fftw3 version and MPI_ALLTOALLV is needed.
+</p>
+
+<p>
+Note that the most CPU-critical part in Abinit is represented by the FFT of the wavefunctions computed by fourwf when option == 2. Fourwf implements a rather sophisticated algorithm that performs two composite zero-padded FFTs to compute the FFT of v® u® starting from u(G). This algorithm is specific to ab-initio codes based on plane-waves and, obviously, neither FFTW3 nor DFTI-MKL provide an optimized implementation for this rather specific case.
+</p>
+
+<p>
+Having said that, I think that also fftw3-mpi is redundant. If we want to maintain the possibity of calling the MPI version provided by FFTW3, we can just check at configure time whether the fftw3 libraries passed by the user provided the fftw_mpi_init symbol and then define HAVE_FFTW3_MPI
+</p>
+
+<p>
+By the same token, there's little hope that a dense MPI-FFT provided by pfft will be able to beat our version of zero-padded MPI-FFT version implemented in fourwf. Perhaps, we can speedup fourdp but, again, this part is not the main bottleneck. Moreover, from what Jordan wrote, most of the new optimizations are now focusing on OpenMP-threads instead of MPI-FFT.
+</p>
+
+<p>
+To summarize:
+</p>
+
+<p>
+The following options are needed:
+</p>
+<ul>
+<li class="level1"><div class="li"> dfti</div>
+</li>
+<li class="level1"><div class="li"> fftw3</div>
+</li>
+<li class="level1"><div class="li"> fftw3-threads</div>
+</li>
+</ul>
+
+<p>
+while fftw3-mkl can be removed. dfti-threads can also be removed because MKL manages threading through environment variables.
+</p>
+
+<p>
+fftw3-mpi can be replaced by a simple check on the presence of fftw_mpi_init that defines HAVE_FFTW3_MPI
+</p>
+
+<p>
+The pfft option may be used to activate a specialized routine for fourdp but pfft should also activate HAVE_FFTW3 so that we can use the zero-padded version in fourwf.
+</p>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/1/1fd41d2caea12431dbbb1173b867ec8b.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

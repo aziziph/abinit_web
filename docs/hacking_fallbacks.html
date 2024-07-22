@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Miscellaneous&quot;,&quot;hid&quot;:&quot;miscellaneous&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;2555-&quot;} -->
+<!-- cachefile /var/www/dokuwiki/data/cache/f/ff3f77f40189cb06c0fe13cd317ddda4.xhtml used -->
+
+                                                          <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<div>
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#hacking_the_fallbacks">Hacking the fallbacks</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#prerequisites">Prerequisites</a></div></li>
+<li class="level2"><div class="li"><a href="#quality_standards">Quality standards</a></div></li>
+<li class="level2"><div class="li"><a href="#procedure">Procedure</a></div></li>
+<li class="level2"><div class="li"><a href="#updating_the_version_of_a_package">Updating the version of a package</a></div></li>
+<li class="level2"><div class="li"><a href="#enhancing_the_portability_of_a_package">Enhancing the portability of a package</a></div></li>
+<li class="level2"><div class="li"><a href="#removing_a_package">Removing a package</a></div></li>
+<li class="level2"><div class="li"><a href="#adding_a_new_package">Adding a new package</a></div></li>
+<li class="level2"><div class="li"><a href="#patching_a_package">Patching a package</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="hacking_the_fallbacks">Hacking the fallbacks</h1>
+<div class="level1">
+<div class="wrap_important plugin_wrap">
+<p>
+<strong>IMPORTANT NOTE</strong> <br/>
+We only provide support for the fallbacks delivered through the Abinit Website. If you modify them, we suppose that you know what you are doing and are a sufficiently skilled programmer to solve most issues by yourself. We may be able to help you to a limited extent, but you have to remember that we are developers of Abinit, <strong>NOT</strong> of its fallbacks. An infinitely better way to address your issues will be to collaborate directly with the developers of the relevant projects. Some of us can however send you a quote if working with Abinit developers is mandatory for you.
+</p>
+</div>
+</div>
+<h2 class="sectionedit4" id="prerequisites">Prerequisites</h2>
+<div class="level2">
+
+<p>
+In order to be able to modify the Abinit Fallbacks, you need at least the following skill set:
+</p>
+<ul>
+<li class="level1"><div class="li"> a strong experience in developing Python scripts;</div>
+</li>
+<li class="level1"><div class="li"> a good experience in building and fixing packages that use the GNU Autotools;</div>
+</li>
+<li class="level1"><div class="li"> some experience in writing portable shell scripts;</div>
+</li>
+<li class="level1"><div class="li"> some experience in writing M4 macros;</div>
+</li>
+<li class="level1"><div class="li"> some experience in using Git.</div>
+</li>
+</ul>
+
+<p>
+Unless you are an Abinit Developer, we will not provide any support regarding
+    these topics, which are widely documented on many websites. <a href="https://www.wikipedia.org/" class="urlextern" title="https://www.wikipedia.org/" rel="ugc nofollow" style="color: #F18F34;">Wikipedia</a> is a good starting point.
+</p>
+
+<p>
+The best way to make the fallbacks evolve towards a direction useful to you
+    is to <a href="./many_ways.html" class="urlextern"
+             title="help-abinit" rel="ugc nofollow" style="color: #F18F34;">join the Abinit
+    Project</a>.
+</p>
+
+<p>
+By joining the team, you commit to:
+</p>
+<ul>
+<li class="level1"><div class="li"> take full care of all the data related to the packages you add to the list, including long-term maintenance;</div>
+</li>
+<li class="level1"><div class="li"> provide support for all the packages you are responsible for and accept support requests from the users of Abinit;</div>
+</li>
+<li class="level1"><div class="li"> improve the visibility and availability of the packages you are responsible for, so that they can be used as fully independent packages instead of fallbacks;</div>
+</li>
+<li class="level1"><div class="li"> participate to on-line and in-person meetings to globally improve the quality of Abinit and its surrounding ecosystem;</div>
+</li>
+<li class="level1"><div class="li"> accept that orphan packages have to be removed to maintain the overall quality of the whole.</div>
+</li>
+</ul>
+
+<p>
+In exchange, you will receive help, training and collaboration from other Abinit Developers with all the issues you may encounter.
+</p>
+
+<p>
+Please note that if you do not join the team, you will have to maintain your modified versions of the fallbacks on your own, including synchronization with the trunk.
+</p>
+
+</div>
+<h2 class="sectionedit5" id="quality_standards">Quality standards</h2>
+<div class="level2">
+
+<p>
+In order to be integrated into the fallbacks, a package has to follow a minimum set of coding standards:
+</p>
+<ul>
+<li class="level1"><div class="li"> be free software, <a
+        href="https://www.gnu.org/philosophy/free-sw.en.html" class="urlextern" title="https://www.gnu.org/philosophy/free-sw.en.html" rel="ugc nofollow" style="color: #F18F34;">in the GNU sense</a>;</div>
+</li>
+<li class="level1"><div class="li"> work stand-alone and be downloadable from its own webpage;</div>
+</li>
+<li class="level1"><div class="li"> have an Autotools-based or Cmake-based build system;</div>
+</li>
+<li class="level1"><div class="li"> have a test suite with sufficient coverage;</div>
+</li>
+<li class="level1"><div class="li"> accept debug flags;</div>
+</li>
+<li class="level1"><div class="li"> be sufficiently documented to be installed and used by beginners;</div>
+</li>
+<li class="level1"><div class="li"> have its own active support team, fully independent of Abinit and its fallbacks;</div>
+</li>
+<li class="level1"><div class="li"> be actually developed and maintained.</div>
+</li>
+</ul>
+
+<p>
+In particular, <strong>at no time may the Abinit Fallbacks be considered as a substitute for the distribution of undocumented and untested low-quality code with support to be delegated to the Abinit Developers</strong>. And since the Abinit Test Farm will be used for the validation of its portability, adopting a design strategy oriented towards portability and interoperability will greatly ease the integration of your package with the already existing fallbacks.
+</p>
+
+<p>
+Another important aspect is that a package integrated within the Abinit
+    Fallbacks must always remain available as a fully autonomous and
+    stand-alone package at the same time. In other words, the Abinit Fallbacks cannot substitute the normal distribution of a package, even if it comes out of Abinit. Many mature and reliable services such as <a href="https://gitlab.com/" class="urlextern" title="https://gitlab.com/" rel="ugc nofollow" style="color: #F18F34;">Gitlab</a> and <a href="https://github.com/" class="urlextern" title="https://github.com/" rel="ugc nofollow" style="color: #F18F34;">GitHub</a> make it extremely easy to distribute free software and provide much broader services than a <em>ad-hoc</em> simplified embedding system could ever do.
+</p>
+
+<p>
+Last but not least, the package must follow some conventions when installing files:
+</p>
+<ul>
+<li class="level1"><div class="li"> allow for program suffixes;</div>
+</li>
+<li class="level1"><div class="li"> be able to install executables in <em>PREFIX/bin</em>;</div>
+</li>
+<li class="level1"><div class="li"> be able to install C headers and Fortran modules in <em>PREFIX/include</em>;</div>
+</li>
+<li class="level1"><div class="li"> be able to install libraries in <em>PREFIX/lib</em>;</div>
+</li>
+<li class="level1"><div class="li"> allow for staged installs, i.e. <em>$(DESTDIR)/PREFIX</em>;</div>
+</li>
+</ul>
+
+<p>
+where <em>PREFIX</em> is the top install directory of the package. These conditions are usually fulfilled when using standard build systems.
+</p>
+
+</div>
+<h2 class="sectionedit6" id="procedure">Procedure</h2>
+<div class="level2">
+
+<p>
+There is a standard procedure to improve the Abinit Fallbacks. It involves different levels of validation and may take a significant amount of time before the new fallbacks are fully deployed. Please expect significant delays and be prepared to contribute with the Test Farm Team all along the process. Once a new package has been successfully installed, providing newer versions is relatively faster.
+</p>
+<div class="wrap_tip plugin_wrap">
+<p>
+Please note that you have first to request an Abinit Fallbacks repository access to the Test Farm Team before starting to contribute to the fallbacks.
+</p>
+</div>
+<p>
+Here are the different steps:
+</p>
+<ol>
+<li class="level1"><div class="li"> Clone the <a
+        href="https://gitlab.abinit.org/buildbot/abinit-fallbacks" class="urlextern" title="https://gitlab.abinit.org/buildbot/abinit-fallbacks" rel="ugc nofollow" style="color: #F18F34;">Abinit Fallbacks repository</a>.</div>
+</li>
+<li class="level1"><div class="li"> <a
+        href="https://gitlab.abinit.org/buildbot/abinit-fallbacks/issues" class="urlextern" title="https://gitlab.abinit.org/buildbot/abinit-fallbacks/issues" rel="ugc nofollow" style="color: #F18F34;">Submit an issue</a> to describe your work and discuss it if necessary.</div>
+</li>
+<li class="level1"><div class="li"> Create a new branch.</div>
+</li>
+<li class="level1"><div class="li"> Implement the desired modifications.</div>
+</li>
+<li class="level1"><div class="li"> Run <em>./quicktest.sh</em> from the top source directory and correct the errors until it succeeds.</div>
+</li>
+<li class="level1"><div class="li"> Install the new fallbacks on your computer and test Abinit with them.</div>
+</li>
+<li class="level1"><div class="li"> Go back to step 5 until step 6 succeeds.</div>
+</li>
+<li class="level1"><div class="li"> Submit a merge request to the master branch, in order to trigger additional tests.</div>
+</li>
+<li class="level1"><div class="li"> Once merged, set your Abinit branch to use the new fallbacks and push it.</div>
+</li>
+</ol>
+<div class="wrap_important plugin_wrap">
+<p>
+<strong>IMPORTANT NOTE</strong> <br/>
+Please note that this full procedure has to be performed for any of the modifications described in the sections below.
+</p>
+</div>
+</div>
+<h2 class="sectionedit11" id="updating_the_version_of_a_package">Updating the version of a package</h2>
+<div class="level2">
+
+<p>
+To update the version of a package, the only required modification in the fallbacks source tree is to update the self-documented <em>~fallbacks/config/specs/fallbacks.conf</em> file:
+</p>
+<ul>
+<li class="level1"><div class="li"> find the section where the package is described;</div>
+</li>
+<li class="level1"><div class="li"> update all fields depending on its version number;</div>
+</li>
+<li class="level1"><div class="li"> calculate the MD5 sum of the source tarball and update the corresponding field.</div>
+</li>
+</ul>
+
+<p>
+For more information, please read the instructions contained in the file itself.
+</p>
+
+<p>
+The more important steps to take are:
+</p>
+<ul>
+<li class="level1"><div class="li"> coordinating with the other members of the fallbacks developers team, in order to synchronize the possible update of other fallbacks;</div>
+</li>
+<li class="level1"><div class="li"> coordinating with the test farm maintainers for the deployment of the new fallbacks;</div>
+</li>
+<li class="level1"><div class="li"> coordinating with the gatekeeper of Abinit to set a schedule for the activation of the new version of the external package;</div>
+</li>
+<li class="level1"><div class="li"> informing the developers of Abinit
+    through the <a href="http://forum.abinit.org/" class="urlextern" title="http://forum.abinit.org/" rel="ugc nofollow" style="color: #F18F34;">Abinit Forums</a> that a new version of the package will be deployed.</div>
+</li>
+</ul>
+
+<p>
+All these steps should of course be taken as early as possible, in order to make the changes as smooth as possible for everybody. Ideally, informing and coordinating should be done when starting the project or its next development cycle, with an early reminder as the release date approaches.
+</p>
+
+</div>
+<h2 class="sectionedit12" id="enhancing_the_portability_of_a_package">Enhancing the portability of a package</h2>
+<div class="level2">
+
+<p>
+The most valuable service the Abinit Fallbacks provide to the users of Abinit comes through <strong>portability tricks</strong>. Every fallback must have them. These tricks are located in M4 macros, one for each package, in the following file:
+</p>
+<ul>
+<li class="level1"><div class="li"> <em>~fallbacks/config/m4/conf-tricks.m4</em></div>
+</li>
+</ul>
+
+<p>
+Let us have a detailed look at one of the historical macros:
+</p>
+<pre class="code m4"># AFB_TRICKS_ETSF_IO(FC_VENDOR,FC_VERSION)
+# ----------------------------------------
+#
+# Applies tricks and workarounds to have the ETSF I/O library correctly
+# linked to the binaries.
+#
+AC_DEFUN([AFB_TRICKS_ETSF_IO],[
+  dnl Do some sanity checking of the arguments
+  m4_if([$1], , [AC_FATAL([$0: missing argument 1])])dnl
+  m4_if([$2], , [AC_FATAL([$0: missing argument 2])])dnl
+&nbsp;
+  dnl Init
+  afb_etsf_io_tricks=&quot;no&quot;
+  afb_etsf_io_tricky_vars=&quot;&quot;
+  tmp_etsf_io_num_tricks=2
+  tmp_etsf_io_cnt_tricks=0
+&nbsp;
+  dnl Configure tricks
+  if test &quot;${afb_etsf_io_cfgflags_custom}&quot; = &quot;no&quot;; then
+    AC_MSG_NOTICE([applying ETSF_IO tricks (vendor: $1, version: $2, flags: config)])
+&nbsp;
+    dnl NetCDF
+    tmpflags_etsf_io='--with-netcdf-incs=&quot;$(afb_netcdf_incs)&quot;'
+    CFGFLAGS_ETSF_IO=&quot;${CFGFLAGS_ETSF_IO} ${tmpflags_etsf_io}&quot;
+    tmpflags_etsf_io='--with-netcdf-libs=&quot;$(afb_netcdf_libs)&quot;'
+    CFGFLAGS_ETSF_IO=&quot;${CFGFLAGS_ETSF_IO} ${tmpflags_etsf_io}&quot;
+&nbsp;
+    dnl Internal ETSF_IO parameters
+    tmpflags_etsf_io='--with-moduledir=&quot;$(prefix)/include&quot;'
+    CFGFLAGS_ETSF_IO=&quot;${CFGFLAGS_ETSF_IO} ${tmpflags_etsf_io}&quot;
+&nbsp;
+    dnl Finish
+    tmp_etsf_io_cnt_tricks=`expr ${tmp_etsf_io_cnt_tricks} \+ 1`
+    afb_etsf_io_tricky_vars=&quot;${afb_etsf_io_tricky_vars} CFGFLAGS&quot;
+    unset tmpflags_etsf_io
+  else
+    AC_MSG_NOTICE([CFGFLAGS_ETSF_IO set =&gt; skipping ETSF_IO config tricks])
+  fi
+&nbsp;
+  dnl Fortran tricks
+  if test &quot;${afb_etsf_io_fcflags_custom}&quot; = &quot;no&quot;; then
+    AC_MSG_NOTICE([applying ETSF_IO tricks (vendor: $1, version: $2, flags: Fortran)])
+&nbsp;
+    case &quot;$1&quot; in
+      ibm)
+        FCFLAGS_ETSF_IO=&quot;${FCFLAGS_ETSF_IO} -qsuffix=cpp=f90:f=f&quot;
+        ;;
+    esac
+&nbsp;
+    dnl Finish
+    tmp_etsf_io_cnt_tricks=`expr ${tmp_etsf_io_cnt_tricks} \+ 1`
+    afb_etsf_io_tricky_vars=&quot;${afb_etsf_io_tricky_vars} FCFLAGS&quot;
+  else
+    AC_MSG_NOTICE([FCFLAGS_ETSF_IO set =&gt; skipping ETSF_IO Fortran tricks])
+  fi
+&nbsp;
+  dnl Count applied tricks
+  case &quot;${tmp_etsf_io_cnt_tricks}&quot; in
+    0)
+      afb_etsf_io_tricks=&quot;no&quot;
+      ;;
+    ${tmp_etsf_io_num_tricks})
+      afb_etsf_io_tricks=&quot;yes&quot;
+      ;;
+    *)
+      afb_etsf_io_tricks=&quot;partial&quot;
+      ;;
+  esac
+  unset tmp_etsf_io_cnt_tricks
+  unset tmp_etsf_io_num_tricks
+]) # AFB_TRICKS_ETSF_IO</pre>
+
+<p>
+Each macro is named “AFB_TRICKS_<em>PACKAGE</em>”, where <em>PACKAGE</em> is the upper-case name of the package, with possible spaces replaced by underscores. It expects 2 arguments, provided automatically by the build system of the fallbacks:
+</p>
+<ul>
+<li class="level1"><div class="li"> the vendor name of the Fortran compiler (e.g. <em>gnu</em>, <em>ibm</em>, <em>intel</em>);</div>
+</li>
+<li class="level1"><div class="li"> the version number of the Fortran compiler, with the format <em>x.y</em> (e.g. <em>4.9</em>, <em>14.1</em>, <em>15.0</em>).</div>
+</li>
+</ul>
+
+<p>
+These arguments are automatically provided to the macro and respectively available under the <em>$1</em> and <em>$2</em> variables.
+</p>
+
+<p>
+After a short section dedicated to initialization, the macro applies portability tricks in a strictly categorized manner and counts them one by one. Global variables used by other M4 macros and the configure script are prefixed with <em>afb_</em>, while variables internal to the macro are prefixed with <em>tmp_</em>. Two important variables must be defined there: <em>tmp_package_num_tricks</em>, which tells how many tricks have to be applied for the tricks to be complete, and <em>tmp_package_cnt_tricks</em>, set to 0, which counts how many tricks have been applied so far. They are instrumental in letting the user know whether some custom flags have been provided and quite drastically reduce user support requests due to wrongly set environment variables. To complement the information, the <em>afb_package_tricky_flags</em> variable lists the flags that have been enhanced by the tricks.
+</p>
+
+<p>
+The tricks are categorized using the different stages of a typical build. For each category, a specific set of build flags is set. The following table summarizes the categories of tricks and associated flags:
+</p>
+<div class="table sectionedit13"><table class="inline">
+	<thead>
+	<tr class="row0">
+		<th class="col0 leftalign">Build stage           </th><th class="col1 leftalign">Flags to set       </th>
+	</tr>
+	</thead>
+	<tr class="row1">
+		<td class="col0 leftalign">Configure             </td><td class="col1 leftalign">CFGFLAGS_PACKAGE   </td>
+	</tr>
+	<tr class="row2">
+		<td class="col0 leftalign">C preprocessing       </td><td class="col1 leftalign">CPPFLAGS_PACKAGE   </td>
+	</tr>
+	<tr class="row3">
+		<td class="col0 leftalign">C compiling           </td><td class="col1 leftalign">CFLAGS_PACKAGE     </td>
+	</tr>
+	<tr class="row4">
+		<td class="col0">Fortran preprocessing </td><td class="col1 leftalign">FPPFLAGS_PACKAGE   </td>
+	</tr>
+	<tr class="row5">
+		<td class="col0 leftalign">Fortran compiling     </td><td class="col1 leftalign">FCFLAGS_PACKAGE    </td>
+	</tr>
+	<tr class="row6">
+		<td class="col0 leftalign">Link flags            </td><td class="col1 leftalign">LDFLAGS_PACKAGE    </td>
+	</tr>
+	<tr class="row7">
+		<td class="col0 leftalign">Library flags         </td><td class="col1 leftalign">LIBS_PACKAGE       </td>
+	</tr>
+</table></div>
+
+<p>
+where <em>PACKAGE</em> is replaced by the upper-case name of the package, just as for the name of the macro. The <em>tmp_package_num_tricks</em> variable must be set to the number of lines in this table used within the macro.
+</p>
+
+<p>
+For each category, the tricks can be applied only if the user has not provided custom flags. This is why each sequence of instructions starts with:
+</p>
+<pre class="code">if test &quot;${afb_package_someflags_custom}&quot; = &quot;no&quot;; then</pre>
+
+<p>
+where <em>someflags</em> is replaced by the lower-case version of the flag type referenced in the above table. The <em>afb_package_someflags_custom</em> variables are set and provided by other macros. Please always remember that the priority is to inform the user, which is why all sections start with a <em>AC_MSG_NOTICE</em> telling what they will do and have a <em>else</em> part telling the user that the tricks have not been applied. Before the <em>else</em>, the trick counter is incremented by one in a shell-portable manner.
+</p>
+<div class="wrap_important plugin_wrap">
+<p>
+<strong>IMPORTANT NOTE</strong> <br/>
+Be careful to always close the <em>if</em> block with a <em>fi</em> when adding such a section and test modifications to the macro <strong>as incrementally as possible</strong>, since errors of this kind are usually difficult to diagnose when running the configure script.
+</p>
+</div>
+<p>
+If the package has dependencies among the other fallbacks, they will be referenced through the Makefile variables in the configure part of the tricks. Here, since ETSF_IO depends on NetCDF, it has to be linked against NetCDF libraries which can either be external or provided by the fallbacks. This is why this information is transmitted through variables the setting is taken care of by other macros (<em>afb_netcdf_incs</em> and <em>afb_netcdf_libs</em> here). Please note that, since we reference Makefile variables from a shell script, they have to be both double-quoted and single-quoted, in order not to be interpreted.
+</p>
+
+<p>
+The recommended way to apply the Fortran tricks is to use a <em>case … esac</em> block on the Fortran compiler vendor when necessary (first macro argument), with possibly another nested <em>case … esac</em> on the Fortran compiler version (second macro argument).
+</p>
+
+<p>
+The best practice is to unset all internal variables of the macro just before returning.
+</p>
+
+<p>
+If you wish to add a tricks macro for a new package, we recommend that you copy/paste the closest existing macro, automatically replace the package name in the new macro (both upper-case and lower-case), and modify the code to match the needs of the new package. Please place the new macro in the file following alphabetical order.
+</p>
+
+</div>
+<h2 class="sectionedit16" id="removing_a_package">Removing a package</h2>
+<div class="level2">
+
+<p>
+Removing a package from the Abinit Fallbacks is always good news, since it means that the package has reached a sufficient maturity and popularity to be distributed with common operating systems, or that dead code has been removed from Abinit.
+</p>
+
+<p>
+The operation is very simple:
+</p>
+<ol>
+<li class="level1"><div class="li"> Check that no other fallbacks depend on the package, or remove them at the same time.</div>
+</li>
+<li class="level1"><div class="li"> Remove the package section in <em>~fallbacks/config/specs/fallbacks.conf</em>.</div>
+</li>
+<li class="level1"><div class="li"> Remove the package macro in <em>~fallbacks/config/m4/conf-tricks.m4</em>.</div>
+</li>
+<li class="level1"><div class="li"> Run <em>./quicktest.sh</em> to validate the change.</div>
+</li>
+<li class="level1"><div class="li"> Inform the fallbacks maintainers that the package has been successfully removed.</div>
+</li>
+</ol>
+
+<p>
+In principle, the extremely automated build system of the fallbacks should take care of updating all the relevant information when running <em>./quicktests.sh</em>. If you encounter issues unrelated to the deleted package, please contact the fallbacks developers team as soon as possible.
+</p>
+
+</div>
+<h2 class="sectionedit17" id="adding_a_new_package">Adding a new package</h2>
+<div class="level2">
+<div class="wrap_alert plugin_wrap">
+<p>
+<strong>VERY IMPORTANT</strong> <br/>
+The Abinit Fallbacks have never been designed to replace the work of a skilled system administrator and will completely loose their stability, portability, and genericity, if the dependencies expand over more than 2 levels. This is why all enhancements introducing 3 levels of dependencies between some packages will systematically be refused. Thank you in advance for your understanding.
+</p>
+</div>
+<p>
+Adding a new package to the Abinit Fallbacks is never recommended, since they should ideally only be used temporarily for the integration into Abinit of new features depending on fully stand-alone external packages, removing the fallback once the solution is deployed and working. Focusing directly the efforts on the availability and usability of the external package will always repay infinitely better than spending time tuning the parameters of a transient crappy embedder.
+</p>
+
+<p>
+If you however still wish to add a new package to the fallbacks, the following information is of extreme importance. Since adding a new package will always bring a lot of ripples and side-effects to various components of Abinit, it must always be prepared with a lot of care and as early as possible. In particular, please always check that the following persons are duly informed and given the opportunity to provide feedback before starting:
+</p>
+<ul>
+<li class="level1"><div class="li"> the maintainers of the Abinit Fallbacks;</div>
+</li>
+<li class="level1"><div class="li"> the gatekeeper(s) of Abinit;</div>
+</li>
+<li class="level1"><div class="li"> the maintainers of the Abinit Test Farm;</div>
+</li>
+<li class="level1"><div class="li"> the maintainers of the Abinit Build System;</div>
+</li>
+<li class="level1"><div class="li"> the maintainers of the Abinit Test Suite;</div>
+</li>
+<li class="level1"><div class="li"> the maintainers of the Abinit Input Variables.</div>
+</li>
+</ul>
+
+<p>
+They will provide you with useful guidance, as well as helpful information about the delays you can expect. Please always remember that there are permanently many ongoing projects within Abinit, above all when a new major release of Abinit is scheduled. Patience and dialogue will always bring many more positive outcomes than you could ever expect. In the process, you may be asked to take over a certain number of tasks that were previously performed by other persons. Please make sure that you (or someone else) will be able to reliably take care of them.
+</p>
+
+<p>
+Regarding the fallbacks themselves, the only changes you need to perform are very similar to those described in the “Updating the version of a package” and “Improving the portability of a package” sections, except that, this time, you will respectively add a section and a macro in the files instead of changing them. Please follow the alphabetical order to select the positions of the new blocks in the files, in order to facilitate the work of the other developers and maintainers.
+</p>
+
+<p>
+Once you have provided the required enhancements, the extremely automated build system of the fallbacks should take care of the rest by itself when running <em>./quicktests.sh</em> from the top source directory. If you encounter issues unrelated with the new package, please contact the fallbacks maintainers as soon as possible.
+</p>
+
+</div>
+<h2 class="sectionedit20" id="patching_a_package">Patching a package</h2>
+<div class="level2">
+
+<p>
+Patching the source code of a package should be avoided at all costs. It is always infinitely better to report bugs and improve the package upstream than to produce special versions, since the latter prevents the users of Abinit from using the stand-alone pristine version of the package, depriving them at the same time of any means to correctly validate the package. Worse: if the pristine version is installed on the system, the probability of conflicts and/or inconsistencies is greatly amplified.
+</p>
+
+<p>
+If, for some very good reasons (please note the plural), you <em class="u">really</em> need to temporarily patch a package, just copy the patch file to <em>~/fallbacks/patches/package-version-index.patch</em>, where you replace <em>package</em> by the package name, <em>version</em> by its version, and <em>index</em> by a four-digit number starting at 0001. The build system of the fallbacks will automatically take care of registering the patches and applying them sequentially to the package source just before configuring it.
+</p>
+
+<p>
+<em>In any case, if you feel the need for a more sophisticated patching mechanism, then it just means that you forgot that what you actually want is to collaborate with the upstream developers of the package to fix its bugs and improve its design.</em>
+</p>
+
+</div>
+<!-- cachefile /var/www/dokuwiki/data/cache/e/ea71b8444e5264ef92f8847da34239b8.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

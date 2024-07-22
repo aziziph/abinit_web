@@ -201,7 +201,7 @@ body {
 .blinker {
     display: flex;
     align-items: center; /* Align items vertically in the center */
-    margin-left: 44%;
+    margin-left: 42%;
 }
 
 .blink_me {
@@ -297,9 +297,7 @@ body {
         font-size: 12px;
     }
     .icon {
-          width: 60%;
+          width: 50%;
           height: auto;
           margin:  10px 0.2%;
     }
-
-

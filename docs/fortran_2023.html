@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<!--<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>-->
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#new_fortran_2003_features_for_abinit_8">New FORTRAN 2003 features for ABINIT 8</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#i_notes_on_fortran_compilers_and_abinit">I. Notes on Fortran compilers and ABINIT</a></div></li>
+<li class="level2"><div class="li"><a href="#ii_fortran_2003_features_allowed_in_abinit">II. Fortran 2003 features allowed in ABINIT</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#allocatable_arrays_inside_user-defined_datatypes_and_as_routine_arguments">ALLOCATABLE arrays inside user-defined datatypes and as routine arguments</a></div></li>
+<li class="level3"><div class="li"><a href="#intent_attribute_for_pointers">INTENT attribute for pointers</a></div></li>
+<li class="level3"><div class="li"><a href="#access_to_computing_environment">Access to computing environment</a></div></li>
+<li class="level3"><div class="li"><a href="#array_constructor_with_syntax">Array constructor with [&nbsp;]&nbsp;syntax</a></div></li>
+<li class="level3"><div class="li"><a href="#named_constants_in_complex_constant_declaration">Named constants in complex constant declaration</a></div></li>
+<li class="level3"><div class="li"><a href="#use_of_interoperability_with_c">Use of interoperability with C</a></div></li>
+<li class="level3"><div class="li"><a href="#import_statement">IMPORT statement</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#iii_fortran_2003_features_allowed_in_abinit_only_by_the_use_of_specific_functions">III. Fortran 2003 features allowed in ABINIT only by the use of specific functions</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#flush_statement">Flush statement</a></div></li>
+<li class="level3"><div class="li"><a href="#iomsg_and_newunit_specifiers_in_a_open_statement">IOMSG and NEWUNIT specifiers in a OPEN statement</a></div></li>
+<li class="level3"><div class="li"><a href="#use_of_ieee_arithmetic">Use of IEEE Arithmetic</a></div></li>
+<li class="level3"><div class="li"><a href="#fortran_extensions_supported_via_cpp_macros">Fortran extensions supported via CPP macros</a></div></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="new_fortran_2003_features_for_abinit_8">New FORTRAN 2003 features for ABINIT 8</h1>
+<div class="level1">
+
+<p>
+<br>
+<br>
+
+During the 6<sup>th</sup> ABINIT International Developer meeting (April 2013 in Dinard, France), it has been decided to allow the use of a subset of <code>FORTRAN 2003</code> features in ABINIT. The present document is a first proposal of such a set of F2003 features; it is submitted for discussion.
+</p>
+
+<p>
+To choose this set of features, we tried to respect the following rules:
+</p>
+<ul>
+<li class="level1"><div class="li"> The F2003 features must be supported by a large majority of recent compilers. An exhaustive list of compilers and their F2003 features can be found at:<br>
+<a href="http://fortranwiki.org/fortran/show/Fortran+2003+status"
+   class="urlextern"
+   title="http://fortranwiki.org/fortran/show/Fortran+2003+status"
+   rel="ugc nofollow" style="color: #F18F34;">http://fortranwiki
+    .org/fortran/show/Fortran+2003+status</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> We have focused on the features that are of significant importance for high-performance computing and on the language extensions that help improve the readability and the portability of the code</div>
+</li>
+</ul>
+
+<p>
+This is a first attempt; other F2003 extensions are not admitted for the moment, but their inclusion could be taken into consideration in the next versions.
+Important: introduction of the new F2003 extensions implies that, from now, not all compilers can be supported by ABINIT (see first section of the document).
+</p>
+
+<p>
+<em>M. Torrent (CEA-Bruyères-le-Châtel)</em><br>
+
+<em>M. Giantomassi (UC Louvain)</em>
+<br>
+<br>
+
+</p>
+
+
+
+</div>
+
+<h2 class="sectionedit2" id="i_notes_on_fortran_compilers_and_abinit">I. Notes on Fortran compilers and ABINIT</h2>
+<div class="level2">
+
+
+<ul>
+<li class="level1"><div class="li"> All the new features proposed hereafter have already been tested on the ABINIT test farm. If someone wants ABINIT to be compatible with another computing environment, a new <em>buildbot</em> slave should be added to the test farm</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Some of these extensions are <strong>mandatory</strong> in the sense that it won’t be possible to compile the code if the compiler does not support these F2003 features (e.g. <code>ALLOCATABLE</code> arrays in data types). Mandatory extensions are presented in Section&nbsp;II.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Other extensions are <strong>optional</strong> since they can be made available in a portable way via CPP macros and/or wrapper functions so that code semantics is preserved (e.g. <code>CONTIGUOUS</code> attribute). Optional extensions are presented in Section&nbsp;III.</div>
+</li>
+</ul>
+
+<p>
+We propose to divide the compilers in the following four categories:
+</p>
+<ol>
+<li class="level1"><div class="li"> <strong>Officially supported</strong><br>
+All tests are OK, the most important libraries and plugins are enabled and tested.<br>
+<br>
+</div>
+</li>
+<li class="level1"><div class="li"> <strong>Deprecated</strong><br>
+Still officially supported but users are strongly encouraged to upgrade to a more recent version or to use one of the officially supported compilers since future releases of ABINIT may drop support for this version of the compiler.<br>
+Example: <em>g95</em> (no more maintained)<br>
+<br>
+</div>
+</li>
+<li class="level1"><div class="li"> <strong>Unstable</strong><br>
+We cannot ensure that all the features of ABINIT and the most important plugins and libraries work as expected with this version of the compiler.<br>
+Example: <em>PGI v9+</em><br>
+<br>
+</div>
+</li>
+<li class="level1"><div class="li"> <strong>Unsupported<br>
+</strong>Due to the introduction of the F2003 extensions, some old compilers will be excluded <em>de facto</em>.<br>
+Example: <em>gfortran</em> versions before 4.3, <em>ifort</em> versions before 8.x, <em>open64</em>, <em>ORACLE</em></div>
+</li>
+</ol>
+
+
+</div>
+
+<h2 class="sectionedit3" id="ii_fortran_2003_features_allowed_in_abinit">II. Fortran 2003 features allowed in ABINIT</h2>
+<div class="level2">
+
+<p>
+<em>Mandatory extensions, implemented in (almost) all recent compilers</em>
+&lt;<abbr title="HyperText Markup Language">HTML</abbr>&gt;&lt;br&gt;&lt;/<abbr title="HyperText Markup Language">HTML</abbr>&gt;
+</p>
+
+</div>
+
+<h3 class="sectionedit4" id="allocatable_arrays_inside_user-defined_datatypes_and_as_routine_arguments">ALLOCATABLE arrays inside user-defined datatypes and as routine arguments</h3>
+<div class="level3">
+
+<p>
+This was not possible in F95 but it is perfectly legit in F2003.<br>
+
+Note that <code>ALLOCATABLE</code> arrays are much more efficient than pointers because:
+</p>
+<ol>
+<li class="level1"><div class="li"> An allocatable array is always continuous in memory and the compiler can perform important optimizations that are not possible when pointers are involved. Pointers, indeed, may point to non-contiguous memory locations, and the compiler MUST take this possibility into account thus leading to suboptimal code.</div>
+</li>
+<li class="level1"><div class="li"> The initial status of a pointer is <code>undefined</code> and this forces the developers to add a lot of boilerplate code just to nullify the pointers declared in a data type. The use of allocatable arrays solves this.</div>
+</li>
+<li class="level1"><div class="li"> Runtime errors are much easier to detect and debug.</div>
+</li>
+</ol>
+
+<p>
+Example of a user-defined data type with an allocatable entity:
+</p>
+<pre class="code fortran"> <span class="kw3">type</span> <span class="br0">(</span>pawtab_type<span class="br0">)</span>&nbsp;
+   <span class="kw3">real</span><span class="br0">(</span>dp<span class="br0">)</span>,<span class="kw3">allocatable</span>&nbsp;<span class="sy0">::</span> <span class="me2">phi</span><span class="br0">(</span><span class="sy0">:</span>,&nbsp;<span class="sy0">:</span><span class="br0">)</span>
+ <span class="kw1">end</span> <span class="kw3">type</span> pawtab_type
+&nbsp;
+ <span class="kw3">type</span><span class="br0">(</span>pawtab_type<span class="br0">)</span> <span class="sy0">::</span> <span class="me2">pawtab</span>
+&nbsp;
+ <span class="co1">!Allocate memory</span>
+ <span class="kw1">allocate</span><span class="br0">(</span>pawtab<span class="sy0">%</span>phi<span class="br0">(</span><span class="nu0">300</span>, <span class="nu0">5</span><span class="br0">)</span><span class="br0">)</span>
+&nbsp;
+ <span class="co1">!Deallocate memory</span>
+ <span class="kw1">if</span> <span class="br0">(</span><span class="kw4">allocated</span><span class="br0">(</span>pawtab<span class="sy0">%</span>phi<span class="br0">)</span><span class="br0">)</span> <span class="kw1">deallocate</span><span class="br0">(</span>pawtab<span class="sy0">%</span>phi<span class="br0">)</span></pre>
+
+<p>
+<em>As a rule of thumb, avoid pointers as much a possible. Use allocatable arrays if you need dynamic memory in a datatype or if you want to allocate memory inside a procedure and return it to the caller.</em>
+</p>
+
+<p>
+Example&nbsp;of a procedure that allocates memory and returns it to the caller:
+</p>
+<pre class="code fortran"> <span class="kw1">subroutine</span> foo<span class="br0">(</span>out_array<span class="br0">)</span>
+&nbsp;
+  <span class="kw3">integer</span>,<span class="kw3">allocatable</span>,<span class="kw3">intent</span><span class="br0">(</span><span class="kw3">out</span><span class="br0">)</span> <span class="sy0">::</span> <span class="me2">out_array</span><span class="br0">(</span><span class="sy0">:</span><span class="br0">)</span>
+&nbsp;
+  <span class="co1">!Compute the size of out_array</span>
+  n <span class="sy0">=</span> ...
+&nbsp;
+  <span class="co1">!Allocate contiguous memory</span>
+  <span class="kw1">allocate</span><span class="br0">(</span>out_array<span class="br0">(</span>n<span class="br0">)</span>
+  out_array <span class="sy0">=</span> ...
+&nbsp;
+ <span class="kw1">end</span> <span class="kw1">subroutine</span> foo</pre>
+
+<p>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit5" id="intent_attribute_for_pointers">INTENT attribute for pointers</h3>
+<div class="level3">
+
+<p>
+Following the ABINIT coding rules, each argument of routine should have an <code>INTENT</code> attribute, even pointers. This is now possible in F2003.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw3">real</span><span class="br0">(</span>dp<span class="br0">)</span>, <span class="kw3">pointer</span>, <span class="kw3">intent</span><span class="br0">(</span><span class="kw3">in</span><span class="br0">)</span>&nbsp;<span class="sy0">::</span> <span class="me2">cg_ptr</span><span class="br0">(</span><span class="sy0">:</span>,<span class="sy0">:</span><span class="br0">)</span></pre>
+
+<p>
+Note that the intent refers to the <em class="u">association status of the pointer</em> without any reference to the target. If you are not sure about which intent should be used, use <code>intent(in)</code>.
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit6" id="access_to_computing_environment">Access to computing environment</h3>
+<div class="level3">
+
+<p>
+F2003 gives access to a lot of information about the computing environment.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw1">CALL</span> GET_ENVIRONMENT_VARIABLE<span class="br0">(</span>…<span class="br0">)</span> <span class="co1">! to get an environment variable</span>
+ <span class="kw1">CALL</span> GET_COMMAND<span class="br0">(</span>..<span class="br0">)</span>
+ <span class="kw1">CALL</span> COMMAND_ARGUMENT_COUNT<span class="br0">(</span>..<span class="br0">)</span>
+ <span class="kw1">CALL</span> GET_COMMAND_ARGUMENT<span class="br0">(</span>,…<span class="br0">)</span> <span class="co1">! to access to the command line</span></pre>
+
+<p>
+These features can be used to improve the user interface (e.g. command line options can be passed to ABINIT), or to modify the behavior at run-time depending on the value of the environment variables.
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit7" id="array_constructor_with_syntax">Array constructor with [&nbsp;]&nbsp;syntax</h3>
+<div class="level3">
+
+<p>
+This simple extension makes the array constructor syntax more readable. Developers are encouraged to use the new syntax whenever possible in order to improve the readability of the code.
+</p>
+
+<p>
+Example&nbsp;:
+</p>
+<pre class="code fortran"> <span class="kw3">integer</span>, <span class="kw3">parameter</span>&nbsp;<span class="sy0">::</span> <span class="me2">cute</span><span class="br0">(</span><span class="nu0">4</span><span class="br0">)</span><span class="sy0">=</span><span class="br0">[</span><span class="nu0">1</span>,<span class="nu0">2</span>,<span class="nu0">3</span>,<span class="nu0">4</span><span class="br0">]</span></pre>
+
+<p>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit8" id="named_constants_in_complex_constant_declaration">Named constants in complex constant declaration</h3>
+<div class="level3">
+
+<p>
+A very simple – but useful – feature.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw3">complex</span><span class="br0">(</span>dpc<span class="br0">)</span>, <span class="kw3">parameter</span> <span class="sy0">::</span> <span class="me2">CC</span><span class="sy0">=</span><span class="br0">(</span><span class="nu0">0</span>._dp,pi<span class="br0">)</span></pre>
+
+<p>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit9" id="use_of_interoperability_with_c">Use of interoperability with C</h3>
+<div class="level3">
+
+<p>
+The F2003 intrinsic module <code>ISO_C_BINDINGS</code> provides a standardized interface that facilitates the interoperability between Fortran and C. This new feature is of paramount importance for high-performance computing since one can:
+</p>
+<ul>
+<li class="level1"><div class="li"> Call C procedures from Fortran (e.g. FFTW3),</div>
+</li>
+<li class="level1"><div class="li"> Pass complex arguments to Fortran functions having an explicit interface with reals without having to perform a detrimental copy-in, copy out.</div>
+</li>
+</ul>
+
+<p>
+For this, the availability of the <code>ISO_C_BINDINGS</code> module is required; this is OK for all recent compilers.
+</p>
+
+<p>
+At present, ABINIT requires a <code>ISO_C_BINDINGS</code> module providing:
+</p>
+<ul>
+<li class="level1"><div class="li"> C types: <code>C_INT</code>, <code>C_SHORT</code>, <code>C_LONG</code>, etc…</div>
+</li>
+<li class="level1"><div class="li"> C pointer <code>C_PTR</code> type</div>
+</li>
+<li class="level1"><div class="li"> <code>C_LOC</code> and <code>C_F_POINTER</code> functions.<br>
+<code>C_LOC</code> returns the location of a C pointer associated to a Fortran object.<br>
+<code>C_F_POINTER</code> returns a Fortran pointer from a C pointer.</div>
+</li>
+<li class="level1"><div class="li"> <code>C_BIND</code> attribute that allows the developer to rename a C function as Fortran one or to define a Fortran datatype that is interoperable with a C structure.</div>
+</li>
+</ul>
+
+<p>
+These features are already used in important parts such as <code>CUDA</code> or <code>FFTW3</code>.
+</p>
+
+<p>
+Example&nbsp;(how to call a C function):
+</p>
+<pre class="code fortran"> <span class="kw3">type</span><span class="br0">(</span>C_PTR<span class="br0">)</span> <span class="sy0">::</span> <span class="me2">blabla</span>
+ <span class="kw3">complex</span><span class="br0">(</span>C_INT<span class="br0">)</span> <span class="sy0">::</span> <span class="kw3">data</span>
+ blabla <span class="sy0">=</span> my_c_function<span class="br0">(</span><span class="kw3">data</span><span class="br0">)</span></pre>
+
+<p>
+Example:<br>
+
+How to avoid a copy while passing real arrays to a procedure that expects complex arguments&nbsp;and has an explicit interface<br>
+
+Copy <em>real</em> array <code>data1_real</code> in <code>data2_real</code> using <em>complex</em> function <code>zcopy</code>:
+</p>
+<pre class="code fortran"> <span class="kw3">real</span><span class="br0">(</span>dp<span class="br0">)</span>,<span class="kw3">target</span>&nbsp;<span class="sy0">::</span> <span class="me2">data1_real</span><span class="br0">(</span><span class="nu0">2</span>,nn<span class="br0">)</span>,data2_real<span class="br0">(</span><span class="nu0">2</span>,nn<span class="br0">)</span>
+ <span class="kw3">complex</span><span class="br0">(</span>dpc<span class="br0">)</span>, ABI_CONTIGUOUS <span class="kw3">pointer</span> <span class="sy0">::</span> <span class="me2">data1_cplx</span><span class="br0">(</span><span class="sy0">:</span><span class="br0">)</span>,data2_cplx<span class="br0">(</span><span class="sy0">:</span><span class="br0">)</span>
+&nbsp;
+ <span class="kw1">call</span> C_F_POINTER<span class="br0">(</span>C_LOC<span class="br0">(</span>data1_real<span class="br0">)</span>,data1_cplex, <span class="kw4">shape</span><span class="sy0">=</span><span class="br0">[</span>nn<span class="br0">]</span><span class="br0">)</span>
+ <span class="kw1">call</span> C_F_POINTER<span class="br0">(</span>C_LOC<span class="br0">(</span>data2_real<span class="br0">)</span>,data2_cplex, <span class="kw4">shape</span><span class="sy0">=</span><span class="br0">[</span>nn<span class="br0">]</span><span class="br0">)</span>
+&nbsp;
+ <span class="co1">!If zcopy has an explicit interface, the compiler won’t</span>
+ <span class="co1">!allow you to pass data1_real because the procedure expects</span>
+ <span class="co1">!an argument of type complex(dpc)</span>
+&nbsp;
+ <span class="kw1">call</span> zcopy<span class="br0">(</span>nn,data1_cplx,data2_cplx<span class="br0">)</span></pre>
+
+<p>
+We propose to hide all this stuff in a «helper function» that will return a complex Fortran pointer from a real Fortran array.
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit10" id="import_statement">IMPORT statement</h3>
+<div class="level3">
+
+<p>
+Used in interfaces, it allows the access to the variables and the types defined in modules.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw3">use</span> m_pawtab, <span class="kw1">only</span>&nbsp;<span class="sy0">:</span> pawtab_type
+&nbsp;
+ <span class="kw1">interface</span>
+   <span class="kw1">subroutine</span> my_rout<span class="br0">(</span>pawtab<span class="br0">)</span>
+   IMPORT&nbsp;<span class="sy0">::</span> <span class="me2">pawtab_type</span>
+   <span class="kw3">type</span><span class="br0">(</span>pawtab_type<span class="br0">)</span>, <span class="kw3">intent</span><span class="br0">(</span><span class="kw3">inout</span><span class="br0">)</span>&nbsp;<span class="sy0">::</span> <span class="me2">pawtab</span>
+ <span class="kw1">end</span> <span class="kw1">interface</span></pre>
+
+<p>
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="iii_fortran_2003_features_allowed_in_abinit_only_by_the_use_of_specific_functions">III. Fortran 2003 features allowed in ABINIT only by the use of specific functions</h2>
+<div class="level2">
+
+<p>
+<em>Optional extensions, implemented in the majority of compilers, but not all</em>
+&lt;<abbr title="HyperText Markup Language">HTML</abbr>&gt;&lt;br&gt;&lt;/<abbr title="HyperText Markup Language">HTML</abbr>&gt;
+</p>
+
+</div>
+
+<h3 class="sectionedit12" id="flush_statement">Flush statement</h3>
+<div class="level3">
+
+<p>
+The execution of a <code>FLUSH</code> statement for an external file causes data written to it to be available to other processes.
+</p>
+
+<p>
+One should flush Fortran files though the <code>flush_unit</code> helper function or by calling <code>wrtout</code> with the optional argument <code>do_flush</code>.<br>
+
+The reason for such limitation is that not all the compilers provide a standard Fortran <code>flush</code> and <code>flush_unit</code> uses CPP options to implement this feature in a semi-portable way.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> open<span class="br0">(</span><span class="kw1">unit</span><span class="sy0">=</span>unt, <span class="kw1">file</span><span class="sy0">=</span>”foo.<span class="me1">dat</span>”<span class="br0">)</span>
+ write<span class="br0">(</span>unt, <span class="sy0">*</span><span class="br0">)</span>”hello world”
+ <span class="kw1">call</span> flush_unit<span class="br0">(</span>unt<span class="br0">)</span>
+&nbsp;
+ <span class="co1">!For flushing ab_out or std_out, use</span>
+ <span class="kw1">call</span> wrtout<span class="br0">(</span>std_out,message,<span class="st0">'COLL'</span>,do_flush<span class="sy0">=</span><span class="kw2">.<span class="me1">true</span>.</span><span class="br0">)</span></pre>
+
+<p>
+Note that the <code>flush</code> statement is very important to avoid race conditions that can occur when multiple <code>MPI</code> processors are reading and writing from the same file.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> open<span class="br0">(</span><span class="kw1">unit</span><span class="sy0">=</span>unt, <span class="kw1">file</span><span class="sy0">=</span>”foo.<span class="me1">dat</span>”<span class="br0">)</span>
+&nbsp;
+ <span class="kw1">if</span> <span class="br0">(</span>me<span class="sy0">==</span>master<span class="br0">)</span> <span class="kw1">then</span>
+   write<span class="br0">(</span>unt,<span class="sy0">*</span><span class="br0">)</span>”hello”
+   <span class="co1">!Flush the unit so that we force the writing of the string</span>
+   <span class="co1">!that will be read by the other nodes</span>
+   <span class="kw1">call</span> flush_unit<span class="br0">(</span>unt<span class="br0">)</span>
+ <span class="kw1">end</span> <span class="kw1">if</span>
+&nbsp;
+ <span class="kw1">call</span> xmpi_barrier<span class="br0">(</span>comm<span class="br0">)</span>
+ <span class="kw1">if</span> <span class="br0">(</span>me <span class="sy0">/=</span> master<span class="br0">)</span> <span class="kw1">then</span>
+   <span class="co1">!Can safely read the string because master called flush_unit</span>
+   read<span class="br0">(</span>unt,<span class="sy0">*</span><span class="br0">)</span>string
+ <span class="kw1">end</span> <span class="kw1">if</span></pre>
+
+<p>
+The <code>MPI</code> library provides an interface to flush the IO buffer but only if the file has been open with <code>MPI_FILE_OPEN</code>.
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit13" id="iomsg_and_newunit_specifiers_in_a_open_statement">IOMSG and NEWUNIT specifiers in a OPEN statement</h3>
+<div class="level3">
+
+<p>
+<strong><code>IOMSG</code></strong> is a string with a description of the error that may occur during an IO operation (e.g not enough permissions, disk quota error, non-existent file when reading …)
+</p>
+
+<p>
+<strong><code>NEWUNIT</code></strong> is used to receive a free unit, i.e. a logical Fortran unit that is not already in use in other parts of the code.
+</p>
+
+<p>
+Developers should take advantage of these new features through the <code>open_file</code> helper function defined in the <code>m_io_tools</code> module.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw3">use</span> m_io_tools, <span class="kw1">only</span> <span class="sy0">:</span> open_file
+&nbsp;
+ ii <span class="sy0">=</span> open_file<span class="br0">(</span>filename,iomsg,newunit<span class="sy0">=</span>tmp_unit, <span class="sy0">&amp;</span>
+ <span class="sy0">&amp;</span>              <span class="kw1">form</span><span class="sy0">=</span><span class="st0">"formatted"</span>,<span class="kw1">action</span><span class="sy0">=</span><span class="st0">"write"</span><span class="br0">)</span>
+&nbsp;
+ <span class="co1">!If IOError, print a message describing the error and stop the code</span>
+ <span class="kw1">if</span> <span class="br0">(</span>ii<span class="sy0">/=</span><span class="nu0">0</span><span class="br0">)</span> MSG_ERROR<span class="br0">(</span>iomsg<span class="br0">)</span></pre>
+
+<p>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit14" id="use_of_ieee_arithmetic">Use of IEEE Arithmetic</h3>
+<div class="level3">
+
+<p>
+This extension allows one to trap or to signal possible floating point exceptions at run time without compiling the code in debug mode. Developers can use the procedures defined in the <code>m_xiee.F90</code> module for debugging/testing purposes (these functions are empty if the compiler does not support IEEE arithmetic).
+</p>
+
+<p>
+Production code should not contain debugging sections with calls to the procedures defined in <code>m_xieee.F90</code> in order to avoid a significant slowdown of the code. Note that one can easily trap/signal floating-point exceptions thanks to the <em> command line options</em> <code>–ieee-halt</code> and <code>–ieee-signal</code>.
+<br>
+<br>
+
+</p>
+
+</div>
+
+<h3 class="sectionedit15" id="fortran_extensions_supported_via_cpp_macros">Fortran extensions supported via CPP macros</h3>
+<div class="level3">
+
+<p>
+This section discusses a set of features belonging to F2003/F2008 that are vey useful for optimizing CPU-critical parts or for constructing reliable software. The features described in this section are made available in a portable way via CPP macros defined in <code>abi_common.h</code>.
+</p>
+
+<p>
+The most important attributes supported at the time of writing are:
+</p>
+<ul>
+<li class="level1"><div class="li"> <strong><code>CONTIGUOUS</code></strong> attribute, emulated by <strong><code>ABI_CONTIGUOUS</code></strong> macro,</div>
+</li>
+<li class="level1"><div class="li"> <strong><code>ASYNCHRONOUS</code></strong> attribute emulated by <strong><code>ABI_ASYNCH</code></strong> macro,</div>
+</li>
+<li class="level1"><div class="li"> <strong><code>PROTECTED</code></strong> attribute, emulated by <strong><code>ABI_PROTECTED</code></strong> macro,</div>
+</li>
+<li class="level1"><div class="li"> <strong><code>PRIVATE</code></strong> attribute, emulated by <strong><code>ABI_PRIVATE</code></strong> macro.</div>
+</li>
+</ul>
+
+<p>
+The <code>CONTIGUOUS</code> attribute is principally used for pointers that are used to point contiguous portions of memory. <code>PROTECTED</code> and <code>PRIVATE</code> are mainly used for data hiding and the design of libraries and robust code.
+</p>
+
+<p>
+Example:
+</p>
+<pre class="code fortran"> <span class="kw3">integer</span>, ABI_CONTIGUOUS <span class="kw3">pointer</span> <span class="sy0">::</span> <span class="me2">ptr</span><span class="br0">(</span><span class="sy0">:</span><span class="br0">)</span></pre>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/d/d0d845c7d6c02de8e7a47ce6e4d65f2e.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

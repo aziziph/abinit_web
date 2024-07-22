@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<!--<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>-->
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#git_lababinit_specificities">git(lab) : ABINIT specificities</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#standard_names_projects_id_branches">Standard names (projects, ID, branches)</a></div></li>
+<li class="level2"><div class="li"><a href="#quick_start_cloning_from_gitlab">(Quick start) Cloning from gitlab</a></div></li>
+<li class="level2"><div class="li"><a href="#git_branches">Git branches</a></div></li>
+<li class="level2"><div class="li"><a href="#how_to_trigger_the_action_of_buildbot_on-demand">How to trigger the action of buildbot ? (On-demand)</a></div></li>
+<li class="level2"><div class="li"><a href="#what_is_an_on-track_branch">What is an "on-track" branch ?</a></div></li>
+<li class="level2"><div class="li"><a href="#what_is_shown_in_the_buildbot_status_table">What is shown in the Buildbot Status table ?</a></div></li>
+<li class="level2"><div class="li"><a href="#how_and_when_will_the_merge_in_the_master_branch_be_done">How and when will the merge in the master branch be done ?</a></div></li>
+<li class="level2"><div class="li"><a href="#how_to_synchronize_with_the_trunk_virtual_user">How to synchronize with the "trunk" virtual user ?</a></div></li>
+<li class="level2"><div class="li"><a href="#how_to_set_up_a_hotfix_branch_to_be_merged_in_trunk_release-xy">How to set up a "hotfix" branch to be merged in trunk/release-x.y ?</a></div></li>
+<li class="level2"><div class="li"><a href="#additional_infohow_to_not_mess_with_your_branches__show-branch">Additional info: how to not mess with your branches ? ... show-branch ...</a></div></li>
+<li class="level2"><div class="li"><a href="#additional_infosetup_of_the_ssh_environment">Additional info: Setup of the SSH environment</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="git_lababinit_specificities">git(lab) : ABINIT specificities</h1>
+<div class="level1">
+
+</div>
+
+<h2 class="sectionedit2" id="standard_names_projects_id_branches">Standard names (projects, ID, branches)</h2>
+<div class="level2">
+
+<p>
+Let us suppose that you are one of the ABINIT developers …
+</p>
+
+<p>
+Every “physical” developer of ABINIT using gitlab has his/her specific <span style="color:red; ">user_id</span> (e.g. <span style="color:red; ">gonze</span>).
+Moreover, an additional “virtual” developer, called <span style="color:red; ">trunk</span>, is also defined.
+</p>
+
+<p>
+On the ABINIT gitlab server, an ABINIT project can be defined, specifically for you, with address <span style="color:blue; ">git@gitlab.abinit.org</span>:<span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span>. In order to do this, log on <a href="https://gitlab.abinit.org" class="urlextern" title="https://gitlab.abinit.org" rel="ugc nofollow">https://gitlab.abinit.org</a>, go to “Explore projects”, find “Trunk / Abinit” (+perhaps select “All”), then click on the “Fork” button. You need to contact Jean-Michel Beuken to have access to the ABINIT gitlab.
+</p>
+
+<p>
+In order to start to work locally (not on the ABINIT gitlab server, but on your own machine), you should setup the SSH environment for gitlab, as described  <span class="curid"><a href="/doku.php?id=developers:git:specificities_git_abinit#additional_infosetup_of_the_ssh_environment" class="wikilink1" title="developers:git:specificities_git_abinit" data-wiki-id="developers:git:specificities_git_abinit">in the last section of this document</a></span>. In particular on some machines you need to have an ssh agent running with your rsa key already available, so that git finds it when it runs ssh.
+</p>
+
+<p>
+You have by default a <span style="color:magenta; ">master</span> branch and a <span style="color:magenta; ">develop</span> branch in your repository, but can create or work on other branches, following the philosophy of git. In particular, according to  <a href="http://nvie.com/posts/a-successful-git-branching-model" class="urlextern" title="http://nvie.com/posts/a-successful-git-branching-model" rel="ugc nofollow">gitflow</a>, this <span style="color:magenta; ">master</span> branch will be of little use for the “physical” developers (including you), as we will see later, while the <span style="color:magenta; ">develop</span> and <span style="color:magenta; ">release-*</span> branches will be quite important for you.
+</p>
+
+<p>
+The visibility level of the ABINIT projects of the <span style="color:red; ">user_id</span> developers and of the <span style="color:red; ">trunk</span> developer is “internal”. The <span style="color:red; ">trunk</span><span style="color:blue; ">/abinit.git</span> (well, only the <span style="color:magenta; ">master</span> branch) is however mirrored on github.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="quick_start_cloning_from_gitlab">(Quick start) Cloning from gitlab</h2>
+<div class="level2">
+
+<p>
+In order to clone from the gitlab repository to your gitlab repository on your local machine (either for the first time, or in order to restart from a fresh copy of the gitlab repository), the recommended command is : <br>
+
+<span style="color:blue; ">git clone gitlab:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span> -b <span style="color:magenta; ">develop</span><br>
+
+where <span style="color:red; ">user_id</span> is to be replaced by the adequate name.<br>
+
+<br>
+
+[Additional explanation : the normal “clone” command from the gitlab repository to his/her gitlab repository on his/her local machine is : <br>
+
+<span style="color:blue; ">git clone git@gitlab.abinit.org:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span> <br>
+
+However, with the proper SSH environment, the following “clone” command can be used : <br>
+
+<span style="color:blue; ">git clone gitlab:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span> <br>
+
+This will clone the <span style="color:magenta; ">master</span>, while the usual working branch is the
+<span style="color:magenta; ">develop</span> branch, that can be obtained directly with the above-mentioned command.]<br>
+
+<br>
+
+After some modifications, using the git commands (e.g. git add, git commit …), you can push on the gitlab server thanks to : <br>
+
+<span style="color:blue; ">git push –tags  </span>     <span style="color:red; ">( double-dash before tags )</span><br>
+
+<br>
+
+In order for the modifications to be merged in the trunk, a merge request has to be issued, as described later.<br>
+
+<br>
+
+The same might be done for other branches, created from the local <span style="color:magenta; ">develop</span> one, using the commands : <br>
+
+<span style="color:blue; ">git branch </span><span style="color:magenta; ">another_branch</span> <br>
+
+<span style="color:blue; ">git checkout </span><span style="color:magenta; ">another_branch</span> <br>
+
+For pushing, the first time, use : <br>
+
+ <span style="color:blue; ">git push -u origin</span> <span style="color:magenta; ">another_branch</span>.<br>
+
+You are able to create your own additional branches, either locally or on gitlab. The name is your own choice.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="git_branches">Git branches</h2>
+<div class="level2">
+
+<p>
+<span style="color:brown; ">In the ABINIT+git workflow</span>:
+</p>
+<ul>
+<li class="level1"><div class="li"> By default, all branches pushed on gitlab might be tested on-demand by the user.</div>
+</li>
+<li class="level1"><div class="li"> In order to be merged in the trunk, the branch has to be <strong>on-track</strong>, <span class="curid"><a href="/doku.php?id=developers:git:specificities_git_abinit#what_is_an_on-track_branch" class="wikilink1" title="developers:git:specificities_git_abinit" data-wiki-id="developers:git:specificities_git_abinit">as explained later</a></span>. You have to issue a “merge request” on gitlab (to the <span style="color:red; ">trunk</span> virtual developer). </div>
+</li>
+<li class="level1"><div class="li"> Only branches that are <strong>on-track</strong> and that have succeeded (or passed) all the automatic tests are considered for merge (as was the case previously).</div>
+</li>
+</ul>
+
+<p>
+The <span style="color:magenta; ">develop</span> branch in the ABINIT naming scheme corresponds to the development stage. The <span style="color:magenta; ">release-*</span> branches in the ABINIT naming scheme  corresponds to release candidates or hotfix branches. It is slightly simpler than the gitflow naming scheme.
+</p>
+
+<p>
+In the git philosophy, branches are often created, then merged, then destroyed. The ABINIT developer is encouraged to take advantage of this flexibility. However, many developers work only on one main project, and will already be satisfied by simply using their <span style="color:magenta; ">develop</span> branch.
+</p>
+
+</div>
+
+<h2 class="sectionedit5" id="how_to_trigger_the_action_of_buildbot_on-demand">How to trigger the action of buildbot ? (On-demand)</h2>
+<div class="level2">
+
+<p>
+The developer has to use the <em>git on-demand form on the ABINIT buildbot portal (<a href="https://bbportal.abinit.org" class="urlextern" title="https://bbportal.abinit.org" rel="ugc nofollow">https://bbportal.abinit.org</a>)</em>. The authentification is made with login/password of gitlab.
+</p>
+
+<p>
+One important feature has to be taken into account : with git, each commit is characterized by a SHA-1 code (40 hexadecimal characters). The four first characters actually define the commit with 1 combination out of 65536 4-character combinations, while the five first characters define the commit with 1 combination out of 1048576 5-character combinations.
+</p>
+
+<p>
+Gitlab knows the repository of the different users, the existing branches, as well as the SHA-1 code of each commit. The three following fields must be defined by the developer for buildbot to know which is the revision of ABINIT to be run:
+</p>
+<ol>
+<li class="level1"><div class="li"> “User” : choose one of the existing User_ID from the menu. Default value : <span style="color:red; ">user_id</span> .</div>
+</li>
+<li class="level1"><div class="li"> “Branch” : choose one of the existing User_ID from the menu. Default value : <span style="color:magenta; ">develop</span>.</div>
+</li>
+<li class="level1"><div class="li"> “Commit” : the developer can enter a free text with the first hexadecimal characters of the SHA-1 code of the commit (in case different commits of the user on the branch have the same first characters, the last commit will be taken by buildbot). Default value : the last commit of User/Branch.</div>
+</li>
+</ol>
+
+</div>
+
+<h2 class="sectionedit6" id="what_is_an_on-track_branch">What is an "on-track" branch ?</h2>
+<div class="level2">
+
+<p>
+For a <span style="color:magenta; ">develop</span> branch to be <strong>on-track</strong>, a specific commit must be contained in the past history of the branch. This specific commit will be tagged in the <span style="color:red; ">trunk</span>/<span style="color:magenta; ">develop</span> branch (actually, corresponding to the definition of the start of the version).
+</p>
+
+<p>
+For a <span style="color:magenta; ">release-*</span> branch to be <strong>on-track</strong>, not only a specific commit must be contained in the past history of the branch, but also the commit that starts the next development version <strong>cannot</strong> be present. Only one among the <span style="color:magenta; ">release-*</span> branches is <strong>on-track</strong> at any time.
+</p>
+
+<p>
+As an example, suppose we were on ABINIT v9.9.3, and want to start preparing a release 9.10.1 (for release) and a new v9.11.0 (for development)   :
+</p>
+<ul>
+<li class="level1"><div class="li"> a branch entitled <span style="color:magenta; ">release-9.10</span> will be forked from the <span style="color:magenta; ">develop</span> branch ;</div>
+</li>
+<li class="level1"><div class="li"> after this branching, suppose the first commit in the <span style="color:magenta; ">release-9.10</span> branch is 1d5efe42, while the first commit in the <span style="color:magenta; ">develop</span> is the commit 34dbe7f2d</div>
+</li>
+<li class="level1"><div class="li"> for a <span style="color:magenta; ">develop</span> branch to be considered <strong>on-track</strong> (and eligible for a merge request), the commit 34dbe7f2d must be present ;</div>
+</li>
+<li class="level1"><div class="li"> for a <span style="color:magenta; ">release-9.10</span> branch to be considered <strong>on-track</strong> (and eligible for a merge request), the commit 1d5efe42 must be present, while it will be forbidden to contain the commit 34dbe7f2d .</div>
+</li>
+</ul>
+
+<p>
+In complement to the start of a X.Y.Z version for release being tagged as “start-X.Y.Z”,
+the commit that ends some X.Y.Z version for release will be tagged “X.Y.Z”.
+</p>
+
+</div>
+
+<h2 class="sectionedit7" id="what_is_shown_in_the_buildbot_status_table">What is shown in the Buildbot Status table ?</h2>
+<div class="level2">
+
+<p>
+(See the Buildbot Status at <a href="https://bbportal.abinit.org/#/status" class="urlextern" title="https://bbportal.abinit.org/#/status" rel="ugc nofollow">https://bbportal.abinit.org/#/status</a>)
+</p>
+
+<p>
+The Buildbot Status table show a summary of the recent results obtained by the test farm for active branches.
+If you want to see all the results, select the “filters” : all + all , then click on the update button.
+The default selection of bots, that is the “night” set, should be adequate for all merge requests.
+The selection capabilities of the Buildbot Status table are rather extended, you have to play a bit wit them.
+</p>
+
+</div>
+
+<h2 class="sectionedit8" id="how_and_when_will_the_merge_in_the_master_branch_be_done">How and when will the merge in the master branch be done ?</h2>
+<div class="level2">
+
+<p>
+In order for your development to be incorporated, there should be a gitlab “merge request” from your specific <span style="color:red; ">user_id</span> to the <span style="color:red; ">trunk</span>.
+For most branches of <span style="color:red; ">user_id</span>, the merge request will be to the <span style="color:red; ">trunk</span>/<span style="color:magenta; ">develop</span> branch.
+(See the list of merge requests at <a href="https://bbportal.abinit.org/#/mr" class="urlextern" title="https://bbportal.abinit.org/#/mr" rel="ugc nofollow">https://bbportal.abinit.org/#/mr</a>)
+</p>
+
+<p>
+However, when a <span style="color:magenta; ">release-*</span> branch is ready to be merged, the “merge request” should target the corresponding <span style="color:red; ">trunk</span>/<span style="color:magenta; ">release-*</span> branch.
+</p>
+
+<p>
+The master branch is only used by the trunk. So, never issue a merge request to trunk/master.
+</p>
+
+<p>
+You are supposed to merge, inside your branches, specific tagged branches from the <span style="color:red; ">trunk</span> user, in order to avoid divergences. These specific tagged branches will be advertised. As <span class="curid"><a href="/doku.php?id=developers:git:specificities_git_abinit#what_is_an_on-track_branch" class="wikilink1" title="developers:git:specificities_git_abinit" data-wiki-id="developers:git:specificities_git_abinit">mentioned earlier</a></span>, the presence of such tagged commits allows one to identify whether the branch is <strong>on-track</strong>, before an automatic testing to be done.
+</p>
+
+</div>
+
+<h2 class="sectionedit9" id="how_to_synchronize_with_the_trunk_virtual_user">How to synchronize with the "trunk" virtual user ?</h2>
+<div class="level2">
+
+<p>
+In order to keep your branches <span style="color:red; ">user_id</span>/<span style="color:magenta; ">develop</span> or
+<span style="color:red; ">user_id</span>/<span style="color:magenta; ">release-*</span> up to date with those of the <span style="color:red; ">trunk</span> virtual user, you should first define git@gitlab.abinit.org:trunk/abinit.git as a remote :
+</p>
+<pre class="code"> git remote add trunk gitlab:trunk/abinit.git</pre>
+
+<p>
+Then, in order to synchronize, in a first step, issue :
+</p>
+<pre class="code"> git fetch --tags trunk</pre>
+
+<p>
+then, if the develop branch is to be updated, supposing it is checked out, merge the trunk/develop in your develop :
+</p>
+<pre class="code"> git merge remotes/trunk/develop</pre>
+
+</div>
+
+<h2 class="sectionedit10" id="how_to_set_up_a_hotfix_branch_to_be_merged_in_trunk_release-xy">How to set up a "hotfix" branch to be merged in trunk/release-x.y ?</h2>
+<div class="level2">
+
+<p>
+If you have a hotfix, a new branch has to be created. To fix the ideas, let's suppose you want to communicate a bug fix to ABINITv9.8, you have to issue :
+</p>
+<pre class="code"> git branch release-9.8 start-9.8.0    (this creates the branch release-9.8 from the start-9.8.0 tag)
+ git checkout release-9.8
+ git merge remotes/trunk/release-9.8
+ git push -u origin release-9.8 --tags</pre>
+
+<p>
+That's it ! You can now make modifications in your release-9.8, then issue a merge request to the trunk/release-9.8 .
+</p>
+
+</div>
+
+<h2 class="sectionedit11" id="additional_infohow_to_not_mess_with_your_branches__show-branch">Additional info: how to not mess with your branches ? ... show-branch ...</h2>
+<div class="level2">
+
+<p>
+To see which branches are present in your current copy of abinit type:
+git show-branch -a
+(documented at <a href="https://git-scm.com/docs/git-show-branch" class="urlextern" title="https://git-scm.com/docs/git-show-branch" rel="ugc nofollow">https://git-scm.com/docs/git-show-branch</a>).
+This should also list the remotes (if not add -r). An example output:
+</p>
+<pre class="code">* [develop] Merge branch 'develop' of gitlab:trunk/abinit into develop
+ ! [master] Minor modif, to initialize v8.7.3 modified:   KNOWN_PROBLEMS
+  ! [origin/HEAD] Minor modif, to initialize v8.7.3 modified:   KNOWN_PROBLEMS
+   ! [origin/develop] Merge branch 'develop' of gitlab:trunk/abinit into develop
+    ! [origin/master] Minor modif, to initialize v8.7.3 modified:   KNOWN_PROBLEMS
+     ! [trunk/develop] Import inside gitlab develop, the modifications from v8.6.2 to v8.6.3
+      ! [trunk/master] Minor modif, to initialize v8.7.3 modified:   KNOWN_PROBLEMS</pre>
+
+<p>
+The syntax is compact but a bit barbaric: the first section gives you the branches which are actually present, with a star for the one currently checked out. The other branches are offset by 1 space.
+</p>
+<pre class="code">-  -    [develop] Merge branch 'develop' of gitlab:trunk/abinit into develop
+*  + +  [trunk/develop] Import inside gitlab develop, the modifications from v8.6.2 to v8.6.3 </pre>
+
+<p>
+The second section shows commits, and can tell you the relation between the branches. Commits are marked with a + in each column for each branch they are included in, and merges with a -. Note that the master branches are never used, the top commit is a merge of trunk into the current develop, and the second commit is contained in the currently active, the origin/develop (of which it is just a clone), and the trunk/develop branches.
+</p>
+
+</div>
+
+<h2 class="sectionedit12" id="additional_infosetup_of_the_ssh_environment">Additional info: Setup of the SSH environment</h2>
+<div class="level2">
+
+<p>
+In order to avoid typing your password every time you issue a command that accesses gitlab,
+you have to introduce your public keys in your profile ( <a href="https://gitlab.abinit.org/profile/keys" class="urlextern" title="https://gitlab.abinit.org/profile/keys" rel="ugc nofollow">https://gitlab.abinit.org/profile/keys</a> ).
+</p>
+
+<p>
+On your local machine, generate a ssh key of <span style="color:red; ">RSA</span> type only <span style="color:red; ">WITHOUT passphrase</span> :
+</p>
+<pre class="code">ssh-keygen -t rsa</pre>
+
+<p>
+and call it <em>id_rsa_gitlab</em> .
+</p>
+
+<p>
+Then add a section in the  ~/.ssh/config file :
+</p>
+<pre class="code">host gitlab
+ Hostname gitlab.abinit.org
+ User git
+ KeepAlive yes
+ IdentityFile ~/.ssh/id_rsa_gitlab
+ </pre>
+
+<p>
+and then, copy the public key <em>id_rsa_gitlab.pub</em> on gitlab.
+</p>
+
+<p>
+Now, you can use (on your local machine) the following syntax :<br>
+
+<span style="color:blue; ">git clone gitlab:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span> <br>
+
+instead of the above-mentioned<br>
+
+<span style="color:blue; ">git clone git@gitlab.abinit.org:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span>
+</p>
+
+<p>
+To be sure the key is proposed each time git calls ssh, you can use ssh-agent:
+</p>
+<pre class="code">ssh-agent # this starts the agent, and provides the process id
+# execute the 3 lines of commands that ssh-agent proposes, e.g.
+SSH_AUTH_SOCK=/tmp/ssh-ngsERHER3K1HS/agent.15589; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=15590; export SSH_AGENT_PID;
+echo Agent pid 15590;
+ssh add ~/.ssh/id_rsa_gitlab # add the corresponding ssh key for gitlab</pre>
+
+<p>
+For further details, please consult the official documentation &lt;<a href="https://gitlab.abinit.org/help/ssh/README.md" class="urlextern" title="https://gitlab.abinit.org/help/ssh/README.md" rel="ugc nofollow">https://gitlab.abinit.org/help/ssh/README.md</a>&gt;
+</p>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/0/09c7d729c6bee5c323fe5288abd53531.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>

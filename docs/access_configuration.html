@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<!--<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>-->
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#access_configuration">Access configuration</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#configuring_ssh">Configuring SSH</a></div></li>
+<li class="level2"><div class="li"><a href="#configuring_git_for_the_first_time">Configuring Git for the first time</a></div></li>
+<li class="level2"><div class="li"><a href="#configuring_git_for_the_abinit_forge">Configuring Git for the Abinit Forge</a></div></li>
+<li class="level2"><div class="li"><a href="#additional_infosetup_of_the_ssh_environment">Additional info: Setup of the SSH environment</a></div></li>
+<li class="level2"><div class="li"><a href="#configuring_git_for_launchpad">Configuring Git for Launchpad</a></div></li>
+</ul></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="access_configuration">Access configuration</h1>
+<div class="level1">
+
+<p>
+As an Abinit Developer, you might want to make it easier and more comfortable for you to access the relevant repositories and tune your access parameters whenever needed, without having to restart from scratch every time you change something. There are two software components you need to tweak in order to achieve this: SSH and Git.
+</p>
+
+<p>
+Here, we will suppose that you have already configured your Gitlab account properly and added the relevant SSH public keys to your profile, and that you have opened a terminal.
+Note that with Gitlab account we mean an account on our <strong>internal server</strong> at gitlab.abinit.org and not an account on the gitlab.com portal!
+</p>
+
+</div>
+
+<h2 class="sectionedit2" id="configuring_ssh">Configuring SSH</h2>
+<div class="level2">
+
+<p>
+To be able to push your contributions to the Abinit Forge efficiently, you need to add the following section to your <em>~/.ssh/config</em>. Just create the file if it does not exist.
+</p>
+<pre class="code ssh">Host abinit-forge
+    HostName gitlab.abinit.org
+    User git
+    ServerAliveInterval 52
+    Compression yes</pre>
+
+<p>
+You will then be able to use the <em>abinit-forge</em> keyword with Git to clone, pull, and push, to your repository. Later, whenever you need to tune any SSH-related parameter, you will just have to edit <em>~/.ssh/config</em> and all your changes will be automatically and instantly available to Git, in all your working trees.
+</p>
+
+</div>
+
+<h2 class="sectionedit3" id="configuring_git_for_the_first_time">Configuring Git for the first time</h2>
+<div class="level2">
+
+<p>
+If this is the very first time you run Git and plan to contribute to Abinit, we urge you to set the following parameters before doing anything else, by typing the following:
+</p>
+<pre class="code sh">mkdir -p $HOME/.config/git
+git config --global user.name "Firstname Lastname"
+git config --global user.email "someone@someserver.somedomain"
+git config --global core.editor "my_preferred_editor"
+git config --global core.excludesFile "$HOME/.config/git/ignore"
+git config --global color.ui "auto"
+git config --global merge.conflictstyle "diff3"</pre>
+
+<p>
+where you replace <em>Firstname</em>, <em>Lastname</em>, <em>someone@someserver.somedomain</em>, and <em>my_preferred_editor</em>, by your respective first name, last name, email address, and preferred editor.
+</p>
+
+</div>
+
+<h2 class="sectionedit4" id="configuring_git_for_the_abinit_forge">Configuring Git for the Abinit Forge</h2>
+<div class="level2">
+
+<p>
+Once you have configured SSH to access the Abinit Forge, if this is the only remote address you use, the only thing you have to do with Git is using the <em>abinit-forge</em> keyword when dealing with the Forge.
+</p>
+
+<p>
+To clone your repository, just type the following:
+</p>
+<pre class="code sh">git clone abinit-forge:DEVELOPER/abinit</pre>
+
+<p>
+where you replace <em>DEVELOPER</em> by your Abinit Forge login.
+</p>
+
+<p>
+If you had already cloned your repository before setting SSH and want to benefit from this new configuration, just go to the top directory of your Abinit working tree and type:
+</p>
+<pre class="code">git remote set-url origin abinit-forge:DEVELOPER/abinit</pre>
+
+</div>
+
+<h2 class="sectionedit5" id="additional_infosetup_of_the_ssh_environment">Additional info: Setup of the SSH environment</h2>
+<div class="level2">
+
+<p>
+In order to avoid typing your password every time you issue a command that accesses gitlab,
+you have to introduce your public keys in your profile ( <a href="https://gitlab.abinit.org/profile/keys" class="urlextern" title="https://gitlab.abinit.org/profile/keys" rel="ugc nofollow">https://gitlab.abinit.org/profile/keys</a> ).
+</p>
+
+<p>
+On your local machine, generate a ssh key of <span style="color:red; ">RSA</span> type only <span style="color:red; ">WITHOUT passphrase</span> :
+</p>
+<pre class="code">ssh-keygen -t rsa</pre>
+
+<p>
+and call it <em>id_rsa_gitlab</em> .
+</p>
+
+<p>
+Then add a section in the  ~/.ssh/config file :
+</p>
+<pre class="code">host gitlab
+ Hostname gitlab.abinit.org
+ User git
+ KeepAlive yes
+ IdentityFile ~/.ssh/id_rsa_gitlab
+
+ </pre>
+
+<p>
+and then, copy the public key <em>id_rsa_gitlab.pub</em> on gitlab.
+</p>
+
+<p>
+Now, you can use (on your local machine) the following syntax :<br>
+
+<span style="color:blue; ">git clone gitlab:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span> <br>
+
+instead of the above-mentioned<br>
+
+<span style="color:blue; ">git clone git@gitlab.abinit.org:</span><span style="color:red; ">user_id</span><span style="color:blue; ">/abinit.git</span>
+</p>
+
+<p>
+To be sure the key is proposed each time git calls ssh, you can use ssh-agent:
+</p>
+<pre class="code">ssh-agent # this starts the agent, and provides the process id
+# execute the 3 lines of commands that ssh-agent proposes, e.g.
+SSH_AUTH_SOCK=/tmp/ssh-ngsERHER3K1HS/agent.15589; export SSH_AUTH_SOCK;
+SSH_AGENT_PID=15590; export SSH_AGENT_PID;
+echo Agent pid 15590;
+ssh add ~/.ssh/id_rsa_gitlab # add the corresponding ssh key for gitlab</pre>
+
+</div>
+
+<h2 class="sectionedit6" id="configuring_git_for_launchpad">Configuring Git for Launchpad</h2>
+<div class="level2">
+
+<p>
+If you are using and/or developing Abinit-related packages located on Launchpad, we recommend you to add the following to your Git configuration:
+</p>
+<pre class="code sh">git config --global "url.git+ssh://USER@git.launchpad.net/.insteadOf" "lp:"</pre>
+
+<p>
+where you replace <em>USER</em> by your Launchpad user name.
+</p>
+
+<p>
+Once done, you can interact with Launchpad through the “lp:” prefix, e.g.:
+</p>
+<pre class="code sh">git clone lp:abinit-fallbacks</pre>
+
+<p>
+or:
+</p>
+<pre class="code sh">git clone lp:~abinit-fallbacks-developers/libpsml</pre>
+
+</div>
+
+<!-- cachefile /var/www/dokuwiki/data/cache/0/0d13c6ae5a05f22ed542219fbb5338aa.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>
