@@ -302,4 +302,33 @@ body {
           margin:  10px 0.2%;
     }
 
-
+.latest{
+  position: absolute;
+  top: 15%; /* Adjust the distance from the bottom */
+  left: 400px;
+}
+.latest-img {
+  width: 15%;
+  height: auto;
+  margin-top: -10%;
+  margin-left: -50%;
+}
+.latest h2 {
+    font-size: 20px; /* Example font size */
+    color: black; /* Example color */
+    font-weight: bold; /* Example font weight */
+    margin-bottom: 10%; /* Example bottom margin */
+    margin-top: 15%;
+}
+.available h2{
+  font-size: 20px; /* Example font size */
+  position: absolute;
+  top: 45%; /* Adjust the distance from the bottom */
+  left: 400px;
+}
+.release{
+  font-size: 20px; /* Example font size */
+  position: absolute;
+  top: 35%; /* Adjust the distance from the bottom */
+  left: 400px;
+}
