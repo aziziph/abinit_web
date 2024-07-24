@@ -1,0 +1,794 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">                                                           <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle">Table of Contents</h3>
+<div>
+
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#programmer_s_guide">Programmer&#039;s Guide</a></div></li>
+<li class="level2"><div class="li"><a href="#a_a_few_facts_useful_to_know">(A) A few facts, useful to know</a></div></li>
+<li class="level2"><div class="li"><a href="#b_the_skeleton_of_the_code">(B) The skeleton of the code</a></div>
+<ul class="toc">
+<li class="level3"><div class="li"><a href="#b1_abinitf90">B.1. abinit.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b2_driverf90">B.2. driver.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b3_gstatef90">B.3. gstate.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b4_moverf90">B.4. mover.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b5_scfcvf90">B.5. scfcv.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b6_vtorhof90">B.6. vtorho.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b7_vtowfkf90">B.7. vtowfk.F90</a></div></li>
+<li class="level3"><div class="li"><a href="#b8_cgwff90_and_getghcf90">B.8. cgwf.F90 and getghc.F90</a></div></li>
+</ul>
+</li>
+<li class="level2"><div class="li"><a href="#c_debugging_timing_and_statistics_facilities">C. Debugging, timing and statistics facilities</a></div></li>
+<li class="level2"><div class="li"><a href="#d_utility_subroutines">D. Utility subroutines</a></div></li>
+<li class="level2"><div class="li"><a href="#e_libraries">E. Libraries</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h2 class="sectionedit1" id="programmer_s_guide">Programmer&#039;s Guide</h2>
+<div class="level2">
+
+<p>
+NOTE: this file has NOT yet been updated for the response function features…
+</p>
+
+<p>
+NOTE: this file has NOT yet been updated for structured datatypes …
+</p>
+
+<p>
+This is a brief programmer guide describing the structure of the main program (abinit) of the ABINIT package.
+It is intended to provide some introductory guidance to programmers who may want to modify parts of the code.
+You will find the code fairly well commented and should explore it to get more details than provided below.
+</p>
+
+<p>
+The reader is assumed to have already gone through the latest version of the following files:
+</p>
+<ul>
+<li class="level1"><div class="li"> ~abinit/doc/users/new_user_guide.html</div>
+</li>
+<li class="level1"><div class="li"> ~abinit/doc/users/abinit_help.html</div>
+</li>
+<li class="level1"><div class="li"> ~abinit/doc/users/context</div>
+</li>
+</ul>
+
+<p>
+It is important that the reader know how to compile the code, and how to run tests.
+This is described in detail in the installation notes on the Web, that can also be found in the ~abinit/doc/install_notes directory.
+From now on, we assume that you are sufficiently familiarized with these different points, and that you have sufficient experience in the use of ABINIT.
+</p>
+
+<p>
+The ABINIT group rules for coding in Fortran 90 are detailed in the ~abinit/doc/developers/rules_coding file.
+These rules are mostly code-independent.
+Here we describe facts related specifically to the ABINIT package.
+</p>
+
+<p>
+In order to allow programmers to develop different parts of the code at the same time, while avoiding synchronisation problems, a few rules have been sketched.
+See the ~abinit/doc/developers/contributing.html file.
+</p>
+
+<p>
+Specific facts related to parallelism in abinit are explained in ~abinit/doc/developers/rules_paral
+</p>
+
+<p>
+Structure of the present file:
+</p>
+<pre class="code">(A) A few facts
+(B) The skeleton of the code.
+(C) Debugging, timing and statistics facilities.
+(D) Utility subroutines.
+(E) Libraries.</pre>
+
+</div>
+<h2 class="sectionedit2" id="a_a_few_facts_useful_to_know">(A) A few facts, useful to know</h2>
+<div class="level2">
+
+<p>
+The main routine is called abinit.F90 and is present in the directory ~abinit/src/main.
+The rest of the subroutines called by abinit.F90 are in the other ~abinit/src or ~abinit/lib directories.
+Other main routines (mrgddb.F90, anaddb.F90, chi.F90, sigma.F90 …) are present in ~abinit/src/main.
+</p>
+
+<p>
+The subroutines are splitted in two parts: those that come from
+other packages, like Blas, Lapack, and other numerical routines or IO routines;
+and those that have been written directly for ABINIT.
+The first ones are found in the ~abinit/lib directories,
+are often written in Fortran77 or C, and do not follow the coding rules of the ABINIT
+project. The second ones are written in Fortran90 (there are two C routines,
+for timing purposes), follow the coding rules, and are found in the
+different ~abinit/src directories. At the time of writing, there are more
+than 300 subroutines, and about 100000 lines of code, including the library routines.
+</p>
+
+<p>
+Machine dependency is accomodated by using the C preprocessor (CPP) on ALL files in ~abinit/src
+so the fortran compilations are conducted by first preprocessing every file then passing the
+result to the compiler. See the ~abinit/doc/install_notes
+directory and the ~abinit/doc/developers/use_cpp file.
+The sequential and parallel versions are also produced by c preprocessing
+a unique source file. The routines that differ in the sequential and
+parallel versions of the code are found in the Src_seqpar
+and Src_basis directory.
+Other Src_* directories contains separately the routines for XC treatment,
+pseudopotential input, parsing of input file, those for the anaddb code,
+and all the remaining (common) sources.
+</p>
+
+</div>
+<h2 class="sectionedit3" id="b_the_skeleton_of_the_code">(B) The skeleton of the code</h2>
+<div class="level2">
+
+<p>
+(to be updated for RF features)
+One can distinguish 10 important routines, called levels :
+</p>
+<pre class="code">(1) abinit
+(2) driver
+(3) gstate
+(4) mover
+(5) scfcv
+(6) vtorho
+(7) vtowfk
+(8) cgwf
+(9) getghc</pre>
+
+<p>
+The routine abinit.F90 calls driver.F90, driver.F90 calls gstate.F90, …
+</p>
+
+</div>
+<h3 class="sectionedit4" id="b1_abinitf90">B.1. abinit.F90</h3>
+<div class="level3">
+
+<p>
+The main routine, abinit, level 1, has the aim of reading completely
+the input files, and checking whether the input variables
+are sensible, and whether the available memory is sufficient.
+These operations should be very fast, so that the user is
+quickly warned whether his/her input are incorrect.
+No big array is allocated in level 1, except for testing purposes.
+In detail, abinit.F90 performs, or calls routines that perform:
+</p>
+<ol>
+<li class="level1"><div class="li"> Eventually initialize MPI (for parallel runs)</div>
+</li>
+<li class="level1"><div class="li"> Initialize overall timing of run</div>
+</li>
+<li class="level1"><div class="li"> Print greeting for interactive user</div>
+</li>
+<li class="level1"><div class="li"> Read names of files (input, output, rootinput, rootoutput, roottemporaries),</div>
+</li>
+<li class="level1"><div class="li"> Create the name of the status file, initialize the status subroutine.</div>
+</li>
+<li class="level1"><div class="li"> Open output file and print herald at top of output and log files</div>
+</li>
+<li class="level1"><div class="li"> Read the input file, and store the information in a long string of characters</div>
+</li>
+<li class="level1"><div class="li"> Take ndtset and ntypat from the input string, then allocate the arrays whose dimensions depends only on ndtset, ntypat and msym.</div>
+</li>
+<li class="level1"><div class="li"> Finish to read the “files” file completely, and also initialize mproj and mpsang</div>
+</li>
+<li class="level1"><div class="li"> Continue to analyze the input string, and allocate the arrays needed for input.</div>
+</li>
+<li class="level1"><div class="li"> Provide defaults for the variables that have not yet been initialized.</div>
+</li>
+<li class="level1"><div class="li"> Call the main input routine, and finish the input variable initialisation.</div>
+</li>
+<li class="level1"><div class="li"> Echo input data to output file and log file</div>
+</li>
+<li class="level1"><div class="li"> Perform additional checks on input data</div>
+</li>
+</ol>
+
+<p>
+At this stage, all the information from the “files” file and “input” file
+have been read and checked.
+</p>
+<ol>
+<li class="level1"><div class="li"> Perform main calculation  (call gstate)</div>
+</li>
+<li class="level1"><div class="li"> Give final echo of coordinates, etc.</div>
+</li>
+<li class="level1"><div class="li"> Timing analysis</div>
+</li>
+<li class="level1"><div class="li"> Delete the status file, and, for build-in tests, analyse the correctness of results</div>
+</li>
+<li class="level1"><div class="li"> Write the final timing, close the output file, and write a final line to the log file</div>
+</li>
+<li class="level1"><div class="li"> Eventual cleaning of MPI run</div>
+</li>
+</ol>
+
+</div>
+<h3 class="sectionedit5" id="b2_driverf90">B.2. driver.F90</h3>
+<div class="level3">
+
+<p>
+In driver, level 2, a loop on the data sets is present.
+For each data set, either the ground state subroutine (gstate.F90) or
+the response function subroutine (respfn.F90) is called (to be described
+in a future version of this file).
+A few big arrays are allocated at that level.
+</p>
+
+</div>
+<h3 class="sectionedit6" id="b3_gstatef90">B.3. gstate.F90</h3>
+<div class="level3">
+
+<p>
+The routine gstate.F90 , level 3, performs a variety of initialisation tasks
+and result analysis, for which different routines are called.
+</p>
+
+<p>
+A variety of arrays are computed or initialized in subroutine
+setup1.F90 .  Then, based on the geometrical data input and the
+values of k points and ecut, the basis sphere of planewaves is computed
+by kpgio.F90 (that calls kpgsph.F90 and boundy.F90).
+Then header information is written to a file, for
+use in constructing output wavefunction files, see headwr.F90 . These wf files
+contain a description of various input settings which were used to create
+them. Other routines related to the header, and used later,
+are headcopy.F90 , headck.F90 , and headlv.F90 , as well as pspini.F90 and clnup1.F90 .
+</p>
+
+<p>
+Next, all the pseudopotential files needed for the calculation are read.
+Subroutine pspini.F90 controls this part, and calls, for each atom type, the
+routine pspatm.F90 , that will call different routines
+(psp1in.F90, psp2in.F90, psp3in.F90, psp5in.F90, psp6in.F90), according
+to the pseudopotential file format.
+Various transforms of the input psp data are taken
+(bessel function transforms) relevant to the local and nonlocal parts of
+the potential (psp1lo.F90, psp1nl.F90, psp2lo.F90, psp2nl.F90, psp3lo.F90, psp3nl.F90,
+psp5lo.F90, psp5nl.F90) and the non-linear XC core-correction (psp1cc.F90,
+psp4cc.F90, and psp6cc.F90) .
+</p>
+
+<p>
+The wavefunctions are initialized (read or set to random numbers) in inwffil.F90 .
+If they are to be initialized at random,
+or if the simple reading of an existing wf file is needed, then the
+routine initwf.F90 is called by inwffil.F90 . If some work
+has to be done of the existing wavefunctions,
+the operation is more delicate, and inwffil.F90 needs to call the routine
+newkpt.F90, that calls different other routines :
+</p>
+<ol>
+<li class="level1"><div class="li"> listkk.F90 (to find the closest k point)</div>
+</li>
+<li class="level1"><div class="li"> kpgsph.F90 (generate list of plane waves)</div>
+</li>
+<li class="level1"><div class="li"> sphere.F90 (to translate plane wave coefficients from one cut-off sphere to another)</div>
+</li>
+<li class="level1"><div class="li"> envlop.F90 (multiply by an envelope the random coefficient, to reduce their kinetic energy)</div>
+</li>
+<li class="level1"><div class="li"> orthon.F90 (to orthonormalize the wavefunctions)</div>
+</li>
+</ol>
+
+<p>
+The symmetries are initialized in setsym.F90,
+occupation numbers might be computed in newocc.F90 if needed.
+Then, the code computes a starting density and screening potential,
+either from the existing wavefunctions (mkrho.F90), or from the characteristics
+of the pseudopotential (initro.F90), or by reading a file (ioarr.F90).
+At this point, the code either pursues a fixed atom calculation (level 6)
+or a moving atom calculation (levels 4 or 5).
+</p>
+
+<p>
+After these calls, when the big calculations are done, gstate.F90 continues
+by printing results, closing files, deallocating arrays, and return the
+control to driver.F90
+</p>
+
+</div>
+<h3 class="sectionedit7" id="b4_moverf90">B.4. mover.F90</h3>
+<div class="level3">
+
+<p>
+For fixed atoms (ionmov=0), gstate.F90 calls directly scfcv.F90
+(self-consistent field convergence) ;
+For movement of ions (ionmov&gt;0) gstate will call mover.F90
+The routine mover.F90 receives an initial set of atom positions
+and cell parameters and finish providing a new set after (ntime)
+iterations (if convergence is needed and never reached)
+The table of contents of the routine follows:
+</p>
+<pre class="code">01. Initialization of indexes and allocations of arrays
+02. Particularities of each predictor
+03. Set the number of iterations ntime
+04. Try to read history of previous calculations
+05. Allocate the hist structure
+06. First output before any itime or icycle
+07. Compute xcart and fill the history of the first SCFCV
+08. Loop for itime (From 1 to ntime)
+09. Loop for icycle (From 1 to ncycles)
+10. Output for each icycle (and itime)
+11. Symmetrize atomic coordinates over space group elements
+12. =&gt; Call to SCFCV routine and fill history with forces
+13. Write the history into the _HIST file
+14. Output after SCFCV
+15. =&gt; Test Convergence of forces and stresses
+16. =&gt; Precondition forces, stress and energy
+17. =&gt; Call to each predictor
+18. Use the history  to extract the new values
+19. End loop icycle
+20. End loop itime
+21. Set the final values of xcart and xred
+22. XML Output at the end
+23. Deallocate hist and ab_mover datatypes</pre>
+
+<p>
+The main predictors are described with ionmov value:
+</p>
+<pre class="code">1.  Molecular dynamics without viscosity (vis=0)
+1.  Molecular dynamics with viscosity (vis/=0)
+2.  Broyden-Fletcher-Goldfard-Shanno method (forces)
+3.  Broyden-Fletcher-Goldfard-Shanno method (forces,Tot energy)
+4.  Conjugate gradient of potential and ionic degrees of freedom
+5.  Simple relaxation of ionic positions
+6.  Verlet algorithm for molecular dynamics
+7.  Verlet algorithm blocking every atom where dot(vel,force)&lt;0
+8.  Verlet algorithm with a nose-hoover thermostat
+9.  Langevin molecular dynamics
+10. BFGS with delocalized internal coordinates
+11. Conjugate gradient algorithm
+12. Isokinetic ensemble molecular dynamics
+13. Isothermal/isenthalpic ensemble molecular dynamics
+14. Symplectic algorithm Runge-Kutta-Nyström SRKNa14
+20. Ionic positions relaxation using DIIS
+21. Steepest descent algorithm
+30. Self consistent phonon structure using a supercell</pre>
+
+<p>
+In all three cases, the routines call many times scfcv.F90, which
+controls update and mixing of the density and potential and generates
+forces for a given arrangement of atoms. With these data, the
+molecular dynamics or the geometry optimization can be performed.
+</p>
+
+</div>
+<h3 class="sectionedit8" id="b5_scfcvf90">B.5. scfcv.F90</h3>
+<div class="level3">
+
+<p>
+This routine performs the SCF loop.
+A few arrays, needed for that purpose, are allocated there.
+Inside the loop, scfcv.F90 calls:
+</p>
+<ol>
+<li class="level1"><div class="li"> setvtr.F90, usually only at the initialisation step, to set a first trial potential</div>
+</li>
+<li class="level1"><div class="li"> vtorho.F90, level 7, to get the density from the trial potential</div>
+</li>
+<li class="level1"><div class="li"> vresfo.F90, to get the potential residual, the forces, and components of the energy</div>
+</li>
+<li class="level1"><div class="li"> newvtr.F90, to precondition the potential residual, and compute the new trial potential</div>
+</li>
+</ol>
+
+<p>
+The computation of Hartree and XC potential is done inside setvtr.F90 and
+newvtr.F90, by calling the routine rhohxc.F90 .
+That routine, in turn, calls hartre.F90 , for the Hartree potential, and
+many different routines for the XC potential, depending on the
+different XC functionals, and the intxc option (xcden.F90, xchelu.F90, xcpbe.F90,
+xcpot.F90, xcpzca.F90, xcspol.F90, xctetr.F90, xcwign.F90, xcxalp.F90)
+</p>
+
+<p>
+After the loop, scfcv.F90 computes the stress, by calling stress.F90 ,
+and also eventually print density, potential, or other files.
+</p>
+
+</div>
+<h3 class="sectionedit9" id="b6_vtorhof90">B.6. vtorho.F90</h3>
+<div class="level3">
+
+<p>
+Subroutine vtorho.F90 (potential -v- to density -rho-, level 7)
+produces the density in a fixed potential,
+by summing all contributions of different k points and eventually
+different spins.  Forces are recomputed after each pass in all k points.
+Parallelism is implemented at the level of concurrent
+treatment of each k-point separately, in vtorho.F90 .
+</p>
+
+</div>
+<h3 class="sectionedit10" id="b7_vtowfkf90">B.7. vtowfk.F90</h3>
+<div class="level3">
+
+<p>
+Subroutine vtowfk (potential -v- to k-point wavefunctions, level 8)
+is called to improve the wavefunctions
+over all bands at a single k point at a time. It gives also
+the contributions of each band to kinetic energy and non-local
+energy. In the case of fixed occupancies, it gives the
+contribution of each k point to the density.
+Subspace diagonalization, and orthogonalisation
+is done within vtowfk, and might be time-consuming.
+</p>
+
+</div>
+<h3 class="sectionedit11" id="b8_cgwff90_and_getghcf90">B.8. cgwf.F90 and getghc.F90</h3>
+<div class="level3">
+
+<p>
+Subroutine cgwf (Conjugate-gradient on the wavefunctions, level 9),
+runs the iterative optimization of wavefunction
+for a single band and k point, in a fixed potential.
+It start from an existing wavefunction, either in central memory or
+on a temporary file on disk, and refine it, finally writing in central
+memory or on another temporary file on disk.
+Deep within cgwf is a call to getghc (level 10),
+which computes &lt;G|H|C&gt; where |C&gt; is the
+wavefunction.  This subroutine is the guts of the method.  Its time
+is presently dominated by fft calls (about 50-60%), with the next
+bottleneck being the nonlocal operator (20-35%).
+</p>
+
+<p>
+You will find the code fairly well commented and may explore it further
+to get more details than provided above.
+</p>
+
+</div>
+<h2 class="sectionedit12" id="c_debugging_timing_and_statistics_facilities">C. Debugging, timing and statistics facilities</h2>
+<div class="level2">
+
+<p>
+The abinit code has been equipped with a set of tools for the developers.
+These include:
+</p>
+<pre class="code">1) The log file.
+2) The prtvol input variable.
+3) The status file.
+4) The memory subroutine.
+5) The time analysis backbone.
+6) The statistics provided in the make.</pre>
+
+<p>
+As mentioned in the new_user_guide or in the abinit_help,
+there are two general files for output: the “output” file and
+the “log” file. When something goes wrong in the code, without
+causing the code to crash, the log file will mention the name
+of the routine where something went wrong, and what went wrong.
+Usually, corrective actions are suggested.
+The output of messages is handled thanks to wrtout.F90 , called when
+the message has been packed in a character string (usually called &#039;message&#039;).
+When something has gone wrong, the exit is to be done by a call to the
+leave_new.F90 subroutine.
+</p>
+
+<p>
+The use of the prtvol input variable in conjunction with
+the log file is the most important tool for debugging.
+As indicated by its name, prtvol controls the print volume in the
+output file and in the log file.
+When equal to 0, the information in the log file is kept at the minimum.
+When equal to 1, the information is already much more complete.
+Even much more flexibility is gained when prtvol is used with negative values.
+These negative values each refer to one the levels of the code
+(i.e. prtvol=-10 refer to debugging of getghc, prtvol=-7 to debugging
+of vtorho). When debugging some level through the use of the corresponding
+negative prtvol value, the amount of data written on the log file,
+coming from this level of the code, will increase dramatically. Moreover,
+after the first execution of the complete level, the code will automatically
+stop (except for the levels 1 and 3, that stop BEFORE entering
+the next level).
+</p>
+
+<p>
+The status file is another important tool for debugging, especially
+because of the UNIX pecularity (when running from a script)
+that the outputs are not immediately
+written in a file, but kept in a buffer, unless this file is closed.
+When the code crashes (for example with a message “segmentation fault”),
+it is difficult to know at which place the segmentation fault happened,
+from the log file.
+The status file is a very short file that, depending on the
+value of the input parameter istatr, can be opened, rewound, written,
+and closed very frequently. This is done by calls to the status.F90
+subroutine. Due to its frequent closing,
+it can indicates precisely where a crash just happened.
+( Note : if the status file is situated on a disk that is “local” to
+the cpu where the job is run,
+the whole operation is usually less than 0.2 msec. On a remote disk
+(NFS), the operation is 10 times more consuming. These data may differ
+from machine to machine : on a Cray-T3E the I/O operations are
+relatively slow. In order not to cause troubles, in the default mode
+the value of istatr is relatively large, causing the file not to be
+often updated. On some machines and depending on the disk access,
+using a small value of istatr -under 5- will cause the code to crash)
+</p>
+
+<p>
+The memory.F90 subroutine is a place where the memory space needed for the
+code is estimated, shortly after reading the input.
+The subroutine will immediately try to allocate as much as memory space
+as estimated, and send an error message if not possible
+(on the P6, this operation makes the job crash in case there is not enough
+memory, but it is not difficult to understand what is the problem, thanks
+to the status file). This memory estimation is hand-coded (this is very boring !).
+The precise description of the allocation in the most critical
+subroutines can constitute a help for the optimization of memory usage.
+</p>
+
+<p>
+Another help for the optimisation is provided by the time analysis backbone.
+Many important routines are timed internally, thanks to two
+calls to the timer routine timepw.F90 (one call at the entrance,
+one call at the exit). A final call to the
+routine timanalys.F90 provide a detailed analysis of the repartition of the
+CPU and Wall clock time, in the critical subroutines, or in the
+different levels of the code. Thanks to this tool, it is rather
+obvious what parts of the code should be optimized, and also
+what is going wrong when the code is ported to a new machine.
+</p>
+
+<p>
+The last feature useful for developing the code is provided by the
+statistics of the make command, in the directory ~abinit.
+This allows to make sure that no file is getting too big to be
+easily manipulated, and indicate when a file is to be splitted
+(see ~abinit/doc/developers/rules_coding).
+</p>
+
+<p>
+Of course, it is important that adequate care is taken to implement
+these features in newly developed parts of the code.
+It is thus expected that the developer read the
+subroutines wrtout.F90, leave_new.F90, timepw.F90, and eventually
+timanalys.F90, status.F90, and memory.F90. It is advised also to read
+the subroutine getghc.F90 (the latter, for an idea of the usage of
+the prtvol=-level debugging option, there for prtvol=-10).
+</p>
+
+</div>
+<h2 class="sectionedit13" id="d_utility_subroutines">D. Utility subroutines</h2>
+<div class="level2">
+
+<p>
+Beyond the big main routines presented in section B, and the different
+routines for timing, debugging and statistics of section C, other
+routines in ~abinit/src may be worth to learn about…
+</p>
+
+<p>
+There is a whole set of routines for the treatment of strings
+of characters (they should be described shortly in a next version):
+appdig.F90, fappnd.F90, inarray.F90, incomprs.F90, inread.F90, inreplsp.F90,
+inupper.F90, subchr.F90
+</p>
+
+<p>
+Routines for numerical derivation and/or integration :
+ctrap.F90, der_int.F90
+</p>
+
+<p>
+Some Numerical functions
+</p>
+<ol>
+<li class="level1"><div class="li"> besjm.F90 : half-integer bessel functions</div>
+</li>
+<li class="level1"><div class="li"> derfc.F90 : complementary error function</div>
+</li>
+<li class="level1"><div class="li"> invcb.F90 : fast computation of a series of inverse cubic roots</div>
+</li>
+<li class="level1"><div class="li"> sincos.F90 : fast computation of a series of sine and cosine</div>
+</li>
+</ol>
+
+<p>
+Routines related to symmetries and brillouin zone (should be described) :
+chkgrp.F90, chkibz.F90, cnstti.F90, fixsym.F90, irrzg.F90, setsym.F90, strsym.F90,
+sygrad.F90, symatm.F90, symchk.F90, symdet.F90, symg.F90, symrhg.F90, symzat.F90
+</p>
+
+<p>
+Vector operations :
+</p>
+<ol>
+<li class="level1"><div class="li"> norm.F90 : normalize a vector</div>
+</li>
+<li class="level1"><div class="li"> normev.F90 : normalize a set of vectors, and fix the phases</div>
+</li>
+<li class="level1"><div class="li"> fxphas.F90 : fix the phase of a vector</div>
+</li>
+<li class="level1"><div class="li"> orthon.F90 : orthonormalize a set of vectors</div>
+</li>
+<li class="level1"><div class="li"> projbd.F90 : orthogonalize one vector to a set of other vectors</div>
+</li>
+<li class="level1"><div class="li"> sdirot.F90 : rotate a set of vectors by a unitary transformation</div>
+</li>
+</ol>
+
+<p>
+3&times;3 matrix inversion (integer and real) :
+mati3inv.F90, matr3inv.F90
+</p>
+
+<p>
+Other (should be described) :
+clsopn.F90, fxphas.F90, hermit.F90, iseq.F90, isfile.F90, mkkin.F90,
+mkrdim.F90, prmat.F90, randac.F90, xredxcart.F90
+</p>
+
+</div>
+<h2 class="sectionedit14" id="e_libraries">E. Libraries</h2>
+<div class="level2">
+
+<p>
+As for the utility subroutines, the developer should be aware of the
+routines available from the libraries, and use them instead of
+coding something with the same purpose.
+</p>
+
+<p>
+The Lapack library contains a matrix diagonalizer, zhpev.F90, that
+is needed many times in the code. Presently, this is the only
+entry point in the Lapack library. The Blas routines are used
+by Lapack, but are not directly called by ABINIT.
+Only the specific subset of Lapack and Blas, needed to support
+zhpev.F90, is present in ABINIT.
+</p>
+
+<p>
+The Numerical Recipes library contains:
+</p>
+<ol>
+<li class="level1"><div class="li"> sorting routines (insort.F90, isort2.F90, sort2.F90)</div>
+</li>
+<li class="level1"><div class="li"> a routine that computes the julian day number (julday.F90)</div>
+</li>
+<li class="level1"><div class="li"> a function that returns a uniform random deviate between 0.0 and 1.0 (ran1.F90)</div>
+</li>
+<li class="level1"><div class="li"> spline fitting routines (splfit.F90 and spline.F90)</div>
+</li>
+<li class="level1"><div class="li"> (to be updated)</div>
+</li>
+</ol>
+
+</div>
+<!-- cachefile /var/www/dokuwiki/data/cache/5/5426afed535d7f6612378e1edde47dad.xhtml used -->
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+ </html>
