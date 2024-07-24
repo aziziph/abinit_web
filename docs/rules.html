@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+    <style>
+        body {
+  margin-top: 40px;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, sans-serif;
+  padding: 0;
+}
+
+            #dw__toc {
+            width: 20%;
+            color: #F18F34;
+            padding: 10px;
+            position: fixed;
+            top: 20%;
+            right: 0;
+            height: 100%;
+            overflow-y: auto;
+        }
+        .toc .level1, .toc .level2 {
+            list-style: none;
+            padding-left: 0;
+        }
+        .toc .level1 .li, .toc .level2 .li {
+            padding: 5px 0;
+        }
+        .toc a {
+            color: #F18F34;;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<div class="icon-container">
+    <!-- Replace with your actual icons -->
+    <div class="icon"><a href="./index.html">
+                <img  width="200px" alt="ABINIT" src="./logo/logo.png"
+                      title="" />
+                <span class="title"></span>
+            </a>
+    </div>
+    <div class="icon"><a href="./pseudopotential.html">
+                <img  alt="Pseudo and atomic data" class="icon"
+                     src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data </span>
+        </a></div>
+
+    <div class="icon"><a href="https://docs.abinit.org/variables">
+                <img  alt="input variables" class="icon"
+                     src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables </span>
+        </a></div>
+    <div class="icon"><a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png"
+                     title="Tutorials" />
+                <span class="title">Tutorials </span>
+        </a></div>
+    <div class="icon"><a href="https://discourse.abinit.org/">
+                <img  alt="Forum" class="icon" src="./img/Forum.png"
+                     title="Forum" />
+                <span class="title">Forum </span>
+        </a></div>
+    <div class="icon"><a href="https://wiki.abinit.org/doku.php?id=start">
+                <img  alt="Wiki" class="icon" src="./img/wiki.png"
+                     title="Wiki" />
+                <span class="title">Wiki </span>
+        </a>
+    </div>
+    <div class="icon"><a href="./download.html">
+                <img  alt="Download" class="icon"
+                     src="./img/Download.png"
+                     title="Download" />
+                <span class="title">Download </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://docs.abinit.org/installation/">
+                <img  alt="Compile" class="icon"
+                     src="./img/Compile.png"
+                     title="Compile" />
+                <span class="title">Compile </span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://github.com/abinit">
+                <img  alt="GitHub" class="icon"
+                     src="./img/git.png"
+                     title="GitHub" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div class="icon"><a href="https://gui.abinit.org/">
+                <img  alt="GUI" class="icon"
+                     src="./img/gui.png"
+                     title="GUI" />
+                <span class="title"></span>
+        </a>
+    </div>
+    <div
+            class="icon"><a href="https://github.com/abinit/abipy">
+                <img  alt="abipy" class="icon"
+                     src="./img/abipy.png"
+                     title="abipy" />
+                <span class="title"></span>
+        </a>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="page group"  style="margin-left: 15%; margin-right: 20%;">
+                                                            <!-- wikipage start -->
+                    <!-- TOC START -->
+<div id="dw__toc" class="dw__toc">
+<h3 class="toggle open" style="cursor: pointer;"><strong><span>−</span></strong>Table of Contents</h3>
+<div style="" aria-expanded="true">
+
+<ul class="toc">
+<li class="level1"><div class="li"><a href="#abinit_style_for_fortran_programming">ABINIT style for Fortran programming</a></div></li>
+<li class="level1"><div class="li"><a href="#foreword">1. Foreword</a></div></li>
+<li class="level1"><div class="li"><a href="#declarations">2. Declarations</a></div></li>
+<li class="level1"><div class="li"><a href="#variables">3. Variables</a></div></li>
+<li class="level1"><div class="li"><a href="#file_format">4. File format</a></div></li>
+<li class="level1"><div class="li"><a href="#constructs_for_flow_control">5. Constructs for flow control</a></div></li>
+<li class="level1"><div class="li"><a href="#use_of_arrays">6. Use of arrays</a></div></li>
+<li class="level1"><div class="li"><a href="#coding_practice">7. Coding practice</a></div></li>
+<li class="level1"><div class="li"><a href="#exception_handling_and_i_os">8. Exception handling and I/Os</a></div></li>
+<li class="level1"><div class="li"><a href="#to_be_avoided">9. To be avoided</a></div></li>
+<li class="level1"><div class="li"><a href="#use_of_blas_and_lapack_subroutines">10. Use of BLAS and LAPACK subroutines</a></div></li>
+<li class="level1"><div class="li"><a href="#modules">11. Modules</a></div></li>
+<li class="level1"><div class="li"><a href="#derived_datatypes">12. Derived datatypes</a></div></li>
+<li class="level1"><div class="li"><a href="#other_topics">13. Other topics</a></div></li>
+<li class="level1"><div class="li"><a href="#useful_links">13. Useful links</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#mg_additional_comments">MG Additional comments</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#abinit_style_for_mpi_programming">ABINIT style for MPI programming</a></div></li>
+<li class="level1"><div class="li"><a href="#basic_rules_for_mpi_parallelization">Basic rules for MPI parallelization</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#dealing_with_io">Dealing with IO</a></div></li>
+<li class="level2"><div class="li"><a href="#dealing_with_stop">Dealing with stop</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#abinit_style_for_openmp_programming">ABINIT style for OpenMP programming</a></div>
+<ul class="toc">
+<li class="level2"><div class="li"><a href="#basics">Basics</a></div></li>
+<li class="level2"><div class="li"><a href="#portability">Portability</a></div></li>
+<li class="level2"><div class="li"><a href="#efficiency">Efficiency</a></div></li>
+</ul>
+</li>
+<li class="level1"><div class="li"><a href="#discussion__section">Discussion</a></div></li>
+</ul>
+</div>
+</div>
+<!-- TOC END -->
+
+<h1 class="sectionedit1" id="abinit_style_for_fortran_programming">ABINIT style for Fortran programming</h1>
+<div class="level1">
+
+<p>
+(revised many times from the original draft in 1991, BUT NOT REALLY UP_TO_DATE … SHOULD BE REVISED ONCE MORE)
+</p>
+
+</div>
+
+<h1 class="sectionedit2" id="foreword">1. Foreword</h1>
+<div class="level1">
+
+<p>
+The ABINIT code should conform to the ANSI Fortran norm (Fortran 2003).
+Still, most of the following rules can already used with Fortran95. This norm is abbreviated F95, while the older norm, Fortran 77, is abbreviated F77.
+The following set of rules complements the F95 (or Fortran2003) standard.
+The ABINIT code conforms to most of these additional rules already.
+Each modification, or new routine is expected to adopt all
+the standards, that will be also enforced gradually in existing routines.
+The developer is supposed to have a good knowledge of the Fortran constructs.
+For an introduction to them, consult the following <abbr title="Uniform Resource Locator">URL</abbr>: (to be filled)
+</p>
+
+<p>
+The rules described afterwards do NOT apply to the routines that are in the *_noabirules directories.
+Their source is voluntarily not modified,
+to keep coherence with the original versions, provided by somebody who followed other coding rules.
+Names having a special meaning in F95 are written here in uppercase.
+They are usually NOT in uppercase in the code, however.
+</p>
+<ul>
+<li class="level1"><div class="li"> Could be nice to enforce that ?</div>
+</li>
+</ul>
+
+<p>
+There must be basic rules that are enforced: lowercase for routine names, variable names in English, comments in English, explicative names! Avoid confusing names.
+</p>
+
+<p>
+The basic utility of this document is to provide a common style to all the routines.
+This is important,in order for ABINIT developers to understand quickly what a routine does:
+they expect some information to be always present in some part of each routine, or, in the
+opposite sense, they should know where to place each information (and not spend time to evaluate
+where each information should be placed).
+This document is also a way to enforce a kind of “locality of information” principle: all the information needed to understand what a routine does should be contained in the same routine, and if possible, the information about a small part of the routine should be contained within a screen page of this part of the routine.
+</p>
+
+<p>
+In general, the developer will conform to the style by taking an existing routine as an example, and
+use it to generate a new routine.
+However, it is worth reading the present rules from time to time …
+The new rules will be enforced gradually.
+This means that not only the format, but also the content of present document is IN A TRANSITIONAL state.
+</p>
+
+</div>
+
+<h1 class="sectionedit3" id="declarations">2. Declarations</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Use <code>IMPLICIT NONE</code>, forcing explicit declaration of all variables, in all subroutines or modules</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <code>COMPLEX*16</code> or <code>REAL*8</code> are not ANSI standards. In the <code>defs_basis</code> module, one defines the integer variable dp <pre class="code">INTEGER, PARAMETER :: dp = kind(1.0d0)</pre>
+
+<p>
+ Accordingly, define floating point numbers as
+</p>
+<pre class="code">          REAL(dp) :: real_variable
+          !(the double precision is standard, avoid single precision).
+          For the declaration of complex numbers, use two real numbers:
+
+          REAL(dp) :: complex_variable(2)
+          ! That is, place complex numbers in a single array with
+          ! real parts in odd array components
+          ! and imaginary parts in even array components.</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> When setting values of constants, include <code>_dp</code> on the end to indicate double precision constants, e.g. 0.0_dp. For integers, one has the choice between:<pre class="code">
+      INTEGER :: ii
+
+      ! and
+
+      INTEGER(i4b) :: ii
+
+      ! where i4b has been defined in the 'defs_basis' module</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Mention all the attributes of a variable in a single-line declaration. This means that <code>PARAMETER</code>, <code>SAVE</code>, <code>ALLOCATABLE</code>, <code>INTENT(IN)</code>, etc. should not be declared later. However, avoid the <code>DIMENSION</code> attribute, and declare the dimension after each array. This is to save numerous line in the declaration section. The use of the double colon is the standard. </div>
+</li>
+</ul>
+
+<p>
+  (JB:For arrays, I feel like one per line is enough since it becomes harder to have a glance at the dimensions afterwards) For example
+</p>
+<pre class="code">        REAL(dp), PARAMETER :: aa=1.0d0, bb=1.0d0/3.0d0
+
+        INTEGER, ALLOCATABLE :: cc(:)</pre>
+<ul>
+<li class="level1"><div class="li"> For character strings, use:</div>
+</li>
+</ul>
+<pre class="code">      CHARACTER(len=10) :: name(5)</pre>
+<ul>
+<li class="level1"><div class="li"> For a string of characters whose length is known only in the calling subroutine, use<pre class="code">
+        CHARACTER(len=*) :: names(8)</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Logical variables are allowed, especially for very big arrays, where the memory gain is important, or for temporary logical arrays (work arrays). However, when a variable has to describe a choice, use an integer instead of a logical: this paves the way to the introduction of further choices. (JB: discussion about magic numbers ?)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> This should not be enforced but we should provide guidelines: if we suspect that the size of the array may be very large, use allocatable arrays…. Avoid automatic arrays (except for small arrays such as <code>local_arr(small_num)</code>), use allocatable arrays.</div>
+</li>
+</ul>
+<ol>
+<li class="level1"><div class="li"> The handling of automatic and allocatable variables in memory is different: automatic variables are placed in the stack, while allocatable arrays are placed in the heap. The stack size is usually limited.</div>
+</li>
+<li class="level2"><div class="li"> This also allows the checking of the parts of the program where memory is allocated, through the use of a grep allocatable * or  grep allocate * command. In order for such a search to be efficient, never continue an allocate or allocatable command on the next line. (see also rule 5.f)</div>
+</li>
+</ol>
+<ul>
+<li class="level1"><div class="li"> Should be used only if the “pointer” power is needed to avoid waste of memory, never use pointer for dynamic (temporary) arrays)). Use pointer to point something. Coding rule: nullify pointer when you are done with init, set pointers to null() in the datypes. Use allocatable Example:<pre class="code">        REAL(dp),DIMENSION(:),POINTER :: array
+        nullify(array)
+        CALL init(array)
+        (using array)
+        DEALLOCATE(array)
+
+        ! where the subroutine init contains:
+
+        INTEGER :: size_array
+        REAL(dp),DIMENSION(:),POINTER :: array
+        size_array=...(some expression)
+        ALLOCATE(array(size_array))
+        (initialize array)
+        END SUBROUTINE</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Assumed shape arrays are encouraged when the shape of the array is not known and/or efficiency is not important. Avoid passing the arrays descriptot when you are calling F77 routines e.g. BLAS/LAPACK)</div>
+</li>
+</ul>
+
+<p>
+assumed shape arrays Continue to use explicit shape  the use of assumed shape array is allowed Always declare explicitly in the subroutine the dimension of a array. This is to allow to understand locally exactly what array operations are doing. Try to  High-level routines with many arguments should use datatypes to gather the information so that we can simplify the <abbr title="Application Programming Interface">API</abbr>. We cannot continue to use optional arguments and/or zillions of options and arrays to handle all the possible cases. Look for example at the XC routines and the implementation of MGGA!JB: YES ! Actually the number of arguments should be limited to a defined value like let say 10 and be enforced !)  So, use:
+</p>
+<pre class="code">       INTEGER :: zat(natom)
+
+       ! and avoid
+       INTEGER :: zat(*) ! to be avoided</pre>
+<ul>
+<li class="level1"><div class="li"> JB : Sometimes it is usefull to not declare explicitely the size of an array but just it shape. For instance: Remember that an explicit interface is required (declare your procedure in a module if possible)<pre class="code">      REAL :: gw(:,:) ! freq, flavors
+      INTEGER :: nfreq, nflavors
+
+      nfreq=SIZE(gw,1)
+      nflavor=SIZE(gw,2)</pre>
+</div>
+</li>
+</ul>
+
+<p>
+      This allows to work on a given subset of an array and the routine is then adaptative
+</p>
+
+</div>
+
+<h1 class="sectionedit4" id="variables">3. Variables</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Never use a one-letter name for a variable, because they are too difficult to find systematically. Even two-letter variables (except duplicated letters, easy to find, or names including j, k, q, x, or z, or some special variables like “dp”) should be avoided. So, use ii,jj,kk instead of i,j,k. Note that F90 allows for names longer than 6 characters, unlike F77. (enforced)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Naming of looping variables (integers):</div>
+</li>
+</ul>
+<pre class="code">        Use i... for the current (dummy) value of a given index
+        Use n... for the number of a given quantity, in general
+                 also equal to its maximum (unlike in the old standard)
+        Use m... for the maximum number of a given quantity,
+                 when it is not equal to the actual number of this given quantity
+        For example: iatom, natom, matom, respectively (partially enforced).
+
+* Try to name your variables following the standard names used in Abinit (e.g. cg) </pre>
+<ul>
+<li class="level1"><div class="li"> For global variables, use explicative names, possibly with a prefix that is constructed from the name of the module (e.g. XMPI_WORLD). Avoid global variables that can be changed at run-time or provide a setter/getter method </div>
+</li>
+</ul>
+
+</div>
+
+<h1 class="sectionedit5" id="file_format">4. File format</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Use the Fortran90 free format. (132 column maximum, continuation sign &amp; … &amp;, comment sign !, no  restriction on the use of the first columns). Note that doubling the comment sign (!!) will be used to allow processing by Robodoc.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Always use the continuation sign on both the continued line (at its end), and on the continuation line (at its beginning) (enforced)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use indentation of two columns for each DO-loop or each IF-block, or any other of structure (usually enforced)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li">  Don't break the indentation even when you insert CPP sections </div>
+</li>
+</ul>
+
+<p>
+The header of each routine must use a special format, so that it can be processed by the
+Robodoc documentation program (see <a
+        href="http://www.xs4all.nl/~rfsber/Robo/robodoc.html"
+        class="urlextern" title="http://www.xs4all.nl/~rfsber/Robo/robodoc.html" rel="ugc nofollow" style="color: #F18F34;">http://www.xs4all.nl/~rfsber/Robo/robodoc.html</a> and <a href="http://www.xs4all.nl/~rfsber/Robo/manual.html" class="urlextern" title="http://www.xs4all.nl/~rfsber/Robo/manual.html" rel="ugc nofollow" style="color: #F18F34;">http://www.xs4all.nl/~rfsber/Robo/manual.html</a>).
+</p>
+
+<p>
+This header of the file will have to mention:
+</p>
+<ol>
+<li class="level1"><div class="li"> the name of the subroutine</div>
+</li>
+<li class="level2"><div class="li"> the function of the subroutine</div>
+</li>
+<li class="level2"><div class="li"> the copyright</div>
+</li>
+<li class="level2"><div class="li"> the complete set of input arguments with explanation</div>
+</li>
+<li class="level2"><div class="li"> the complete set of output arguments with explanation</div>
+</li>
+<li class="level2"><div class="li"> the complete set of arguments that are both input and output, with explanation</div>
+</li>
+<li class="level2"><div class="li"> the list of calling routines (produced automatically: do not worry about it).</div>
+</li>
+<li class="level2"><div class="li"> eventually some notes.</div>
+</li>
+</ol>
+
+<p>
+Then, the body of the routine will follow (with CPP F90 instructions, see rule 3.f).
+For Robodoc treating Fortran 90, there is a special meaning attached
+to the lines of the source files that begin with a double bang !!
+There are also keywords (<code>NAME</code>, <code>FUNCTION</code>, <code>COPYRIGHT</code>, <code>INPUTS</code>, <code>OUTPUT</code>, <code>SIDE EFFECTS</code>, <code>NOTES</code>, <code>SOURCE</code> …) to be used.
+</p>
+
+<p>
+(MG: We should standardize the format used to write the documentation inside the fields. RST is an interesting possibility…)
+</p>
+
+<p>
+The header format is the most easily understood by a commented example:
+</p>
+<pre class="code">!!****f* ABINIT/name_of_subroutine
+!! NAME
+!! name_of_subroutine
+!!
+!! FUNCTION
+!! explanation of "name_of_subroutine"
+!! will be described here ...
+!!
+!! COPYRIGHT
+!! Copyright (C) yyy1[-yyy2] ABINIT group (initials)
+!! This file is distributed under the terms of the
+!! GNU General Public License, see ~abinit/COPYING
+!! or http://www.gnu.org/copyleft/gpl.txt .
+!! For the initials of contributors, see ~abinit/doc/developers/contributors.txt .
+!!
+!! INPUTS
+!!  arg1 = ...
+!!  arg2 = ...
+!!
+!! OUTPUT
+!!  arg3 = ...
+!!  arg4 = ...
+!!
+!! SIDE EFFECTS
+!! Input/Output   ! if this line is found in a routine, use "SIDE EFFECT".
+!!  arg5 = ...
+!!
+!! PARENTS        ! This paragraph will be produced automatically
+!!                ! It will mention the routines that call the present one.
+!!
+!! NOTES
+!!  (miscellaneous note, warning, etc., if any)
+!!
+!! SOURCE</pre>
+
+<p>
+The string “name_of_subroutine” must be replaced by the name of the subroutine.
+In the copyright notice, “yyy1” and “yyy2” must be replaced by years of modifications,
+“initials” must be replaced by the initials of the contributors, for example
+</p>
+<pre class="code"> !! Copyright (C) 2007-2013 ABINIT group (DCA, XG).
+ "arg1=..." </pre>
+
+<p>
+and similar strings must be replaced by the actual description
+of input or output variables. They must appear in the same order in which
+they appear as arguments to the subroutine. Note that the Robodoc keywords
+are “INPUTS” (with a “S”) and “OUTPUT” (without a “S”).
+</p>
+
+<p>
+If physical quantities are being passed as arguments, give the appropriate dimension for the quantity
+(e.g. Hartrees or Bohr). No work space private to each routine should be an argument
+of the routine, use ALLOCATABLE, ALLOCATE, and DEALLOCATE inside the subroutine.
+</p>
+
+<p>
+After the line
+</p>
+<pre class="code">!! SOURCE</pre>
+
+<p>
+follows the CPP and F90 lines (enforced).
+</p>
+
+<p>
+3.f. After the header, and before the F90 declaration of variables, one must mention, in order:
+</p>
+<ul>
+<li class="level1"><div class="li"> eventually, global CPP definitions</div>
+</li>
+<li class="level1"><div class="li"> the subroutine name and arguments</div>
+</li>
+<li class="level1"><div class="li"> eventually, “include” files</div>
+</li>
+</ul>
+
+<p>
+As an example:
+</p>
+<pre class="code">  #define FNLEN 132    /* defines the length of file name variables */
+
+  subroutine name_of_subroutine (arg1,arg2,arg3,arg4,arg5)
+
+  include 'file'</pre>
+
+<p>
+3.g.
+Every routine should then have the declaration IMPLICIT NONE.
+This should then be followed by other declarations as follows.
+*Very important note*: the order of declarations is automatically enforced by the <code>abirules</code> script.
+The developer can perfectly leave to the script the duty of ordering his new declarations,
+at the time of the merge with the rest of the code
+Note that within each list, the variable names should be in alphabetic order.
+(JB: INTENT should be enforced for all arguments, shouldn't it ?)
+</p>
+
+<p>
+A1. Arguments: scalars
+</p>
+<pre class="code">INTENT(IN)
+(1) integers
+(2) double precision
+(3) other variables in argument list
+INTENT(OUT)
+(4) integers
+(5) double precision
+(6) other variables in argument list
+INTENT(INOUT)
+(7) integers
+(8) double precision
+(9) other variables in argument list</pre>
+
+<p>
+A2. Arguments: arrays same as (1)-(9à) above
+</p>
+
+<p>
+B1. Local variables (sequential) : scalars
+</p>
+<pre class="code">INTEGER
+(1) integer parameters
+(2) integer with save attribute
+(3) other integers
+DOUBLE PRECISION
+(4) double precision parameters
+(5) double precision with save attribute
+(6) other double precision
+(7) other scalar variables</pre>
+
+<p>
+B2. Local variables (sequential) : arrays
+</p>
+<pre class="code">INTEGER
+(1) integer arrays
+(2) allocatable integer arrays
+(3) pointers to integer arrays
+DOUBLE PRECISION
+(4) real arrays
+(5) allocatable real arrays
+(6) pointers to real arrays
+(7) other array variables</pre>
+
+<p>
+C1. Local variables (parallel case: MPI code section) : scalars
+</p>
+
+<p>
+C2. Local variables (parallel case: MPI code section) : arrays
+</p>
+
+<p>
+See the description of the sequential variables
+</p>
+
+<p>
+3.h. Do coding in lower case. Lower case is suggested because it looks prettier.
+Use standard English grammar for comments (start sentences with uppercase).
+The keywords DEBUG and ENDDEBUG, in uppercase, should emphasize each part of the code, commented
+or uncommented, that is written for the purpose of debugging. (enforced)
+</p>
+
+<p>
+3.i. Use comments frequently to explain manipulations and make them in English. (enforced)
+</p>
+
+<p>
+3.l. Equations mentioned in comment lines should be written in Latex, for processing using Src2tex.
+There are several ways to describe latex equations in the F90 comments
+(these might be introduced by one “!” or two) :MOVE this section to a separate section
+</p>
+<pre class="code">1)  !! $ equation $
+1') !  $ equation $
+2)  !! $\displaystyle equation$
+2') !  $\displaystyle equation$
+3)  !!{{\ \begin{equation}
+    !!  ... equation ...
+    !!\end{equation} }}
+3') !{{\ \begin{equation}
+    !  ... equation ...
+    !\end{equation} }}
+4)  !!{{\ \begin{eqnarray}
+    !!  ... equation ...
+    !!\end{eqnarray} }}
+4') !{{\ \begin{eqnarray}
+    !  ... equation ...
+    !\end{eqnarray} }}</pre>
+
+<p>
+For example:
+</p>
+<pre class="code">!! epsatm=$(4 \pi) \int_0^\infty [r^2 (V(r)+Zv/r) dr]$ (hartree)</pre>
+
+<p>
+If a long fraction sentence is found, “!! $\displaystyle equation $” may be better for visualization.
+</p>
+
+<p>
+In some cases,
+</p>
+<pre class="code">!!\begin{equation} ...!!\end{equation}</pre>
+
+<p>
+or
+</p>
+<pre class="code">!!\begin{eqnarray} ...!!\end{eqnarray}</pre>
+
+<p>
+format might be better, especially for very long equation lines.
+</p>
+
+<p>
+3.m. Additional information about Src2tex and Robodoc.
+</p>
+
+<p>
+As mentioned in rule 3.e , the content of the PARENT paragraph will be created or updated automatically.
+Also, the source files will be preprocessed automatically before applying src2tex:
+</p>
+<ul>
+<li class="level1"><div class="li"> the very first line will be added: !{\src2tex{texfont=tt}}</div>
+</li>
+<li class="level1"><div class="li"> the very last line will also be added: !!***</div>
+</li>
+</ul>
+
+<p>
+(usually enforced)
+</p>
+
+<p>
+3.o. <strong>*MG_NEIN. Let's fix the scripts so that we can write readable code! I have a fortran parser written in python taken from f2py. Detecting functions is not a piece of cake but it's feasible!</strong>* In order to ease the writing of the script that generates “PARENT” routines before
+the self-documentation call to Robodoc, it was needed to impose two additional rules:
+</p>
+<ul>
+<li class="level1"><div class="li"> subroutines should be used instead of functions</div>
+</li>
+<li class="level1"><div class="li"> the instruction CALL should always be the first of an instruction line. </div>
+</li>
+</ul>
+
+<p>
+In particular, the construct:
+</p>
+<pre class="code">    IF (condition) CALL subroutine  !to be avoided</pre>
+
+<p>
+should be avoided, and replaced by:
+</p>
+<pre class="code">    IF(condition) THEN
+       CALL subroutine
+    ENDIF</pre>
+
+<p>
+(enforced)
+</p>
+
+<p>
+3.q.
+The INTENT must always be specified, except for pointers (which have cannot have intent in F90 (MG: F2003 allows it and the intent refers to the pointer association status)) and subprogram names given as formal arguments (rare).
+(JB:This rule should be upper with the argument declaration of a routine … so my previous remark should be read as “this rule 3.q come to late”)
+Nevertheless pointers should be placed in list of formal arguments according their 'quasi-intent'
+in source code (read/modified/affected data).
+On the other hand, a subprogram given as formal argument behaves always like 'intent(in)'.
+In that case, the formal argument consists of the explicit interface of the subprogram.
+A formal argument belonging to a structures type must have an 'intent(in)' (respectively 'intent(out)')
+if all fields of the structure are read-only (resp. write-only).
+In all other cases, specify an 'intent(inout)' and detail (with comments) the status for each field.
+</p>
+
+</div>
+
+<h1 class="sectionedit6" id="constructs_for_flow_control">5. Constructs for flow control</h1>
+<div class="level1">
+
+<p>
+5.a. Do not use numeral labels. These can be avoided through the use of the construct
+</p>
+<pre class="code"> DO ...
+    ...
+ ENDDO</pre>
+
+<p>
+as well as the instruction (new to F90) CYCLE or EXIT, or the constructs based on IF, CASE, WHERE or FORALL.
+Note: Numeral labels can also be avoided for FORMAT statements by placing the format descriptor in a character string, like in:
+</p>
+<pre class="code"> WRITE (unit, '(i3)' ) nn</pre>
+
+<p>
+or:
+</p>
+<pre class="code"> READ (text, '(i6, f6.2)' ) nn, xx</pre>
+
+<p>
+A character string can be explicitly declared, then initialized, if it is to be used more than once. (enforced)
+</p>
+
+<p>
+5.b. Literal labels or comment lines must be used for each construct that is longer than one page of a screen (about 20 lines), both at the beginning and at the end of the construct. (enforced)
+</p>
+
+</div>
+
+<h1 class="sectionedit7" id="use_of_arrays">6. Use of arrays</h1>
+<div class="level1">
+
+<p>
+6.a. Distinguish explicitly a vector operation from its scalar counterpart, by specifying colons:
+</p>
+
+<p>
+suppose
+</p>
+<pre class="code">REAL(dp) :: aa(10), bb(10), cc(10)</pre>
+
+<p>
+then use
+</p>
+<pre class="code">aa(:)=bb(:)+cc(:)</pre>
+
+<p>
+and not
+</p>
+<pre class="code">aa=bb+cc ! to be avoided</pre>
+
+<p>
+However, this rule can lead to problems with the stack size, see rules 5c-e. (enforced) (JB:I think the stack size has really increased and for a small routine that need temporary array of small size this is better that spending time for allocation/deallocation. )
+</p>
+
+<p>
+6.b. In order to improve the readability of the code, use vector operations instead of explicit DO-loop constructs. Use also the intrinsic subroutines <code>DOT_PRODUCT</code>, or <code>MATMUL</code>, as well as
+functions like <code>SUM</code> or <code>MAXVAL</code>. However, avoid using segments as arguments.
+Use directly the array name: you do not need to distinguish this operation from an hypothetical scalar counterpart.
+For reason of efficiency, very heavily used parts of codes could be coded differently.
+Use also BLAS and LAPACK routines for higher-level constructs, although they
+do not lead to as good a readability (see later). (partially enforced)
+</p>
+
+<p>
+6.c DO NOT pass as an argument of a subroutine, a segment of an array. For example :
+</p>
+<pre class="code"> call routine(aa(1:naa))         ! to be avoided</pre>
+
+<p>
+Indeed, some compilers copy all the values of the segment into
+a temporary variable. (<strong>MG: And they are wrong because the compile shall pass the array descriptor since the routine must have a F90 interface. Here I'm strongly in favor of a F90 approach, especially if the routine if not very CPU-critical</strong>)
+(JB:This is not a problem if 1) the so called routine use the size function to know the size of the array instead of explicit declaration of the size, 2) the segment is aligned in memory : call routine(aa(1:naa,5) is fine but call routine (aa(2,1:nbb)) will creat a temporary array that slows down the code. This implies to correctly allocate the arrays…)
+Thus, this is memory and CPU time consuming.
+Moreover, the zone of memory that is used for that purpose can be limited
+in size, and thus the code is constrained not by the full physical
+memory of the machine, but by the size of that zone (stack size on the DECs).
+For character strings, this restriction is not too important,
+since character strings are rather short in any case, so the rule
+is not to be followed for character strings. The same argument
+applies when the size of the segment is know to be
+limited in all cases (like in nonlop.f, setsym.f, xctotl.f or pseudopotential routines for example).
+(enforced, with the restrictions mentioned)
+</p>
+
+<p>
+6.d Avoid the following construct, except when the segment size is sufficiently small:
+</p>
+<pre class="code">aa(:,ii)=aa(:,jj)</pre>
+<pre class="code">(JB: Is there really a problem there ? I think I do that and I don't have trouble)
+(JB:NB: all the implicit loop are good for new cpus since then can vectorize the instruction. So loops should really be though carefully)</pre>
+
+<p>
+On the DEC machines, the compiler thinks it must first store the segment aa(:,jj) in the stack, then copy the stack in aa(:,ii).
+This not only doubles the time for copying, but can lead to stack size problems.
+This likely happens each time the same array appears both at the left-hand side and right-hand side of an assignment expression.
+However, there is no problem with
+aa(:,ii)=bb(:,jj)
+(enforced)
+</p>
+
+<p>
+6.e Avoid the use of large segments in read or write operations (<strong>MG: not easy to accomplish, especially for binary IO</strong>)
+</p>
+<pre class="code">read(6,*)aa(:,ii)</pre>
+
+<p>
+Again, on the DEC machines, the stack is used, and there are potential problems with the declared stack size.
+Use instead :
+</p>
+<pre class="code">read(6,*)(aa(jj,ii),jj=jmin,jmax)</pre>
+
+<p>
+A full array, not presented as a segment, also has no problem :
+</p>
+<pre class="code">read(6,*)bigarray</pre>
+
+<p>
+But avoid :
+</p>
+<pre class="code">read(6,*)bigarray(:)</pre>
+
+<p>
+(enforced)
+</p>
+
+<p>
+6.f For allocation and deallocation of arrays use the macros ABI_ALLOCATE(array, (dim1, dim2))) and ABI_DEALLOCATE(array) defined in ~abinit/src/incs/abi_common.h. Use ABI_DATATYPE_ALLOCATE(foo, shape) and ABI_DATATYPE_DEALLOCATE(foo) if foo is a user-defined datatype
+</p>
+
+</div>
+
+<h1 class="sectionedit8" id="coding_practice">7. Coding practice</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Run innermost loop fastest in looping. This is simply less CPU time consuming in Fortran.(JB:I'm sad it cannot be enforced :o()</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use generic function names instead of specializing to double precision function calls for Fortran intrinsic functions. E.g. use <code>cos</code> or <code>sin</code>, not <code>dcos</code> or <code>dsin</code> (enforced).</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <strong>*MG_TOO_COMPLICATED_USEFASTLIBS_INSTEAD</strong>* On many machines cache memory conflicts, which slow down performance, are avoided by not using dimension of arrays in multiples of 256. Thus it is recommended to avoid array lengths which are multiples of 256. This becomes especially important in the use of Fast Fourier Transforms. (usually enforced)</div>
+</li>
+</ul>
+
+</div>
+
+<h1 class="sectionedit9" id="exception_handling_and_i_os">8. Exception handling and I/Os</h1>
+<div class="level1">
+
+<p>
+MG: This part must be rewritten. We should stop the code via macros such as MSG_ERROR
+but, at the same time, we should define some kind of protocol for critical Warnings
+and unrecoverable failures… Low level routines should never stop but return an exit status
+to be checked by the caller!
+JB: Yes, we could print a stack of the error but this seem complicated with the actuel high level routine that alread have billions of arg and do zillions of thing
+</p>
+
+<p>
+The code issues four types of special messages:
+</p>
+<ul>
+<li class="level1"><div class="li"> ERROR</div>
+</li>
+<li class="level1"><div class="li"> BUG</div>
+</li>
+<li class="level1"><div class="li"> WARNING</div>
+</li>
+<li class="level1"><div class="li"> COMMENT</div>
+</li>
+</ul>
+
+<p>
+ERROR and BUG messages cause the code to stop, immediately, or after a very small delay.
+An ERROR is attributed to the user, while a BUG is attributed to the developer.
+A WARNING message indicates that something happened that is not as expected,
+but this something is not so important as to make the code stop.
+A COMMENT message gives some information to the user, about something unusual.
+None of them should appear when the run is completely normal, and runs as expected (enforced).
+</p>
+
+<p>
+Some checking should be provided for input variables for physical reasonableness or internal consistency.
+This is intended to maintain a user-friendliness already present in the code, and will greatly improve the possibility of widespread use by new users. (usually enforced)
+</p>
+
+<p>
+Exception diagnostics from routines should be directed to the standard output (std_out), and report:
+</p>
+<ol>
+<li class="level1"><div class="li"> the name of the routine which is reporting the error</div>
+</li>
+<li class="level1"><div class="li"> the sort of exception that is occurring (ERROR, BUG, WARNING or COMMENT)</div>
+</li>
+<li class="level1"><div class="li"> the present status</div>
+</li>
+<li class="level1"><div class="li"> the expected status</div>
+</li>
+<li class="level1"><div class="li"> in the case of an ERROR message or a BUG message, what is wrong, like “The volume of the unit cell should not be zero”</div>
+</li>
+<li class="level1"><div class="li"> in the case of ERROR message, what action the user should take</div>
+</li>
+</ol>
+
+<p>
+(note that BUG messages are automatically appended with the directive “Action : contact ABINIT group”).
+</p>
+
+<p>
+Experience shows that the trouble spent putting good descriptive error diagnostics in place is
+well repaid by minimizing the time spent fixing trivial bugs. (usually enforced)
+</p>
+<ol>
+<li class="level1"><div class="li">  (MG: Old way. Now we should always use the macros MSG_ERROR, MSG_BUG) Exiting should always be done through the LEAVE_NEW subroutine, except for temporary debugging purposes. The corresponding error message must be printed through the wrtout routine, since this routine can be used to modify the error message in a standard way when needed. See also the rules_parallel file, since exiting is much more complicated in the parallel case. (exit through leave_new is enforced, systematic use of wrtout not yet)</div>
+</li>
+</ol>
+<ol>
+<li class="level1"><div class="li"> Never write a character in the first column of the main output file (ab_out). This is because the fldiff tool (see programmer_guide) uses the</div>
+</li>
+</ol>
+
+<p>
+signs in this column to perform comparison of test case output files with reference ones. (enforced)
+</p>
+<ol>
+<li class="level1"><div class="li"> When you output a message using the wrtout routine, do not use the Fortran90 / (Slash) editing. It is not treated correctly. Use instead  char(10), that will be handled in a special way</div>
+</li>
+</ol>
+
+<p>
+(note that the abbreviation 'ch10' for 'char(10)' is defined in basis_defs.f )
+By contrast, do not use  char(10) when you output something using the Fortran90 write intrinsic :
+char(10) is the end-of-line sign ONLY under UNIX.
+For example MacOS needs char(13) … So, use the Fortran90 / (Slash) editing in that case … F or example:
+</p>
+<pre class="code">write(std_out,'(a,/,a,/)') ' hello',' world !'</pre>
+<ol>
+<li class="level1"><div class="li"> When you write to the main output file, using the 'f' format of Fortran (like in f12.4), in case there</div>
+</li>
+</ol>
+
+<p>
+is a possibility of different rounding on different computers, add a small number (on the order of 100000 times smaller than the precision of the f format) to the number you want to write.
+For example, be the number  numb=0.56250000000_dp , to be written using the format f11.3 :
+</p>
+<pre class="code">write(ab_out,'(f11.3)')numb      ! will give portability problems</pre>
+
+<p>
+On some computers, it will be written 0.562 , and on some others, it will be written 0.563 . Instead, use:
+</p>
+<pre class="code">write(ab_out,'(f11.3)')numb+tol10</pre>
+
+<p>
+as tol10 is defined 0.0000000001_dp in defs_basis.f. In this way, it will print as 0.563 always.
+</p>
+<ol>
+<li class="level1"><div class="li"> Use always the string “std_out” to write to the standard output file  (the “log” file, with unit number 6). </div>
+</li>
+</ol>
+
+<p>
+Use always the string “ab_out” to write to the main output file (with unit number 7).
+</p>
+<ol>
+<li class="level1"><div class="li"> Use always the string “std_err” to write to the standard error file (with unit number 0). </div>
+</li>
+</ol>
+
+<p>
+      This is to allow correct redirection in case of massively  parallel run (beyond 100 processors): the writing can be globally suppressed.  Also, writing to the standard error file should only be done when the code is about to stop  gain to avoid problems with numerous write with massively parallel machines.
+(enforced)
+</p>
+
+</div>
+
+<h1 class="sectionedit10" id="to_be_avoided">9. To be avoided</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Use</div>
+</li>
+</ul>
+<pre class="code">   &lt;  instead of the old-fashioned .LT.
+   &lt;= instead of .LE.
+   &gt;  instead of .GT.
+   &gt;= instead of .GE.
+   == instead of .EQ.
+   /= instead of .NE.</pre>
+<ul>
+<li class="level1"><div class="li"> Avoid RETURN at the end of each subroutine, use only END SUBROUTINE</div>
+</li>
+</ul>
+
+<p>
+.
+</p>
+<ul>
+<li class="level1"><div class="li"> Avoid RETURN at the end of each function, use only END FUNCTION</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid DATA statements, initialize variables in their declaration line :</div>
+</li>
+</ul>
+<pre class="code">     INTEGER :: nline = 6
+     (note: initialized variables get automatically the SAVE status)
+     (note: there are arrays constructors to initialize arrays in their declaration line)</pre>
+<ul>
+<li class="level1"><div class="li"> Avoid the use of COMMON and EQUIVALENCE</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Do not use an isolated quote (') in a comment, like in the following :</div>
+</li>
+</ul>
+<pre class="code">     ! This isn't a good thing
+     ! Indeed, the CPP (preprocessor) does not treat properly
+     ! such occurrences on some machines. Instead replace it simply with
+     !
+     ! This is not a good thing
+     ! or
+     ! This isn t a good thing
+
+     ! Everybody will understand the latter,
+     ! although grammatically incorrect. (usually enforced)
+     </pre>
+
+</div>
+
+<h1 class="sectionedit11" id="use_of_blas_and_lapack_subroutines">10. Use of BLAS and LAPACK subroutines</h1>
+<div class="level1">
+
+<p>
+BLAS and LAPACK subroutines are public domain subroutines, gathered
+in libraries, that can be optimized by each hardware vendor on their platform.
+BLAS means Basic Linear Algebra Subroutines. There are different levels of BLAS:
+</p>
+<ul>
+<li class="level1"><div class="li"> BLAS 1: basic scalar and vector subroutines</div>
+</li>
+<li class="level1"><div class="li"> BLAS 2: matrix-vector subroutines</div>
+</li>
+<li class="level1"><div class="li"> BLAS 3: matrix-matrix subroutines</div>
+</li>
+<li class="level1"><div class="li"> Sparse BLAS: sparse vector operations</div>
+</li>
+</ul>
+
+<p>
+LAPACK is a set of subroutine that supersedes the old LINPACK and EISPACK
+libraries, and addresses Linear equation solution and Eigensystem solution
+(matrix inversion, linear least squares problems, orthogonal factorization,
+ordinary eigenvalue problems, generalized eigenvalue problems, singular value decomposition).
+</p>
+
+<p>
+The Web addresses:
+</p>
+<ul>
+<li class="level1"><div class="li"> <a
+        href="http://www.netlib.org/lapack/index.html" class="urlextern" title="http://www.netlib.org/lapack/index.html" rel="ugc nofollow" style="color: #F18F34;">http://www.netlib.org/lapack/index.html</a></div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> <a
+        href="http://www.netlib.org/blas/index.html" class="urlextern" title="http://www.netlib.org/blas/index.html" rel="ugc nofollow" style="color: #F18F34;">http://www.netlib.org/blas/index.html</a></div>
+</li>
+</ul>
+
+<p>
+For inversion or diagonalisation of small matrices (however larger than 3*3),
+LAPACK should be used preferentially to any other subroutines.
+</p>
+
+<p>
+In general, the capabilities of BLAS subroutines can be obtained by the array capabilities of F90.
+The corresponding code is usually easier to read. For example,
+</p>
+<pre class="code">REAL(dp) :: aa(npw),bb(npw)
+CALL DCOPY(npw,aa,1,bb,1)</pre>
+
+<p>
+can be replaced by
+</p>
+<pre class="code">REAL(dp) :: aa(npw),bb(npw)
+bb(:)=aa(:)</pre>
+
+<p>
+So, the rule will be to use F90 instead of BLAS subroutines, with some exceptions (see below).
+In general, the following can be avoided : DSCAL, DCOPY, DAXPY, DZERO, DSUM, DMAX …, as well as
+their corresponding COMPLEX variant. (partially enforced)
+</p>
+<pre class="code">(JB: I don't know if it is somewhere so I put it here: Avoid kind specific routines/functions and use generic ones :&lt;code&gt;
+  a=EXP(b)&lt;/code&gt;
+ instead of &lt;code&gt;
+ a=DEXP(b)&lt;/code&gt;
+This is more convenient
+)</pre>
+
+<p>
+There are exceptions :
+</p>
+<ol>
+<li class="level1"><div class="li"> constructs that would still be easier to read with BLAS calls,</div>
+</li>
+<li class="level1"><div class="li"> constructs that are critical for speed, and faster with BLAS calls.</div>
+</li>
+</ol>
+
+<p>
+In the first class of routines, one find the scalar product between complex numbers, in our particular representation by
+</p>
+<pre class="code">REAL(dp) :: aa(2,size),bb(2,size)</pre>
+
+<p>
+Indeed, the F90 function DOT_PRODUCT(aa,bb) cannot be used, since it would not lead to the evaluation of a complex dot product, but a real dot product. So, use call DDOT(2*size,aa,1,bb,1)
+(at present, no other BLAS routines than those called by LAPACK are used in ABINIT, so these rules are indications for the future)
+</p>
+
+</div>
+
+<h1 class="sectionedit12" id="modules">11. Modules</h1>
+<div class="level1">
+
+<p>
+MG: This section should be rewritten from scratch!
+JB: This section should be highlited somewhere so people use module instead of unpacked routines. And that would help every developers for debugging !
+</p>
+
+<p>
+The architecture of ABINIT is modular, albeit not principally relying on F90 modules in its present status.
+Routines are partitioned in different subdirectories, with a related hierarchy of usage.
+A more extensive use of modules at that level is the topics of current reflexion.
+See HM5_document, section 5 of the proposal by H. Matthis, in the present directory, ~abinit/doc/developers .
+</p>
+
+<p>
+The module named 'defs_basis' contains global variables of ABINIT, and is used in every subroutine.
+It contains the definitions of:
+</p>
+<ul>
+<li class="level1"><div class="li"> subtypes (e.g. kind of floating numbers)</div>
+</li>
+<li class="level1"><div class="li"> I/O units</div>
+</li>
+<li class="level1"><div class="li"> selected real constants or trigonometric constants</div>
+</li>
+<li class="level1"><div class="li"> physical constants (conversion factors)</div>
+</li>
+</ul>
+
+<p>
+Modules are also useful for the definition of F90 interfaces (for optional arguments), or F90 derived datatypes (structured types).
+Although they are allowed, no rules has been set up for the use of optional arguments, and calls based about keywords.
+This is a topics of current reflexion.
+Be cautious when you introduce such a feature, and mention it to the ABINIT coordinator.
+</p>
+
+</div>
+
+<h1 class="sectionedit13" id="derived_datatypes">12. Derived datatypes</h1>
+<div class="level1">
+
+<p>
+12.a. Derived datatypes should be declared in the adequate module (MG: And this rule is not followed in many places, e.g dataset_type, header_type …)
+These are powerful F90 constructs, but the information about them is not local to the subroutine
+where they are used, so they should be introduced in a controlled way, in order for the programmers to become sufficiently easily familiarized with them: the introduction of a new derived datatype must be made in agreement with the coordinator of ABINIT.
+The introduction of appropriate derived datatypes in ABINIT is one of the central issues of v3.2 and later versions.
+</p>
+
+<p>
+12.b. Suffix a type identifier with '_type'. (MG: What about <code>obj_t</code> At present we use both!) For example:
+</p>
+<pre class="code">  TYPE ipe_type              ! information on program execution
+   INTEGER :: nb_proc
+   CHARACTER*63 :: fname
+  END TYPE ipe_type</pre>
+
+<p>
+which allows to define in subroutines::
+</p>
+<pre class="code"> TYPE(ipe_type) :: ipe</pre>
+
+<p>
+12.c. Pros and cons.
+</p>
+
+<p>
+Grouping connected variables into structured types is interesting for readability (it avoids too long
+lists of formal arguments for instance) and may facilitate code changes inside subprograms.
+Imagine you want to add a new general information and you want an access to this data in many subprograms :
+if you insert a new field in 'ipe_type' structure, it will not be necessary to change each subprogram
+interface.
+</p>
+
+<p>
+However, source code itself may become less readable. Also, remember that the use of structured types is never more efficient for CPU: complex declarations should be avoided.
+</p>
+
+</div>
+
+<h1 class="sectionedit14" id="other_topics">13. Other topics</h1>
+<div class="level1">
+
+<p>
+For the time being, pointers are only allowed when an array has to be allocated in a subprogram, and
+then used and deallocated outside it. See rule 1.f. They should be nullified as soon as possible.
+</p>
+
+<p>
+F95 constructs are not yet allowed
+It has been checked for ABINITv3.1 that not all compilers are able to deal with them.
+MG_NEWRULE: The reference standard is F95, F2003 extension are allowed provided that:
+</p>
+<ul>
+<li class="level1"><div class="li"> all the slaves of the testfarm compile and pass the tests</div>
+</li>
+<li class="level1"><div class="li"> It's possible to use these extensions either with wrapper functions or CPP macros so that the semantics is not changed when we have a compiler that do not support that particular F2003 feature. Example:<pre class="code">
+#ifdef HAVE_FC_IOMSG
+   open(file=trim(file),unit=unit, iostat=iostat, iomsg=iomsg)
+#else
+   open(file=trim(file),unit=unit, iostat=iostat)
+   iomsg = "IOMSG not supported by the compiler"
+#endif</pre>
+</div>
+</li>
+</ul>
+
+<p>
+Object-oriented programming in F90 (definition of operators acting on objects…) is the subject
+of current reflexion. See for example the <abbr
+        title="Uniform Resource Locator">URL</abbr>: <a href="http://www.cs.rpi.edu/~szymansk/oof90.html" class="urlextern" title="http://www.cs.rpi.edu/~szymansk/oof90.html" rel="ugc nofollow" style="color: #F18F34;">http://www.cs.rpi.edu/~szymansk/oof90.html</a>
+</p>
+
+</div>
+
+<h1 class="sectionedit15" id="useful_links">13. Useful links</h1>
+<div class="level1">
+
+<p>
+On the WEB page
+</p>
+
+<p>
+<a href="http://www.cs.rpi.edu/~szymansk/oof90.html" class="urlextern"
+   style="color: #F18F34;" title="http://www.cs.rpi.edu/~szymansk/oof90.html" rel="ugc nofollow">http://www.cs.rpi.edu/~szymansk/oof90.html</a>): “Introduction to Object-Oriented Concepts using Fortran90”:
+</p>
+
+<p>
+<a href="http://www.cs.rpi.edu/~szymansk/OOF90/Forum.html" class="urlextern" style="color: #F18F34;"
+   title="http://www.cs.rpi.edu/~szymansk/OOF90/Forum.html" rel="ugc nofollow">http://www.cs.rpi.edu/~szymansk/OOF90/Forum.html</a> (shorter version)
+</p>
+
+<p>
+<a href="http://www.Subsubsection" class="urlextern" title="http://www.Subsubsection" style="color: #F18F34;"rel="ugc nofollow">http://www.Subsubsection</a> title..
+</p>
+<div class="table sectionedit16"><table class="inline">
+	<tbody><tr class="row0">
+
+	</tr>
+</tbody></table></div>
+
+<p>
+(e.g. the data encapsulation is explained, taking a FFT routine as such an example. This might be related to the port using fftw…)
+The other PS file (“How to Express C++ Concepts in Fortran 90”) seems similar to the above notes.
+Also, to the link “Gocha !
+Click here for Fortran90 bug bites” on this page. This page warns the usage of the new functions in Fortran90.
+</p>
+
+<p>
+“Compiler and tools tricks”
+<a href="http://www.fortran-2000.com/ArnaudRecipes/CompilerTricks.html" class="urlextern" style="color: #F18F34;"title="http://www.fortran-2000.com/ArnaudRecipes/CompilerTricks.html" rel="ugc nofollow">http://www.fortran-2000.com/ArnaudRecipes/CompilerTricks.html</a>
+</p>
+
+<p>
+“Arnaud's advice to develop and debug numerical applications”
+<a href="http://www.fortran-2000.com/ArnaudRecipes/ArnaudAdvice.html" class="urlextern" style="color: #F18F34;"title="http://www.fortran-2000.com/ArnaudRecipes/ArnaudAdvice.html" rel="ugc nofollow">http://www.fortran-2000.com/ArnaudRecipes/ArnaudAdvice.html</a>
+</p>
+
+<p>
+IDA: An interprocedural analyser for Fortran 90 and High Performance Fortran programs
+<a href="http://www.vcpc.univie.ac.at/information/software/ida"
+   class="urlextern" style="color: #F18F34;" title="http://www.vcpc.univie.ac.at/information/software/ida" rel="ugc nofollow">http://www.vcpc.univie.ac.at/information/software/ida</a>
+</p>
+
+<p>
+Diagramf: a simple diagrammer for Fortran Language Programs
+</p>
+
+<p>
+These were found from: <a href="http://www.fortranlib.com" class="urlextern" style="color: #F18F34;"title="http://www.fortranlib.com" rel="ugc nofollow">http://www.fortranlib.com</a> or <a href="http://www.uni-comp.com/fortran" class="urlextern" title="http://www.uni-comp.com/fortran" rel="ugc nofollow">http://www.uni-comp.com/fortran</a>
+</p>
+
+<p>
+Benchmarks of F90 compilers for Linux/Windows-boxes. See <a href="http://www.polyhedron.com" class="urlextern" style="color: #F18F34;"title="http://www.polyhedron.com" rel="ugc nofollow">http://www.polyhedron.com</a>
+</p>
+
+<p>
+Summary tables for F90/95, and other Fortran information
+<a href="http://www.owlnet.rice.edu/~mech517/F90_docs/tables.pdf" class="urlextern" style="color: #F18F34;"title="http://www.owlnet.rice.edu/~mech517/F90_docs/tables.pdf" rel="ugc nofollow">http://www.owlnet.rice.edu/~mech517/F90_docs/tables.pdf</a>
+<a href="http://www.owlnet.rice.edu/~mech517/F90_OOP.html" class="urlextern" style="color: #F18F34;"
+   title="http://www.owlnet.rice.edu/~mech517/F90_OOP.html" style="color: #F18F34;"rel="ugc nofollow">http://www.owlnet.rice.edu/~mech517/F90_OOP.html</a>
+<a href="http://www.owlnet.rice.edu/~mech517/books_new.html" class="urlextern" style="color: #F18F34;"title="http://www.owlnet.rice.edu/~mech517/books_new.html" rel="ugc nofollow">http://www.owlnet.rice.edu/~mech517/books_new.html</a>
+</p>
+
+</div>
+
+<h2 class="sectionedit17" id="mg_additional_comments">MG Additional comments</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Use assumed length strings in low-level routines whenever possible. One can always add run-time checks to avoid string truncation. Example </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Prefer allocatable arrays over pointers, especially if you need a dynamic entity in a datatype. Allocatable arrays, unlike pointer, are contiguous and more efficient than pointers</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use ⇒ null() to nullify pointers in the declaration of the datatype (the initial status of a pointer is *undefined*</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> objects and methods should be defined in the same module</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> use capital case for global variables (what about global variables that are exported, e.g dp?)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid magic numbers. Use if (optdriver==RUNL_GSTATE) instead of if (optdriver==1). Magic numbers render the code less readable and more difficult to modify/maintain</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> module names should start with m_ (what about the defs_ modules?)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Import a module with “use module only: …” whenever possible, unless you are designing a low-level modules that export many constants and variables (e.g. m_xmpi). In the latter case, all the public entities of the module should start with the same prefix e.g xmpi_</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Proposed conventions for standard methods: obj_init, obj_free, obj_nullify, obj_malloc, obj_print, obj_bcast, obj_ncwrite</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> new convention for types: foo_type → foo_t</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Rename the macros used for allocation and deallocation: ABI_ALLOCATE –&gt; ABI_MALLOC, ABI_DEALLOCATE –&gt; ABI_FREE, ABI_DATATYPE_ALLOCATE –&gt; ABI_DT_MALLOC (the names presently used are TOOOOOOOOOOOOOOOOOOO long and readability matters!)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> One COPYRIGHT section per file (we all know that ABINIT is a <abbr title="GNU General Public License">GPL</abbr> code). If a file contains more that one procedure, the name of the author of the procedure can be reported in the ROBODOC section of the procedure or in the COPYRIGHT section reported at the beginning of the file.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Fortran include files should have the “.finc” file extension so that the abirules python scripts can easily locate them. Fortran90 files should use “.F90” as file extension. Other extensions are not accepted!</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid cluttered code:</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Interlay code with comments and empty lines. Avoid huge blocks of statements without empty lines. </div>
+</li>
+<li class="level3"><div class="li"> Use helper functions to make the code more readable   </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use inlined comments wisely. A typical example where inlined comments are better than a separated comment line: <pre class="code">         do spin=1,sppol
+            ... a lot of code
+         ! end spin loop &lt;&lt;&lt;&lt; This is bad!
+         end do
+
+         do spin=1,nsppol
+            .... a lot of code
+         end do ! end spin loop    &lt;&lt;&lt; This is OK</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid writing routines in which the *real* intent of the dummy arguments depend on some options. Long time ago we had to call xredxcart(red,cart,option) to convert from reduced to cartesian or vice versa depending on option. As a consequence both red and cart had to be defined with intent(inout). Now we have two routines for the different cases: xred2cart and xcart2red. The new approach is much more readable and we don't have to use intent(inout) for both arguments anymore. Similarly, avoid writing procedures that perform different kind of IO depending on the value of some input option Example:<pre class="code">
+
+    subroutine read_write(data, rdwr)
+      real(dp),intent(inout) :: data(:)
+      ! Very bad as any caller of read_write that
+      ! wants to write data to unit  must declare data
+      ! with intent(inout) and this renders
+      ! the code difficult to read and understand
+
+      if (rdwr==1) then
+         read(unit) data
+       else if (rdwr==2) then
+         write(unit) data
+       end if
+
+     ! use
+     subroutine read_data(data)
+     subroutine write_data(data)
+     </pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> When writing modules, try to import all the required entities at the module level instead of using different use statements for the different module procedures. This approach reduces the amount of boilerplate code and clarifies the dependencies of the module. Use private as default attribute and export only those procedures or those entities that form the public <abbr title="Application Programming Interface">API</abbr> of the module. Example<pre class="code">     module foo
+        use defs_basis
+        use bar, only: bar_func
+
+        implicit none ! Procedures *contained* in this module will inherit implicit none
+
+        private  ! Everything is private unless explicitly stated
+        public :: list_of_entities_exported_by_this_module
+
+     contains
+        ! All the procedures in this module will have access to defs_basis, bar_func1
+        ! implicit none is automatically enforced
+     end module foo</pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid passing dataset and mpi_enreg to low-level routines in which you only need few parameters to control the algorithm. Passing dataset and mpi_enreg makes the code less reusable since you have to create a new big object from scratch if you want to reuse the code in another context. </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Write reusable code, split the algorithm in independent steps especially in the algorithm consists of a computational part and the IO section. Example: suppose you want to write a routine to compute the DOS and you want to save the results in formatted file. It doesn't make sense to perform these two tasks in the same procedure: write a routines that computes and returns the DOS and then wrap this procedure in another subroutine that calls the former one to get the DOS and then writes the results on file. The routine for the DOS can be reused in different contexts unlike getnel.F90</div>
+</li>
+</ul>
+
+<p>
+Work in progress:
+</p>
+
+<p>
+Logging and Event handling: we distinguish between two classes of events: Critical Events and Normal Events:
+</p>
+
+<p>
+Normal event: Something unexpected happened but the software is still working as expected (e.g. COMMENTs and WARNINGs)
+</p>
+
+<p>
+Critical event: A serious error or condition, indicating that the program itself may be unable to continue running or that the results may be inaccurate or wrong (e.g. ERROR or an SCF cycle that is not converged)
+</p>
+
+<p>
+Normal events are logged to the log file (std_out) while critical events require a more elaborate protocol so that users and/or an external software driving the calculation are <strong>always</strong> informed about the occurrence of such events. Note that this requirement is not easy to fulfill, especially when we have a MPI calculation on many processors or a run that uses MPI pools.
+</p>
+
+<p>
+Normal Warnings, Comments are redirected to the std_out of the processor via the macros MSG_WARNING(msg), MSG_COMMENT(warning), respectively.
+</p>
+
+<p>
+If a critical warning occurs on a MPI node, the process shall call the new macro ABI_CRITICAL(message, event_id) where message is a string and event_id is a unique identifier (integer &gt; 0, the list of ids is defined in an include file and made available via the m_errors.F90 module)
+</p>
+
+<p>
+ABI_CRITICAL will try to report the event to ab_out. If the MPI process is not connected to the main output file, the logging will be redirected to the file <em class="u">warnings</em>P[MPI_rank]<em class="u">.txt and a file </em>abinit_warning<em class="u">, containing the same message,is created (if the file already exists, no message is written, see below)
+A similar approach is used in the case of Errors, the only difference being that the message is redirected to </em>errors<em class="u">[MPI_RANK].txt and MPI_ABORT is called after the logging.
+
+The file </em>abinit_warning<em class="u">.txt is used in order to avoid problems with calculations done on many MPI nodes. In this case, indeed, the logging is disabled and no processors (except for master) can perform formatted IO. </em>abinit_warnings<em class="u"> is mainly used for handling this particular case. Note that abinit should remove all the files named </em>abinit_warnings<em class="u"> and </em>abinit_errors__ located in the working directory before starting the run (this approach won't work if the user is running several instances of abinit in the same directory and I won't do any attempt to address this particular case)
+</p>
+
+</div>
+
+<h1 class="sectionedit18" id="abinit_style_for_mpi_programming">ABINIT style for MPI programming</h1>
+<div class="level1">
+
+<p>
+(Was valid before the band-by-band parallelism. Should be heavily updated!! In v4.2, see FFT_in_parallel )
+</p>
+
+<p>
+This file is still under development. It should describe the rules
+followed in the abinit code specifically related with the features that make the MPI parallel execution possible.
+</p>
+
+<p>
+In the following, we will distinguish two different modes for the processes:
+</p>
+<ul>
+<li class="level1"><div class="li"> they are doing the same things: COLLECTIVE mode (i.e. same instructions and same data)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> they are doing different things: PERSONAL mode (i.e. different instructions or different data)</div>
+</li>
+</ul>
+
+</div>
+
+<h1 class="sectionedit19" id="basic_rules_for_mpi_parallelization">Basic rules for MPI parallelization</h1>
+<div class="level1">
+<ul>
+<li class="level1"><div class="li"> Avoid defining variable whose name starts with MPI_ or mpi_ (Fortran is case insensitive). This prefix has been reserved by the MPI specifications for future additions.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Avoid explicit calls to the MPI routines as much as possible. Use the wrappers and the constants provided my m_xmpi.F90</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Try to make the MPI algorithm consistent with the sequential version as much as possible. Think parallel since the very start (MPI is the common case, sequential is the exception). Avoid using HAVE_MPI or xmpi_paral==1 in high-level procedures as much as possible.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Simple MPI algorithms can be easily implemented once the MPI communicator is known.  Avoid passing mpi_enreg to your routine especially if you only need MPI_COMM, the number of processors and the CPU rank (use xcom_size, xcom_rank) NOTE: MPI_enreg clearly breaks the first rule in several procedures!</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Use MPI barriers only when are really needed. Many of the MPI calls used in ABINIT are collective, thus a collective synchronization is implicitly performed. Remember: MPI barriers are expensive, especially when many CPUs are involved.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit20" id="dealing_with_io">Dealing with IO</h2>
+<div class="level2">
+
+<p>
+MG: The distinction between COLL and PERS is too complicated. Now each MPI node has its own log file
+(logging can be easily disabled if nprocs &gt; THRESHOLD), Hence the only subtle point is when we call wrtout(ab_out,“this goes to the main output file”). Well written code should insert these calls inside a if (rank==master) condition so that only the master node (i.e. the node who has access to ab_out) writes the important results to ab_out. I propose to remove “COLL and  “PERS” from wrtout)
+</p>
+
+<p>
+* Use subroutine wrtout(unit,message,mode) when writing to std_out or ab_out
+</p>
+
+<p>
+* In the case of a COLLECTIVE mode, the 0-process will write the message in the
+unit file, while the other processes will do nothing.
+</p>
+
+<p>
+In the case of PERSONAL mode, we distinguish writing to the log file (standard output) from writing to other files.
+</p>
+<ul>
+<li class="level1"><div class="li"> In the case of a writing to the log file, the process will simply write the message preceeded by is proc-number.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The case of writing to other files should be avoided if possible. If not, the problem is still to be addressed.</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit21" id="dealing_with_stop">Dealing with stop</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> MG: There's only one way to stop a MPI code when something unexpected happens i.e. MPI_ABORT. MPI_FINALIZE should be called only before leaving the main program.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Never use the Fortran stop explicitly (again MPI is the common case)</div>
+</li>
+</ul>
+
+<p>
+subroutine leave_new(unit,message,mode) + subroutine test_leave
+In the case of a COLLECTIVE mode, the 0-process will write the message in the
+unit file, while the other processes will do nothing. Then all processes will stop.
+</p>
+
+</div>
+
+<h1 class="sectionedit22" id="abinit_style_for_openmp_programming">ABINIT style for OpenMP programming</h1>
+<div class="level1">
+
+<p>
+The following sections are covered:
+</p>
+<ul>
+<li class="level1"><div class="li"> Basics</div>
+</li>
+<li class="level1"><div class="li"> Portability</div>
+</li>
+<li class="level1"><div class="li"> Efficiency</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit23" id="basics">Basics</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> Information about OpenMP can be found at the following <abbr title="Uniform Resource Locator">URL</abbr>: (to be completed)</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> OMP is case insensitive, however the use of upper case keywords is strongly advised</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> !$OMP END PARALLEL DO is facultative in many cases. Avoid it whenever possible.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The default OMP name scope for variables is SHARED. In many cases one only needs to specify which variables are PRIVATE </div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Do not use OMP to parallelize sections that may call MPI routines. OMP should be used for fine grained parallelization</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Do not use OMP to parallelize loops that can be easily rewritten in terms of BLAS calls. Let the BLAS library parallelize the calculation for you, as a side effect the code will run faster even when threads are not used</div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit24" id="portability">Portability</h2>
+<div class="level2">
+<ul>
+<li class="level1"><div class="li"> OpenMp version 3.0 is assumed.</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> (IBM) named constants are not permitted in SHARED clause<pre class="code">       integer, parameter :: mfac=11
+       ! not accepted : mfac in a parameter
+       !$OMP PARALLEL DO SHARED(mfac)
+
+       ! not accepted : two_pi is a parameter defined in defs_basis
+       !$OMP PARALLEL DO SHARED(two_pi) </pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> Do not forget the continuation sign &amp;<pre class="code">      ! incorrect version: the continuation sign &amp; is missing
+      !$OMP PARALLEL DO DEFAULT(PRIVATE)
+      !$OMP&amp;SHARED(aft,bef,gbound,g3max,ic,ind,len3,lot)
+
+      ! correct version: the continuation sign &amp; is present
+      !$OMP PARALLEL DO DEFAULT(PRIVATE)&amp;
+      !$OMP&amp;SHARED(aft,bef,gbound,g3max,ic,ind,len3,lot) </pre>
+</div>
+</li>
+</ul>
+<ul>
+<li class="level1"><div class="li"> The intel compiler (version??) miscompiles COLLAPSE. Use the configure option –enable-omp-collapes to disable it. </div>
+</li>
+</ul>
+
+</div>
+
+<h2 class="sectionedit25" id="efficiency">Efficiency</h2>
+<div class="level2">
+
+<p>
+(to be completed)
+</p>
+
+</div>
+
+<!--&lt;!&ndash; cachefile /var/www/dokuwiki/data/cache/f/f0a62f66b3b957b7c22e0f2b3c8e123e.xhtml used &ndash;&gt;-->
+<!--<div class="comment_wrapper" id="comment_wrapper">-->
+<!--  <h2><a name="discussion__section" id="discussion__section">-->
+<!--    Discussion-->
+<!--  </a></h2>-->
+<!--  <div class="level2 hfeed">-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_0f66b2369ed45f17faf340d3a657fc2f" id="comment_0f66b2369ed45f17faf340d3a657fc2f"></a>-->
+<!--        <span class="vcard author"><span class="fn">Yann Pouillon</span></span>, <abbr class="published" title="2014-01-23T19:36:37Z">2014/01/23 19:36</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--I agree with Marc. ABINIT coding rules should:-->
+<!--</p>-->
+<!--<ul>-->
+<!--<li class="level1"><div class="li"> be accepted by a very large majority of compilers (reference);</div>-->
+<!--</li>-->
+<!--<li class="level1"><div class="li"> leave the code humanly readable;</div>-->
+<!--</li>-->
+<!--<li class="level1"><div class="li"> be usable by all developpers (this means: simple);</div>-->
+<!--</li>-->
+<!--<li class="level1"><div class="li"> follow official Fortran/MPI/OMP/… standards.</div>-->
+<!--</li>-->
+<!--</ul>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="0f66b2369ed45f17faf340d3a657fc2f">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_9ebedd93cea5f9b3b4e9fb48a3ba7466" id="comment_9ebedd93cea5f9b3b4e9fb48a3ba7466"></a>-->
+<!--        <span class="vcard author"><span class="fn">Matteo Giantomassi</span></span>, <abbr class="published" title="2014-01-23T19:45:57Z">2014/01/23 19:45</abbr>, <abbr class="updated" title="2014-01-23T19:55:00Z">2014/01/23 19:55</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--ABINIT coding rules should:-->
+<!--</p>-->
+
+<!--<p>-->
+<!--1- be accepted by a very large majority of compilers (reference)-->
+<!--</p>-->
+
+<!--<p>-->
+<!--Perfect but we should also provide a list of old versions that are not supported anymore.-->
+<!--For example gfortran  &lt; 4.4 miscompiles  TRANSPOSE(CONJUGATE(array))-->
+<!--and, long time ago, I had to change the entire GW to avoid this (ZGEMM performs the same task but for small-->
+<!--matrices the F90 syntax if much more readable).-->
+<!--I've seen that the same statement is used in other parts of the code and this clearly makes abinit-->
+<!--incompatible with old gcc versions-->
+<!--Now I think that we all agree that gfortran is a very important compiler (especially for end-users)-->
+<!-- but this does not mean that we should avoid *simple* F95 statements that were miscompiled by old gfortran versions.-->
+<!--Abinit7.7 gives us the opportunity to drop support for obsolete versions.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--2- let the code readable-->
+<!--</p>-->
+
+<!--<p>-->
+<!--Indeed this is one of my priorities. An unreadable code is difficult to maintain-->
+<!--and will create a sort of barrier that will prevent users from contributing to the-->
+<!--development of Abinit (Why should I try to code something new in Abinit when-->
+<!--code xxx is much easier to read and to change?)-->
+<!--</p>-->
+
+<!--<p>-->
+<!--The high-level layer must be readable and easy to extend (there's-->
+<!--a lot of work to do in this direction). However, this does not imply that also low-level routines must-->
+<!--be readable. One can code the Fourier transform in 5 lines of code but it won't be as efficient-->
+<!--as the FFT algorithm implemented in an optimized routine-->
+<!--<abbr title="In my humble opinion">IMHO</abbr> the CPU critical parts can sacrifice readability for efficiency.-->
+<!--The most important point here is that the <abbr title="Application Programming Interface">API</abbr> of the FFT library must be readable-->
+<!--and easy to use.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--3- be usuable by all developpers (this means: simple)-->
+<!--</p>-->
+
+<!--<p>-->
+<!--This point is directly related to OOP and objects.-->
+<!--For example, the PAW formalism is not easy to understand but the objects used in Abinit (libpaw)-->
+<!--are reusable in different contexts and there are routines performing complicated tasks-->
+<!--with a reasonably simple AP.-->
+<!--I think that normal developers do not mind if they do not understand every single line-->
+<!--of the PAW code. The most important thing is that they can use the PAW objects-->
+<!--and call the PAW routine to accomplish their complicated task.-->
+<!--I think that we should try to promote this kind of philosophy:-->
+<!--read the documentation, call the function with the correct input and we will do the work for you!-->
+<!--</p>-->
+
+<!--<p>-->
+<!--4- follow official Fortran/MPI/OMP/… standards-->
+<!--</p>-->
+
+<!--<p>-->
+<!--In Dinard we agreed that F95 is now the official reference, but Abinit7.7 will-->
+<!--allow us to use some  of the F2003/F2008 extensions, in particular the-->
+<!--features that are directly connected to HPC.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--In the wiki I sketched  a tentative  policy to be used when we have to decide-->
+<!--if a F2003, F2008 extension can be safely used in Abinit.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--The reference standard is F95, F2003/F2008 extensions are allowed provided that:-->
+<!--</p>-->
+
+<!--<p>-->
+<!--all the slaves of the testfarm compile and pass the tests-->
+<!--It's possible to use these extensions either with wrapper functions or CPP macros so that the semantics is not changed when we have a compiler that do not support that particular F2003 feature. Example:-->
+<!--</p>-->
+<!--<pre class="code">-->
+<!--#ifdef HAVE_FC_IOMSG-->
+<!--   open(file=trim(file),unit=unit, iostat=iostat, iomsg=iomsg)-->
+<!--#else-->
+<!--   open(file=trim(file),unit=unit, iostat=iostat)-->
+<!--   iomsg = "IOMSG not supported by the compiler"-->
+<!--#endif</pre>-->
+
+<!--<p>-->
+<!--The discussion about MPI and OMP is much more difficult.-->
+<!--At present we support both MPI1 and MPI2 but several implementation have started to implement MPI3 features. How do we handle this? I think that we should look at the MPI3 specs to see if there's something very interesting that can be used while maintaing backward compatibility with the previous versions, an approach similar in spirit to the one we decided to use for F2003/F2008.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--OpenMp3 is the standard officially supported but OpenMP4 provides several interesting features for GPUs and MIcs. These features are optional, hence we can try to do some experiment without breaking the portability of the basecode!-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="9ebedd93cea5f9b3b4e9fb48a3ba7466">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_7921c73e80b8149ff9dec774cb86f80d" id="comment_7921c73e80b8149ff9dec774cb86f80d"></a>-->
+<!--        <span class="vcard author"><span class="fn">Jordan Bieder</span></span>, <abbr class="published" title="2014-01-23T21:34:41Z">2014/01/23 21:34</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--Hi all,-->
+<!--</p>-->
+
+<!--<p>-->
+<!--Thank you for this very good starting point.-->
+<!--Although you already propose to deal with one topic at a time, I would suggest to focus on on small paragraph of the coding rules and find an agreement before moving to the next point.-->
+<!--We all have requests and suggestions so I'm afraid if we discuss all points together we are never going to totally agree.-->
+<!--We could start from the existing doc and discuss point by point : macros, modules, allocatable/pointer, format, …-->
+<!--I think we all agree on the readability of the code we write.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) For the “new” F2003/F2008 developers, a bunch of tiny codes/examples with a comparison of the F77/90/95 would be nice. For instance, (not to be used in abinit I guess) op%init(arg) instead of call op_init(op,arg). This is just to explain how things works and how one should used them.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) Fortran XXXX is really tooooooooooo much verbose and the macro used in abinit should have as short as possible name, but style readable. Also, we could use the same prefix for all macros : ABI_ERROR ABI_WARNING ABI_COMMENT ABI_MALLOC ABI_FREE,…. I would love a ABI_XXXX that does if(allocated)then free endif (I know one exist (SFREE) but I think it is not compatible with the ABI_ALLOCATE and ABI_DEALLOCATE yest ?-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) ALLOCATABLE should be used everywhere when possible. POINTER should just be used as a “pointer” on something ptr⇒mydatta with an initialization to ⇒null() !-->
+<!--(As a complementary option to the memory profiling, it would be a useful tool to plot the memory consumption of a given isolated module/routine/folder (without the full available memory profiling),I can do a very basic proposition)-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) Module : naming : Ok for the already used m_name for the module name. This module name should have a type which could be only called “name” since it is always declared as type(name) so we already know it is a derivated type the _type or _t are not necessary (and decrease the verbosity, still being readable tough) I also suggest  mandatory subroutines xxx_init xxx_free or xxx_destroy and all other routine with convenient name xxx_reset xxx_clear xxx_print … The first argument should ALWAYS be a derivated type of the module. Avoid global variables with save, parameter attribute (except for def_…) (this would help for parallelization)-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) Typo : all the preprocessor definition could be in capital whereas the other parameter variables in lower case. So anytime one can easily guess if a “word” is a macro or a variable.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) No comment on the magic number :⇒ I TOTALLY agree and I would like to enforce it ( I may have 1 or 2 routines that have a magic number and this is like hell).-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) Avoid dummy arguments especially when there are array. It makes the code crash with some debugging flags.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--o) Last idea : some routine are very, very very very very very long. For some high level the length can not be reduced tough, one should keep in mind that the longer a routine and the less readable it becomes. A routine longer than 100 lines become hard to understand especially when it is composed of many if, loop, …. I could say the same for the number of arguments,…-->
+<!--</p>-->
+
+<!--<p>-->
+<!--A good view of how is abinit coded/readable would be to ask to all the new PhP/Postdoc/… developers how their first day with developing abinit was ?-->
+<!--</p>-->
+
+<!--<p>-->
+<!--Again, I'd rather talk about one point evey week. We could start with macro / preprocessor, …-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="7921c73e80b8149ff9dec774cb86f80d">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    <div class="comment_replies" style="margin-left: 20px;">-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_041eff3b6ca4300e0f079b45c51f183b" id="comment_041eff3b6ca4300e0f079b45c51f183b"></a>-->
+<!--        <span class="vcard author"><span class="fn">Matteo Giantomassi</span></span>, <abbr class="published" title="2014-01-23T22:14:50Z">2014/01/23 22:14</abbr>, <abbr class="updated" title="2014-01-24T15:53:35Z">2014/01/24 15:53</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+<!--<blockquote><div class="no">-->
+<!-- For instance, (not to be used in abinit I guess) op%init(arg) instead of call op_init(op,arg). This is just to explain how things works and how one should used them</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- My idea is that we should already start to program in a way that is as close as possible to the OOP approach introduced in F2003. Perhaps not all the compilers accept the PASS attribute that allows one to use <code>call obj%init(args)</code>. Nevertheless we should try to promote (enforce) the convention that a method of a object receives the instance as its first argument. At this point the difference between:<pre class="code">  call obj_foo(obj, args)-->
+
+<!--  and-->
+
+<!--  cal obj%foo(args)-->
+<!--  </pre>-->
+
+<!--<p>-->
+<!-- is minimal and new developers won't have problem to understand the F2003   OOP syntax when all the Fortran compilers will support OOP-->
+<!--</p>-->
+<!--</div></blockquote>-->
+<!--</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!-- Also, we could use the same prefix for all macros : ABI_ERROR ABI_WARNING ABI_COMMENT ABI_MALLOC ABI_FREE</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- I agree</div></blockquote>-->
+<!--</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!-- I would love a ABI_XXXX that does if(allocated)then free endif (I know one exist (SFREE) but I think it is not compatible with the ABI_ALLOCATE and ABI_DEALLOCATE yest ?</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- We cannot use such macro because ABI_ALLOCATE, in debug_mode, is a multiline macro and we should terminate the <code>if</code> with an <code>end if</code> statement. I'm working on a new version of m_profiling.F90 in which the allocation/deallocation is done inside a routine so that we don't have to use multiline statements anymore. The new version requires a compiler that supports allocatable dummy arguments but since the memory profiling is an optional feature that is manly designed for developers, I don't see any problem if we require this Fortran2003 extension as fundamental requisite if the user wants to enable memory profiling!. </div></blockquote>-->
+<!--</div></blockquote>-->
+
+<!--<p>-->
+<!--btw: the new version allows the developer to opt for a per-file or per-procedure analysis-->
+<!--</p>-->
+<!--<blockquote><div class="no">-->
+<!-- Module : naming : Ok for the already used m_name for the module name. This module name should have a type which could be only called “name” since it is always declared as type(name) so we already know it is a derivated type the _type or _t are not necessary (and decrease the verbosity, still being readable tough)</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- I would prefer to keep the obj_t (obj_type) notation since it provides useful info to the developer especially when we import the datatype in another module or function.<pre class="code">   use m_foo, only : bar, obj_t-->
+<!--   ! bar can be a procedure or a datatype-->
+<!--   ! and we have to read the code to understand its type.-->
+<!--   ! obj_t makes it clear that we are importing an object.-->
+
+<!--   ! Moreover in F2003 one can replace the lengthy statement-->
+
+<!--   use m_foo, only: obj_t, obj_init, obj_free, obj_ncwrite, ...-->
+
+<!--   ! with the much simpler-->
+
+<!--   use m_foo, only: obj_t-->
+<!--   ! We import the object and we have access to its methods-->
+<!--  </pre>-->
+<!--</div></blockquote>-->
+<!--</div></blockquote>-->
+
+<!--<p>-->
+<!--&gt; Avoid dummy arguments especially when there are array. It makes the code crash with some debugging flags-->
+<!--</p>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- I guess you are referring to explicit shape dummy arguments that are not allocated or passed as zero-sided arrays? This is an important problem indeed since it prevents us from enabling a lot of useful debugging checks. On the other hand, it's difficult to satisfy this requirement since a lot of arrays are only allocated if PAW or if NC or if wavelets and we should write a lot of checks and allocate a lot of fake stuff before any call. Many of the arrays used in the GW code are stored inside datatypes and this allows me to reduce the number of arrays I have to pass explicitly to the procedure! This is a possible solution but requires several changes in the code …   </div></blockquote>-->
+<!--</div></blockquote>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="041eff3b6ca4300e0f079b45c51f183b">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_da421c11fc491f556a9b130690ac5d9d" id="comment_da421c11fc491f556a9b130690ac5d9d"></a>-->
+<!--        <span class="vcard author"><span class="fn">Marc Torrent</span></span>, <abbr class="published" title="2014-01-24T09:52:30Z">2014/01/24 09:52</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--Hi all,-->
+<!--</p>-->
+
+<!--<p>-->
+<!--Woooo,-->
+<!--As usual with the Abinit developper group, one starts immediately in details and we think first to completely rewrite the code …-->
+<!--This is what happened to the pseudopotential table and it lasted 8 years.-->
+<!--I think we should just start slowly and advance step by step.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--The idea of ​​Matteo to start with the existing rules and make them modern (2014) seems to me a very good idea. Let's start with this, we'll see.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--If we have to write long messages, we should think to meet together; this could speed up the process and save a lot of keyboard typing.-->
+<!--What do you think?-->
+<!--Marc-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="da421c11fc491f556a9b130690ac5d9d">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    <div class="comment_replies" style="margin-left: 20px;">-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_d69e73ccc1225a56debb66aa9b5507b1" id="comment_d69e73ccc1225a56debb66aa9b5507b1"></a>-->
+<!--        <span class="vcard author"><span class="fn">Matteo Giantomassi</span></span>, <abbr class="published" title="2014-01-24T20:23:18Z">2014/01/24 20:23</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--Hi Marc,-->
+<!--</p>-->
+
+<!--<p>-->
+<!--+1 for the meeting but, at the same time, I think we should try to produce something before organizing the meeting. I think that an initial cleanup of the coding rules and the introduction of new possible topics of discussion would be a very important preliminary step that will give us some material for the discussion. btw: we may try to organize a skype meeting in the forthcoming days. It's much easier to organize than a face-to-face meeting and it will allow us to clarify the most important points.-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="d69e73ccc1225a56debb66aa9b5507b1">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_ba7dc3df15761f49fe636a9f135638bd" id="comment_ba7dc3df15761f49fe636a9f135638bd"></a>-->
+<!--        <span class="vcard author"><span class="fn">Jordan Bieder</span></span>, <abbr class="published" title="2014-01-25T02:39:18Z">2014/01/25 02:39</abbr>, <abbr class="updated" title="2014-01-25T02:40:44Z">2014/01/25 02:40</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--Hi,-->
+<!--</p>-->
+
+<!--<p>-->
+<!--@Matteo : we have to be careful with the features of F2003 we use. Even if the PASS key word would be lovely to use, a few compilers don't implement it. We should decide wether to drop some compilers (since gcc is free and for many platforms) or wether to keep as many as possible compilers and compatibility.-->
+<!--</p>-->
+
+<!--<p>-->
+<!--@Marc : we (I) don't think to rewrite abinit but your second paragraph implies some new writing that makes you feel “Woooo” :).-->
+<!--</p>-->
+
+<!--<p>-->
+<!--We could have a voice conference, I guess neither of the cea/ucl/utk would pay for my flight !!-->
+<!--</p>-->
+
+<!--<p>-->
+<!--I guess each of us should propose a cleaned version of the current abirules (that is to say just remove sentences but not add anything).-->
+<!--Then from the smallest version we'll have we can start adding new sentences/rules?-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="ba7dc3df15761f49fe636a9f135638bd">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    <div class="comment_replies" style="margin-left: 20px;">-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_b941a8d10767df2e0df80693d4e1962b" id="comment_b941a8d10767df2e0df80693d4e1962b"></a>-->
+<!--        <span class="vcard author"><span class="fn">Matteo Giantomassi</span></span>, <abbr class="published" title="2014-01-25T04:29:43Z">2014/01/25 04:29</abbr>, <abbr class="updated" title="2014-01-25T04:35:30Z">2014/01/25 04:35</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+<!--<blockquote><div class="no">-->
+<!-- We should decide wether to drop some compilers (since gcc is free and for many platforms) or wether to keep as many as possible compilers and compatibility.</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- I think we already have a good coverage with the compilers of the test farm (sometimes I complain about XLF but that's another story). I'm not proposing to remove support for some compilers, I'm just proposing to drop support for <strong>old versions</strong>, in particular those versions that do not accept the features of F95 and the subset of F2003 we decide to use. Long time ago I had to introduce a macro to nullify pointers in datatypes because XLF12 didn't accept it. Not we use XLF14 that is much better (albeit still crappy) and the most important features (allocatable arrays in datatypes, ⇒ null(), allocatable dummy arguments, m_iso_c_bindings) are ok. The idea is to use the set of compilers of the test farm as reference so that we can test the introduction of new features- btw using PASS would be very nice but it's not my priority </div></blockquote>-->
+<!--</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--  I guess each of us should propose a cleaned version of the current abirules (that is to say just remove sentences but not add anything). Then from the smallest version we'll have we can start adding new sentences/rules?</div></blockquote>-->
+<!--<blockquote><div class="no">-->
+<!--<blockquote><div class="no">-->
+<!-- Yes, this was indeed my first proposal. Use my comments as starting point: raise remarks if you don't agree with my comments, add new stuff (either in the pre-existing document or in a separated section). Then we gather all these ideas and we try to polish the previous version of the abirules. We need to reach an agreement on the simplest things before moving to more complicated stuff.</div></blockquote>-->
+<!--</div></blockquote>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="b941a8d10767df2e0df80693d4e1962b">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+<!--    </div>-->
+<!--    <div class="hentry">-->
+<!--      <div class="comment_head">-->
+<!--        <a name="comment_d8732aba60f6f0f6b64eae3b1e191f87" id="comment_d8732aba60f6f0f6b64eae3b1e191f87"></a>-->
+<!--        <span class="vcard author"><span class="fn">Jordan Bieder</span></span>, <abbr class="published" title="2014-01-31T01:11:47Z">2014/01/31 01:11</abbr>-->
+<!--      </div>-->
+<!--      <div class="comment_body entry-content">-->
+
+<!--<p>-->
+<!--I've added some of my notes.-->
+<!--I think this page is rather long and might be hard for a new developer to read from the beginning to the end.-->
+<!--I would suggest a short version with the main (enforced) points ?-->
+<!--</p>-->
+
+<!--      </div>-->
+<!--      <div class="comment_buttons">-->
+<!--        <form class="button discussion__reply" method="get" action="/doku.php#discussion__comment_form">-->
+<!--            <div class="no">-->
+<!--                <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                <input type="hidden" name="do" value="show">-->
+<!--                <input type="hidden" name="comment" value="reply">-->
+<!--                <input type="hidden" name="cid" value="d8732aba60f6f0f6b64eae3b1e191f87">-->
+<!--                <input type="submit" value="Reply" class="button" title="Reply">-->
+<!--            </div>-->
+<!--        </form>-->
+<!--              </div>-->
+<!--    </div>-->
+
+<!--        <div class="comment_form">-->
+<!--            <form id="discussion__comment_form" method="post" action="/doku.php" accept-charset="utf-8">-->
+<!--                <div class="no">-->
+<!--                    <input type="hidden" name="id" value="developers:coding_rules">-->
+<!--                    <input type="hidden" name="do" value="show">-->
+<!--                    <input type="hidden" name="comment" value="add">-->
+<!--                                            <input type="hidden" name="reply" value="">-->
+<!--                                            <div class="comment_text">-->
+<!--                        Enter your comment. Wiki syntax is allowed:-->
+<!--                        &lt;!&ndash; Fix for disable the toolbar when wikisyntaxok is set to false. See discussion's script.jss &ndash;&gt;-->
+<!--                                                <div id="discussion__comment_toolbar" class="toolbar group"><button class="toolbutton" title="Bold Text [B]" aria-controls="wiki__text" accesskey="b"><img src="/lib/images/toolbar/bold.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Italic Text [I]" aria-controls="wiki__text" accesskey="i"><img src="/lib/images/toolbar/italic.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Underlined Text [U]" aria-controls="wiki__text" accesskey="u"><img src="/lib/images/toolbar/underline.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Monospaced Text [M]" aria-controls="wiki__text" accesskey="m"><img src="/lib/images/toolbar/mono.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Strike-through Text [D]" aria-controls="wiki__text" accesskey="d"><img src="/lib/images/toolbar/strike.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Same Level Headline [8]" aria-controls="wiki__text" accesskey="8"><img src="/lib/images/toolbar/hequal.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Lower Headline [9]" aria-controls="wiki__text" accesskey="9"><img src="/lib/images/toolbar/hminus.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Higher Headline [0]" aria-controls="wiki__text" accesskey="0"><img src="/lib/images/toolbar/hplus.png" alt="" width="16" height="16"></button><button class="toolbutton pk_hl" title="Select Headline" aria-controls="picker0" aria-haspopup="true"><img src="/lib/images/toolbar/h.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Internal Link [L]" aria-controls="link__wiz" accesskey="l"><img src="/lib/images/toolbar/link.png" alt="" width="16" height="16"></button><button class="toolbutton" title="External Link" aria-controls="wiki__text"><img src="/lib/images/toolbar/linkextern.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Ordered List Item [-]" aria-controls="wiki__text" accesskey="-"><img src="/lib/images/toolbar/ol.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Unordered List Item [.]" aria-controls="wiki__text" accesskey="."><img src="/lib/images/toolbar/ul.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Horizontal Rule" aria-controls="wiki__text"><img src="/lib/images/toolbar/hr.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Add Images and other files (opens in a new window)" aria-controls="wiki__text"><img src="/lib/images/toolbar/image.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Smileys" aria-controls="picker1" aria-haspopup="true"><img src="/lib/images/toolbar/smiley.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Special Chars" aria-controls="picker2" aria-haspopup="true"><img src="/lib/images/toolbar/chars.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Insert Signature [Y]" aria-controls="discussion__comment_text" accesskey="y"><img src="/lib/images/toolbar/sig.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Mark text as blockquote" aria-controls="wiki__text"><img src="/lib/images/toolbar/../../plugins/blockquote/images/blockquote-icon.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Wrap Plugin" aria-controls="picker3" aria-haspopup="true"><img src="/lib/images/toolbar/../../plugins/wrap/images/toolbar/picker.png" alt="" width="16" height="16"></button><button class="toolbutton" title="Color Text" aria-controls="picker4" aria-haspopup="true"><img src="/lib/images/toolbar/../../plugins/color/images/toolbar_icon.png" alt="" width="16" height="16"></button></div>-->
+<!--                            <textarea class="edit" name="text" cols="80" rows="10" id="discussion__comment_text" tabindex="5"></textarea>-->
+<!--                        </div>-->
+
+
+<!--                        <input class="button comment_submit" id="discussion__btn_submit" type="submit" name="submit" accesskey="s" value="Save" title="Save [S]" tabindex="7">-->
+<!--                                                <input class="button comment_preview_button" id="discussion__btn_preview" type="button" name="preview" accesskey="p" value="Preview" title="Preview [P]">-->
+
+<!--                        <div class="clearer"></div>-->
+<!--                        <div id="discussion__comment_preview">&nbsp;</div>-->
+<!--                    </div>-->
+<!--            </form>-->
+<!--        </div>-->
+<!--          </div>-->
+</div>
+                    <!-- wikipage stop -->
+                                    </div>
+</body>
+</html>
