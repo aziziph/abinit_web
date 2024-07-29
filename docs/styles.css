@@ -5,6 +5,7 @@ body {
   height: 100vh;
   font-family: Arial, sans-serif;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .title {
@@ -166,86 +167,28 @@ body {
   color: #F18F34;
 }
 
-@media (max-width: 1024px) {
-  #topheader {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .header div {
-    flex: 1 1 150px;
-  }
-}
-
-@media (max-width: 768px) {
-  .separator-line1, .separator-line2 {
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .lower_block, .abinit-info, .content-bottom2 {
-    margin-left: 5%;
-    margin-right: 5%;
-  }
-
-  .abinit-info h3,
-  .lower_block h4 {
-    margin-left: 0;
-  }
-
-  .LatestVersion {
-    left: 20px;
-  }
-}
-
-@media (max-width: 480px) {
-  #topheader {
-    flex-direction: column;
-  }
-
-  .carousel-container {
-    height: 200px;
-  }
-
-  .carousel-indicators {
-    top: 0;
-  }
-
-  .shortcut-img {
-    width: 40px;
-  }
-
-  .title {
-    font-size: 10px;
-  }
-}
-
-/* Burger menu styles */
-.burger-menu {
-  display: none;
-  cursor: pointer;
-  font-size: 30px;
-  padding: 10px;
-}
-
-/* Common styles for all screen sizes */
+/* Responsive styles for icon containers */
 .icon-container {
-  display: none; /* Hide by default */
+  display: none;
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease-in-out;
-  overflow: hidden; /* Ensure no overflow */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
 }
 
 .icon-container.active {
-  display: flex; /* Show when active */
+  display: flex;
 }
 
-/* Styles for larger screens (desktops, laptops) */
+/* Styles for larger screens */
 @media (min-width: 769px) {
   .icon-container {
-    display: flex; /* Show by default on larger screens */
+    display: flex;
     flex-direction: row;
     justify-content: center;
   }
@@ -283,42 +226,46 @@ body {
   }
 }
 
-/* Styles for smaller screens (tablets, mobile) */
+/* Styles for smaller screens */
 @media (max-width: 768px) {
   .burger-menu {
     display: block;
     cursor: pointer;
     font-size: 30px;
     padding: 10px;
+    position: relative;
+    z-index: 2000;
   }
 
   .icon-container {
-    display: none; /* Hide icon container initially */
+    display: none;
     flex-direction: column;
     align-items: center;
-    background-color: white; /* Optional: background color for better visibility */
-    width: 100%; /* Ensure the container takes full width */
-    box-sizing: border-box; /* Include padding/border in width calculation */
-    position: absolute; /* Position fixed to the top */
-    top: 0;
-    left: 0;
-    z-index: 1000; /* Ensure it is above other content */
+    background-color: white;
+    box-sizing: border-box;
+    padding: 10px 0;
+    width: 100%;
   }
 
   .icon-container.active {
-    display: flex; /* Show icon container when active */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .icon-row {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; /* Ensure row takes full width */
+    width: 100%;
   }
 
   .icon {
     margin: 10px 0;
     text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    border-bottom: 1px solid #ccc;
   }
 
   .icon img {
@@ -326,18 +273,17 @@ body {
   }
 
   .title {
-    font-size: 12px;
+    font-size: 14px;
     color: #F18F34;
   }
 }
 
-/* Responsive adjustments */
 @media (max-width: 480px) {
   .icon {
-    font-size: 10px; /* Smaller text for icons on very small screens */
+    font-size: 12px;
   }
 
   .burger-menu {
-    padding: 5px; /* Smaller padding for burger menu icon */
+    padding: 5px;
   }
 }
