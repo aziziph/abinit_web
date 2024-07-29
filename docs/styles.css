@@ -1,10 +1,38 @@
 /* Set margin on top of the page */
 body {
-  margin-top: 0%;
+  margin-top: 40px;
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
   padding: 0;
+}
+
+/* Container for the header icons */
+#topheader {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 0 1%;
+}
+
+/* Each shortcut item */
+.shortcut {
+  margin-right: 1%;
+  margin-bottom: 10px; /* Add margin to the bottom of each shortcut */
+}
+
+.icon-container {
+  text-align: center;
+}
+
+/* Set custom width and height for each shortcut item */
+.shortcut-img {
+  width: 50px;
+  height: auto;
+}
+
+.shortcut:nth-child(1) .shortcut-img {
+  width: 300px;
 }
 
 .title {
@@ -52,6 +80,24 @@ body {
 
 .separator-line2 {
   margin-left: 25%;
+}
+
+.icon-bar-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 200px;
+}
+
+.icon-bar {
+  margin-top: 10px;
+}
+
+.icon-bar img {
+  height: 30px;
 }
 
 .abinit-info {
@@ -241,76 +287,17 @@ body {
 }
 
 
-/* Common styles for all screen sizes */
-.icon-container {
-    display: none; /* Hide by default */
-    flex-direction: column;
-    align-items: center;
-    transition: all 0.3s ease-in-out;
-}
-
-.icon-container.active {
-    display: flex; /* Show when active */
-}
-
-/* Styles for larger screens (desktops, laptops) */
-@media (min-width: 769px) {
     .icon-container {
-        display: flex; /* Show by default on larger screens */
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .icon-row {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: center; /* Center items horizontally */
+        align-items: center; /* Center items vertically */
+        padding: 10px;
         margin-bottom: 10px;
-    }
-
-    .icon {
-        margin: 5px 10px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon img {
-        max-width: 100px;
-        height: auto;
-    }
-
-    .title {
+        margin: -10px 5%;
         font-size: 12px;
-        color: #F18F34;
-        margin-top: 5px;
     }
-
-    /* Hide burger menu on larger screens */
-    .burger-menu {
-        display: none;
+    .icon {
+          width: 50%;
+          height: auto;
+          margin:  10px 0.2%;
     }
-}
-
-/* Styles for smaller screens (tablets, mobile) */
-@media (max-width: 768px) {
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-        font-size: 30px;
-    }
-
-    .icon-container {
-        display: none; /* Hide icon container initially */
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .icon-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-}
