@@ -24,8 +24,10 @@
     </div>
 </div>
 
- <div class="burger-menu" onclick="toggleMenu()">&#9776;</div> <!-- Burger Icon -->
+    <!-- Burger Menu Icon -->
+    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
 
+    <!-- Icons Container -->
 <div class="icon-container">
     <div class="icon-row">
         <div class="icon">
@@ -91,7 +93,13 @@
     </script>
 </div>
 
-</div>
+    <script>
+        function toggleMenu() {
+            const iconContainer = document.querySelector('.icon-container');
+            iconContainer.classList.toggle('active');
+        }
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
