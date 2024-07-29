@@ -23,6 +23,7 @@ body {
   margin-top: 50px;
   overflow: hidden;
   position: relative;
+  z-index: 1; /* Lower z-index for the carousel */
 }
 
 .carousel-slide {
@@ -179,6 +180,7 @@ body {
   width: 100%;
   background-color: white;
   box-sizing: border-box;
+  z-index: 2; /* Higher z-index to ensure icons are above the carousel */
 }
 
 .icon-container.active {
@@ -245,6 +247,7 @@ body {
     box-sizing: border-box;
     padding: 10px 0;
     width: 100%;
+    z-index: 2; /* Ensure icons are above other elements */
   }
 
   .icon-container.active {
