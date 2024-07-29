@@ -294,7 +294,7 @@ body {
 }
 
 /* Styles for smaller screens (tablets, mobile) */
-@media (max-width: 768px) {
+@media (max-width: 400px) {
     .burger-menu {
         display: block;
         cursor: pointer;
