@@ -173,18 +173,33 @@ body {
   display: none;
   flex-direction: column;
   align-items: center;
-  transition: all 0.3s ease-in-out;
-  position: absolute;
+  position: fixed; /* Use fixed position to keep it above other content */
   top: 0;
   left: 0;
   width: 100%;
   background-color: white;
   box-sizing: border-box;
-  z-index: 2; /* Higher z-index to ensure icons are above the carousel */
+  z-index: 1000; /* High z-index to ensure it's above other elements */
+  padding: 20px 0; /* Add padding for spacing */
 }
 
 .icon-container.active {
   display: flex;
+}
+
+.icon {
+  margin: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.icon img {
+  display: none; /* Hide images on smaller screens */
+}
+
+.title {
+  font-size: 14px;
+  color: #F18F34;
 }
 
 /* Styles for larger screens */
@@ -193,6 +208,9 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    position: static; /* Reset position for larger screens */
+    z-index: 1;
+    background-color: transparent; /* No background for larger screens */
   }
 
   .icon-row {
@@ -236,18 +254,13 @@ body {
     font-size: 30px;
     padding: 10px;
     position: relative;
-    z-index: 2000;
+    z-index: 1100; /* Ensure burger menu is above other elements */
   }
 
   .icon-container {
     display: none;
     flex-direction: column;
     align-items: center;
-    background-color: white;
-    box-sizing: border-box;
-    padding: 10px 0;
-    width: 100%;
-    z-index: 2; /* Ensure icons are above other elements */
   }
 
   .icon-container.active {
@@ -263,16 +276,8 @@ body {
     width: 100%;
   }
 
-  .icon {
-    margin: 10px 0;
-    text-align: center;
-    width: 100%;
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
-
   .icon img {
-    display: none; /* Hide images on smaller screens */
+    display: none;
   }
 
   .title {
