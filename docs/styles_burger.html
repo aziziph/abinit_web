@@ -1,6 +1,6 @@
 /* Set margin on top of the page */
 body {
-  margin-top: 0;
+  margin-top: 0%;
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
@@ -240,66 +240,77 @@ body {
   }
 }
 
-/* Styles for the icon container and icon rows */
+
+/* Common styles for all screen sizes */
 .icon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.icon-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 5px; /* Reduced margin between rows */
-}
-
-.icon {
-  margin: 5px; /* Reduced margin around each icon */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.icon img {
-  max-width: 80px; /* Reduced max-width of icons */
-  height: auto;
-}
-
-.title {
-  display: block;
-  font-size: 12px;
-  color: #F18F34;
-  margin-top: 3px; /* Reduced margin above title */
-}
-
-/* Adjustments for smaller devices */
-@media (max-width: 768px) {
-  .icon-row {
+    display: none; /* Hide by default */
     flex-direction: column;
     align-items: center;
-  }
-
-  .icon {
-    margin-bottom: 5px;
-  }
-
-  .icon img {
-    max-width: 70px;
-  }
-
-  .title {
-    font-size: 10px;
-  }
+    transition: all 0.3s ease-in-out;
 }
 
-@media (max-width: 480px) {
-  .icon img {
-    max-width: 60px;
-  }
+.icon-container.active {
+    display: flex; /* Show when active */
+}
 
-  .title {
-    font-size: 10px;
-  }
+/* Styles for larger screens (desktops, laptops) */
+@media (min-width: 769px) {
+    .icon-container {
+        display: flex; /* Show by default on larger screens */
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .icon-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .icon {
+        margin: 5px 10px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .icon img {
+        max-width: 100px;
+        height: auto;
+    }
+
+    .title {
+        font-size: 12px;
+        color: #F18F34;
+        margin-top: 5px;
+    }
+
+    /* Hide burger menu on larger screens */
+    .burger-menu {
+        display: none;
+    }
+}
+
+/* Styles for smaller screens (tablets, mobile) */
+@media (max-width: 768px) {
+    .burger-menu {
+        display: block;
+        cursor: pointer;
+        font-size: 30px;
+    }
+
+    .icon-container {
+        display: none; /* Hide icon container initially */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .icon-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }
