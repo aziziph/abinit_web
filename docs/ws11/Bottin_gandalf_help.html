@@ -1,0 +1,1700 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <title>PAW atomic data for Abinit</title>
+</head>
+<body>
+<h2>
+<center>
+<hr><big><big>GANDALF</big></big><br>
+Le compagnon des utilisateurs et d&eacute;veloppeurs d'ABINIT. <br>
+</center>
+</h2>
+<hr align="left">
+<ul>
+  <li><font color="#00007f" size="+1">Pour un <span
+ style="font-weight: bold; text-decoration: underline;">utilisateur</span>:
+cet utilitaire permet de d&eacute;buter rapidement une &eacute;tude
+avec ABINIT; de </font><font color="#00007f" size="+1">la
+g&eacute;n&eacute;ration du pseudo-potentiel jusqu'</font><font
+ color="#00007f" size="+1">au calcul des premi&egrave;res quantit</font><font
+ color="#00007f" size="+1">&eacute;s</font><font color="#00007f"
+ size="+1"> physiques, convergences ...</font></li>
+</ul>
+<font color="#00007f" size="+1"></font>
+<ul>
+  <li><font color="#00007f" size="+1">Pour un <span
+ style="font-weight: bold; text-decoration: underline;">d&eacute;veloppeur</span>:
+    </font><font color="#00007f" size="+1">cet utilitaire permet de
+tester les propi</font><font color="#00007f" size="+1">&eacute;t</font><font
+ color="#00007f" size="+1">&eacute;s physiques et de convergence d'</font><font
+ color="#00007f" size="+1">un ensemble de pseudo-potentiels (ceux-ci
+provenant d'une nouvelle base de donn</font><font color="#00007f"
+ size="+1">&eacute;es, apr&egrave;s modification d'un g</font><font
+ color="#00007f" size="+1">&eacute;n</font><font color="#00007f"
+ size="+1">&eacute;rateur ou convertisseur, ...)</font></li>
+</ul>
+<ul>
+  <li><font color="#00007f" size="+1"><span
+ style="font-weight: bold; text-decoration: underline;"></span></font><font
+ color="#00007f" size="+1"><span
+ style="font-weight: bold; text-decoration: underline;">Avant toute
+utilisation</span>, il est vivement recommand</font><font
+ color="#00007f" size="+1">&eacute; de faire les tutoriaux d'ABINIT. Ce
+compagnon vous guidera un peu partout mais pas forc&eacute;ment sans
+emb&ucirc;che.</font><font color="#00007f" size="+1"><br>
+    </font></li>
+</ul>
+<font color="#003f00" size="-1">
+</font>
+<hr align="left"><br>
+<big><b><u>1/ Caract</u></b><span style="text-decoration: underline;"><span
+ style="font-weight: bold;">&eacute;ristiques</span></span><b><u> et
+installation:</u></b></big>
+<p style="margin-left: 40px;"><small><font color="#00007f" size="+1"><small>L'utilitaire
+est constitu</small></font><font color="#00007f" size="+1"><small>&eacute;
+de <span style="color: rgb(255, 0, 0); font-weight: bold;">plusieurs
+scripts</span>, chacun d'eux r&eacute;alisant une action pr</small></font><font
+ color="#00007f" size="+1"><small>&eacute;cise.</small></font></small><small><font
+ color="#00007f" size="+1"><small> Tous ces scripts peuvent &ecirc;tre
+encha&icirc;n</small></font></small><small><font color="#00007f"
+ size="+1"><small>&eacute;s automatiquement, sans aucune intervention
+ext</small></font></small><small><font color="#00007f" size="+1"><small>&eacute;rieure</small></font></small><small><font
+ color="#00007f" size="+1"><small>, ou bien </small></font></small><small><font
+ color="#00007f" size="+1"><small>&ecirc;tre ex&eacute;cut&eacute;s</small></font></small><small><font
+ color="#00007f" size="+1"><small> ind</small></font></small>&eacute;pendemment<small><font
+ color="#00007f" size="+1"><small>.</small></font></small><small><font
+ color="#00007f" size="+1"><small> Ils exigent cependant des arguments
+(2 ou 3). Une aide est fournie &agrave; l'ex&eacute;cution de chacun
+d'eux si le nombre d'argument n'est pas respect&eacute;. </small></font></small><small><font
+ color="#00007f" size="+1"><small>Deux scripts sont </small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;crits</small></font></small><small><font
+ color="#00007f" size="+1"><small> en python, les autres en shell. <br>
+</small></font></small></p>
+<div style="margin-left: 40px;"><small><font color="#00007f" size="+1"><small>Cet
+utilitaire pr&eacute;suppose un <span
+ style="color: rgb(255, 0, 0); font-weight: bold;">environnement</span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span
+ style="color: rgb(255, 0, 0); font-weight: bold;"> de travail</span></small></font></small><small><font
+ color="#00007f" size="+1"><small>. Cet <a
+ href="gandalf.html#environnement">environnement</a> peut &ecirc;tre
+chang&eacute; et nous verrons plus tard comment faire. Dans un premier
+temps, adoptons l'<a href="gandalf.html#environnement">environnement</a>
+par d&eacute;faut.<br>
+<br>
+</small></font></small><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span>Dans un
+r&eacute;pertoire quelconque<span style="font-weight: bold;"></span>,
+d&eacute;zipper et
+d&eacute;tarer le fichier <a
+ href="GANDALF/ATOMICDATA.tar.gz">GANDALF.tar.gz</a>.&nbsp;</div>
+<ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; tar xzf GANDALF.tar ; cd
+GANDALF ; ls<br>
+&gt;&gt; cd ATOMICDATA<br
+ style="font-family: times new roman,times,serif;">
+</small></span></span></small></font></small>
+<ul>
+  <li><span style="font-weight: bold; color: rgb(255, 0, 0);">1.a</span>&nbsp;
+Dans un r<small><font color="#00007f" size="+1"><small>&eacute;pertoire
+    <span style="font-weight: bold;">ATOMICDATA</span>, on trouve
+quatre sous-r&eacute;pertoires recensant tous les inputs de donn</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;es atomiques connus &agrave;</small></font></small><small><font
+ color="#00007f" size="+1"><small> ce jour, ainsi que leurs
+g&eacute;n&eacute;rateurs:</small></font></small></li>
+</ul>
+<div style="margin-left: 40px;"></div>
+<small></small>
+<ul>
+  <ul>
+    <li>i) le r&eacute;pertoire <a
+ href="uspp-735/Work">Work</a>,
+base de pseudo-potentiels ultra-soft du g&eacute;n&eacute;rateur USPP
+de <a href="http://www.physics.rutgers.edu/%7Edhv/">D. Vanderbilt</a>,
+renomm&eacute; <span style="font-weight: bold;">USPP-ORI</span>;</li>
+    <li>ii) le r&eacute;pertoire <span style="font-weight: bold;">ATOMPAW-HOLZ</span>,
+base de donn&eacute;es atomiques du g&eacute;n&eacute;rateur ATOMPAW de
+      <a href="http://www.wfu.edu/%7Enatalie/papers/pwpaw/man.html">N.
+Holzwarth</a>;</li>
+    <li>iii) le r&eacute;pertoire <span style="font-weight: bold;">USPP-ABI</span>,
+base de donn&eacute;es g&eacute;n&eacute;r&eacute;es et
+optimis&eacute;es pour Abinit;</li>
+    <li>iv) et le dernier, nomm&eacute; <span
+ style="font-weight: bold;">EXECS</span>, contenant tous les
+codes/ex&eacute;cutables n&eacute;cessaires &agrave; la
+g&eacute;n&eacute;ration des donn&eacute;es atomiques. Pour plus de
+renseignement concernant la compilation ou le
+t&eacute;l&eacute;chargement
+de ces codes, consulter la <a href="http://www.abinit.org/PAW/">page
+d'accueil de PAW</a>.</li>
+  </ul>
+</ul>
+<div style="margin-left: 40px;">A ceux-ci s'ajoutent deux
+ex&eacute;cutables (scripts) nomm&eacute;s <small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#uspp">gandalf.uspp</a></small></font></small><small><font
+ color="#00007f" size="+1"><small><a style="font-weight: bold;"
+ href="gandalf.html#uspp"><span style="color: rgb(51, 204, 0);"></span></a>
+et&nbsp;</small></font></small><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#atompaw">gandalf.atompaw</a></small></font></small><small><font
+ color="#00007f" size="+1"><small> que nous d&eacute;taillerons dans le
+chapitre suivant.</small></font></small>&nbsp; <small><font
+ color="#00007f" size="+1"><small><span
+ style="color: rgb(255, 0, 0); font-weight: bold;"></span></small></font></small><br>
+</div>
+<ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; cd ../RESULTS</small></span></span></small></font></small><br>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(255, 0, 0); font-weight: bold;">1.b</span> </small></font></small>Dans
+un r&eacute;pertoire <span style="font-weight: bold;">RESULTS</span>,
+dans lequel seront donc faits tous les calculs, on trouve deux
+sous-r&eacute;pertoires <span style="font-weight: bold;">PURE</span>
+et <span style="font-weight: bold;">COMPOUNDS</span></li>
+</ul>
+<div style="margin-left: 40px;"> s&eacute;parant
+ainsi les calculs faits sur les corps purs de ceux faits sur des
+compos&eacute;s.</div>
+<ul>
+  <ul>
+    <li>Dans chacun, un r&eacute;pertoire <span
+ style="font-weight: bold;">INPUT</span> liste les inputs disponibles
+pour chaque &eacute;l&eacute;ment ou compos&eacute;. Nous
+d&eacute;taillerons
+par la suite la <a href="gandalf.html#notation">notation</a>
+(nomenclature, standard) adopt&eacute;e.</li>
+    <li>Dans le sous-r&eacute;pertoire <span style="font-weight: bold;">PURE</span>,
+trois scripts nomm&eacute;s <small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#copy">gandalf.copy</a></small></font></small><small><font
+ color="#00007f" size="+1"><small>, </small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#abinit">gandalf.abinit</a></small></font></small>
+et <a href="gandalf.html#atompaw"><small><font color="#00007f"
+ size="+1"><small></small></font></small></a><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#extract">gandalf.extract</a></small></font></small>
+agissent sur les corps purs et dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">COMPOUNDS</span>, trois scripts analogues
+nomm&eacute;s <small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#copy">gandalf.copy.compounds</a></small></font></small><small><font
+ color="#00007f" size="+1"><small>, </small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#abinit">gandalf.abinit.compounds</a></small></font></small>
+et <small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#extract">gandalf.extract.compounds</a></small></font></small>
+agissent sur les compos&eacute;s.</li>
+    <li>Dans le r&eacute;pertoire <span style="font-weight: bold;">RESULTS</span>,
+deux scripts suppl&eacute;mentaires nomm&eacute;s <a
+ href="gandalf.html#xmgrace">gandalf.xmgrace</a> et <a
+ href="gandalf.html#tex2ps">gandalpf.tex2ps</a> agissent &agrave; la
+fois sur les corps purs et sur les compos&eacute;s.<br>
+    </li>
+  </ul>
+</ul>
+<div style="margin-left: 40px;">&nbsp;Ces huit scripts (ainsi que les
+fichiers <span style="color: rgb(0, 0, 0); font-style: italic;">ref.tex</span>
+et <span style="font-style: italic;">pawecutdg.values</span>) sont
+d&eacute;velopp&eacute;s/d&eacute;taill&eacute;s
+s&eacute;par&eacute;ment dans la section suivante.<br>
+</div>
+<br>
+<big>2/ <b><u>Utilisation des diff&eacute;rents scripts:<br>
+<br>
+</u></b></big>
+<div style="margin-left: 40px;">Ceux-ci doivent &ecirc;tre ex<small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cut</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;s les uns apr&egrave;s les autres
+la premi&egrave;re fois. La compr</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;hension de leur r&ocirc;le
+permettra ensuite de les ex</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cuter ind</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;pendemment.</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><br>
+</span></span></small></font></small></div>
+<a name="uspp"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left"><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.a</span> </span><a
+ href="gandalf.html#uspp">gandalf.uspp</a><span
+ style="color: rgb(0, 0, 0);"> Celui-ci permet de g&eacute;n</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;rer les donn</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;es atomiques uspp &agrave; partir
+des inputs contenus dans les r</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;pertoires <span
+ style="font-weight: bold;">USPP-ORI</span> et <span
+ style="font-weight: bold;">USPP-ABI</span>. Si l'on ex</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; cd ../ATOMICDATA<br>
+&gt;&gt; gandalf.uspp<br>
+Three arguments are needed for gandalf.uspp<br>
+The first one deals with the origin: USPP-ABI, USPP-ORI, ... ====== or
+all<br>
+The second one deals with the species (the sub-directories): 001-H,
+008-O, ... ====== or all<br>
+The third one deals with the xc functionnal, ... (the
+sub-sub-directories): GGA-USPP-opt, LDA-USPP-vgrp... ====== or all<br>
+</small><br>
+</span></span></small></font></small>
+<div style="margin-left: 40px;">Si l'on ne d&eacute;sire<span
+ style="font-family: times new roman,times,serif;"> g&eacute;n</span><span
+ style="font-family: times new roman,times,serif;">&eacute;rer que
+certaines donn</span><span
+ style="font-family: times new roman,times,serif;">&eacute;es
+atomiques, par exemple celles de l'Hydrog&egrave;</span>ne, on peux
+ex&eacute;cuter la commande suivante:<br>
+<br>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></div>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.uspp </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all 001-H all</small></span></span></small></font></small>
+<br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+Ceci a pour effet de g</span>&eacute;n&eacute;rer des donn&eacute;es
+atomiques dans cinq sous-r&eacute;pertoires r&eacute;pondant &agrave;
+ce crit&egrave;re: <span style="font-weight: bold;"><br>
+</span><br>
+</div>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font>&gt;&gt;&nbsp;<font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small></small></span></span></small></font><span
+ style="font-family: courier new,courier,monospace;"> ls USPP-*/001-H/</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ABI/001-H/:</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">GGA-USPP-opt&nbsp;
+LDA-USPP-opt</span><br
+ style="font-family: courier new,courier,monospace;">
+<br style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ORI/001-H/:</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">001-H-ca--bm&nbsp;
+001-H-gpbe--bm&nbsp; 001-H-gpw--campos</span></small>
+<br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-weight: bold;"></span><br>
+</div>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;"></span>Les noms des
+sous-sous-r&eacute;pertoires de <span style="font-weight: bold;">USPP-ABI</span>
+sont standardis&eacute;s, avec le nom de la fonctionnelle
+d'&eacute;change et corr&eacute;lation en premier, "USPP" en second et
+"opt" en dernier. Ceux de <span style="font-weight: bold;">USPP-ORI</span>
+seront modifi&eacute;s &agrave; la g&eacute;n&eacute;ration pour
+ob&eacute;ir au nouveau standard, et nous obtenons donc apr&egrave;s
+ex&eacute;cution trois nouveaux sous-sous-r&eacute;pertoires: <span
+ style="font-weight: bold;">USPP-ORI/001-H/LDA-USPP-bm</span>, <span
+ style="font-weight: bold;">USPP-ORI/001-H/GGA-USPP-bm</span> et <span
+ style="font-weight: bold;">USPP-ORI/001-H/GGA-USPP-campos</span>.
+Apr&egrave;s g&eacute;n&eacute;ration, dans chacun d'eux appara&icirc;t
+un r&eacute;pertoire <span style="font-weight: bold;">Input</span>
+sauvegardant les fichiers d'input, un fichier <span
+ style="font-style: italic;">README</span> (si celui-ci existe) et le
+fichier de donn&eacute;es atomiques. Dans le cas de <span
+ style="font-family: times new roman,times,serif;">l'Hydrog&egrave;</span>ne
+on en obtient cinq: <br>
+<br>
+</div>
+<span style="font-family: courier new,courier,monospace;"></span><small
+ style="font-family: courier new,courier,monospace;">&gt;&gt; ls
+USPP-*/001-H/*/*paw<br>
+<font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font><span
+ style="font-family: courier new,courier,monospace;">USPP-ABI/001-H/GGA-USPP-opt/H.gga.uspp-abi.opt.paw</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ORI/001-H/GGA-USPP-bm/H.gga.uspp-ori.bm.paw&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><br style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ORI/001-H/LDA-USPP-bm/H.lda.uspp-ori.bm.paw</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ABI/001-H/LDA-USPP-opt/H.lda.uspp-abi.opt.paw</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">USPP-ORI/001-H/GGA-USPP-campos/H.gga.uspp-ori.campo</span><span
+ style="font-family: courier new,courier,monospace;">s.paw</span></small><br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><br>
+Le format des donn&eacute;es atomiques est totalement
+standardis&eacute; avec i) le corps; ii) la fonctionnelle
+d'&eacute;change et corr&eacute;lation; iii) le r&eacute;pertoire; iv)
+l'origine; v) et "paw". Apr&egrave;s l'ex&eacute;cution de <a
+ href="gandalf.html#uspp">gandalf.uspp</a>, quatre fichiers sont
+obtenus en sortie: deux fichiers <span style="font-style: italic;">Directories_list_gga</span>
+et <span style="font-style: italic;">Directories_list_lda</span>
+listant l'ensemble des donn&eacute;es atomiques disponibles dans la
+base de donn&eacute;es, et deux fichiers <span
+ style="font-style: italic;">Bug_list_ori</span> et <span
+ style="font-style: italic;">Bug_list_abi</span> indiquant tout se qui
+a &eacute;t&eacute; r&eacute;alis&eacute; au cours de la
+g&eacute;n&eacute;ration: les bugs bien-s&ucirc;r, mais aussi diverses
+approximations:<br>
+<ul>
+  <ul>
+    <li>Dans le r&eacute;pertoire <span style="font-weight: bold;">USPP-ORI</span>,
+toutes les donn&eacute;es atomiques ont &eacute;t&eacute;
+g&eacute;n&eacute;r&eacute;es
+en rempla&ccedil;ant la fonctionnelle XC Perdew-Wang par une PBE;
+ABINIT n'acceptant pas la fonctionnelle Perdew-Wang.</li>
+    <li>Dans le cas LDA, m&ecirc;me si la g&eacute;n&eacute;ration a
+&eacute;t&eacute; faite en utilisant une fonctionnelle XC
+Perdew-Zunger-Ceperley-Alder (pspxc 2), c'est une Teter-Pade&nbsp;
+(pspxc 1) qui appara&icirc;t dans l'en-t&ecirc;te du fichier, le 2
+ayant &eacute;t&eacute; remplac&eacute; par un 1. La seconde permet de
+r&eacute;aliser
+des calculs spin-polaris&eacute;s dans ABINIT alors que la
+premi&egrave;re ne le permet pas.<br>
+    </li>
+  </ul>
+</ul>
+</div>
+<a name="atompaw"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left"><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.b</span> </span><a
+ href="gandalf.html#atompaw">gandalf.atompaw</a></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"> Celui-ci permet de g&eacute;n</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;rer les donn</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;es atomiques atompaw &agrave;
+partir des inputs contenus dans le r</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;pertoire <span
+ style="font-weight: bold;">ATOMPAW-HOLZ</span>. Si l'on ex</span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small>&nbsp;<small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.atompaw<br>
+Three arguments are needed for gandalf.atompaw<br>
+The first one deals with the origin: ATOMPAW-HOLZ, ... ====== or all<br>
+The second one deals with the species (the sub-directories): 001-H,
+008-O, ... ====== or all<br>
+The third one deals with the xc functionnal, ... (the
+sub-sub-directories): GGA-ATOMPAW-vand, LDA-ATOMPAW-blochl... ====== or
+all<br>
+<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;">Si l'on ne d&eacute;sire<span
+ style="font-family: times new roman,times,serif;"> g&eacute;n</span><span
+ style="font-family: times new roman,times,serif;">&eacute;rer que
+certaines donn</span><span
+ style="font-family: times new roman,times,serif;">&eacute;es
+atomiques, par exemple celles de l'Hydrog&egrave;</span>ne, on peux
+ex&eacute;cuter la commande suivante:<br>
+<br>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></div>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.atompaw </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all 001-H all</small></span></span></small></font></small>
+<br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+Ceci a pour effet de g</span>&eacute;n&eacute;rer des donn&eacute;es
+atomiques dans quatre sous-r&eacute;pertoires r&eacute;pondant &agrave;
+ce crit&egrave;re: <span style="font-weight: bold;"><br>
+</span><br>
+</div>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font>&gt;&gt;&nbsp;<font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font><span
+ style="font-family: courier new,courier,monospace;"> ls
+ATOMPAW-HOLZ/001-H/<br>
+GGA-ATOMPAW-blochl&nbsp; GGA-ATOMPAW-vand&nbsp;
+LDA-ATOMPAW-blochl&nbsp; LDA-ATOMPAW-vand<br>
+</span></small><br>
+<div style="margin-left: 40px;">Les noms des
+sous-sous-r&eacute;pertoires de <span style="font-weight: bold;">ATOMPAW-HOLZ</span>
+sont standardis&eacute;s, avec le nom de la fonctionnelle
+d'&eacute;change et
+corr&eacute;lation en premier, "ATOMPAW" en second et "vand" ou
+"blochl" en dernier. Les sous-sous-r&eacute;pertoires "vand" sont
+(re)cr&eacute;&eacute;s
+&agrave; la g&eacute;n&eacute;ration &agrave; partir de ceux de
+"blochl". Les fichiers de donn&eacute;es atomiques diff&egrave;rent
+alors par le shema de pseudisation employ&eacute;: shema "&agrave; la
+Vanderbilt" ou "&agrave; la Bl&ouml;chl". Apr&egrave;s
+g&eacute;n&eacute;ration, dans chacun d'eux appara&icirc;t un
+r&eacute;pertoire <span style="font-weight: bold;">Input</span>
+sauvegardant le fichier d'input, un fichier <span
+ style="font-style: italic;">README</span> (si celui-ci existe) et le
+fichier de donn&eacute;es atomiques. Dans le cas de <span
+ style="font-family: times new roman,times,serif;">l'Hydrog&egrave;</span>ne
+on en obtient quatre: <br>
+</div>
+<br>
+<span style="font-family: courier new,courier,monospace;"></span><small
+ style="font-family: courier new,courier,monospace;">&gt;&gt; ls
+ATOMPAW-HOLZ/001-H/*/*paw<br>
+ATOMPAW-HOLZ/001-H/GGA-ATOMPAW-blochl/H.gga.atompaw-holz.blochl.paw<br>
+ATOMPAW-HOLZ/001-H/LDA-ATOMPAW-blochl/H.lda.atompaw-holz.blochl.paw<br>
+ATOMPAW-HOLZ/001-H/GGA-ATOMPAW-vand/H.gga.atompaw-holz.vand.paw<br>
+ATOMPAW-HOLZ/001-H/LDA-ATOMPAW-vand/H.lda.atompaw-holz.vand.paw<br>
+</small>
+<div style="margin-left: 40px;"><br>
+Le format des donn&eacute;es atomiques est totalement
+standardis&eacute; avec i) le corps; ii) la
+fonctionnelle d'&eacute;change et corr&eacute;lation; iii) le
+r&eacute;pertoire; iv)
+l'origine; v) et "paw". Apr&egrave;s l'ex&eacute;cution de <a
+ href="gandalf.html#atompaw">gandalf.atompaw</a>, deux fichiers sont
+obtenus en sortie: <span style="font-style: italic;">Directories_list_gga</span>
+et <span style="font-style: italic;">Directories_list_lda</span>.
+Ceux-ci listent l'ensemble des donn&eacute;es atomiques disponibles
+dans la base de donn&eacute;es. Il reste &agrave; cr&eacute;er un
+fichier <span style="font-style: italic;">Bug_list_holz</span>
+indiquant tout se qui a &eacute;t&eacute; r&eacute;alis&eacute; au
+cours de la g&eacute;n&eacute;ration.</div>
+<div style="margin-left: 40px;"> </div>
+<a name="copy"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left"><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.c</span> </span><a
+ href="gandalf.html#copy">gandalf.copy</a></span></small></font></small>
+Celui-ci pr&eacute;pare le travail &agrave; r&eacute;aliser sur les
+corps purs avant qu'ABINIT ne soit ex&eacute;cut&eacute;. <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; cd ../RESULTS/PURE<br>
+&gt;&gt; gandalf.copy<br>
+Three arguments are needed for gandalf.copy<br>
+The first one deals with the input file: ecut, atom, dimer, fcc, bcc,
+diamond, ... ====== or none, all<br>
+The second one deals with the species: 001-H, 008-O, .... ====== or all<br>
+The third one deals with the atomic data: H.gga.uspp-abi.opt.paw, ...
+====== or atompaw-holz, uspp-ori... ====== or none, all<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;"><br>
+Si l'on d<small><font color="#00007f" size="+1"><small>&eacute;sire pr</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;pararer</small></font></small>
+<small><font color="#00007f" size="+1"><small>tous les calculs
+possibles sur l'Hydrog&egrave;</small></font></small><span
+ style="font-family: times new roman,times,serif;">ne</span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+<br>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></div>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.copy </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all 001-H all</small></span></span></small></font></small>
+<br>
+<span style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;">Ceci a pour effet de:</span><br>
+</div>
+<ul>
+  <ul>
+    <li>cr&eacute;er un r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT</span>&nbsp; (si celui-ci n'existait
+pas avant).</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small> <small
+ style="font-family: courier new,courier,monospace;">OUTPUT directory
+created<font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<span style="font-family: times new roman,times,serif;"></span>
+<ul>
+  <ul>
+    <li>cr&eacute;er un sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/001-H</span> (si celui-ci n'existait
+pas avant).</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">OUTPUT/001-H
+directory created<font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<span style="font-family: times new roman,times,serif;"></span>
+<ul>
+  <ul>
+    <li>copier/installer dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/001-H </span>tous les fichiers de
+donn&eacute;es atomiques
+contenus dans la base de donn&eacute;es <span
+ style="font-weight: bold;">ATOMICDATA</span>. Ceci est fait pour
+chaque sous-r&eacute;pertoire de <span style="font-weight: bold;">ATOMICDATA</span>.<br>
+    </li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&nbsp; Copy
+the
+../../ATOMICDATA/ATOMPAW-HOLZ/001-H/GGA-ATOMPAW-vand/H.gga.atompaw-holz.vand.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/ATOMPAW-HOLZ/001-H/LDA-ATOMPAW-vand/H.lda.atompaw-holz.vand.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/ATOMPAW-HOLZ/001-H/LDA-ATOMPAW-blochl/H.lda.atompaw-holz.blochl.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/ATOMPAW-HOLZ/001-H/GGA-ATOMPAW-blochl/H.gga.atompaw-holz.blochl.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/USPP-ORI/001-H/GGA-USPP-bm/H.gga.uspp-ori.bm.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/USPP-ORI/001-H/GGA-USPP-campos/H.gga.uspp-ori.campos.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/USPP-ORI/001-H/LDA-USPP-bm/H.lda.uspp-ori.bm.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/USPP-ABI/001-H/GGA-USPP-opt/H.gga.uspp-abi.opt.paw
+atomic data in the OUTPUT/001-H directory<br>
+&nbsp; Copy the
+../../ATOMICDATA/USPP-ABI/001-H/LDA-USPP-opt/H.lda.uspp-abi.opt.paw
+atomic data in the OUTPUT/001-H directory</small><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<span style="font-family: times new roman,times,serif;"></span>
+<ul>
+  <ul>
+    <li>copier/installer dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/001-H </span>tous les inputs
+contenus dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">INPUT/001-H</span><span
+ style="font-weight: bold;"></span>.</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&nbsp; Copy
+the INPUT/001-H/atom.in file in the OUTPUT/001-H directory<br>
+&nbsp; Copy the INPUT/001-H/dimer.in file in the OUTPUT/001-H directory<br>
+&nbsp; Copy the INPUT/001-H/fcc.in file in the OUTPUT/001-H directory<br>
+</small>
+<ul>
+  <ul>
+    <li>cr<small><font color="#00007f" size="+1"><small>&eacute;er dans
+      <span style="font-weight: bold;">OUTPUT/001-H</span> deux fichiers<span
+ style="font-style: italic;"> auto.ecut.in</span> et </small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="font-style: italic;">auto.pawecutdg.in
+      </span></small></font></small><small><font color="#00007f"
+ size="+1"><small>qui n'existaient pas
+dans <span style="font-weight: bold;">INPUT/001-H</span>. Ces derniers
+ont </small></font></small><small><font color="#00007f" size="+1"><small>&eacute;t</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;</small></font></small><small><font
+ color="#00007f" size="+1"><small> g</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;n</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;r</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;s automatiquement par le
+script </small></font></small><small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#copy">gandalf.copy</a>. Ils seront utili</small></font></small>s&eacute;s
+pour l'&eacute;tude de convergence en cutoff (sur la grille
+grossi&egrave;re et la grille fine). Cette g<small><font color="#00007f"
+ size="+1"><small>&eacute;n</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;ration automatique
+peut-&ecirc;tre </small></font></small><small><font color="#00007f"
+ size="+1"><small>&eacute;vit</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;e (si on le d</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;sire) en modifiant dans </small></font></small><small><font
+ color="#00007f" size="+1"><small>le script </small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#copy">gandalf.copy</a>
+      </small></font></small><small><font color="#00007f" size="+1"><small>la
+valeur de la variable AUTOMATICCUTOFFINPUT.</small></font></small>&nbsp;</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&nbsp;
+Generate an auto.ecut.in file in the OUTPUT/001-H directory<br>
+&nbsp; Generate an auto.pawecutdg.in file in the OUTPUT/001-H directory</small><br>
+<a name="abinit"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.d</span> </span><a
+ href="gandalf.html#abinit">gandalf.abinit</a></span></small></font></small>
+Celui-ci ex<small><font color="#00007f" size="+1"><small>&eacute;cute</small></font></small>
+le travail que<small><font color="#00007f" size="+1"><small> </small></font></small><small><font
+ color="#00007f" size="+1"><small><a href="gandalf.html#copy">gandalf.copy</a>
+a</small></font></small> pu pr&eacute;parer. <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small><br>
+  </li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.abinit<br>
+Three arguments are needed for gandalf.abinit<br>
+The first one deals with the input file: ecut, atom, dimer, fcc, bcc,
+diamond, ... ====== or all<br>
+The second one deals with the species: 001-H, 008-O, .... ====== or all<br>
+The third one deals with the atomic data: H.gga.uspp-abi.opt.paw, ...
+====== or atompawi-holz, uspp-ori... ====== or all<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;"><br>
+Si l'on d<small><font color="#00007f" size="+1"><small>&eacute;sire
+lancer</small></font></small> <small><font color="#00007f" size="+1"><small>tous
+les calculs possibles sur l'Hydrog&egrave;</small></font></small><span
+ style="font-family: times new roman,times,serif;">ne</span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+<br>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></div>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.abinit </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all 001-H all</small></span></span></small></font></small>
+<br>
+<span style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;">Pour chaque donn</span>&eacute;e
+atomique du sous-r&eacute;pertoire <span style="font-weight: bold;">OUTPUT/001-H</span>,<span
+ style="font-family: times new roman,times,serif;"> ceci a pour effet
+de:</span><br>
+</div>
+<ul>
+  <ul>
+    <li><span style="font-weight: bold;"></span>d&eacute;marer
+l'ex&eacute;cution
+par un calcul de convergence en "ecut" (grille grossi&egrave;re). A la
+fin de celui-ci, le script estime une valeur raisonnable du "ecut";
+i.e.: une valeur du cutoff permettant d'avoir une erreur sur
+l'&eacute;nergie totale inf&eacute;rieure &agrave; 1 mHa. Cette valeur
+est alors utilis&eacute;e dans tous les calculs qui suivent. Si on
+d&eacute;sire
+d&eacute;sactiver cette d&eacute;termination (et utilisation) du "ecut"
+&agrave; convergence il faut alors modifer dans le script <a
+ href="gandalf.html#abinit">gandalf.abinit</a> la valeur de la variable
+CONVERGEDCALCULATION.</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">Copy the
+H.gga.uspp-abi.opt.paw filename in the all.files file<br>
+&nbsp; Launching ABINIT in the OUTPUT/001-H directory with the ecut.in
+input file<br>
+&nbsp; ABINIT code successfully terminated<br>
+&nbsp; Copy the all.out standard output to
+H.gga.uspp-abi.opt.paw.ecut.out<br>
+</small>
+<ul>
+  <ul>
+    <li>&eacute;ventuellement poursuivre l'ex&eacute;cution par un
+calcul de convergence en "pawecutdg" (grille fine), si la valeur de la
+variable FINDPAWECUTDG a &eacute;t&eacute; modifi&eacute;e dans le
+script. A la fin de celui-ci, un "pawecutdg" correspondant &agrave; une
+erreur de 0.05 mHa sur l'&eacute;nergie totale est
+d&eacute;termin&eacute;. La valeur du "pawecutdg" &agrave; convergence
+est alors utilis&eacute;e dans tous les calculs qui suivent. <span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+voir<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"> </span><a
+ href="gandalf.html#extract">gandalf.extract</a> </span></small></font></small>
+pour les limitations. </li>
+    <li>poursuivre l'ex&eacute;cution en utilisant tous les autres
+fichiers d'inputs pr&eacute;sents dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/001-H</span>, ainsi que la valeur du
+"ecut" (et du "pawecutdg") &agrave; convergence. </li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&nbsp;
+---&gt;The coarse (fine) grid cutoff parameter ecut (pawecutdg) is
+adjusted to 10.0 (20)<br>
+&nbsp; Launching ABINIT in the OUTPUT/001-H directory with the atom.in
+input file<br>
+&nbsp; ABINIT code successfully terminated<br>
+&nbsp; Copy the all.out standard output to
+H.gga.uspp-abi.opt.paw.atom.out<br>
+&nbsp; ---&gt;The coarse (fine) grid cutoff parameter ecut (pawecutdg)
+is adjusted to 10.0 (20)<br>
+&nbsp; Launching ABINIT in the OUTPUT/001-H directory with the dimer.in
+input file<br>
+&nbsp; ABINIT code successfully terminated<br>
+&nbsp; Copy the all.out standard output to
+H.gga.uspp-abi.opt.paw.dimer.out<br>
+&nbsp; ---&gt;The coarse (fine) grid cutoff parameter ecut (pawecutdg)
+is adjusted to 10.0 (20)<br>
+&nbsp; Launching ABINIT in the OUTPUT/001-H directory with the fcc.in
+input file<br>
+&nbsp; ABINIT code successfully terminated<br>
+&nbsp; Copy the all.out standard output to
+H.gga.uspp-abi.opt.paw.fcc.out<br>
+</small>
+<div style="margin-left: 80px;"><br>
+Les calculs "atom", "dimer", "fcc" ... n'ont pas de
+sp&eacute;cificit&eacute;s particuli&egrave;res. Ces calculs permettent
+de d&eacute;terminer l'&eacute;nergie de l'atome isol&eacute;, la
+distance interatomique du dim&egrave;re, la courbe
+&eacute;nergie-volume de la phase fcc ... En revanche, ceux ne
+poss&eacute;dant pas une cellule cubique (i.e.: un param&egrave;tre de
+maille c diff&eacute;rent de a) sont plus complexes. En effet, ils
+pr&eacute;sentent deux fichiers d'input: ("opthcp"; "hcp"), ("optdhcp",
+"dhcp") ... Le premier calcul permet alors de d&eacute;terminer le
+rapport c/a, et le suivant, la variation de l'&eacute;nergie en
+fonction du volume. Si la valeur de la variable OPTIMIZECOVERA a
+&eacute;t&eacute; modifi&eacute;e dans le script, alors le rapport c/a
+d&eacute;termin&eacute; dans le premier calcul est utilis&eacute; dans
+le second. <span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+voir<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"> </span><a
+ href="gandalf.html#extract">gandalf.extract</a> </span></small></font></small>
+pour les limitations. <br>
+</div>
+<div style="margin-left: 40px;"><br>
+La convention adopt&eacute;e pour la <a href="gandalf.html#notation">notation</a>
+des noms d'output est
+d&eacute;vellop&eacute;e par ailleurs.<br>
+</div>
+<div style="margin-left: 80px;"></div>
+<a name="extract"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.e</span> </span><a
+ href="gandalf.html#extract">gandalf.extract</a> </span></small></font></small>Celui-ci
+extrait le travail r&eacute;alis&eacute; par<small><font color="#00007f"
+ size="+1"><small> </small></font></small><small><font color="#00007f"
+ size="+1"><small><a href="gandalf.html#abinit">gandalf.abinit</a></small></font></small>.
+    <small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.extract<br>
+Three arguments are needed:<br>
+The first one deals with the input file: ecut, atom, dimer, fcc, bcc,
+diamond, ... ====== or all<br>
+The second one deals with the species: 001-H, 008-O, .... ====== or all<br>
+The third one deals with the atomic data: H.gga.uspp-abi.opt.paw, ...
+====== or atompaw-holz, uspp-ori... ====== or all<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;"><br>
+Si l'on d<small><font color="#00007f" size="+1"><small>&eacute;sire
+extraire</small></font></small> <small><font color="#00007f" size="+1"><small>tous
+les calculs r</small></font></small>&eacute;alis&eacute;s
+pr&eacute;c&eacute;demment par<small><font color="#00007f" size="+1"><small>
+</small></font></small><small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#abinit">gandalf.abinit</a></small></font></small> <small><font
+ color="#00007f" size="+1"><small>sur l'Hydrog&egrave;</small></font></small><span
+ style="font-family: times new roman,times,serif;">ne</span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+</div>
+<br>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.extract </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all 001-H all</small></span></span></small></font></small>
+<br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;"><br>
+Pour chaque input</span> "X" du sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/001-H</span>,<span
+ style="font-family: times new roman,times,serif;"> ceci a pour effet
+de:</span><br>
+</div>
+<ul>
+  <ul>
+    <li>cr&eacute;er un fichier data <span style="font-style: italic;">X.dat</span>
+avec en abscisse (premi&egrave;re colonne) le cutoff/volume et en
+ordonn&eacute;e (colonnes suivantes) la diff&eacute;rence
+d'&eacute;nergie (Etot-Emin). N'ont pas de sortie <span
+ style="font-style: italic;">X.dat</span> les inputs "atom" et "dimer".</li>
+    <li>cr&eacute;er un fichier latex <span style="font-style: italic;">X.tex</span>
+avec &agrave; chaque ligne le nom de l'output et les quantit&eacute;s
+d'&eacute;quilibre calcul&eacute;es. Deux parenth&egrave;ses sont
+accol&eacute;es au nom de l'output: la premi&egrave;re indique les
+cutoff utilis&eacute;s ("ecut", pawecutdg") et la seconde les temps de
+calcul (cpu, wall). N'ont pas de sortie <span
+ style="font-style: italic;">X.tex</span> les inputs "atom", "ecut" et
+"pawecutdg".</li>
+    <ul>
+      <li>Pour les calculs d'&eacute;nergie-volume, les
+quantit&eacute;s
+d'&eacute;quilibre sont issues d'un fit de Birch-Murnaghan et sont dans
+l'ordre: volume par atome, &eacute;nergie de coh&eacute;sion, bulk
+modulus et sa d&eacute;riv&eacute;e (plus le c/a d'&eacute;quilibre si
+la structure est "hcp", dhcp" ...).&nbsp;</li>
+      <li>Pour les calculs de dim&egrave;re, les quantit&eacute;s
+d'&eacute;quilibre
+sont d&eacute;termin&eacute;es simplement et sont dans l'ordre:
+&eacute;nergie de liaison et distance interatomique.</li>
+    </ul>
+  </ul>
+</ul>
+<div style="margin-left: 40px;"><span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+Dans plusieurs cas les fichiers <span style="font-style: italic;">X.dat</span>
+et <span style="font-style: italic;">X.tex</span> n'ont plus aucun
+sens:<br>
+</div>
+<ul>
+  <ul>
+    <li>Lors d'un calcul de convergence en "pawecutdg", le script <a
+ href="gandalf.html#abinit">gandalf.abinit</a> utilise comme point de
+d&eacute;part le "ecut"
+&agrave; convergence. Les valeurs contenues dans le
+fichier <span style="font-style: italic;">pawecutdg.values</span> sont
+alors ensuite lues. Si plusieurs donn&eacute;es atomiques sont
+utilis&eacute;es, ce point de d&eacute;part n'a aucune raison
+d'&ecirc;tre le m&ecirc;me pour toutes. Les calculs n'&eacute;tant
+alors plus faits aux m&ecirc;mes points, cela devient faux d'associer
+aux diff&eacute;rents calculs les m&ecirc;mes abscisses. En conclusion,
+les fichiers <span style="font-style: italic;">pawecutdg.dat</span> <span
+ style="font-style: italic;"></span>ne doivent plus &ecirc;tre
+utilis&eacute;s lorsqu'il y a plus d'une donn&eacute;e atomique.</li>
+    <li><span style="text-decoration: underline;"></span>&nbsp;Lors
+d'un calcul de courbe &eacute;nergie-volume pour une cellule non
+cubique ("hcp", "dhcp" ...) deux cas peuvent se pr&eacute;senter: <br>
+    </li>
+    <ul>
+      <li>Si la
+variable OPTIMIZECOVERA a &eacute;t&eacute; modifi&eacute;e dans le
+script <a href="gandalf.html#abinit">gandalf.abinit</a>, le rapport
+c/a obtenu pour chaque donn&eacute;e atomique ("opthcp", "optdhcp" ...)
+est alors utilis&eacute; pour d&eacute;terminer les param&egrave;tres
+de mailles c et a. Les calculs n'&eacute;tant alors plus faits aux
+m&ecirc;mes points, cela&nbsp; devient faux d'associer aux
+diff&eacute;rents
+calculs les m&ecirc;mes abscisses. En cons&eacute;quence, les fits de
+Birch-Murnaghan ne sont plus valides (fichiers <span
+ style="font-style: italic;">hcp.tex</span>, <span
+ style="font-style: italic;">dhcp.tex</span> ...) et les fichiers <span
+ style="font-style: italic;">hcp.dat</span>, <span
+ style="font-style: italic;">dhcp.dat</span> ... ne doivent plus
+&ecirc;tre utilis&eacute;s lorsqu'il y a plus d'une donn&eacute;e
+atomique.</li>
+      <li>Si la
+variable OPTIMIZECOVERA n'a pas &eacute;t&eacute; modifi&eacute;e ,
+tout fonctionne normalement.</li>
+    </ul>
+  </ul>
+</ul>
+<a name="copy.compounds"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><span style="font-weight: bold; color: rgb(255, 0, 0);">2.f</span>
+    <a href="gandalf.html#copy.compounds">gandalf.copy.compounds</a>
+Celui-ci pr&eacute;pare le travail &agrave; r&eacute;aliser sur les
+compos&eacute;s avant qu'ABINIT ne soit ex&eacute;cut&eacute;. <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles:</li>
+</ul>
+<small><span style="font-family: courier new,courier,monospace;">&gt;&gt;
+cd ../COMPOUNDS </span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">&gt;&gt;
+gandalf.copy.compounds</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">Three
+arguments are needed for gandalf.copy.compounds</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">The first one
+deals with the input file: ecut, molec, molec2, rutile, fluorite, ...
+====== or none, all</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">The second
+one deals with the compounds: CO2, BaTiO3, ... ====== or all</span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">The third one
+deals with the atomic data: uspp-abi, uspp-ori, atompaw-holz... ======
+or none, all</span><br
+ style="font-family: courier new,courier,monospace;">
+</small><br>
+<div style="margin-left: 40px;">Si l'on d<small><font color="#00007f"
+ size="+1"><small>&eacute;sire pr</small></font></small><small><font
+ color="#00007f" size="+1"><small>&eacute;pararer</small></font></small>
+<small><font color="#00007f" size="+1"><small>tous les calculs
+possibles sur H2O</small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small></div>
+<small style="font-family: courier new,courier,monospace;"><br>
+&gt;&gt; <font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><small>gandalf.copy.compounds
+</small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all H2O all</small></span></span></small></font></small><br>
+<br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;">Ceci a pour effet de:</span><br>
+</div>
+<ul>
+  <ul>
+    <li>cr&eacute;er un r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT</span>&nbsp; (si celui-ci n'existait
+pas avant).</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">OUTPUT
+directory created<br>
+</small>
+<ul>
+  <ul>
+    <li>cr&eacute;er un sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/H2O</span>&nbsp; (si celui-ci
+n'existait
+pas avant).</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">OUTPUT/H2O
+directory created</small><br>
+<small style="font-family: courier new,courier,monospace;">Copy
+the ../../ATOMICDATA/ATOMPAW-HOLZ/*-H/*/*.paw atomic data in the
+OUTPUT/H2O directory<br>
+Copy the ../../ATOMICDATA/ATOMPAW-HOLZ/*-O/*/*.paw atomic data in the
+OUTPUT/H2O directory<br>
+<br>
+Copy the ../../ATOMICDATA/USPP-ORI/*-H/*/*.paw atomic data in the
+OUTPUT/H2O directory<br>
+Copy the ../../ATOMICDATA/USPP-ORI/*-O/*/*.paw atomic data in the
+OUTPUT/H2O directory<br>
+<br>
+Copy the ../../ATOMICDATA/USPP-ABI/*-H/*/*.paw atomic data in the
+OUTPUT/H2O directory<br>
+Copy the ../../ATOMICDATA/USPP-ABI/*-O/*/*.paw atomic data in the
+OUTPUT/H2O directory</small>
+<ul>
+  <ul>
+    <li>copier/installer dans le sous-r&eacute;pertoire <span
+ style="font-weight: bold;">OUTPUT/H2O </span>tous les inputs contenus
+dans le sous-r&eacute;pertoire <span style="font-weight: bold;">INPUT/H2O</span><span
+ style="font-weight: bold;"></span>.</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">Copy the
+INPUT/H2O/ecut.in file in the OUTPUT/H2O directory<br>
+Copy the INPUT/H2O/molec.in file in the OUTPUT/H2O directory</small><br>
+<a name="abinit.compounds"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.g</span> </span><a
+ href="gandalf.html#abinit.compounds">gandalf.abinit.compounds</a></span></small></font></small>
+Celui-ci ex<small><font color="#00007f" size="+1"><small>&eacute;cute</small></font></small>
+le travail que<small><font color="#00007f" size="+1"><small> </small></font></small><a
+ href="gandalf.html#copy.compounds">gandalf.copy.compounds</a> a pu
+pr&eacute;parer. <small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">:</span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.abinit.compounds<br>
+Three arguments are needed for gandalf.abinit.compounds<br>
+The first one deals with the input file: ecut, molec, molec2, rutile,
+fluorite, ... ====== or all<br>
+The second one deals with the compounds: CO2, BaTiO3, ... ====== or all<br>
+The third one deals with the atomic data: uspp-ori, uspp-abi,
+atompaw-holz, ... ====== or all<br>
+</small></span></span></small></font></small><span
+ style="font-family: courier new,courier,monospace;"></span>
+<ul>
+Si l'on d<small><font color="#00007f" size="+1"><small>&eacute;sire
+lancer</small></font></small> <small><font color="#00007f" size="+1"><small>tous
+les calculs possibles sur H2O</small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small>
+  <br>
+  <div style="margin-left: 40px;"><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></div>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&gt;&gt; <font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>gandalf.abinit.compounds </small></span></span></small></font></small><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>all H2O all</small></span></span></small></font></small><br>
+<ul>
+  <span style="font-family: times new roman,times,serif;"></span>
+</ul>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;">Pour chaque paire O
+et H de donn</span>&eacute;es atomiques (m&ecirc;me fonctionnelle
+d'&eacute;change
+et corr&eacute;lation et m&ecirc;me origine "uspp-ori", "uspp-abi" ou
+"atompaw-holz", voir <small><font color="#00007f" size="+1"><small> </small></font></small><a
+ href="gandalf.html#copy.compounds">gandalf.copy.compounds</a>) du
+sous-r&eacute;pertoire <span style="font-weight: bold;">OUTPUT/H2O</span>,<span
+ style="font-family: times new roman,times,serif;"> ceci a pour effet
+de:</span></div>
+<ul>
+  <ul>
+    <li><span style="font-weight: bold;"></span>d&eacute;marer
+l'ex&eacute;cution par un calcul de convergence en "ecut" (grille
+grossi&egrave;re). A la fin de celui-ci, le script estime une valeur
+raisonnable du "ecut"; i.e.: un cutoff permettant d'avoir une erreur
+sur l'&eacute;nergie totale inf&eacute;rieure &agrave; 1 mHa. Cette
+valeur est alors utilis&eacute;e dans
+tous les calculs qui suivent. Si on d&eacute;sire d&eacute;sactiver
+cette d&eacute;termination (et utilisation) du "ecut" &agrave;
+convergence il faut alors modifer dans le script <a
+ href="gandalf.html#abinit.compounds">gandalf.abinit.compounds</a> la
+valeur de la variable CONVERGEDCALCULATION.</li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">Copy the
+./H.lda.uspp-abi.opt.paw and ./O.lda.uspp-abi.ntcore.paw filenames in
+the all.files file<br>
+&nbsp; Launching ABINIT in the OUTPUT/H2O directory with the ecut.in
+input file</small><br>
+<small><span style="font-family: courier new,courier,monospace;">&nbsp;
+ABINIT code successfully terminated.</span><span
+ style="font-family: courier new,courier,monospace;"></span><br
+ style="font-family: courier new,courier,monospace;">
+<span style="font-family: courier new,courier,monospace;">&nbsp; Copy
+the all.out standard output to H2O.Hopt.Ontcore.lda.uspp-abi.ecut.out</span></small><br>
+<ul>
+  <ul>
+    <li>&eacute;ventuellement poursuivre l'ex&eacute;cution par
+un calcul de convergence en
+"pawecutdg" (grille fine), si la valeur de la variable FINDPAWECUTDG a
+&eacute;t&eacute; modifi&eacute;e dans le script. A la fin de celui-ci,
+un "pawecutdg"
+correspondant &agrave; une erreur de 0.05 mHa sur l'&eacute;nergie
+totale est
+d&eacute;termin&eacute;. La valeur du "pawecutdg" &agrave; convergence
+est alors utilis&eacute;e
+dans tous les calculs qui suivent. <span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+voir<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"> </span><a
+ href="gandalf.html#extract.compounds">gandalf.extract.compounds</a> </span></small></font></small>
+pour les limitations. </li>
+  </ul>
+  <ul>
+    <li>poursuivre l'ex&eacute;cution en utilisant tous les
+autres fichiers d'inputs pr&eacute;sents dans le sous-r&eacute;pertoire
+      <span style="font-weight: bold;">OUTPUT/001-H</span>, ainsi que
+la valeur du "ecut" (et du "pawecutdg") &agrave; convergence. </li>
+  </ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;">&nbsp;
+---&gt;The coarse (fine) grid cutoff parameter ecut (pawecutdg) is
+adjusted to 20.0 (40)<br>
+&nbsp; Launching ABINIT in the OUTPUT/H2O directory with the molec.in
+input file<br>
+&nbsp; ABINIT code successfully terminated.<br>
+&nbsp; Copy the all.out standard output to
+H2O.Hopt.Ontcore.lda.uspp-abi.molec.out<br>
+<br>
+</small>
+<ul>
+</ul>
+<div style="margin-left: 80px;">Les calculs "molec", "zincblende" ...
+n'ont pas de sp&eacute;cificit&eacute;s
+particuli&egrave;res. Ces calculs permettent de d&eacute;terminer les
+distances interatomiques &agrave; l'int&eacute;rieur de la
+mol&eacute;cule,
+la courbe
+&eacute;nergie-volume de la phase zincblende ... En revanche, ceux ne
+poss&eacute;dant pas
+une cellule cubique (i.e.: un param&egrave;tre de maille c
+diff&eacute;rent de a)
+sont plus complexes. En effet, ils pr&eacute;sentent deux fichiers
+d'input:
+("optrutile"; "rutile") ... Le premier calcul permet
+alors de d&eacute;terminer le rapport c/a, et le suivant, la variation
+de
+l'&eacute;nergie en fonction du volume. Si la valeur de la variable
+OPTIMIZECOVERA a &eacute;t&eacute; modifi&eacute;e dans le script,
+alors le rapport c/a
+d&eacute;termin&eacute; dans le premier calcul est utilis&eacute; dans
+le second. <span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+voir<span style="color: rgb(0, 0, 0);"> </span><a
+ href="gandalf.html#extract.compounds">gandalf.extract.compounds</a>
+pour les limitations.<br>
+</div>
+<ul>
+</ul>
+<div style="margin-left: 40px;">La convention adopt&eacute;e pour la <a
+ href="gandalf.html#notation">notation</a> des noms d'output est
+d&eacute;vellop&eacute;e par ailleurs.</div>
+<a name="extract.compounds"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.h</span> </span><a
+ href="gandalf.html#extract.compounds">gandalf.extract.compounds</a></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);">
+    </span></small></font></small>Celui-ci
+extrait le travail r&eacute;alis&eacute; par<small><font color="#00007f"
+ size="+1"><small> </small></font></small><small><font color="#00007f"
+ size="+1"><small>gandalf.abinit</small></font></small>. <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles:<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.extra</small></span></span></small></font><span
+ style="font-family: courier new,courier,monospace;">ct.compounds<br>
+Three arguments are needed:<br>
+The first one deals with the input file: ecut, molec, rutile, fluorite,
+... ====== or all<br>
+The second one deals with the species: CO2, BaTiO3, .... ====== or all<br>
+The third one deals with the atomic data: uspp-abi, uspp-ori,
+atompaw-holz, ... ====== or all</span></small><br>
+<br>
+<div style="margin-left: 40px;">Si l'on d<small><font color="#00007f"
+ size="+1"><small>&eacute;sire
+extraire</small></font></small> <small><font color="#00007f" size="+1"><small>tous
+les calculs r</small></font></small>&eacute;alis&eacute;s
+pr&eacute;c&eacute;demment par<small><font color="#00007f" size="+1"><small>
+</small></font></small><small><font color="#00007f" size="+1"><small><a
+ href="gandalf.html#abinit.compounds">gandalf.abinit.compounds</a></small></font></small>
+<small><font color="#00007f" size="+1"><small>sur H2O</small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+<small><font color="#00007f" size="+1"><small> </small></font></small></div>
+<ul>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.extract.compounds
+all H2O all</small></span></span></small></font></small> <span
+ style="font-family: times new roman,times,serif;"><br>
+<br>
+</span>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;">Pour chaque input</span>
+"X" du sous-r&eacute;pertoire <span style="font-weight: bold;">OUTPUT/H2O</span>,<span
+ style="font-family: times new roman,times,serif;"> ceci a pour effet
+de:</span><br>
+<span style="font-family: times new roman,times,serif;"></span></div>
+<ul>
+  <div style="margin-left: 40px;"> </div>
+  <ul>
+    <li>cr&eacute;er un fichier data <span style="font-style: italic;">X.dat</span>
+avec en abscisse (premi&egrave;re colonne) le cutoff/volume et en
+ordonn&eacute;e (colonnes suivantes) la diff&eacute;rence
+d'&eacute;nergie (Etot-Emin). N'ont pas de sortie <span
+ style="font-style: italic;">X.dat</span> les inputs "molec" et
+"molec2".</li>
+  </ul>
+  <ul>
+    <li>cr&eacute;er un fichier latex <span style="font-style: italic;">X.tex</span>
+avec &agrave; chaque ligne le nom de l'output et les quantit&eacute;s
+d'&eacute;quilibre calcul&eacute;es. Deux parenth&egrave;ses sont
+accol&eacute;es au nom de l'output: la premi&egrave;re indique les
+cutoff utilis&eacute;s ("ecut", pawecutdg") et la seconde les temps de
+calcul (cpu, wall). N'ont pas de sortie <span
+ style="font-style: italic;">X.tex</span> les inputs "atom", "ecut" et
+"pawecutdg".</li>
+  </ul>
+  <ul>
+    <ul>
+      <li>Pour les calculs d'&eacute;nergie-volume, les
+quantit&eacute;s
+d'&eacute;quilibre sont issues d'un fit de Birch-Murnaghan et sont dans
+l'ordre: volume par atome, &eacute;nergie de coh&eacute;sion, bulk
+modulus et sa d&eacute;riv&eacute;e (plus le c/a d'&eacute;quilibre si
+la structure est "rutile", ...).&nbsp;</li>
+    </ul>
+  </ul>
+  <ul>
+    <ul>
+      <li>Pour les calculs de mol&eacute;cule, les quantit&eacute;s
+d'&eacute;quilibre
+sont d&eacute;termin&eacute;es simplement et sont dans l'ordre:
+&eacute;nergie de liaison et distances interatomiques.<span
+ style="text-decoration: underline; color: rgb(255, 0, 0);"></span></li>
+    </ul>
+  </ul>
+</ul>
+<div style="margin-left: 40px;"><span
+ style="text-decoration: underline; color: rgb(255, 0, 0);">ATTENTION:</span>
+Dans plusieurs cas les fichiers <span style="font-style: italic;">X.dat</span>
+et <span style="font-style: italic;">X.tex</span> n'ont plus aucun
+sens:<br>
+</div>
+<ul>
+  <ul>
+    <li>Lors d'un calcul de convergence en "pawecutdg", le script <a
+ href="gandalf.html#abinit.compounds">gandalf.abinit.compounds</a>
+utilise comme point de
+d&eacute;part le "ecut"
+&agrave; convergence. Les valeurs contenues dans le
+fichier <span style="font-style: italic;">pawecutdg.values</span> sont
+alors ensuite lues. Si plusieurs donn&eacute;es atomiques sont
+utilis&eacute;es, ce point de d&eacute;part n'a aucune raison
+d'&ecirc;tre le m&ecirc;me pour toutes. Les calculs n'&eacute;tant
+alors plus faits aux m&ecirc;mes points, cela devient faux d'associer
+aux diff&eacute;rents calculs les m&ecirc;mes abscisses. En conclusion,
+les fichiers <span style="font-style: italic;">pawecutdg.dat</span> ne
+doivent plus &ecirc;tre
+utilis&eacute;s lorsqu'il y a plus d'une donn&eacute;e atomique.</li>
+    <li>Lors
+d'un calcul de courbe &eacute;nergie-volume pour une cellule non
+cubique ("rutile", ...) deux cas peuvent se pr&eacute;senter:<br>
+    </li>
+    <ul>
+      <li>Si la
+variable OPTIMIZECOVERA a &eacute;t&eacute; modifi&eacute;e dans le
+script <a href="gandalf.html#abinit.compounds">gandalf.abinit.compounds</a>,
+le rapport
+c/a obtenu pour chaque donn&eacute;e atomique ("optrutile", ...)
+est alors utilis&eacute; pour d&eacute;terminer les param&egrave;tres
+de mailles c et a. Les calculs n'&eacute;tant alors plus faits aux
+m&ecirc;mes points, cela&nbsp; devient faux d'associer aux
+diff&eacute;rents
+calculs les m&ecirc;mes abscisses. En cons&eacute;quence, les fits de
+Birch-Murnaghan ne sont plus valides (fichiers <span
+ style="font-style: italic;">rutile.tex</span>, ...) et les fichiers <span
+ style="font-style: italic;">rutile.dat</span>, ... ne doivent plus
+&ecirc;tre utilis&eacute;s lorsqu'il y a plus d'une donn&eacute;e
+atomique.</li>
+      <li>Si la
+variable OPTIMIZECOVERA n'a pas &eacute;t&eacute; modifi&eacute;e ,
+tout fonctionne normalement.<br>
+      </li>
+    </ul>
+  </ul>
+</ul>
+<p><a name="xmgrace"></a><font color="#003f00" size="-1"><br>
+</font>
+</p>
+<hr align="left"><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);"></span></span></span></small></font></small>
+<p><font color="#003f00" size="-1"></font></p>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.a</span> </span><a
+ href="gandalf.html#xmgrace">gandalf.xmgrace</a></span></small></font></small>
+Celui-ci
+permet d'obtenir une visualisation &agrave; partir de tous les fichiers
+    <span style="font-style: italic;">X.dat</span> extraits par <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><a
+ href="gandalf.html#extract.compounds">gandalf.extract.compounds</a></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);">
+    </span></small></font></small>et <small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><a
+ href="gandalf.html#extract">gandalf.extract</a></span></small></font></small>.
+    <small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles:<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font></small>&nbsp;<small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small></li>
+</ul>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; cd ..<br>
+&gt;&gt; gandalf.xmgrace<br>
+Two arguments are needed for gandalf.xmgrace<br>
+The first one deals with the input file: ecut, fcc, diamond, ...
+keywords of pure materials ======<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or ecut, fluorite, zincblende, ... keywords of compounds&nbsp; ======
+or all<br>
+The second one deals with the subdirectories: 001-H, CO2, .... for pure
+materials or compounds ====== or all<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;"><br>
+</div>
+<div style="margin-left: 40px;">Si l'on d<small><font color="#00007f"
+ size="+1"><small>&eacute;sire obtenir cette visualisation pour
+l'Hydrog&egrave;ne</small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+<small><font color="#00007f" size="+1"><small> </small></font></small></div>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small><br>
+&gt;&gt; gandalf.xmgrace all 001-H</small></span></span></small></font></small>
+<span style="font-family: times new roman,times,serif;"></span><br>
+<span style="font-family: times new roman,times,serif;"></span>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"><br>
+</span>
+<span style="font-family: times new roman,times,serif;">Pour chaque
+fichier</span> <span style="font-style: italic;">X.dat</span> du
+sous-sous-r&eacute;pertoire <span style="font-weight: bold;">PURE/OUTPUT/001-H</span>,<span
+ style="font-family: times new roman,times,serif;"> ceci a pour effet
+de:</span><br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span></div>
+<div style="margin-left: 40px;"> </div>
+</div>
+<ul>
+  <ul>
+    <li>lancer XMGRACE et d'obtenir les courbes &eacute;nergie-volume
+ou de convergence &eacute;nergie-cutoff.</li>
+    <li>une fois sorti de XMGRACE, un fichier <span
+ style="font-style: italic;">X.agr</span> est alors sauvegard&eacute;
+avec un format bien pr&eacute;cis: l&eacute;gendes, labels, titre ...</li>
+  </ul>
+</ul>
+<div style="margin-left: 40px;">Si l'on d&eacute;sire visualiser des
+fichiers X.agr d&eacute;j&agrave; obtenus, il faut alors modifier la
+valeur de la variable INTERNALOPTION dans le script. <br>
+</div>
+<ul>
+</ul>
+<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"></span></small></font></small><a
+ name="tex2ps"></a><font color="#003f00" size="-1"><br>
+</font>
+<hr align="left">
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="font-weight: bold; color: rgb(255, 0, 0);">2.b</span> </span><a
+ href="gandalf.html#tex2ps">gandalf.tex2ps</a> </span></small></font></small>Celui-ci
+permet d'obtenir un document &agrave; partir de tous les fichiers <span
+ style="font-style: italic;">X.tex</span> extraits par <small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><a
+ href="gandalf.html#extract.compounds">gandalf.extract.compounds</a></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);">
+    </span></small></font></small>et <small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><a
+ href="gandalf.html#extract">gandalf.extract</a></span></small></font></small><a
+ href="gandalf.html#extract.compounds"><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"></span></small></font></small></a><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"></span></small></font></small><small><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"></span></small></font></small>.
+    <small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);">Si
+l'on ex</span></span></small></font></small><small><font color="#00007f"
+ size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);">&eacute;cute ce script sans argument, on
+obtient une aide nous indiquant les diff</span></span></small></font></small>&eacute;rents
+arguments possibles:<small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"></span></span></small></font></small>&nbsp;
+    <small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"></span></span></small></font></small>&nbsp;<small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"></span></small></font></small></li>
+</ul>
+<small><span style="font-family: courier new,courier,monospace;">&gt;&gt;
+gandalf.tex2ps</span></small><br>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>Two arguments are needed for
+gandalf.tex2ps<br>
+The first one deals with the input file:&nbsp; dimer, fcc, diamond, ...
+phases of pure materials ======<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+or molec, fluorite, zincblende, ... structures of compounds&nbsp;
+====== or all<br>
+The second one deals with the subdirectories: 001-H, CO2, .... for pure
+materials or compounds ====== or all<br>
+</small></span></span></small></font></small>
+<div style="margin-left: 40px;"><br>
+</div>
+<div style="margin-left: 40px;">Si l'on d<small><font color="#00007f"
+ size="+1"><small>&eacute;sire obtenir ce document pour
+l'Hydrog&egrave;ne</small></font></small><span
+ style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">, alors on peut ex</span><small><font
+ color="#00007f" size="+1"><small>&eacute;cuter la commande suivante:</small></font></small><br>
+<small><font color="#00007f" size="+1"><small> </small></font></small></div>
+<div style="margin-left: 40px;"><small
+ style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small><br>
+</small></span></span></small></font></small></div>
+<small style="font-family: courier new,courier,monospace;"><font
+ color="#00007f" size="+1"><small><span style="color: rgb(51, 204, 0);"><span
+ style="color: rgb(0, 0, 0);"><small>&gt;&gt; gandalf.tex2ps all 001-H</small></span></span></small></font></small>
+<span style="font-family: times new roman,times,serif;"></span><br>
+<div style="margin-left: 40px;"><span
+ style="font-family: times new roman,times,serif;"></span>
+<span style="font-family: times new roman,times,serif;"><br>
+</span>
+<span style="font-family: times new roman,times,serif;"></span><span
+ style="font-family: times new roman,times,serif;">Ceci a pour effet
+de:</span><br>
+</div>
+<ul>
+  <ul>
+    <li>introduire dans chaque fichier <span
+ style="font-style: italic;">X.tex</span> du
+sous-sous-r&eacute;pertoire <span style="font-weight: bold;">PURE/OUTPUT/001-H</span>
+les r&eacute;f&eacute;rences du fichier <span
+ style="font-style: italic;">ref.tex </span>(si elles existent).<br>
+    </li>
+    <li>concat&eacute;ner les diff&eacute;rents fichiers <span
+ style="font-style: italic;">X.tex</span> et les ins&eacute;rer dans un
+fichier temporaire <span style="font-style: italic;">all.tex</span><span
+ style="font-weight: bold;"></span> </li>
+    <li>convertir les diff&eacute;rents fichiers <span
+ style="font-style: italic;">X.agr</span> en <span
+ style="font-style: italic;">X.eps</span> et les ins&eacute;rer <span
+ style="font-weight: bold;"></span>dans le fichier temporaire <span
+ style="font-style: italic;">all.tex</span></li>
+    <li>compiler ce fichier latex <span style="font-style: italic;">all.tex
+      </span>ainsi que le fichier biblio <span
+ style="font-style: italic;">all.bib</span></li>
+    <li>lancer GHOSTVIEW pour visualiser ce fichier <span
+ style="font-style: italic;">all.ps</span><br>
+    </li>
+    <li>sauver ce postcript dans le fichier <span
+ style="font-style: italic;">rapport.ps</span><br>
+    </li>
+  </ul>
+</ul>
+<div style="margin-left: 40px;">Si l'on d&eacute;sire cr&eacute;er une
+page web &agrave;
+partir de ces r&eacute;sultats, il faut alors modifier la valeur de la
+variable HTML dans le script. Une page html est alors
+cr&eacute;&eacute;e pour chaque &eacute;l&eacute;ment ou compos&eacute;
+avec tous les tableaux et courbes ainsi qu'un lien vers le fichier <span
+ style="font-weight: bold;">PURE/OUTPUT/001-H</span> pour visualiser,
+si on le d&eacute;sire, les fichiers input, output et donn&eacute;es
+atomiques.<span style="font-weight: bold; text-decoration: underline;"><br>
+</span></div>
+<big><br>
+3/ </big><b><u><big>Gandalf, un utilitaire &eacute;volutif:</big><br>
+</u></b>
+<p><a name="notation"></a><br>
+</p>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="color: rgb(255, 0, 0); font-weight: bold;">4.a</span> la </span><a
+ href="gandalf.html#notation">notation</a></span></small></font></small>:
+Dans chacun des deux sous-r&eacute;pertoires PURE et COMPOUNDS, les
+noms des &eacute;l&eacute;ments (001-H, 008-O, ...), des
+compos&eacute;s (CO2, TiO2, BaTiO3 ...) et des inputs d'ABINIT
+(he.atom.in, fe.bcc.in, tio2.rutile.in, co.molec.in, ...) sont tous
+standardis&eacute;s. Il est donc possible d'ajouter un nouvel
+&eacute;l&eacute;ment, compos&eacute; (binaire ou ternaire) ou
+input.... <br>
+  </li>
+  <ul>
+    <li>Pour un &eacute;lement ou compos&eacute;, rien de plus simple:
+cr&eacute;er un sous-sous-r&eacute;pertoire PURE/INPUT/XXX-X ou
+COMPOUNDS/INPUT/AxByCz et y placer les fichiers d'input
+ad&eacute;quats.
+Le reste est automatique (d&eacute;termination des
+&eacute;l&eacute;ments,
+de leur nombre ...)</li>
+    <li>Pour un nouveau type d'input, il faudra modifier les scripts
+pour qu'ils acceptent ce nouveau type. Il est conseill&eacute; pour
+cela de s'inspirer d'un exemple d&eacute;j&agrave; existant. Si c'est
+une phase cubique &agrave; quatre &eacute;l&eacute;ments, s'inspirer du
+type "diamond". Si c'est une phase t&eacute;tragonale avec un
+param&egrave;tre de maille c diff&eacute;rent de a, s'inspirer du type
+"hcp".&nbsp; </li>
+  </ul>
+</ul>
+<a name="environnement"></a><br>
+<ul>
+  <li><small><font color="#00007f" size="+1"><small><span
+ style="color: rgb(51, 204, 0);"><span style="color: rgb(0, 0, 0);"><span
+ style="color: rgb(255, 0, 0); font-weight: bold;">4.b</span> l'</span><a
+ href="gandalf.html#environnement">environnement</a></span></small></font></small>:
+Celui-ci peut &eacute;videmment &ecirc;tre modifi&eacute; &agrave;
+souhait. On peut par exemple utiliser une base de donn&eacute;es
+atomiques commune. Il faut pour cela changer les chemins dans les
+en-t&ecirc;tes de certains scripts... </li>
+</ul>
+<p style="margin-left: 40px;"><font color="#00007f" size="+1"></font></p>
+<br>
+<font color="#003f00" size="-1">
+</font>
+<p></p>
+<font color="#003f00" size="-1"></font>
+<hr align="left"><br>
+<div style="text-align: left; color: rgb(102, 102, 204);">
+<p class="MsoBodyTextIndent" style="margin: 0cm 0cm 0.0001pt 54pt;"><i>Fran&ccedil;ois
+Bottin, </i><i>Fran&ccedil;ois Jollet<span style=""> et </span>Marc
+Torrent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</i>le 17 F&eacute;vrier 2006<i> </i></p>
+<p class="MsoBodyTextIndent" style="margin: 6pt 0cm 0.0001pt 53.85pt;"><i>D&eacute;partement
+de Physique Th&eacute;orique et Appliqu&eacute;e<o:p></o:p></i></p>
+<p class="MsoBodyTextIndent" style="margin: 0cm 0cm 0.0001pt 53.85pt;"><i>CEA-DAM
+Ile-de-France &#8211; BP 12<o:p></o:p></i></p>
+<p class="MsoBodyTextIndent" style="margin: 0cm 0cm 0.0001pt 54pt;"><i>91680
+Bruy&egrave;res-le-Chatel cedex</i><i><br>
+France</i></p>
+</div>
+<div style="text-align: left; margin-left: 400px;"></div>
+</body>
+</html>

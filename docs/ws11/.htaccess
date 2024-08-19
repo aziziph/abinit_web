@@ -1,0 +1,29 @@
+<Files *>
+   SetHandler none
+</Files>
+#Options +Indexes +ExecCGI +Includes +MultiViews +FollowSymLinks
+Options +Indexes
+IndexOptions FancyIndexing FoldersFirst NameWidth=* DescriptionWidth=*
+IndexIgnore .. HEADER* README*
+
+
+
+
+
+
+
+
+#!## Turn off all options we don't need.
+#!#Options None
+#!#Options +SymLinksIfOwnerMatch
+#!#
+#!## Set the catch-all handler to prevent scripts from being executed.
+#!#SetHandler Drupal_Security_Do_Not_Remove_See_SA_2006_006
+#!#
+#!## Override the handler again if we're run later in the evaluation list.
+#!#SetHandler Drupal_Security_Do_Not_Remove_See_SA_2013_003
+#!#
+#!## If we know how to do it safely, disable the PHP engine entirely.
+#!#
+#!#php_flag engine off
+
