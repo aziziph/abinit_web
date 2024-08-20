@@ -6,74 +6,84 @@
   <title>ABINIT</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-  <link href="./styles.css"
-        rel="stylesheet"> <!-- Link to your external CSS file -->
-<style>
-    body {
-        margin-top: 40px;
-        padding: 0;
-<!--        font-family: Arial, sans-serif;-->
-    }
-    .icon-container {
-        display: flex;
-        justify-content: center; /* Center items horizontally */
-        align-items: center; /* Center items vertically */
-<!--        background-color: #f0f0f0;-->
-        padding: 10px;
-        margin-bottom: 10px;
-    }
-    .icon {
-        margin: 0 10px; /* Adjust spacing between icons */
-    }
-</style>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css" rel="stylesheet"> <!-- Link to your external CSS file -->
 </head>
 
 <body>
 <div class="icon-container">
-    <!-- Replace with your actual icons -->
-    <div class="icon"><img height="80" src="./logo/logo.png" alt="Icon 1"></div>
-    <div
-            class="icon"><img height="80" src="./img/Pseudos.png" alt="Icon 2"></div>
-    <div class="icon"><img height="80" src="./img/input_variables.png"
-                           alt="Icon 3"></div>
-    <div class="icon"><img height="80" src="./img/Tutorials.png"
-                           alt="Icon 4"></div>
-    <div class="icon"><img height="80" src="./img/Forum.png" alt="Icon 5"></div>
-    <div class="icon"><img height="80" src="./img/wiki.png" alt="Icon 6"></div>
-    <div
-            class="icon"><img height="80" src="./img/Download.png" alt="Icon 7"></div>
-    <div
-            class="icon"><img height="80" src="./img/Compile.png" alt="Icon 8"></div>
-    <div class="icon"><img height="80" src="./img/git.png" alt="Icon 9"></div>
-    <div class="icon"><img height="80" src="./img/gui.png" alt="Icon 10"></div>
-    <div
-            class="icon"><img height="80" src="./img/abipy.png" alt="Icon 11"></div>
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abinit/releases/latest">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="1" ></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="7"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="8"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="9"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="10"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="11"></li>
-    <li data-target="#carouselExampleIndicators" data-slide-to="12"></li>
-    <!-- Add more li elements for each slide -->
-  </ol>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col">
         <div class="carousel-inner carousel-container">
           <div class="carousel-item active">
             <a
@@ -158,56 +168,14 @@
           <span class="sr-only">Next</span>
         </a>
     </div>
-  </div>
+<div class="blinker">
+    <span class="blink_me">New :</span>
+    <a href="https://github.com/abinit/abinit/releases/tag/10.0.7">
+        <span style="color: #F18F34;">Abinit 10.0.7 available (production)</span>
+    </a>
 </div>
 
-
-<!--  <div class="icon-bar-container">-->
-<!--    <div class="icon-bar">-->
-<!--    <a href="https://github.com/abinit" target="_blank">-->
-<!--        <img alt="github"-->
-<!--             data-html="true"-->
-<!--             data-toggle="popover"-->
-<!--             data-trigger="hover"-->
-<!--             src="./img/git.png"-->
-<!--             title=""-->
-<!--             data-original-title="github">-->
-<!--        </a>-->
-<!--    </div>-->
-
-<!--  <div class="icon-bar">-->
-<!--    <a href="https://github.com/abinit/abipy" target="_blank">-->
-<!--        <img alt="Abipy"-->
-<!--             data-html="true"-->
-<!--             data-toggle="popover"-->
-<!--             data-trigger="hover"-->
-<!--             src="./img/abipy.png"-->
-<!--             title=""-->
-<!--             data-original-title="ABIPY">-->
-<!--        </a>-->
-<!--  </div>-->
-
-<!--  <div class="icon-bar">-->
-<!--    <a href="https://gui.abinit.org" target="_blank">-->
-<!--        <img alt="AbiGUI"-->
-<!--             data-html="true"-->
-<!--             data-toggle="popover"-->
-<!--             data-trigger="hover"-->
-<!--             src="./img/gui.png"-->
-<!--             title=""-->
-<!--             data-original-title="AbiGUI">-->
-<!--        </a>-->
-<!--  </div>-->
-  </div>
-
 <div class="abinit-info">
-        <div >
-        <span class="blink_me" style="margin-left: 400px">New :
-            </span><a
-            href="https://github.com/abinit/abinit/releases/tag/10.0.7"><span
-            style= "margin-left: 0px; color:#F18F34;">Abinit 10.0.7
-            available (production)</span></a>
-        </div>
     <h2><strong>What is ABINIT ?</strong></h2>
     <div class="toolong">
         <span>
@@ -268,8 +236,6 @@
                                 fallbacks</a></li>
                             <li><a href="./virtual_machin.html">Run Abinit in a
                                 Virtual Machine</a></li>
-                            <li><a href="./corner.html">Developer's
-                                corner</a></li>
                         </ul>
                     </div>
                 </div>
@@ -312,12 +278,14 @@
                             <!-- <li><a href="https://forum.abinit.org" target="_blank">Forum</a></li> -->
                             <li><a href="forum.html" target="_blank">Forum
                             </a></li>
-                            <li><a href="https://wiki.abinit.org" target="_blank">Wiki</a></li>
+<!--                            <li><a href="https://wiki.abinit.org" target="_blank">Wiki</a></li>-->
                             <li><a href="support.html"
                                    target="_self">Support the
                                 Abinit group</a></li>
-                            <li><a href="https://buildbot.abinit.org/#/waterfall" target="_blank">Buildbot</a></li>
-                            <li><a href="https://bbportal.abinit.org" target="_blank">BBPortal (restricted access)</a></li>
+                            <li><a
+                                    href="https://wiki.abinit.org/doku.php?id=start">Wiki (old)</a></li>
+                            <li><a href="./corner.html">Developer's
+                                corner</a></li>
                         </ul>
                     </div>
                 </div>
