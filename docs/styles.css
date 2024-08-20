@@ -19,7 +19,7 @@ body {
   max-width: 500px; /* Set a max-width for the carousel */
   height: 300px; /* Set a fixed height for the carousel */
   margin: 0 auto; /* Center the carousel */
-  margin-top: 50px;
+  margin-top: 10px;
   overflow: hidden; /* Hide any overflowing content */
   position: relative; /* Position the carousel relative to its container */
 }
@@ -116,7 +116,10 @@ body {
 
 .carousel-indicators {
   position: absolute;
-  top: -10px; /* Adjust the distance from the bottom */
+  bottom: 0; /* Adjust as needed */
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .carousel-indicators li {
