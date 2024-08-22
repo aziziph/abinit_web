@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<div style="background-color: #FF9800; padding: 10px; border-left: 5px solid #F57C00;">
+    <strong>IMPORTANT:</strong><br> The information provided on this page is valid for Abinit 8.5 and future versions only.
+</div>
+
+<h1>Configuring linear algebra</h1>
+
+<h2>Underlying concepts</h2>
+
+<p>Linear algebra is the most critical dependency to consider since Abinit could not be built nor run without it. It is also the most complex one, due to:</p>
+<ul>
+  <li>the different components to select and their various interactions with external factors, e.g. using ScaLAPACK only makes sense if your environment supports MPI;</li>
+  <li>the way each component is provided, e.g. one component per library or all components in one library;</li>
+  <li>the tremendous diversity of the available implementations, with several of them present on the same computer at once.</li>
+</ul>
+
+<p>It logically corresponds to the most complex core block of the build system. On one side, there are <em>vendors</em>, who develop specific components for specific architectures. On another side, there are <em>architectures</em>, which include various kinds of optimizations and offer various degrees of parallelism. And on a third side, there are <em>components</em>, defined by the kind of mathematical operations they provide and the architectures they aim at.</p>
+
+<p>We have designed our implementation to cover the highest possible number of cases while preserving a relative simplicity in the configuration of their parameters. For this, we have grouped the three above concepts under <em>flavors</em> that users select depending on their situations and preferences.</p>
+
+<div style="background-color: #FFEB3B; padding: 10px; border-left: 5px solid #FFCA28;">
+    <strong>Tip:</strong> This document is best understood when consulted peacefully. Please take your time to read it and feel free to come back as many times as you wish.
+</div>
+
+<h2>Linear algebra flavors</h2>
+
+<p>For the sake of clarity, we provide here three different perspectives on the linear algebra flavors supported by Abinit and their relationships with the other concepts. The build system lets you configure linear algebra from each of these three perspectives, mainly by setting its <em>with_linalg_flavor</em> option in different ways (explained in detail below). You can choose between:</p>
+<ul>
+  <li>a vendor-first approach, where the criterion is to use as many components as possible from the same vendor;</li>
+  <li>an architecture-first approach, where the components are selected depending on which elements of the computer architecture are enabled (e.g., OpenMP, MPI, GPU, ...);</li>
+  <li>a component-first approach, where you specify explicitly each linear algebra component (e.g., BLAS, LAPACK, ScaLAPACK, ...) you want to use.</li>
+</ul>
+
+<p>The following table lists the available flavors supported by Abinit and their relationships with the other relevant concepts:</p>
+
+<table border="1">
+  <tr>
+    <th>Flavor</th>
+    <th>Vendor</th>
+    <th>Software project</th>
+    <th>Architectures</th>
+    <th>Components</th>
+  </tr>
+  <tr>
+    <td>acml</td>
+    <td><a href="http://developer.amd.com/"style="color: #F18F34;">AMD</a></td>
+    <td><a href="http://developer.amd.com/tools-and-sdks/archive/amd-core-math-library-acml/"style="color: #F18F34;">ACML</a></td>
+    <td>serial</td>
+    <td>blas, lapack</td>
+  </tr>
+  <tr>
+    <td>atlas</td>
+    <td><a href="http://www.csc.lsu.edu/~whaley/#Proj"style="color: #F18F34;">LSU</a></td>
+    <td><a href="http://math-atlas.sourceforge.net/"style="color: #F18F34;">ATLAS</a></td>
+    <td>serial</td>
+    <td>blas</td>
+  </tr>
+  <tr>
+    <td>elpa2014</td>
+    <td><a href="http://www.mpcdf.mpg.de/"style="color: #F18F34;">MPCDF</a></td>
+    <td><a href="http://elpa.mpcdf.mpg.de/"style="color: #F18F34;">ELPA 2014</a></td>
+    <td>mpi</td>
+    <td>elpa</td>
+  </tr>
+  <tr>
+    <td>elpa2015</td>
+    <td><a href="http://www.mpcdf.mpg.de/"style="color: #F18F34;">MPCDF</a></td>
+    <td><a href="http://elpa.mpcdf.mpg.de/"style="color: #F18F34;">ELPA 2015</a></td>
+    <td>mpi</td>
+    <td>elpa</td>
+  </tr>
+  <tr>
+    <td>elpa2016</td>
+    <td><a href="http://www.mpcdf.mpg.de/"style="color: #F18F34;">MPCDF</a></td>
+    <td><a href="http://elpa.mpcdf.mpg.de/"style="color: #F18F34;">ELPA 2016</a></td>
+    <td>mpi</td>
+    <td>elpa</td>
+  </tr>
+  <tr>
+    <td>elpa2017</td>
+    <td><a href="http://www.mpcdf.mpg.de/"style="color: #F18F34;">MPCDF</a></td>
+    <td><a href="http://elpa.mpcdf.mpg.de/"style="color: #F18F34;">ELPA 2017</a></td>
+    <td>mpi</td>
+    <td>elpa</td>
+  </tr>
+  <tr>
+    <td>essl</td>
+    <td><a href="http://www.ibm.com/"style="color: #F18F34;">IBM</a></td>
+    <td><a href="https://www-03.ibm.com/systems/power/software/essl/"style="color: #F18F34;">ESSL</a></td>
+    <td>serial, openmp, mpi</td>
+    <td>blas, lapack, scalapack</td>
+  </tr>
+  <tr>
+    <td>magma10</td>
+    <td><a href="http://www.icl.cs.utk.edu/"style="color: #F18F34;">UTK</a></td>
+    <td><a href="http://icl.cs.utk.edu/magma/"style="color: #F18F34;">MAGMA 1.0</a></td>
+    <td>gpu</td>
+    <td>magma</td>
+  </tr>
+  <tr>
+    <td>magma15</td>
+    <td><a href="http://www.icl.cs.utk.edu/"style="color: #F18F34;">UTK</a></td>
+    <td><a href="http://icl.cs.utk.edu/magma/"style="color: #F18F34;">MAGMA 1.5</a></td>
+    <td>gpu</td>
+    <td>magma</td>
+  </tr>
+  <tr>
+    <td>magma25</td>
+    <td><a href="http://www.icl.cs.utk.edu/"style="color: #F18F34;">UTK</a></td>
+    <td><a href="http://icl.cs.utk.edu/magma/"style="color: #F18F34;">MAGMA 2.5</a></td>
+    <td>gpu</td>
+    <td>magma</td>
+  </tr>
+  <tr>
+    <td>mkl</td>
+    <td><a href="http://developer.intel.com/"style="color: #F18F34;">Intel</a></td>
+    <td><a href="https://software.intel.com/en-us/intel-mkl"style="color: #F18F34;">MKL</a></td>
+    <td>serial, openmp, mpi</td>
+    <td>blas, lapack, scalapack</td>
+  </tr>
+  <tr>
+    <td>netlib</td>
+    <td><a href="http://netlib.org/"style="color: #F18F34;">Netlib</a></td>
+    <td><a href="http://netlib.org/liblist.html"style="color: #F18F34;">Netlib Repository</a></td>
+    <td>serial, mpi</td>
+    <td>blas, lapack, lapacke, scalapack</td>
+  </tr>
+  <tr>
+    <td>openblas</td>
+    <td><a href="https://github.com/xianyi"style="color: #F18F34;">Zhang Xianyi</a></td>
+    <td><a href="http://www.openblas.net/"style="color: #F18F34;">OpenBLAS</a></td>
+    <td>serial</td>
+    <td>blas</td>
+  </tr>
+  <tr>
+    <td>plasma1</td>
+    <td><a href="http://www.icl.cs.utk.edu/"style="color: #F18F34;">UTK</a></td>
+    <td><a href="http://icl.cs.utk.edu/plasma/"style="color: #F18F34;">PLASMA</a></td>
+    <td>openmp</td>
+    <td>plasma</td>
+  </tr>
+</table>
+
+<p>Please refer to the instructions of each vendor listed above by clicking on the corresponding link to obtain information on how to install their linear algebra implementation.</p>
+
+<h2>Automatic detection</h2>
+
+<p>By default, the build system assumes that you want the fastest possible linear algebra operations. When no linear algebra option is specified, it thus looks for each component as soon as its prerequisites are met. The only required components are BLAS and LAPACK, since Abinit relies on them in each and every situation. Unless forced by the user, the other components are enabled only if their prerequisites are met, their detection succeeds, and they are proved working.</p>
+
+<p>In the absence of any option, the build system will use an internal heuristic to look for linear algebra libraries and enable/disable components depending on the following criteria:</p>
+<ul>
+  <li>If a compiler vendor has a preferred linear algebra implementation, it will be tried first.</li>
+  <li>If a build framework such as <a href="https://hpcugent.github.io/easybuild/"style="color: #F18F34;">EasyBuild</a> is present, it will be used to set the libraries.</li>
+  <li>If MPI is enabled, ScaLAPACK and ELPA will be looked for.</li>
+  <li>If everything else fails, the build system will look for a standard Netlib implementation available system-wide.</li>
+</ul>
+
+<p>In all cases, the build system will try to mitigate side effects on other components, e.g., FFT, but there is no guarantee that it will succeed by itself. This selection and detection process is known to work in the most common cases. If you have a customized linear algebra configuration, you will likely want to use some options to direct the build system to the right libraries and give it instructions to minimize side effects.</p>
+
+<h2>Linear algebra options</h2>
+
+<p>To deal more easily with the various linear algebra implementations that can be used concurrently on the same computer, Abinit provides the <em>with_linalg_flavor</em> option. It will tune the detection tests made by the build system so that the probability of finding the correct libraries and setting up the environment is maximized.</p>
+
+<div style="background-color: #FFEB3B; padding: 10px; border-left: 5px solid #FFCA28;">
+    <strong>Tip:</strong> Please note that, when using <em>with_linalg_flavor</em>, the <em>LD_LIBRARY_PATH</em> and <em>PATH</em> environment variables must be properly set for the detection to succeed, particularly if you do not specify any other linear algebra option.
+</div>
+
+<p>You can tune the detection mechanism through the <em>with_linalg_flavor</em> option in three ways:</p>
+<ul>
+  <li>by just specifying a plus-separated list of flavors, in which case the build system will figure out how to assign which flavor to which component and complain about inconsistencies;</li>
+  <li>architecture-wise, by specifying a comma-separated list of <em>arch:value</em> statements, where <em>arch</em> can be <em>serial</em>, <em>openmp</em>, <em>mpi</em>, or <em>gpu</em>, and <em>value</em> is a plus-separated list of flavors;</li>
+  <li>component-wise, by specifying a comma-separated list of <em>component:value</em> statements, where <em>component</em> is one of the keywords from the first column of the above table, and <em>value</em> is a corresponding flavor -- only one is permitted in this case.</li>
+</ul>
+
+<p>Please note that you can only use one of these three methods at a time. Mixes are explicitly forbidden. Omitting an architectural item or a linear algebra component with the two latter methods will be equivalent to disabling this element.</p>
+
+<p>The other options provide hints to the build system and determine which kinds of tests will be performed:</p>
+<ul>
+  <li><em>with_linalg_fcflags</em> defines which Fortran compiler flags should be applied at compile time; this is useful for compilers providing native linear algebra support;</li>
+  <li><em>with_linalg_ldflags</em> defines which flags should be passed to the linker when building programs; this is useful for compilers providing native linear algebra support;</li>
+  <li><em>with_linalg_incs</em> defines which include flags should be applied at compile time; this option is only useful for LAPACKe;</li>
+  <li><em>with_linalg_libs</em> defines which libraries should be linked with the programs performing linear algebra operations.</li>
+</ul>
+
+<h2>Creating your own blend of flavors</h2>
+
+<p><strong>Example:</strong></p>
+<code>with_linalg_flavor="openblas+netlib"</code>
+<p>will cause the build system to look for OpenBLAS for the <em>blas</em> component and use Netlib for the other ones, i.e., <em>lapack</em> for the serial case and <em>scalapack</em> if MPI is enabled in the current build. Unspecified components will be detected using the default behavior, e.g., the build system will look for all available implementations of <em>elpa</em> if MPI is enabled but do nothing if MPI is disabled.</p>
+
+<h2>Architecture-first method</h2>
+
+<p><strong>Example:</strong></p>
+<code>with_linalg_flavor="serial:atlas+netlib,mpi:netlib,gpu:magma15"</code>
+<p>will cause the build system to look for Atlas for <em>blas</em>, Netlib for <em>lapack</em> and <em>scalapack</em>, and MAGMA 1.5 for <em>magma</em>. However, it will never look for <em>elpa</em>, since it has not been explicitly stated, and will stop with an error if one of the specified elements is not present or not working. When using this method, you must specify the <em>serial</em> block. If one of the <em>blas</em> or <em>lapack</em> components is omitted, then <em>netlib</em> is assumed.</p>
+
+<p>The following table links the serial and multicore architectures supported by Abinit with the other relevant concepts:</p>
+
+<table border="1">
+  <tr>
+    <th>Architecture</th>
+    <th>Flavors</th>
+    <th>Components</th>
+  </tr>
+  <tr>
+    <td>serial</td>
+    <td>acml, atlas, essl, mkl, netlib, openblas</td>
+    <td>blas, lapack</td>
+  </tr>
+  <tr>
+    <td>openmp</td>
+    <td>essl, plasma1</td>
+    <td>plasma</td>
+  </tr>
+  <tr>
+    <td>mpi</td>
+    <td>elpa2014, elpa2015, essl, mkl, netlib</td>
+    <td>elpa, scalapack</td>
+  </tr>
+  <tr>
+    <td>gpu</td>
+    <td>magma10, magma15</td>
+    <td>magma</td>
+  </tr>
+</table>
+
+<h2>Component-first method</h2>
+
+<p><strong>Example:</strong></p>
+<code>with_linalg_flavor="blas:atlas,lapack:netlib,elpa:elpa2015"</code>
+<p>will cause the build system to look for the <em>blas</em>, <em>lapack</em>, and <em>elpa</em> components, but not for <em>scalapack</em>, even if MPI is enabled. It will also fail if any component is missing or not working. When using this method, you must specify the <em>blas</em> and <em>lapack</em> components.</p>
+
+<p>The following table summarizes the linear algebra components supported by Abinit and their relationships with the other relevant concepts:</p>
+
+<table border="1">
+  <tr>
+    <th>Component</th>
+    <th>Type</th>
+    <th>Flavors</th>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>blas</td>
+    <td>Mandatory</td>
+    <td>acml, asl, essl, atlas, mkl, netlib, openblas</td>
+    <td>Required in any case</td>
+  </tr>
+  <tr>
+    <td>lapack</td>
+    <td>Mandatory</td>
+    <td>acml, asl, essl, mkl, netlib</td>
+    <td>Requires BLAS</td>
+  </tr>
+  <tr>
+    <td>lapacke</td>
+    <td>Optional</td>
+    <td>netlib</td>
+    <td>Requires LAPACK</td>
+  </tr>
+  <tr>
+    <td>scalapack</td>
+    <td>Optional</td>
+    <td>mkl, netlib</td>
+    <td>Requires MPI and LAPACK</td>
+  </tr>
+  <tr>
+    <td>elpa</td>
+    <td>Optional</td>
+    <td>elpa2014, elpa2015</td>
+    <td>Requires MPI and LAPACK</td>
+  </tr>
+  <tr>
+    <td>plasma</td>
+    <td>Optional</td>
+    <td>plasma1</td>
+    <td>Requires OpenMP (caveats)</td
+  </tr>
+  <tr>
+    <td>magma</td>
+    <td>Optional</td>
+    <td> magma10, magma15 </td>
+    <td> Requires MPI and GPU </td
+  </tr>
+</table>
+</div>
+</body>
+</html>

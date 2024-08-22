@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+
+<p><strong>IMPORTANT</strong><br>
+The information provided on this page is valid for Abinit 8.1 and future versions only.</p>
+
+<h1>Configuring feature triggers</h1>
+
+<h2>Configure options</h2>
+
+<p>The intrinsic capabilities of Abinit can be greatly enhanced by the use of optional external packages. The corresponding options of <em>configure</em> all follow the same scheme:</p>
+<ul>
+  <li><em>with_<strong>package</strong></em>, to specify the install prefix of a package;</li>
+  <li><em>with_<strong>package</strong>_incs</em>, to specify include flags when compiling code that uses the package (when applies);</li>
+  <li><em>with_<strong>package</strong>_libs</em>, to specify package libraries to link the code with (when applies).</li>
+</ul>
+
+<p>In each of the previous items, <em><strong>package</strong></em> will be replaced by the names in the first column from the table below. Please note that the use of <em>with_<strong>package</strong></em> is incompatible with the other <em>with_*</em> options, since it defines the values specified by these options in a possibly conflicting way. If you try to use both schemes, <em>configure</em> will fail and ask you to choose only one of them.</p>
+
+<p>If you use the <em>with_<strong>package</strong></em> option without an argument, the build system will look for the corresponding package using the built-in defaults of Abinit. Otherwise, the <em>with_<strong>package</strong></em> option expects a directory as an argument. For example, if you specify:</p>
+
+<pre><code>with_libxc="/path/to/libxc"</code></pre>
+
+<p>the <em>configure</em> script will look for:</p>
+<ul>
+  <li>specific configuration programs in <code>/path/to/libxc/bin/</code>;</li>
+  <li>include files in <code>/path/to/libxc/include/</code>;</li>
+  <li>libraries in <code>/path/to/libxc/lib/</code> and <code>/path/to/libxc/lib64/</code>.</li>
+</ul>
+
+<p>The following table summarizes the available optional features of Abinit. To enable them, you will have to make sure that the corresponding <a href="build:optpkgs">optional packages</a> are correctly installed on your system before configuring Abinit.</p>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Package</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="build:optpkgs#bigdft">bigdft</a></td>
+      <td>BigDFT</td>
+      <td>Development</td>
+      <td>Wavelets for low-dimensional systems</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#etsf_io">etsf_io</a></td>
+      <td>ETSF_IO</td>
+      <td>Mature</td>
+      <td>Platform-independent data exchange</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#gsl">gsl</a></td>
+      <td>GSL</td>
+      <td>Mature</td>
+      <td>Standard mathematical functions</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#libpspio">libpspio</a></td>
+      <td>Libpspio</td>
+      <td>Experimental</td>
+      <td>Reading of atomic data in many formats</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#libxc">libxc</a></td>
+      <td>LibXC</td>
+      <td>Mature</td>
+      <td>More than 300 exchange-correlation functionals</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#netcdf">netcdf</a></td>
+      <td>NetCDF</td>
+      <td>Mature</td>
+      <td>Platform-independent I/O</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#papi">papi</a></td>
+      <td>PAPI</td>
+      <td>Mature</td>
+      <td>Performance Application Programming Interface</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#psml">psml</a></td>
+      <td>PSML</td>
+      <td>Mature</td>
+      <td>PSeudopotential Markup Language</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#triqs">triqs</a></td>
+      <td>TRIQS</td>
+      <td>Experimental</td>
+      <td>Toolbox for Research on Interacting Quantum Systems</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#wannier90">wannier90</a></td>
+      <td>Wannier90</td>
+      <td>Mature</td>
+      <td>Maximally-Localized Wannier Functions (MLWFs)</td>
+    </tr>
+    <tr>
+      <td><a href="build:optpkgs#yaml">yaml</a></td>
+      <td>LibYAML</td>
+      <td>Experimental</td>
+      <td>YAML Ain't Markup Language I/O</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Using a global prefix</h2>
+
+<p>All the individual options can be overridden by <em>with_optpkgs</em>, which tells the <em>configure</em> script that all external dependencies have been installed in the same place. In this case, the build system will assume that each package has been installed in its own <code>&lt;package&gt;-&lt;version&gt;</code> subdirectory and will enable all those it finds in the specified top directory. This means that you can install as many versions of each package as you want within the same directory tree, while keeping full compatibility with different Abinit versions.</p>
+
+<p><strong>Important note</strong><br>
+If you use this option, you can then only use the other <em>with_package</em> options without arguments, to fine-tune which optional packages will actually be enabled. All other combinations will make <em>configure</em> fail with an error.</p>
+
+<p>As an example, let us now suppose that you have installed optional packages for Abinit under the <code>/path/to/my/packages/</code> directory. Your directory tree will look like the following:</p>
+
+<pre><code>/path/to/my_packages
+│
+├── etsf_io-1.0.4
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   └── share
+│       └── doc
+├── libpspio-bzr
+│   ├── include
+│   └── lib
+├── libxc-2.0.3
+│   ├── include
+│   └── lib
+│       └── pkgconfig
+├── libxc-2.2.1
+│   ├── bin
+│   ├── include
+│   └── lib
+│       └── pkgconfig
+├── triqs-1.2
+│   ├── bin
+│   ├── include
+│   │   ├── pytriqs
+│   │   └── triqs
+│   ├── lib
+│   │   └── python2.7
+│   └── share
+│       └── triqs
+└── wannier90-1.2.0.4
+│   ├── bin
+│   ├── lib
+│   │   └── pkgconfig
+│   └── share
+│       └── doc
+└── wannier90-2.0.1.1
+    ├── bin
+    ├── lib
+    │   └── pkgconfig
+    └── share
+        └── doc
+</code></pre>
+
+<p>As you can see, this directory tree includes two different versions of LibXC and Wannier90. Depending on which version of Abinit you are building, the correct version of each package will automatically be selected by the build system.</p>
+</div>
+</body>
+</html>

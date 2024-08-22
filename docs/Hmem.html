@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>The HMEM Cluster</h1>
+
+<h2>Specifications</h2>
+<p>This cluster is dedicated to large shared-memory jobs (100+ GB of RAM and 24+ cores).</p>
+
+<ul>
+  <li>840 core AMD Opteron@2.2GHz <img src="./img/hmem.png"
+                                       alt="HMEM Cluster Image" /></li>
+  <li>Memory:
+    <ul>
+      <li>2x512 GB RAM</li>
+      <li>7x256 GB RAM</li>
+      <li>7x128 GB RAM</li>
+    </ul>
+  </li>
+  <li>Time limit: 5 days</li>
+  <li>ELIC node (48 cores)</li>
+  <li>Infiniband</li>
+</ul>
+
+<h2>Configuration .ac File</h2>
+
+<p>Here is an example of a configuration .ac file:</p>
+
+<pre><code>with_mpi_prefix="/home/ucl/naps/ygillet/tools/openmpi-1.6.3-gcc-4.7.2"
+enable_64bit_flags="yes"
+enable_mpi="yes"
+enable_mpi_io="yes"
+enable_gw_dpc="yes"
+
+with_fft_flavor="fftw3"
+with_fft_libs="-L/opt/intel/compilerpro-12.0.0.084/mkl/lib/intel64  -Wl,--start-group -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread -lm"
+
+with_linalg_flavor="mkl"
+with_linalg_libs="-L/opt/intel/compilerpro-12.0.0.084/mkl/lib -Wl,--start-group -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread -lm"
+</code></pre>
+
+<h2>Submission Scripts</h2>
+
+<p>HMEM uses a Slurm submission script system.</p>
+
+<p>Here is an example submission script (you have to modify it slightly to suit your needs):</p>
+
+<pre><code>#!/bin/bash
+#SBATCH --job-name=your_job_name
+#SBATCH --mail-user=your_e_mail@blabla.com
+#SBATCH --mail-type=ALL
+#SBATCH --time=90:00:00
+#SBATCH --ntasks=30
+####SBATCH --ntasks-per-node=16
+#SBATCH --cpus-per-task=1
+####SBATCH --partition=High
+#SBATCH --mem-per-cpu=5000
+
+module purge
+module load gcc
+
+source /usr/local/intel/compilerpro-12.0.0.084/mkl/bin/mklvars.sh intel64
+
+export PATH=$PATH:/home/ucl/naps/ygillet/tools/openmpi-1.6.3-gcc-4.7.2/bin
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/ucl/naps/ygillet/tools/openmpi-1.6.3-gcc-4.7.2/lib
+
+export OMP_NUM_THREADS=1
+unset SLURM_CPUS_PER_TASK
+
+MPIRUN="mpirun"
+MPIOPT="--mca btl tcp,self -n 2"
+ABINIT="/home/ucl/naps/sponce/Develop/7.2.0-private/build/src/98_main/abinit"
+
+${MPIRUN} ${MPIOPT} ${ABINIT} < sigma10.files >& logsigma10_DS4
+echo "--"
+</code></pre>
+
+</div>
+</body>
+</html>
+

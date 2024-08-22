@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+ <h1>Optional Packages</h1>
+
+    <h2>Overview</h2>
+    <p>
+        The following list includes plugin libraries which Abinit can use to add features (DMFT, Wannier functions...) and interoperability (other pseudopotential formats...). They are listed in alphabetical order, not by order of importance. Several are available as fallbacks for Abinit: see the options of the configure script for more details, and some links below on installation procedures.
+    </p>
+
+    <h2>AtomPAW</h2>
+    <p>
+        AtomPAW is a generation library for PAW atomic data sets (like pseudopotentials) created by Prof. Nathalie Holzwarth and developed in close collaboration with the ABINIT team. It is the reference package to generate datasets for ABINIT, but several others can be used as well.
+    </p>
+    <p>
+        You can download AtomPAW from its <a
+            href="http://users.wfu.edu/natalie/papers/pwpaw/man.html" target="_blank" style="color: #F18F34;">Wake Forest University project page</a>.
+    </p>
+    <p>
+        <em>Please note that AtomPAW depends on <a
+                href="#build:minreq#linear_algebra" target="_blank"
+                style="color: #F18F34;">linear algebra</a> and <a href="#build:minreq#libxc" target="_blank" style="color: #F18F34;">LibXC</a>, which must be installed before.</em>
+    </p>
+    <p><strong>Useful tip:</strong> AtomPAW is not necessary to build Abinit but will let you execute more test cases from the test suite and create your own PAW datasets.</p>
+
+    <h2>BigDFT</h2>
+    <p>
+        BigDFT is a DFT code, solving the Kohn Sham equations in a Wavelet basis set. It is adapted for large systems with multiresolution and many nice features (PAW, fancy Poisson solvers, QM/MM...). BigDFT is interfaced with and can be called from ABINIT, to exploit some features of the latter.
+    </p>
+    <p>
+        You can download BigDFT from its <a href="http://www.bigdft.org/"
+                                            target="_blank" style="color: #F18F34;">Home page</a>.
+    </p>
+    <p>
+        Our <a href="#build:install_bigdft" target="_blank" style="color: #F18F34;">Installing
+        BigDFT</a> page will give you useful instructions to install BigDFT properly and make it work with Abinit.
+    </p>
+    <p><em>Please note that BigDFT requires <a
+            href="#build:minreq#linear_algebra" target="_blank"
+            style="color: #F18F34;">linear algebra</a> and also depends on <a href="#build:minreq#libxc" target="_blank" style="color: #F18F34;">LibXC</a>, which must be installed before.</em></p>
+
+    <h2>Levmar</h2>
+    <p>
+        Levmar is a library implementing the Levenberg-Marquardt optimization algorithm, which ABINIT can call and use.
+    </p>
+    <p>
+        You can download Levmar from its <a
+            href="http://users.ics.forth.gr/~lourakis/levmar/" target="_blank" style="color: #F18F34;">FORTH-ICS page</a>.
+    </p>
+
+    <h2>Libpspio</h2>
+    <p>
+        Libpspio is a library for interchange (input and output) of different pseudopotential file formats. It supports a number of them for many different codes.
+    </p>
+    <p>
+        You can download Libpspio from its <a
+            href="https://launchpad.net/libpspio" target="_blank"
+            style="color: #F18F34;">Launchpad project page</a> and soon from its <a href="http://esl.cecam.org/mediawiki/index.php/Libpspio" target="_blank" style="color: #F18F34;">ESL wiki page</a>.
+    </p>
+
+    <h2>PAPI</h2>
+    <p>
+        PAPI is a library for instruction counting and profiling, to know where your code is spending time.
+    </p>
+    <p>
+        You can download PAPI from its <a href="http://icl.cs.utk.edu/papi/"
+                                          target="_blank" style="color: #F18F34;">University of Tennessee page</a>.
+    </p>
+
+    <h2>PSML</h2>
+    <p>
+        PSML is a library pseudopotential file format in XML, with a corresponding library. PSML is supported by a number of codes, in particular ABINIT and SIESTA, to have inter-operable DFT calculations with different features.
+    </p>
+    <p>
+        You can download PSML from its <a
+            href="https://launchpad.net/libpsml" target="_blank" style="color: #F18F34;">Launchpad project page</a>.
+    </p>
+    <!-- TO BE SUPPRESSED -->
+    <!-- <p>Our <a href="#build:install_psml" target="_blank">Installing PSML</a> page will give you useful instructions to install PSML properly and make it work with Abinit.</p> -->
+
+    <h2>TRIQS</h2>
+    <p>
+        TRIQS is a library for the quantum Monte Carlo solution of a quantum correlated impurity problem (within DMFT).
+    </p>
+    <p>
+        You can download TRIQS from its <a href="https://triqs.ipht.cnrs.fr/"
+                                           target="_blank" style="color: #F18F34;">CNRS page</a>.
+    </p>
+    <p>Our <a href="#build:install_triqs" target="_blank" style="color: #F18F34;">Installing
+        TRIQS</a> page will give you useful instructions to install TRIQS properly and make it work with Abinit.</p>
+
+    <h2>Wannier90</h2>
+    <p>
+        Wannier90 implements the maximally localized Wannier Function scheme from Marzari and Vanderbilt. It allows interpolation and post-processing of many electronic quantities, and is interfaced with most modern DFT codes.
+    </p>
+    <p>
+        You can download Wannier90 from:
+    </p>
+    <ul>
+        <li><a href="http://wannier.org/" target="_blank" style="color: #F18F34;">Home page</a> for
+            the pristine version;</li>
+        <li><a href="https://launchpad.net/wannier90" target="_blank" style="color: #F18F34;"
+        >Launchpad project page</a> for the patched version that works directly with Abinit.</li>
+    </ul>
+    <!-- TO BE SUPPRESSED -->
+    <!-- <p>Our <a href="#build:install_wannier90" target="_blank">Installing Wannier90</a> page will give you useful instructions to install Wannier90 properly and make it work with Abinit.</p> -->
+    <p><em>Please note that Wannier90 requires <a
+            href="#build:minreq#linear_algebra" target="_blank" style="color: #F18F34;">linear algebra</a>, which must be installed before.</em></p>
+    <p><strong>Warning!</strong> The pristine version of Wannier90 has some
+        bugs and must be patched to work with Abinit. If you decide to use it, please download our patches from the <a href="#build:install_wannier90" target="_blank" style="color: #F18F34;">Installing Wannier90</a> page.</p>
+
+    <h2>YAML</h2>
+    <p>
+        YAML is a human-readable yet easy to parse file format, for some input and output files of ABINIT.
+    </p>
+    <p>
+        Very often, it is available with your OS. However, if not, you can
+        download YAML from the <a href="http://pyyaml.org/download/libyaml/" target="_blank" style="color: #F18F34;">PyYAML repository</a>.
+    </p>
+</div>
+</body>
+</html>
+

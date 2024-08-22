@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+    <h1>Minimum Requirements</h1>
+
+    <h2>Hardware</h2>
+    <p>
+        Abinit requires at least 1 CPU, 4Gb of RAM, and 4Gb of disk space to perform the calculations of the tutorials and the test suite.
+        The most complex calculations may require more than 10,000 CPUs, more than 1Tb of RAM, and a few Tb of disk space.
+    </p>
+    <p>
+        Any recent desktop or laptop computer is in principle able to perform calculations with Abinit.
+    </p>
+
+    <h2>Tools</h2>
+    <p>
+        To be correctly built, Abinit requires a working development environment providing both a C and a Fortran compiler,
+        as well as Python (version 2.7.5 at least, but version 3.8 is recommended).
+    </p>
+    <p>
+        On desktop and laptop computers, we recommend:
+    </p>
+    <ul>
+        <li>
+            the <a href="http://gcc.gnu.org/" target="_blank"
+                   style="color: #F18F34;">GNU Compiler Collection</a>;
+        </li>
+        <li>
+            the <a
+                href="https://software.intel.com/en-us/intel-parallel-studio-xe" target="_blank" style="color: #F18F34;">Intel Parallel Studio XE Toolchain</a>;
+        </li>
+    </ul>
+    <p>
+        which we have extensively tested.
+    </p>
+    <p>
+        Since the choice is up to the system administrator on HPC environments, we also support the
+        <a href="https://www.nag.com/content/nag-fortran-compiler"
+           target="_blank" style="color: #F18F34;">NAG Fortran compiler</a>.
+    </p>
+</div>
+</body>
+</html>
+
