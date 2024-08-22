@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>The Green Cluster</h1>
+
+<h2>Specifications</h2>
+<ul>
+  <li>816 Intel Xeon cores (102x8) <img src="./img/green.png"
+                                        alt="Green Cluster Image" /></li>
+  <li>47x16 GB RAM and 55x32 GB RAM</li>
+  <li>Gigabit ethernet</li>
+  <li>Queues:
+    <ul>
+      <li>all.q: 120h</li>
+      <li>fast.q: 24h</li>
+      <li>snode8.q: 120h</li>
+    </ul>
+  </li>
+</ul>
+
+<h2>Configure.ac File</h2>
+
+<p>Here is an example of a configure.ac file for the Green cluster:</p>
+
+<pre><code>enable_mpi="yes"
+enable_mpi_io="yes"
+with_mpi_prefix="/home/pcpm/buildbot/openmpi_intel"
+with_fft_flavor="fftw3"
+with_fft_libs="-L/usr/local/intel/Compiler/11.1/current/mkl/lib/em64t -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread"
+with_linalg_flavor="mkl"
+with_linalg_libs="-L/usr/local/intel/Compiler/11.1/current/mkl/lib/em64t -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread"
+enable_clib="yes"
+enable_gw_dpc="yes"
+enable_memory_profiling="no"
+enable_maintainer_checks="no"
+enable_test_timeout="yes"
+</code></pre>
+
+<h2>Submission Scripts</h2>
+
+<p>Green uses a SGE submission script system.</p>
+
+<p>Here is an example submission script:</p>
+
+<pre><code>#!/bin/sh
+#
+# On old Green node
+#$ -l nb=false
+#
+# ask for pe=parallel environment, snode or openmpi
+# snode= same node, as the shared memory communication is the fastest
+#$ -pe openmpi 16
+# -pe snode8 8
+
+# keep current working directory
+#$ -cwd
+
+# give a name to your job
+#$ -N name_of_job
+
+# keep all the defined variables
+#$ -V
+#$ -l nb=false
+
+# not mandatory: highmem=true (hm=true) for 32GB node
+# or hm=false for 16GB node
+# no hm argument does not take about the kind of node ram (16/32)
+# -l hm=true
+
+# important: specify the mem_free needed
+# h_vmem can also be set but mf is mandatory
+# max 31G on hm=true and 15G on hm=false nodes
+#$ -l mf=4G
+
+# specify the requested time
+# 240:00:00 is 10 days
+#$ -l h_rt=40:59:59
+
+# to be informed by email (bes= begin,end,stop)
+#$ -M your_e_mail@blabla.com
+#$ -m besa
+
+PROGS=/home/naps/sponce/Software/7.3.3-private/build/src/98_main/abinit
+
+echo "Got $NSLOTS slots."
+echo "Temp dir is $TMPDIR"
+echo "Node file is:"
+cat $TMPDIR/machines
+
+MPI=mpirun
+MPIOPT="-np $NSLOTS "
+
+INI=`date +%s`
+${MPI} ${MPIOPT} ${PROGS} < input.files >& log
+FIN=`date +%s`
+
+echo INI $INI
+echo FIN $FIN
+
+echo TIME-OF-CALCULATION `expr $FIN - $INI`
+</code></pre>
+
+</div>
+</body>
+</html>
+

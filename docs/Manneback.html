@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>The Manneback Cluster</h1>
+
+<h2>Specifications</h2>
+
+<img src="./img/manneback.jpg" alt="Manneback Cluster Image" />
+
+<ul>
+  <li>264 cores E5-2650@2GHz (AMD Opteron and Intel Xeon)</li>
+  <li>824 GB RAM</li>
+  <li>Gigabit Ethernet or Infiniband</li>
+  <li>GPU</li>
+  <li>Queue max. time: 5 days</li>
+</ul>
+
+<h2>Configuration .ac File</h2>
+
+<p>Here is an example of a configuration .ac file:</p>
+
+<pre><code>enable_mpi="yes"
+enable_mpi_io="yes"
+with_mpi_prefix="/path/to/mpi"
+enable_64bit_flags="yes"
+
+AR=ar
+FC="mpif90"
+CC="mpicc"
+CXX="mpicxx"
+
+with_fft_flavor="fftw3"
+with_fft_libs="-L/path/to/fftw3/lib -lfftw3 -lfftw3f"
+with_fft_incs="-I/path/to/fftw3/include"
+
+with_linalg_flavor="mkl"
+with_linalg_libs="-L/path/to/mkl/lib -Wl,--start-group -lmkl_intel_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread -lm"
+with_linalg_incs="-I/path/to/mkl/include"
+
+with_dft_flavor="libxc"
+
+enable_clib="yes"
+enable_gw_dpc="yes"
+</code></pre>
+
+</div>
+</body>
+</html>
+

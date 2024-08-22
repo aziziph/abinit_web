@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>Conventions and formatting</h1>
+
+<h2>General conventions</h2>
+
+<p>In this wiki, we use <em>italic fonts</em> to represent software components, options, and files, e.g. the <em>configure</em> script, the <em>with_mpi</em> option, or the <em>src/21_hashfuncs/</em> directory. Commands entered by the user are usually wrapped in frames and use a fixed-space font, as follows:</p>
+
+<pre><code>../configure --enable-openmp --with-mpi="/usr/local"</code></pre>
+
+<p>The <em>~abinit</em> keyword represents the top source directory of Abinit wherever it appears.</p>
+
+<div style="background-color: #FFEB3B; padding: 10px; border-left: 5px solid #FFCA28;">
+    <strong>Tip:</strong> To be found more easily, tips, tricks, advice, and notes are written in yellow boxes with a light bulb on their left-hand side.
+</div>
+
+<div style="background-color: #FF9800; padding: 10px; border-left: 5px solid #F57C00;">
+    <strong>IMPORTANT:</strong> Essential information that you should read with good care is displayed in orange boxes with a warning sign on the left-hand side.
+</div>
+
+<h2>Interactive shell commands</h2>
+
+<p>Many examples described on this wiki assume that the user is using a <a href="https://en.wikipedia.org/wiki/Terminal_emulator" target="_blank">terminal</a> to interact with Abinit. A terminal is a text window running a <a href="https://en.wikipedia.org/wiki/Shell_(computing)" target="_blank">shell</a>, which is a program executing commands entered by the user. Please click on the links within this section, look at your operating system documentation, and/or look on the internet for "Opening a terminal" if you are not familiar with terminals and shells.</p>
+
+<p>When describing interactive shell commands, we use the <a href="https://en.wikipedia.org/wiki/Bourne_shell" target="_blank">Bourne Shell</a> conventions, since this is the most portable shell available and it is the one used by various components of Abinit. All commands entered by the user start with a dollar sign and a space character -- which should not be typed when you reproduce the examples on your own computer -- and their output is reproduced verbatim just below. In the following example:</p>
+
+<pre><code>$ cat abinit.in
+ecut 12.0
+znucl 1
+acell 1.0 1.0 1.0
+xred 0.0 0.0 0.0
+...
+</code></pre>
+
+<p>the user types <code>'cat abinit.in'</code> followed by the enter key, which displays the contents of the <em>abinit.in</em> file on the console.</p>
+
+</div>
+</body>
+</html>
+

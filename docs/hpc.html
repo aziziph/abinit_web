@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy">
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>How to Link Libraries</h1>
+
+<p>For numerous details, please refer to the <a
+        href="./installing_abinit.pdf" style="color: #F18F34;">Tutorial from the 2019 ABINIT
+    School</a>.</p>
+
+<p>The bottom line is that you should first try to get a system administrator
+    to compile ABINIT for you on their machine (they may already have done
+    so!). They are most knowledgeable about optimization and library
+    dependencies, toolchains, etc., and can make the executable available to
+    all users. For a number of machines we use regularly, <a
+            href="./submission_scripts.html"
+            style="color: #F18F34;">configuration files</a> are provided for your own use or to give the sysadmins a starting point.</p>
+
+<p>Libraries are set up at configuration time using command-line arguments or lines in the configuration file. For example, for FFTs:</p>
+<code>./configure --with-fft-flavor=fftw3 --with-fft-libs="-L/usr/local/lib/ -lfftw3 -lfftw3f" --with-fft-incs="-I/usr/local/include"</code>
+<p>or in your .ac configuration file (note the dashes become underscores):</p>
+<code>
+with_fft_flavor=fftw3<br>
+with_fft_libs="-L/usr/local/lib/ -lfftw3 -lfftw3f"<br>
+with_fft_incs="-I/usr/local/include"
+</code>
+<p>Other library dependencies will have similar <code>libs</code> and <code>incs</code> flags for the library objects and for the header/Fortran module files.</p>
+
+<h2>Libraries</h2>
+<p>Using optimized libraries is essential to get the full performance out of ABINIT. HPC environments will provide vendor-optimized versions of the libraries that are tuned to processor models, architecture, network topology, memory distribution, etc. Libraries such as MKL, ESSL, FFTW3, ACML, and others can be included to provide linear algebra, FFTs, and other central components to ABINIT.</p>
+
+<h2>Modules</h2>
+<p>Most modern HPC infrastructures work with the <a
+        href="http://modules.sourceforge.net/" style="color: #F18F34;">module framework</a>. You load modules that set up your environment to use a specific set of compilers, MPI, libraries, etc. Then you compile ABINIT and make sure you load the same modules before running it (typically load them in your <code>.bashrc</code> or <code>.tcshrc</code> file).</p>
+
+<h2>easybuild</h2>
+<p>To be completed</p>
+
+<h2>Anaconda</h2>
+<p>Anaconda provides a systematic package management environment, which can
+    install a full stack of software to get you up and running with ABINIT.
+    It was started for Python but works for any kind of software with dependencies. Anaconda supports virtual environments such that you can install several versions. There is a <a href="https://anaconda.org/abinit/abinit" style="color: #F18F34;">channel devoted to ABINIT</a> and another for <a href="https://anaconda.org/abinit/abipy" style="color: #F18F34;">abipy</a>.</p>
+
+<p>To be completed</p>
+
+</div>
+</body>
+</html>
+

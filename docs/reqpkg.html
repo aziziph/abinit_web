@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABINIT</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"  crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles.css"
+        rel="stylesheet"> <!-- Link to your external CSS file -->
+</head>
+
+<body>
+<div class="icon-container">
+    <div class="icon-row">
+        <div>
+            <a href="./index.html">
+                <img alt="ABINIT" src="./logo/logo.png"
+                     title="" height="100"/>
+                <span class="title"></span>
+            </a>
+        </div>
+
+    </div>
+
+    <div class="icon-row">
+        <div class="icon">
+            <a href="./pseudopotential.html">
+                <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
+                <span class="title">Pseudos &amp; PAW data</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/variables">
+                <img alt="input variables" class="icon" src="./img/input_variables.png" title="Input variables" />
+                <span class="title">Input variables</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/tutorial/">
+                <img alt="Tutorials" class="icon" src="./img/Tutorials.png" title="Tutorials" />
+                <span class="title">Tutorials</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://discourse.abinit.org/">
+                <img alt="Forum" class="icon" src="./img/Forum.png" title="Forum" />
+                <span class="title">Forum</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="./download.html">
+                <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
+                <span class="title">Download</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://docs.abinit.org/installation/">
+                <img alt="Compile" class="icon" src="./img/Compile.png" title="Compile" />
+                <span class="title">Compile</span>
+            </a>
+        </div>
+            <div class="icon">
+            <a href="https://github.com/abinit">
+                <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
+                <span class="title">GitHub</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://gui.abinit.org/">
+                <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
+                <span class="title">GUI</span>
+            </a>
+        </div>
+        <div class="icon">
+            <a href="https://github.com/abinit/abipy" >
+                <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
+                <span class="title">Abipy</span>
+            </a>
+        </div>
+</div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="separator-line1"></div>
+<div class="abinit-info">
+<h1>Required Packages</h1>
+
+    <p>The following packages are either mandatory dependencies or strongly recommended external libraries, without which some important functionalities of Abinit will not function.</p>
+
+    <h2>Linear Algebra</h2>
+    <p>
+        Abinit will work only if linear algebra libraries are present on the computer. Only 2 linear algebra components are mandatory:
+    </p>
+    <ul>
+        <li><a href="http://www.netlib.org/blas/" target="_blank" style="color: #F18F34;">Basic
+            Linear Algebra Subprograms (BLAS)</a></li>
+        <li><a href="http://www.netlib.org/lapack/" target="_blank" style="color: #F18F34;">Linear
+            Algebra PACKage (LAPACK)</a></li>
+    </ul>
+    <p>
+        Even if you are free to install the reference implementation from
+        Netlib, we highly recommend you to use an optimized implementation instead, in particular if you intend to perform complex calculations. A full list of supported libraries is available on the <a href="#build:linear_algebra" target="_blank" style="color: #F18F34;">Configuring linear algebra page</a>.
+    </p>
+    <p>
+        If you are using Linux, the best way to install linear algebra
+        libraries is to use the package manager of your distribution to get some of them and/or install the <a href="https://software.intel.com/en-us/intel-mkl" target="_blank" style="color: #F18F34;">Intel Math Kernel Library</a>.
+    </p>
+    <p>
+        For macOS, many libraries can be installed using <a
+            href="https://www.macports.org/ports.php?by=category&substr=math"
+            target="_blank" style="color: #F18F34;">Macports</a> or <a href="http://brew.sh/" target="_blank" style="color: #F18F34;">Homebrew</a>.
+    </p>
+    <p>
+        The University of Tennessee has also some useful information on <a
+            href="https://icl.cs.utk.edu/lapack-for-windows/" target="_blank" style="color: #F18F34;">how to install linear algebra libraries on Windows</a>.
+    </p>
+    <p>
+        On many high-performance computers, you will have access to optimized libraries (mkl, ESSL, ACML, OpenBLAS,...) - use these at all costs. They will speed up Abinit runs by up to an order of magnitude: more than 60% of computation time is spent in these external libraries.
+    </p>
+
+    <h2>Fast Fourier Transforms</h2>
+    <p>
+        Abinit has an internal FFT library made by Stefan Goedecker in the 1990s, which he then cleverly parallelized in the 2000s. This is the default, but not the fastest FFT library Abinit has access to. You want to link to external recent optimized versions.
+    </p>
+    <p>
+        The main library in wide use today is the FFTW3 which is very powerful, threaded, and optimized to death.
+    </p>
+    <p>
+        The vendor optimized mkl and other libraries often provide versions of FFTW3 - use these as a priority.
+    </p>
+    <p>
+        There exist other FFT libraries on the market, but Abinit does not support them systematically. Check the options of the configure script for more details.
+    </p>
+
+    <h2>LibXC</h2>
+    <p>
+        LibXC is a library implementing almost all known exchange correlation functionals. Since ABINITv9 it is a strict requirement for Abinit usage - you gain access to many xc approximations, metaGGAs and so on: you want this.
+    </p>
+    <p>
+        You can download LibXC from its <a
+            href="https://www.tddft.org/programs/libxc/download/" target="_blank" style="color: #F18F34;">Download page</a>.
+    </p>
+    <p>
+        <!-- Fallback section to be suppressed -->
+        <!-- Our <a href="#build:install_libxc" target="_blank">Installing LibXC</a> page will give you useful instructions to install LibXC properly and make it work with Abinit. -->
+    </p>
+
+    <h2>NetCDF / NetCDF_Fortran / HDF5</h2>
+    <p>
+        NetCDF is a binary portable file format used for many outputs of
+        Abinit. Use it for portability, flexibility, and interoperability with other codes and post-processing tools, e.g. <a href="https://github.com/abinit/abipy" target="_blank" style="color: #F18F34;">abipy</a>.
+    </p>
+    <p>
+        You can download NetCDF/NetCDF-Fortran from its <a
+            href="http://www.unidata.ucar.edu/software/netcdf/" target="_blank" style="color: #F18F34;">Unidata page</a>.
+    </p>
+    <p>
+        You can download HDF5 from its <a
+            href="https://www.hdfgroup.org/downloads/hdf5/" target="_blank" style="color: #F18F34;">HDF5 page</a>.
+    </p>
+    <p>
+        <!-- Fallback section to be suppressed -->
+        <!-- Our <a href="#build:install_netcdf" target="_blank">Installing NetCDF</a> page will give you useful instructions to install NetCDF properly and make it work with Abinit. -->
+    </p>
+</div>
+</body>
+</html>
+

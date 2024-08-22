@@ -91,7 +91,11 @@ body {
   color: black; /* Example color */
   margin-left: 20px; /* Example bottom margin */
 }
-
+.abinit-info h4 {
+  font-size: 16px; /* Example font size */
+  color: black; /* Example color */
+  margin-left: 5%; /* Example bottom margin */
+}
 .lower_block {
   margin: -20px 18%;
 }
@@ -210,6 +214,7 @@ body {
   .abinit-info h3 {
     margin-left: 0;
   }
+
 
   .lower_block h4 {
     margin-left: 0;
