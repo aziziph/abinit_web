@@ -1,0 +1,19 @@
+<html><head></head><body><p style="font-weight: bold; text-decoration: underline;">Note
+concerning the use of USPP2Abinit with previous versions of
+ABINIT:&nbsp;</p>
+<ul><li>
+<p><span style="font-weight: bold;">Version
+2.3.0 of USPP2Abinit (and later) is only compatible with ABINIT v5.4.3+.</span><span style="font-weight: bold;"></span><br>You
+can
+use it with previous versions of ABINIT provided that you modify the
+"ABINIT pseudopotential file" after having created it.<br>Edit it and
+replace the "paw4" keyword by "paw3".</p>
+</li><li><span style="font-weight: bold;">Version 2.4.0 of USPP2Abinit (and later) is
+only compatible with ABINIT
+v6.1.0+,<br>if file format is "paw5" (see fourth line of "ABINIT
+pseudopotential file").</span><br><span style="font-weight: bold;">It
+is compatible with ABINIT v5.4.3+ if file format is "paw4"</span><br>You
+can
+use it with previous versions of ABINIT (produce a "paw4" file)
+provided that you put "USE_XC_NHAT=0"<br>in <span style="font-style: italic;">uspp2abinit.dat</span> file.</li></ul>
+</body></html>
