@@ -189,7 +189,7 @@ body {
     display: none; /* Hide by default on mobile */
     flex-direction: column;
     align-items: right;
-    justify-content: right; /* Center the icons */
+    justify-content: center; /* Center the icons */
     transition: all 0.3s ease-in-out;
     z-index: 2; /* Ensure it appears above other content */
     padding: 10px 0; /* Add some padding for better spacing */
