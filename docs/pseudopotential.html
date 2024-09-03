@@ -34,8 +34,8 @@
 </head>
 
 <body>
-<div class="icon-container">
-    <div class="icon-row">
+    <!-- Burger Menu Icon -->
+        <div class="icon-row">
         <div>
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
@@ -45,6 +45,9 @@
         </div>
 
     </div>
+    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
+<div class="icon-container">
+
 
     <div class="icon-row">
         <div class="icon">
@@ -72,7 +75,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="./download.html">
+            <a href="https://github.com/abinit/abinit/releases/latest">
                 <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
                 <span class="title">Download</span>
             </a>
@@ -103,6 +106,14 @@
         </div>
 </div>
 </div>
+
+    <script>
+        function toggleMenu() {
+            const iconContainer = document.querySelector('.icon-container');
+            iconContainer.classList.toggle('active');
+        }
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1" ></div>
