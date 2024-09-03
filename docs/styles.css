@@ -119,8 +119,10 @@ body {
 
 .carousel-indicators {
   position: absolute;
-  top: -10px; /* Adjust the distance from the bottom */
-  z-index: 1;
+  bottom: 0; /* Adjust as needed */
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .carousel-indicators li {
@@ -131,7 +133,6 @@ body {
   background-color: black; /* Set default background color */
   border: 1px solid #fff; /* Add border to indicators */
   border: 4px solid #9acfea; /* Add border to indicators with light blue color */
-  z-index: 1;
 }
 
 .carousel-indicators .active {
