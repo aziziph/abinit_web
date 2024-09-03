@@ -186,45 +186,38 @@ body {
 }
 
 /* Common styles for all screen sizes */
+/* Styles for the icon container and icon rows */
 .icon-container {
-    display: none; /* Hide by default on mobile */
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the icons */
-    transition: all 0.3s ease-in-out;
-    z-index: 2; /* Ensure it appears above other content */
-    padding: 10px 0; /* Add some padding for better spacing */
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    width: 100%; /* Make sure the container takes full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.icon-container.active {
-    display: flex; /* Show when active */
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 5px; /* Reduced margin between rows */
 }
 
 .icon {
-    margin: 10px 0; /* Adjust the margin for better spacing */
-    text-align: center;
-    max-width: 100px; /* Ensure icons do not exceed a certain width */
-    width: 100%;
+  margin: 5px; /* Reduced margin around each icon */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .icon img {
-    width: 100%;
-    height: auto;
-    max-width: 100px; /* Ensure images do not exceed a certain width */
+  max-width: 80px; /* Reduced max-width of icons */
+  height: auto;
 }
-.icon_logo img {
-    margin: 20px 0; /* Adjust the margin for better spacing */
-    text-align: center;
-    /*max-width: 100px; /* Ensure icons do not exceed a certain width */
-    width: 100%;
-}
+
 .title {
-    font-size: 12px;
-    color: #F18F34;
-    margin-top: 5px;
+  display: block;
+  font-size: 12px;
+  color: #F18F34;
+  margin-top: 3px; /* Reduced margin above title */
 }
 
 /* For larger screens (desktops, laptops) */
