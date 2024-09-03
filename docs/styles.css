@@ -204,7 +204,7 @@ body {
 
 .icon {
     margin: 10px 0; /* Adjust the margin for better spacing */
-    text-align: right;
+    text-align: center;
     max-width: 100px; /* Ensure icons do not exceed a certain width */
     width: 100%;
 }
@@ -216,7 +216,7 @@ body {
 }
 .icon_logo img {
     margin: 20px 0; /* Adjust the margin for better spacing */
-    text-align: right;
+    text-align: center;
     /*max-width: 100px; /* Ensure icons do not exceed a certain width */
     width: 100%;
 }
