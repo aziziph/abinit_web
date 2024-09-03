@@ -119,10 +119,8 @@ body {
 
 .carousel-indicators {
   position: absolute;
-  bottom: 0; /* Adjust as needed */
-  left: 35%;
-  transform: translateX(-50%);
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
+  top: -10px; /* Adjust the distance from the bottom */
+  z-index: 1;
 }
 
 .carousel-indicators li {
@@ -133,12 +131,12 @@ body {
   background-color: black; /* Set default background color */
   border: 1px solid #fff; /* Add border to indicators */
   border: 4px solid #9acfea; /* Add border to indicators with light blue color */
+  z-index: 1;
 }
 
 .carousel-indicators .active {
   background-color: black; /* Set background color for active indicator */
 }
-
 .content-bottom2 {
   margin: 10px 20%;
 }
@@ -186,38 +184,45 @@ body {
 }
 
 /* Common styles for all screen sizes */
-/* Styles for the icon container and icon rows */
 .icon-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: none; /* Hide by default on mobile */
+    flex-direction: column;
+    align-items: right;
+    justify-content: right; /* Center the icons */
+    transition: all 0.3s ease-in-out;
+    z-index: 2; /* Ensure it appears above other content */
+    padding: 10px 0; /* Add some padding for better spacing */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    width: 100%; /* Make sure the container takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
-.icon-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 5px; /* Reduced margin between rows */
+.icon-container.active {
+    display: flex; /* Show when active */
 }
 
 .icon {
-  margin: 5px; /* Reduced margin around each icon */
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    margin: 10px 0; /* Adjust the margin for better spacing */
+    text-align: right;
+    max-width: 100px; /* Ensure icons do not exceed a certain width */
+    width: 100%;
 }
 
 .icon img {
-  max-width: 80px; /* Reduced max-width of icons */
-  height: auto;
+    width: 100%;
+    height: auto;
+    max-width: 100px; /* Ensure images do not exceed a certain width */
 }
-
+.icon_logo img {
+    margin: 20px 0; /* Adjust the margin for better spacing */
+    text-align: right;
+    /*max-width: 100px; /* Ensure icons do not exceed a certain width */
+    width: 100%;
+}
 .title {
-  display: block;
-  font-size: 12px;
-  color: #F18F34;
-  margin-top: 3px; /* Reduced margin above title */
+    font-size: 12px;
+    color: #F18F34;
+    margin-top: 5px;
 }
 
 /* For larger screens (desktops, laptops) */
