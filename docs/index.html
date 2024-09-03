@@ -11,8 +11,9 @@
 </head>
 
 <body>
-<div class="icon-container">
-    <div class="icon-row">
+
+    <!-- Burger Menu Icon -->
+        <div class="icon-row">
         <div>
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
@@ -23,6 +24,9 @@
 
     </div>
     <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
+<div class="icon-container">
+
+
     <div class="icon-row">
         <div class="icon">
             <a href="./pseudopotential.html">
@@ -80,12 +84,14 @@
         </div>
 </div>
 </div>
+
     <script>
         function toggleMenu() {
             const iconContainer = document.querySelector('.icon-container');
             iconContainer.classList.toggle('active');
         }
     </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
@@ -215,7 +221,7 @@
             <strong>ABINIT</strong> can calculate molecules, nanostructures and solids with any chemical composition, and comes with <strong>several complete and robust tables of atomic potentials</strong>.<br>
             <strong>On-line tutorials</strong> are available for the main features of the code, and several schools and workshops are organized each year.
             <a href="#" class="less-link">-</a></span>
-        </span>
+<!--        </span>-->
 <!--        <span class="read-less"> <a href="#" class="less-link">-</a></span>-->
     </div>
 </div>
@@ -231,7 +237,8 @@
                     <h4>What is Abinit?</h4>
                     <div class="footer_desc">
                         <ul>
-                            <li><a href="presentation.html"target="_self">Presentation</a></li>
+                            <li><a href="presentation.html" target="_self">
+                                Presentation</a></li>
                             <li><a href="https://docs.abinit.org/topics/features/">What you can do with ABINIT</a></li>
                             <li><a href="https://docs.abinit.org/theory/acknowledgments/" target="_blank">Suggested acknowledgments</a></li>
                             <li><a href="./sponsors.html">Sponsors</a> - <a
@@ -311,8 +318,7 @@
                             <li><a href="support.html"
                                    target="_self">Support the
                                 Abinit group</a></li>
-                            <li><a
-                                    href="https://wiki.abinit.org/doku.php?id=start">Wiki (old)</a></li>
+                            <li><a href="https://wiki.abinit.org/doku.php?id=start">Wiki (old)</a></li>
                             <li><a href="./corner.html">Developer's
                                 corner</a></li>
                         </ul>
