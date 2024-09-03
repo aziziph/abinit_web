@@ -188,7 +188,7 @@ body {
 .icon-container {
     display: none; /* Hide by default on mobile */
     flex-direction: column;
-    align-items: right;
+    align-items: center;
     justify-content: center; /* Center the icons */
     transition: all 0.3s ease-in-out;
     z-index: 2; /* Ensure it appears above other content */
