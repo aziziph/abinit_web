@@ -60,6 +60,7 @@ body {
 .abinit-info {
   margin: 10px 20%;
   color: black;
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .abinit-info .toolong .more-link,
@@ -67,15 +68,18 @@ body {
   color: #F18F34;
   font-weight: bold;
   text-decoration: none;
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .toolong {
   font-size: 14px; /* Adjust font size */
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .toolong span {
   display: block;
   margin-bottom: 10px; /* Adjust spacing between paragraphs */
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .details {
@@ -87,12 +91,14 @@ body {
   color: black; /* Example color */
   font-weight: bold; /* Example font weight */
   margin-bottom: 10px; /* Example bottom margin */
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .abinit-info h3 {
   font-size: 16px; /* Example font size */
   color: black; /* Example color */
   margin-left: 20px; /* Example bottom margin */
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .lower_block {
