@@ -13,21 +13,16 @@
 <body>
 
     <!-- Burger Menu Icon -->
-        <div class="icon-row">
-        <div>
+    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
+<div class="icon-container">
+    <div class="icon-row">
+        <div class="icon_logo">
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
                      title="" height="100"/>
                 <span class="title"></span>
             </a>
         </div>
-
-    </div>
-    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
-<div class="icon-container">
-
-
-    <div class="icon-row">
         <div class="icon">
             <a href="./pseudopotential.html">
                 <img alt="Pseudo and atomic data" class="icon" src="./img/Pseudos.png" title="pseudopotential" />
@@ -53,7 +48,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="https://github.com/abinit/abinit/releases/latest">
+            <a href="./download.html">
                 <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
                 <span class="title">Download</span>
             </a>
@@ -64,7 +59,7 @@
                 <span class="title">Compile</span>
             </a>
         </div>
-            <div class="icon">
+        <div class="icon">
             <a href="https://github.com/abinit">
                 <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
                 <span class="title">GitHub</span>
@@ -82,7 +77,8 @@
                 <span class="title">Abipy</span>
             </a>
         </div>
-</div>
+    </div>
+
 </div>
 
     <script>
@@ -202,7 +198,6 @@
   </div>
 </div>
 
-  </div>
 <div class="blinker">
     <span class="blink_me">New :</span>
     <a href="https://github.com/abinit/abinit/releases/tag/10.0.7">
@@ -221,7 +216,7 @@
             <strong>ABINIT</strong> can calculate molecules, nanostructures and solids with any chemical composition, and comes with <strong>several complete and robust tables of atomic potentials</strong>.<br>
             <strong>On-line tutorials</strong> are available for the main features of the code, and several schools and workshops are organized each year.
             <a href="#" class="less-link">-</a></span>
-<!--        </span>-->
+        </span>
 <!--        <span class="read-less"> <a href="#" class="less-link">-</a></span>-->
     </div>
 </div>
@@ -237,8 +232,7 @@
                     <h4>What is Abinit?</h4>
                     <div class="footer_desc">
                         <ul>
-                            <li><a href="presentation.html" target="_self">
-                                Presentation</a></li>
+                            <li><a href="presentation.html"target="_self">Presentation</a></li>
                             <li><a href="https://docs.abinit.org/topics/features/">What you can do with ABINIT</a></li>
                             <li><a href="https://docs.abinit.org/theory/acknowledgments/" target="_blank">Suggested acknowledgments</a></li>
                             <li><a href="./sponsors.html">Sponsors</a> - <a
@@ -318,7 +312,6 @@
                             <li><a href="support.html"
                                    target="_self">Support the
                                 Abinit group</a></li>
-                            <li><a href="https://wiki.abinit.org/doku.php?id=start">Wiki (old)</a></li>
                             <li><a href="./corner.html">Developer's
                                 corner</a></li>
                         </ul>
@@ -373,7 +366,7 @@
   </div>
 </div>
 
-
+</div>
 
 <script src="abinit_info.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
