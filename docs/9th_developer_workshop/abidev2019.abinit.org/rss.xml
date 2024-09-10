@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xml:base="https://abidev2019.abinit.org"  xmlns:dc="http://purl.org/dc/elements/1.1/">
+<channel>
+ <title>9th international ABINIT developer workshop</title>
+ <link>https://abidev2019.abinit.org</link>
+ <description></description>
+ <language>en</language>
+<item>
+ <title>9th international ABINIT developer workshop</title>
+ <link>https://abidev2019.abinit.org/node/2</link>
+ <description>&lt;div class=&quot;field field-name-body field-type-text-with-summary field-label-hidden&quot;&gt;&lt;div class=&quot;field-items&quot;&gt;&lt;div class=&quot;field-item even&quot; property=&quot;content:encoded&quot;&gt;&lt;p&gt;The 9&lt;sup&gt;th&lt;/sup&gt; ABINIT developer workshop (ABIDEV2019)  will bring together the community of people actively working on the development of the free and open-source ABINIT software application (&lt;a href=&quot;http://abinit.org&quot;&gt;abinit.org&lt;/a&gt;, &amp;gt;2000 forum members), as well as some developers working in projects to which ABINIT is interfaced, e.g., the Materials Project, the second-principles DFT project -SPDFT-, NOMAD, ELPA, etc. The possible evolution of the package and its interfaces will be discussed, the formalism of the most recent implementations will be presented, short-term future developments will be discussed and synchronized, as well as long-term strategy and developments.&lt;/p&gt;
+&lt;p&gt;Most noticeably, the following challenges will be the focus of dedicated sessions:&lt;/p&gt;
+&lt;ul&gt;&lt;li&gt;The challenge of databases for material discovery. Several ecosystems have been recently created in order to manage huge databases created by first-principles codes: python frameworks, web portals, interfaces … In this respect, the abipy framework –&lt;a href=&quot;http://github.com/abinit/abipy&quot;&gt;github.com/abinit/abipy&lt;/a&gt; - is being developed. &lt;/li&gt;
+&lt;li&gt;The challenge of multi-scale simulations and reduced scaling. Creating databases of firstprinciples derivatives of total energy and electronic structure close to the Fermi energy or band gap allows one to develop second-principles models, with considerably reduced scaling, allowing to simulate very cheaply and accurately millions of atoms. This is the focus of Multibinit, delivered with ABINIT, and the above-mentioned SPDFT.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Other presentations and discussions will be centered on ABINIT but also on current and future libraries, like ELSI for HPC, Z2pack. Validation and verification, and also pseudopotentials, will be addressed in the PQ-DFT event, see below.&lt;/p&gt;
+&lt;p&gt;On Monday afternoon, there will be a session for flash contributed presentations. Normal presentations will be short, 20 minutes incl. 5-minute discussion. Two specific periods for discussions are scheduled, one hour on Monday 20 afternoon (ABINIT development tools), and the whole Wednesday 22 morning, with first brainstorming in small groups, and then general discussion at the end of the morning, to fix global strategy for ABINIT for the next two years. The two sessions of Wednesday afternoon will also include 30 minutes for global discussion. The ABIDEV workshop will be open to PQ-DFT participants, who will be further encouraged to attend the Wednesday afternoon session, as it will focus largely on projects beyond ABINIT, but to which there are close ABINIT links.&lt;/p&gt;
+&lt;p&gt;For practical reasons, the number of participants will be limited to maximum 60, on first come basis.&lt;/p&gt;
+&lt;p&gt;The ABIDEV2019 workshop will be immediately followed by the “&lt;a href=&quot;https://pqdft2019.abinit.org&quot;&gt;Precision Quantification in Density Functional Theory workshop&lt;/a&gt;”, same place 23-24 May, 2019.&lt;/p&gt;
+&lt;p&gt;Organizing committee : X. Gonze, S. Cottenier, Ph. Ghosez&lt;br /&gt;
+Scientific committee (ABINIT advisory committee and organizers of PQ-DFT)  : D.C. Allan, F. Bruneval, D. Caliste, M. Côté, S. Cottenier, Ph. Ghosez, X. Gonze, D. Hamann, F. Jollet, K. Lejaeghere, M. Mikami, J. Rehr, G.-M. Rignanese, A. Romero (chair), N. Spaldin, M. Torrent, M. Verstraete, J. Zwanziger.&lt;/p&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;</description>
+ <pubDate>Sun, 04 Nov 2018 18:34:29 +0000</pubDate>
+ <dc:creator>abinitdev</dc:creator>
+ <guid isPermaLink="false">2 at https://abidev2019.abinit.org</guid>
+ <comments>https://abidev2019.abinit.org/node/2#comments</comments>
+</item>
+</channel>
+</rss>

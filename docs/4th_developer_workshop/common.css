@@ -1,0 +1,204 @@
+body
+{
+  background-color:#afd7ff;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:1em;
+  margin-bottom:2em;
+  width:60.1em;
+  background-image:url('autrans.png');
+  background-repeat:no-repeat;
+  background-position:bottom right;
+}
+
+div.main
+{
+  margin:0px;
+  padding:0px;
+  background-color:white;
+  border-right:0.5em #0053a8 solid;
+  border-left:0.5em #0053a8 solid;
+  border-bottom:1px #0053a8 solid;
+}
+div.content
+{
+  padding-left:1em;
+  padding-right:1em;
+}
+
+a
+{ 
+  color:#0053a8;
+  text-decoration:underline;
+}
+a:hover
+{ 
+  color:#0053a8;
+  text-decoration:none;
+}
+
+p
+{ 
+  text-align:justify;
+}
+
+em
+{ 
+  color:red;
+}
+
+#title h1
+{
+  color:#0053a8;
+  font-style:normal;
+  text-align:left;
+  margin-top:0em;
+  margin-bottom:0em;
+  letter-spacing:0.1em;
+}
+#title
+{
+  background-color:lightgrey;
+  border-top:1px #0053a8 solid;
+  border-bottom:1px #0053a8 solid;
+  padding-left:2em;
+  padding-right:2em;
+  text-align:right;
+  font-style:italic;
+  font-size:normal;
+  margin-bottom:1em;
+}
+
+#footer
+{
+  color:#0053a8;
+  border-top:1px #0053a8 solid;
+  text-align:left;
+  background-color:lightgrey;
+  margin-top:1em;
+  padding-right:1em;
+  padding-left:1em;
+  font-size:smaller;
+  font-style:italic;
+  clear:both;
+}
+
+table
+{ 
+  width:46em;
+}
+table tr.odd
+{ 
+  background-color:#d5e8fb;
+}
+table td
+{ 
+  vertical-align:top;
+  padding-right:10px;
+  padding-left:10px;
+}
+table td.entry
+{
+  width:25%;
+  text-align:right;
+  background-color:lightgrey;
+}
+table td.valid
+{
+  text-align:right;
+  background-color:lightgrey;
+  vertical-align:center;
+}
+table td.guy
+{
+  background-color:lightgrey;
+}
+table th
+{
+  background-color:#368ae0;
+}
+
+table input.textEntry
+{
+  width:100%;
+}
+
+table textarea
+{
+  width:100%;
+}
+
+table hr
+{
+  width:5em;
+  margin:20px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+img.figure
+{ 
+  margin-left:auto;
+  margin-right:auto;
+  border:1px black solid;
+  display:block;
+}
+
+#menu
+{
+  float:right;
+  width:10em;
+  border:1px grey solid;
+  margin:0px;
+  text-align:center;
+  margin-right:1em;
+  margin-left:1em;
+  background-color:#d5e8fb;
+
+  background-image:url('abinit.org.png');
+  background-repeat:no-repeat;
+  background-position:bottom center;
+  padding-bottom:30px;
+  margin-bottom:1em;
+}
+#menu h3
+{
+  background-color:lightgrey;
+  margin-top:0px;
+}
+#menu ul
+{ 
+  margin:0px;
+  padding-left:2em;
+  padding-right:2em;
+  padding-top:0em;
+  padding-bottom:0em;
+  list-style:square;
+  color:#0053a8;
+  text-align:left;
+}
+#menu ul.sponsor
+{ 
+  list-style:url('psi.png') outside;
+  text-align:center;
+}
+#menu hr
+{ 
+  width:2em;
+  height:0px;
+  border-width:0px;
+  border-top:1px solid grey;
+  margin:5px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+#legend
+{ 
+  clear:both;
+  text-align:right;
+  font-size:small;
+  color:white;
+  margin-top:1em;
+  margin-bottom:-2em;
+}
