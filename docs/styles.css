@@ -7,12 +7,6 @@ body {
   padding: 0;
 }
 
-.title {
-  display: block;
-  font-size: 12px;
-  color: #F18F34; /* Set the color to orange */
-}
-
 /* Carousel container */
 .carousel-container {
   width: 100%;
@@ -51,10 +45,6 @@ body {
   border-top: 4px solid #F18F34; /* Increase the thickness by changing the pixel value */
   width: calc(100% - 50%); /* Adjust the width to accommodate margins */
   margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
-}
-
-.separator-line2 {
-  margin-left: 25%;
 }
 
 .abinit-info {
@@ -185,60 +175,60 @@ body {
 }
 
 /* Ensure links are styled properly */
-.container a {
+.icon-container a {
     text-decoration: none; /* Remove default underline */
     color: #F18F34; /* Set link color */
+    text-align: center; /* Center text for icons */
 }
 
 /* Common styles for all screen sizes */
 .icon-container {
-    display: none; /* Hide by default on mobile */
+    display: none;
     flex-direction: column;
-    align-items: right;
-    justify-content: right; /* Center the icons */
+    align-items: center; /* Align items to the center */
+    justify-content: center;
     transition: all 0.3s ease-in-out;
-    z-index: 2; /* Ensure it appears above other content */
-    padding: 10px 0; /* Add some padding for better spacing */
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    width: 100%; /* Make sure the container takes full width */
-    box-sizing: border-box; /* Include padding in width calculation */
+    z-index: 2;
+    padding: 10px 0;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .icon-container.active {
-    display: flex; /* Show when active */
+    display: flex;
 }
 
 .icon {
-    margin: 10px 0; /* Adjust the margin for better spacing */
-    text-align: right;
-    max-width: 100px; /* Ensure icons do not exceed a certain width */
+    margin: 10px 0;
+    text-align: center; /* Center text for icons */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the icon and title */
+    max-width: 100px;
     width: 100%;
 }
 
 .icon img {
     width: 100%;
     height: auto;
-    max-width: 100px; /* Ensure images do not exceed a certain width */
+    max-width: 100px;
 }
-.icon_logo img {
-    margin: 20px 0; /* Adjust the margin for better spacing */
-    text-align: right;
-    /*max-width: 100px; /* Ensure icons do not exceed a certain width */
-    width: 100%;
-}
+
 .title {
     font-size: 12px;
     color: #F18F34;
     margin-top: 5px;
+    text-align: center; /* Ensure titles are centered */
 }
 
 /* For larger screens (desktops, laptops) */
 @media (min-width: 769px) {
     .icon-container {
-        display: flex; /* Show by default on larger screens */
+        display: flex;
         flex-direction: row;
         justify-content: center;
-        padding: 0; /* Remove extra padding */
+        padding: 0;
     }
 
     .icon-row {
@@ -249,12 +239,13 @@ body {
     }
 
     .icon {
-        margin: 5px 10px;
-        text-align: center;
+        margin: 5px 30px;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: center; /* Center the icons */
+        text-align: center;
+        justify-content: flex-start;
+        width: auto;
     }
 
     .icon img {
@@ -266,9 +257,10 @@ body {
         font-size: 12px;
         color: #F18F34;
         margin-top: 5px;
+        text-align: center;
+        width: auto;
     }
 
-    /* Hide burger menu on larger screens */
     .burger-menu {
         display: none;
     }
@@ -283,10 +275,11 @@ body {
     }
 
     .icon-container {
-        display: none; /* Hide icon container initially */
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         padding: 10px 0;
     }
 }
+
