@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0" y="0" width="500" height="500" viewBox="0, 0, 500, 500">
+  <g id="Calque_2">
+    <g id="path5330">
+      <path d="M217.69,77.009 L283.746,77.009 L283.746,237.061 L345.592,237.061 L250.718,343.973 L154.408,237.061 L217.69,237.061 z" fill="#565656"/>
+      <path d="M217.69,77.009 L283.746,77.009 L283.746,237.061 L345.592,237.061 L250.718,343.973 L154.408,237.061 L217.69,237.061 z" fill-opacity="0" stroke="#FFFFFF" stroke-width="36" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <path d="M406.737,353.335 L364.237,400.478 L249.416,400.478 L134.595,400.478 L92.095,353.335" fill-opacity="0" stroke="#FFFFFF" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" id="path5338-2-7"/>
+  </g>
+  <g id="Layer_1">
+    <g id="path5330">
+      <path d="M217.69,77.009 L283.746,77.009 L283.746,237.061 L345.592,237.061 L250.718,343.973 L154.408,237.061 L217.69,237.061 z" fill="#565656"/>
+      <path d="M217.69,77.009 L283.746,77.009 L283.746,237.061 L345.592,237.061 L250.718,343.973 L154.408,237.061 L217.69,237.061 z" fill-opacity="0" stroke="#565656" stroke-width="16.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="g3644">
+      <path d="M406.737,353.335 L364.237,400.478 L249.416,400.478" fill-opacity="0" stroke="#565656" stroke-width="35" stroke-linecap="round" stroke-linejoin="round" id="path5338-2-7"/>
+      <path d="M93.263,353.326 L135.763,400.468 L250.584,400.468" fill-opacity="0" stroke="#565656" stroke-width="35" stroke-linecap="round" stroke-linejoin="round" id="path5338-9"/>
+      <g id="g3677">
+        <path d="M93.388,353.33 L135.888,400.473 L250.709,400.473" fill-opacity="0" stroke="#F18C34" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" id="path5338"/>
+        <path d="M406.862,353.34 L364.362,400.483 L249.541,400.483" fill-opacity="0" stroke="#F18C34" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" id="path5338-2"/>
+      </g>
+    </g>
+  </g>
+</svg>
