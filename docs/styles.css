@@ -178,20 +178,24 @@ body {
 .container a {
     text-decoration: none; /* Remove default underline */
     color: #F18F34; /* Set link color */
+    align-items: center;
 }
 
 /* Common styles for all screen sizes */
 .icon-container {
     display: none; /* Hide by default on mobile */
     flex-direction: column;
-    align-items: right;
-    justify-content: right; /* Center the icons */
+    align-items: center;
+    justify-content: center; /* Center the icons */
     transition: all 0.3s ease-in-out;
     z-index: 2; /* Ensure it appears above other content */
     padding: 10px 0; /* Add some padding for better spacing */
     overflow-x: hidden; /* Prevent horizontal overflow */
     width: 100%; /* Make sure the container takes full width */
     box-sizing: border-box; /* Include padding in width calculation */
+    margin-left: 0%;
+    margin-top: 1%;
+
 }
 
 .icon-container.active {
@@ -200,21 +204,28 @@ body {
 
 .icon {
     margin: 10px 0; /* Adjust the margin for better spacing */
-    text-align: right;
+    text-align: center;
     max-width: 100px; /* Ensure icons do not exceed a certain width */
     width: 100%;
+    align-items: center;
 }
 
 .icon img {
     width: 100%;
     height: auto;
     max-width: 100px; /* Ensure images do not exceed a certain width */
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 300px;
 }
-.icon_logo img {
+.icon img-logo {
     margin: 20px 0; /* Adjust the margin for better spacing */
-    text-align: right;
+    text-align: center;
     /*max-width: 100px; /* Ensure icons do not exceed a certain width */
     width: 100%;
+    align-items: center;
+    margin-right: 500px;
+    margin-left: -50px;
 }
 .title {
   display: block;
@@ -222,6 +233,7 @@ body {
     color: #F18F34;
     margin-top: 5px;
     align-text: center;
+    margin-right: 180px;
 }
 /* For larger screens (desktops, laptops) */
 @media (min-width: 769px) {
@@ -230,6 +242,7 @@ body {
         flex-direction: row;
         justify-content: center;
         padding: 0; /* Remove extra padding */
+        align-items: center;
     }
 
     .icon-row {
@@ -237,6 +250,7 @@ body {
         flex-wrap: wrap;
         justify-content: center;
         margin-bottom: 10px;
+        align-items: center;
     }
 
     .icon {
@@ -251,6 +265,8 @@ body {
     .icon img {
         max-width: 100px;
         height: auto;
+        align-items: center;
+        margin-left: 5%;
     }
 
     .title {
