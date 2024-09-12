@@ -87,7 +87,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="./download.html">
+            <a href="https://github.com/abinit/abinit/releases/latest">
                 <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
                 <span class="title">Download</span>
             </a>
@@ -101,19 +101,19 @@
             <div class="icon">
             <a href="https://github.com/abinit">
                 <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
-                <span class="title"></span>
+                <span class="title">GitHub</span>
             </a>
         </div>
         <div class="icon">
             <a href="https://gui.abinit.org/">
                 <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
-                <span class="title"></span>
+                <span class="title">GUI</span>
             </a>
         </div>
         <div class="icon">
             <a href="https://github.com/abinit/abipy">
                 <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
-                <span class="title"></span>
+                <span class="title">Abipy</span>
             </a>
         </div>
 </div>
@@ -148,7 +148,8 @@
 <div class="level2">
 
 <p>
-In computer science, code coverage is a measure used to describe the degree to which the source code of a program is tested by a particular test suite. A program with high code coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low code coverage. Many different metrics can be used to calculate code coverage; some of the most basic are the percent of program subroutines and the percent of program statements called during execution of the test suite.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">1</a></span> ]
+In computer science, code coverage is a measure used to describe the degree
+    to which the source code of a program is tested by a particular test suite. A program with high code coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low code coverage. Many different metrics can be used to calculate code coverage; some of the most basic are the percent of program subroutines and the percent of program statements called during execution of the test suite.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage" style="color: #F18F34;">1</a></span> ]
 </p>
 
 <p>
@@ -165,15 +166,18 @@ ABINIT is built with special options such that every function that is exercised 
 </p>
 
 <p>
-A .gcno file is generated when the source file is compiled with the GCC <em>-ftest-coverage</em> option. It contains information to reconstruct the basic block graphs and assign source line numbers to blocks.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ]
+A .gcno file is generated when the source file is compiled with the GCC <em>
+    -ftest-coverage</em> option. It contains information to reconstruct the basic block graphs and assign source line numbers to blocks.[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage" style="color: #F18F34;">2</a></span> ]
 </p>
 
 <p>
-A .gcda file is generated when a program containing object files built with the GCC <em>-fprofile-arcs</em> option is executed. A separate .gcda file is created for each object file compiled with this option. It contains arc transition counts, and some summary information[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ].
+A .gcda file is generated when a program containing object files built with
+    the GCC <em>-fprofile-arcs</em> option is executed. A separate .gcda file is created for each object file compiled with this option. It contains arc transition counts, and some summary information[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage" style="color: #F18F34;">2</a></span> ].
 </p>
 
 <p>
-We use lcov to analyze the .gcda files for generating a html report  (<a href="http://ltp.sourceforge.net/coverage/lcov.php" class="urlextern" title="http://ltp.sourceforge.net/coverage/lcov.php" rel="ugc nofollow">http://ltp.sourceforge.net/coverage/lcov.php</a>)
+We use lcov to analyze the .gcda files for generating a html report  (<a
+        href="http://ltp.sourceforge.net/coverage/lcov.php" class="urlextern" title="http://ltp.sourceforge.net/coverage/lcov.php" rel="ugc nofollow" style="color: #F18F34;">http://ltp.sourceforge.net/coverage/lcov.php</a>)
 </p>
 
 </div>
@@ -182,8 +186,13 @@ We use lcov to analyze the .gcda files for generating a html report  (<a href="h
 <div class="level2">
 
 <p>
-There is one slave dedicated to “on-demand” execution of branches by the developers, that produces a code coverage report, at present, higgs_gnu_7.5_cov. It can be launched by the general “<a href="https://bbportal.abinit.org" class="urlextern" title="https://bbportal.abinit.org" rel="ugc nofollow">on-demand</a>” interface (see <a href="/doku.php?id=bb:misc" class="wikilink1" title="bb:misc" data-wiki-id="bb:misc">Use of buildbot for ABINIT</a>, contact Jean-Michel or Xavier if you do not yet have access to it).
-Code coverage reports from recent runs of the tests are available <a href="http://coverage.abinit.org/" class="urlextern" title="http://coverage.abinit.org/" rel="ugc nofollow">here</a>
+There is one slave dedicated to “on-demand” execution of branches by the
+    developers, that produces a code coverage report, at present,
+    higgs_gnu_7.5_cov. It can be launched by the general “<a
+        href="https://bbportal.abinit.org" class="urlextern"
+        title="https://bbportal.abinit.org" rel="ugc nofollow" style="color: #F18F34;">on-demand</a>” interface (see <a href="./buildbot.html" class="wikilink1" title="bb:misc" data-wiki-id="bb:misc" style="color: #F18F34;">Use of buildbot for ABINIT</a>, contact Jean-Michel or Xavier if you do not yet have access to it).
+Code coverage reports from recent runs of the tests are available <a
+        href="http://coverage.abinit.org/" class="urlextern" title="http://coverage.abinit.org/" rel="ugc nofollow" style="color: #F18F34;">here</a>
 If you see parts of the code which are not well tested, please contribute to improving coverage by writing new tests ! <br>
 
 </p>
@@ -192,9 +201,13 @@ If you see parts of the code which are not well tested, please contribute to imp
 <p>
 References <br>
 
-[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">1</a></span> ] <a href="http://en.wikipedia.org/wiki/Code_coverage" class="urlextern" title="http://en.wikipedia.org/wiki/Code_coverage" rel="ugc nofollow">http://en.wikipedia.org/wiki/Code_coverage</a> <br>
+[ <span class="curid"><a href="/doku.php?id=developers:coverage#cov"
+                         class="wikilink1" title="developers:coverage"
+                         data-wiki-id="developers:coverage" style="color: #F18F34;">1</a></span> ] <a href="http://en.wikipedia.org/wiki/Code_coverage" class="urlextern" title="http://en.wikipedia.org/wiki/Code_coverage" rel="ugc nofollow" style="color: #F18F34;">http://en.wikipedia.org/wiki/Code_coverage</a> <br>
 
-[ <span class="curid"><a href="/doku.php?id=developers:coverage#gcov" class="wikilink1" title="developers:coverage" data-wiki-id="developers:coverage">2</a></span> ] <a href="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" class="urlextern" title="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" rel="ugc nofollow">http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov</a>
+[ <span class="curid"><a href="/doku.php?id=developers:coverage#gcov"
+                         class="wikilink1" title="developers:coverage"
+                         data-wiki-id="developers:coverage" style="color: #F18F34;">2</a></span> ] <a href="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" class="urlextern" title="http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov" rel="ugc nofollow" style="color: #F18F34;">http://gcc.gnu.org/onlinedocs/gcc-4.2.4/gcc/index.html#toc_Gcov</a>
 </p>
 
 </div>
