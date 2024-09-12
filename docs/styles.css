@@ -1,6 +1,6 @@
 /* Set margin on top of the page */
 body {
-  margin-top: 0%;
+  margin-top: 0;
   width: 100vw;
   height: 100vh;
   font-family: Arial, sans-serif;
@@ -13,10 +13,9 @@ body {
   max-width: 500px; /* Set a max-width for the carousel */
   height: 300px; /* Set a fixed height for the carousel */
   margin: 0 auto; /* Center the carousel */
-  margin-top: 50px;
+  margin-top: 10px;
   overflow: hidden; /* Hide any overflowing content */
   position: relative; /* Position the carousel relative to its container */
-  z-index: 1;
 }
 
 .carousel-slide {
@@ -26,14 +25,12 @@ body {
   position: absolute; /* Position each slide absolutely within the container */
   top: 0;
   left: 0;
-  z-index: 1;
 }
 
 .carousel-slide img {
   width: 100%;
   height: 100%;
   object-fit: cover; /* Ensure images cover the entire slide area */
-  z-index: 1;
 }
 
 .carousel-slide.active {
@@ -47,10 +44,13 @@ body {
   margin: 30px auto; /* Set top and bottom margin to 20px, and center horizontally */
 }
 
+.separator-line2 {
+  margin-left: 25%;
+}
+
 .abinit-info {
   margin: 10px 20%;
   color: black;
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .abinit-info .toolong .more-link,
@@ -58,18 +58,15 @@ body {
   color: #F18F34;
   font-weight: bold;
   text-decoration: none;
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .toolong {
   font-size: 14px; /* Adjust font size */
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .toolong span {
   display: block;
   margin-bottom: 10px; /* Adjust spacing between paragraphs */
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .details {
@@ -81,16 +78,18 @@ body {
   color: black; /* Example color */
   font-weight: bold; /* Example font weight */
   margin-bottom: 10px; /* Example bottom margin */
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .abinit-info h3 {
   font-size: 16px; /* Example font size */
   color: black; /* Example color */
   margin-left: 20px; /* Example bottom margin */
-  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
-
+.abinit-info h4 {
+  font-size: 16px; /* Example font size */
+  color: black; /* Example color */
+  margin-left: 5%; /* Example bottom margin */
+}
 .lower_block {
   margin: -20px 18%;
 }
@@ -115,8 +114,10 @@ body {
 
 .carousel-indicators {
   position: absolute;
-  top: -10px; /* Adjust the distance from the bottom */
-  z-index: 1;
+  bottom: 0; /* Adjust as needed */
+  left: 35%;
+  transform: translateX(-50%);
+  z-index: 1000; /* Ensure it's above the carousel items but below controls if needed */
 }
 
 .carousel-indicators li {
@@ -127,7 +128,6 @@ body {
   background-color: black; /* Set default background color */
   border: 1px solid #fff; /* Add border to indicators */
   border: 4px solid #9acfea; /* Add border to indicators with light blue color */
-  z-index: 1;
 }
 
 .carousel-indicators .active {
@@ -175,60 +175,61 @@ body {
 }
 
 /* Ensure links are styled properly */
-.icon-container a {
+.container a {
     text-decoration: none; /* Remove default underline */
     color: #F18F34; /* Set link color */
-    text-align: center; /* Center text for icons */
 }
 
 /* Common styles for all screen sizes */
 .icon-container {
-    display: none;
+    display: none; /* Hide by default on mobile */
     flex-direction: column;
-    align-items: center; /* Align items to the center */
-    justify-content: center;
+    align-items: right;
+    justify-content: right; /* Center the icons */
     transition: all 0.3s ease-in-out;
-    z-index: 2;
-    padding: 10px 0;
-    overflow-x: hidden;
-    width: 100%;
-    box-sizing: border-box;
+    z-index: 2; /* Ensure it appears above other content */
+    padding: 10px 0; /* Add some padding for better spacing */
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    width: 100%; /* Make sure the container takes full width */
+    box-sizing: border-box; /* Include padding in width calculation */
 }
 
 .icon-container.active {
-    display: flex;
+    display: flex; /* Show when active */
 }
 
 .icon {
-    margin: 10px 0;
-    text-align: center; /* Center text for icons */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Center the icon and title */
-    max-width: 100px;
+    margin: 10px 0; /* Adjust the margin for better spacing */
+    text-align: right;
+    max-width: 100px; /* Ensure icons do not exceed a certain width */
     width: 100%;
 }
 
 .icon img {
     width: 100%;
     height: auto;
-    max-width: 100px;
+    max-width: 100px; /* Ensure images do not exceed a certain width */
 }
-
+.icon_logo img {
+    margin: 20px 0; /* Adjust the margin for better spacing */
+    text-align: right;
+    /*max-width: 100px; /* Ensure icons do not exceed a certain width */
+    width: 100%;
+}
 .title {
+  display: block;
     font-size: 12px;
     color: #F18F34;
     margin-top: 5px;
-    text-align: center; /* Ensure titles are centered */
+    align-text: center;
 }
-
 /* For larger screens (desktops, laptops) */
 @media (min-width: 769px) {
     .icon-container {
-        display: flex;
+        display: flex; /* Show by default on larger screens */
         flex-direction: row;
         justify-content: center;
-        padding: 0;
+        padding: 0; /* Remove extra padding */
     }
 
     .icon-row {
@@ -239,13 +240,12 @@ body {
     }
 
     .icon {
-        margin: 5px 30px;
+        margin: 5px 20px;
+        text-align: center;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center the icons */
-        text-align: center;
-        justify-content: flex-start;
-        width: auto;
+        align-items: center;
+        justify-content: center;
     }
 
     .icon img {
@@ -257,29 +257,12 @@ body {
         font-size: 12px;
         color: #F18F34;
         margin-top: 5px;
-        text-align: center;
-        width: auto;
+        align-text: center;
     }
 
+    /* Hide burger menu on larger screens */
     .burger-menu {
         display: none;
-    }
-}
-
-/* For smaller screens (tablets, mobile) */
-@media (max-width: 768px) {
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-        font-size: 30px;
-    }
-
-    .icon-container {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 10px 0;
     }
 }
 
