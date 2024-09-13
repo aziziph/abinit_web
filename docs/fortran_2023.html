@@ -49,12 +49,13 @@
 </head>
 
 <body>
+<div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
 <div class="icon-container">
     <div class="icon-row">
-        <div>
+        <div >
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
-                     title="" height="100"/>
+                     title="" height="100" style="margin-left: -50%" />
                 <span class="title"></span>
             </a>
         </div>
@@ -87,7 +88,7 @@
             </a>
         </div>
         <div class="icon">
-            <a href="./download.html">
+            <a href="https://github.com/abinit/abinit/releases/latest">
                 <img alt="Download" class="icon" src="./img/Download.png" title="Download" />
                 <span class="title">Download</span>
             </a>
@@ -101,23 +102,30 @@
             <div class="icon">
             <a href="https://github.com/abinit">
                 <img alt="GitHub" class="icon" src="./img/git.png" title="GitHub" />
-                <span class="title"></span>
+                <span class="title">GitHub</span>
             </a>
         </div>
         <div class="icon">
             <a href="https://gui.abinit.org/">
                 <img alt="GUI" class="icon" src="./img/gui.png" title="GUI" />
-                <span class="title"></span>
+                <span class="title">GUI</span>
             </a>
         </div>
         <div class="icon">
             <a href="https://github.com/abinit/abipy">
                 <img alt="abipy" class="icon" src="./img/abipy.png" title="abipy" />
-                <span class="title"></span>
+                <span class="title">Abipy</span>
             </a>
         </div>
 </div>
 </div>
+    <script>
+        function toggleMenu() {
+            const iconContainer = document.querySelector('.icon-container');
+            iconContainer.classList.toggle('active');
+        }
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>

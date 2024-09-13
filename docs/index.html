@@ -8,15 +8,17 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="./styles.css" rel="stylesheet"> <!-- Link to your external CSS file -->
+
 </head>
 
 <body>
+<div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
 <div class="icon-container">
     <div class="icon-row">
-        <div>
+        <div >
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
-                     title="" height="100"/>
+                     title="" height="100" style="margin-left: -50%" />
                 <span class="title"></span>
             </a>
         </div>
@@ -80,6 +82,13 @@
         </div>
 </div>
 </div>
+    <script>
+        function toggleMenu() {
+            const iconContainer = document.querySelector('.icon-container');
+            iconContainer.classList.toggle('active');
+        }
+    </script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <div class="separator-line1"></div>
@@ -189,18 +198,12 @@
     </div>
   </div>
 </div>
+</div>
 
-  </div>
 <div class="blinker">
     <span class="blink_me">New :</span>
-<<<<<<< HEAD
-    <a href="https://github.com/abinit/abinit/releases/latest">
-        <span style="color: #F18F34;">Abinit 10.0.9 available
-            (production)</span>
-=======
     <a href="https://github.com/abinit/abinit/releases/latest/">
         <span style="color: #F18F34;">Abinit 10.0.9 available (production)</span>
->>>>>>> c41d60b93fe8fce91aae73a31243982eb7a70e20
     </a>
 </div>
 
@@ -215,7 +218,6 @@
             <strong>ABINIT</strong> can calculate molecules, nanostructures and solids with any chemical composition, and comes with <strong>several complete and robust tables of atomic potentials</strong>.<br>
             <strong>On-line tutorials</strong> are available for the main features of the code, and several schools and workshops are organized each year.
             <a href="#" class="less-link">-</a></span>
-        </span>
 <!--        <span class="read-less"> <a href="#" class="less-link">-</a></span>-->
     </div>
 </div>
@@ -231,14 +233,15 @@
                     <h4>What is Abinit?</h4>
                     <div class="footer_desc">
                         <ul>
-                            <li><a href="presentation.html"target="_self">Presentation</a></li>
+                            <li><a href="presentation.html" target="_self">
+                                Presentation</a></li>
                             <li><a href="https://docs.abinit.org/topics/features/">What you can do with ABINIT</a></li>
                             <li><a href="https://docs.abinit.org/theory/acknowledgments/" target="_blank">Suggested acknowledgments</a></li>
                             <li><a href="./sponsors.html">Sponsors</a> - <a
                                     href="./partners.html">Partners</a> - <a
                                     href="./links.html">Links</a></li>
-                            <li><a href="advisory_committee.html">Int'l Advisory
-                                Committee</a></li>
+                            <li><a href="advisory_committee.html">Int'l
+                                Advisory Committee</a></li>
                             <li><a href="https://docs.abinit.org/about/license/" target="_blank">Legal information</a></li>
                             <li><a href="./events.html">Past events - many with
                                 slides</a></li>
@@ -255,9 +258,8 @@
                     <h4>Get Abinit</h4>
                     <div class="footer_desc">
                         <ul>
-                            <li><a
-                                    href="https://github.com/abinit/abinit/releases/latest">Abinit packages</a></li>
-                            <li><a href="https://github.com/abinit/abinit"
+                            <li><a href="download.html">Abinit packages</a></li>
+                            <li><a href="./download.html"
                                    target="_blank">Browse latest released sources</a></li>
                             <li><a href="./atomic_data.html">Atomic
                                 data/Pseudopotentials</a></li>
@@ -268,6 +270,7 @@
                                 Virtual Machine</a></li>
                             <li><a href="./other_resources.html">Other
                                 resources</a></li>
+                        </ul>
                         </ul>
                     </div>
                 </div>
