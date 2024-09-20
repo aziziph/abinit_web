@@ -7,6 +7,12 @@ body {
   padding: 0;
 }
 
+.title {
+  display: block;
+  font-size: 12px;
+  color: #F18F34; /* Set the color to orange */
+}
+
 /* Carousel container */
 .carousel-container {
   width: 100%;
@@ -178,143 +184,130 @@ body {
 .container a {
     text-decoration: none; /* Remove default underline */
     color: #F18F34; /* Set link color */
-    align-items: center;
 }
 
-/* Common styles for all screen sizes */
-.icon-container {
-    display: none; /* Hide by default on mobile */
+/* Ensure icons wrap to a new line only if the screen width is very small */
+@media (max-width: 1024px) {
+  #topheader {
+    flex-wrap: wrap;
+    justify-content: center; /* Center items when wrapping */
+  }
+
+  .header div {
+    flex: 1 1 150px; /* Ensure divs take up minimum space but can grow */
+  }
+}
+
+/* For smaller devices */
+@media (max-width: 768px) {
+  .separator-line1, .separator-line2 {
+    width: 90%; /* Adjust the width for smaller screens */
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .lower_block, .abinit-info, .content-bottom2 {
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+
+  .abinit-info h3 {
+    margin-left: 0;
+  }
+
+
+  .lower_block h4 {
+    margin-left: 0;
+  }
+
+  .LatestVersion {
+    left: 20px;
+  }
+}
+
+/* For very small devices */
+@media (max-width: 480px) {
+  #topheader {
     flex-direction: column;
-    align-items: center;
-    justify-content: center; /* Center the icons */
-    transition: all 0.3s ease-in-out;
-    z-index: 2; /* Ensure it appears above other content */
-    padding: 10px 0; /* Add some padding for better spacing */
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    width: 100%; /* Make sure the container takes full width */
-    box-sizing: border-box; /* Include padding in width calculation */
-    margin-left: 0%;
-    margin-top: 1%;
+  }
 
+  .carousel-container {
+    height: 200px; /* Adjust height for smaller screens */
+  }
+
+  .carousel-indicators {
+    top: 0; /* Adjust position for smaller screens */
+  }
+
+  .shortcut-img {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
 }
 
-.icon-container.active {
-    display: flex; /* Show when active */
+/* Styles for the icon container and icon rows */
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.icon-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 5px; /* Reduced margin between rows */
 }
 
 .icon {
-    margin: 10px 0; /* Adjust the margin for better spacing */
-    text-align: center;
-    max-width: 100px; /* Ensure icons do not exceed a certain width */
-    width: 100%;
-    align-items: center;
+  margin: 5px; /* Reduced margin around each icon */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .icon img {
-    width: 100%;
-    height: auto;
-    max-width: 100px; /* Ensure images do not exceed a certain width */
-    align-items: center;
-    margin-left: 5%;
-    margin-right: 300px;
+  max-width: 80px; /* Reduced max-width of icons */
+  height: auto;
 }
-.icon img-logo {
-    margin: 20px 0; /* Adjust the margin for better spacing */
-    text-align: center;
-    /*max-width: 100px; /* Ensure icons do not exceed a certain width */
-    width: 100%;
-    align-items: center;
-    margin-right: 500px;
-    margin-left: -50px;
-}
+
 .title {
   display: block;
-    font-size: 12px;
-    color: #F18F34;
-    margin-top: 5px;
-    align-text: center;
-    margin-right: 180px;
+  font-size: 12px;
+  color: #F18F34;
+  margin-top: 3px; /* Reduced margin above title */
 }
-/* For larger screens (desktops, laptops) */
-@media (min-width: 769px) {
-    .icon-container {
-        display: flex; /* Show by default on larger screens */
-        flex-direction: row;
-        justify-content: center;
-        padding: 0; /* Remove extra padding */
-        align-items: center;
-    }
 
-    .icon-row {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 10px;
-        align-items: center;
-    }
-
-    .icon {
-        margin: 5px 20px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .icon img {
-        max-width: 100px;
-        height: auto;
-        align-items: center;
-        margin-left: 5%;
-    }
-
-    .title {
-        font-size: 12px;
-        color: #F18F34;
-        margin-top: 5px;
-        align-text: center;
-    }
-
-    /* Hide burger menu on larger screens */
-    .burger-menu {
-        display: none;
-    }
-}
-/* Styles for smaller screens (tablets, mobile) */
+/* Adjustments for smaller devices */
 @media (max-width: 768px) {
-    .burger-menu {
-        display: block;
-        cursor: pointer;
-        font-size: 30px;
-    }
-    .icon-container {
-        display: none; /* Show by default on larger screens */
-        flex-direction: column;
-        justify-content: center;
-        padding: 0; /* Remove extra padding */
-        align-items: center;
-    }
-    .icon-row {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        margin-bottom: 10px;
-        align-items: center;
-    }
-.title {
-  display: block;
-    font-size: 12px;
-    color: #F18F34;
-    margin-top: 5px;
-    align-text: center;
-    margin-right: -120px;
-    margin-left: -100px;
+  .icon-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .icon {
+    margin-bottom: 5px;
+  }
+
+  .icon img {
+    max-width: 70px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
 }
-    .icon img {
-        max-width: 100px;
-        height: auto;
-        align-items: center;
-        margin-left: 5%;
-    }
+
+@media (max-width: 480px) {
+  .icon img {
+    max-width: 60px;
+  }
+
+  .title {
+    font-size: 10px;
+  }
 }
