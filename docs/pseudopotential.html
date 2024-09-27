@@ -19,7 +19,7 @@
             display: none;
             position: absolute;
             background-color: white;
-            border: 1px solid #ccc;
+            border: 0px solid #ccc;
             padding: 5px;
             z-index: 10;
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
@@ -34,20 +34,18 @@
 </head>
 
 <body>
-    <!-- Burger Menu Icon -->
-        <div class="icon-row">
-        <div>
+<div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
+<div class="icon-container">
+    <div class="icon-row">
+        <div >
             <a href="./index.html">
                 <img alt="ABINIT" src="./logo/logo.png"
-                     title="" height="100"/>
+                     title="" height="100" style="margin-left: -50%" />
                 <span class="title"></span>
             </a>
         </div>
 
     </div>
-    <div class="burger-menu" onclick="toggleMenu()">&#9776;</div>
-<div class="icon-container">
-
 
     <div class="icon-row">
         <div class="icon">
@@ -106,7 +104,6 @@
         </div>
 </div>
 </div>
-
     <script>
         function toggleMenu() {
             const iconContainer = document.querySelector('.icon-container');
