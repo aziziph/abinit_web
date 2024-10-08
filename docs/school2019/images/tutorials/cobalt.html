@@ -1,0 +1,17 @@
+#!/bin/bash
+#MSUB -r MyJob                    # Name of the job (to be changed)
+#MSUB -n 10                       # Number of MPI processes to use
+#MSUB -c 1                        # Number of tasks per process to use
+#MSUB -T 600                      # Time limit in seconds
+#MSUB -o ls_%I.o                  # Standard output. %I is the job id 
+#MSUB -e ls_%I.e                  # Error output.    %I is the job id
+#MSUB -A dam00000                 # For the ABINIT school only
+#MSUB -E '--reservation=ABINIT03' # For the ABINIT school only
+set -x                            # list the commands during execution
+
+export OMP_NUM_THREADS=1          # Same number as in the "MSUB -c" line above
+
+module purge
+module load abinit/8.12.0-beta    # Load ABINIT module (beta version fot this school)
+
+ccc_mprun  abinit < files > log   # Execute ABINIT in parallel
