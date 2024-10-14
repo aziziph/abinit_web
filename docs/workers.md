@@ -18,4 +18,5 @@ The current reference worker is "alps", with reference [builder](https://github.
 
 
 #cores = # of Cores (hardware term that describes the number of independent central processing units)
+
 #THD = # of Threads (software term for the basic ordered sequence of instructions that can be passed through or processed by a single CPU core) 
