@@ -1,25 +1,26 @@
 
-====== Planning of merges ======
+## Planning of merges
 Note : there is a unique version number (and associated git tag) for the frozen versions, different from the version number for versions “in progress”. In the X.Y.Z chain, the “Z” of versions “in progress” is even, and the “Z” of frozen versions is odd
 
-===== ABINITv10.3 planning ===== 
+### ABINITv10.3 planning  
 
-** For new developments ** 
-<color red>
-November 10, 2024:
-Merge ABINITv10.3.0 contributions, as well as merge ABINITv10.2.X bug fixes, to reach frozen v10.3.1. Start ABINITv10.3.2, for further new developments.
+**For new developments** 
 
+:red_circle: November 10, 2024:
+
+:red_circle: Merge ABINITv10.3.0 contributions, as well as merge ABINITv10.2.X bug fixes, to reach frozen v10.3.1. Start ABINITv10.3.2, for further new developments.
 [DONE] Octobre 10, 2024:
 Start ABINITv10.3.0 (596cf06743), for new developments, from v10.1.7.
 
 
 
-===== ABINITv10.2 planning ===== 
+### ABINITv10.2 planning  
 
-** For bug fixes and releases ** 
-<color red>
-October 25, 2024:
-Merge ABINITv10.2.2 contributions, to reach frozen v10.2.3, for public release. Start ABINITv10.2.4, for further bu fixes, improvement of documentation, etc.
+**For bug fixes and releases** 
+
+:red_circle: October 25, 2024:
+
+:red_circle: Merge ABINITv10.2.2 contributions, to reach frozen v10.2.3, for public release. Start ABINITv10.2.4, for further bu fixes, improvement of documentation, etc.
 
 [DONE] October 11, 2024:
 ABINITv10.2.1 (0b90756ad), for beta release. Start ABINITv10.2.2 (commit 5c71e5c45a), for examination of release notes, improvement of documentation, and fixing bugs.
@@ -30,56 +31,43 @@ Start ABINITv10.2.0 (abbc03cd01), to prepare beta release, from v10.1.7.
 
 
 
-===== ABINITv10.1 planning =====
-** For new developments **
+### ABINITv10.1 planning 
+**For new developments**
 
-<color red>
- [DONE] October 10, 2024:
+[DONE] October 10, 2024:
 Merge ABINITv10.1.6 contributions, to reach frozen v10.1.7 (0b291c9c8e), last of the v10.1 series. Start ABINITv10.2.X, for examination of release notes, improvement of documentation, and fixing bugs. Will be released on GitHub (only beta release). Start ABINITv10.3.0, for further new developments.
 
 [DONE] September 25, 2024:
-Merge ABINITv10.1.4 contributions and v10.0.8 bug fixes and other minor improvements, to reach frozen v10.1.5 (ff6ee2901f). Start ABINITv10.1.6 (96a1d068c6), for further new developments. 
+Merge ABINITv10.1.4 contributions and v10.0.8 bug fixes and other minor improvements, to reach frozen v10.1.5 (ff6ee2901f). Start ABINITv10.1.6 (96a1d068c6), for further new developments.
 
-[DONE]
-June 26, 2024:\\
-Merge ABINITv10.1.2 contributions and v10.0.4 & v10.0.6 bug fixes and other minor improvements, to reach frozen v10.1.3 (f551c360). Start ABINITv10.1.4 (9dacc91c), for further new developments. 
+[DONE] June 26, 2024:
+Merge ABINITv10.1.2 contributions and v10.0.4 & v10.0.6 bug fixes and other minor improvements, to reach frozen v10.1.3 (f551c360). Start ABINITv10.1.4 (9dacc91c), for further new developments.
 
-[DONE]
-May 3, 2024:\\
-Merge ABINITv10.1.0 contributions and v10.0.2 bug fixes and other minor improvements, to reach frozen v10.1.1 (3fde8d8c8b). Start ABINITv10.1.2 (cb7b376b95), for further new developments. 
+[DONE] May 3, 2024:
+Merge ABINITv10.1.0 contributions and v10.0.2 bug fixes and other minor improvements, to reach frozen v10.1.1 (3fde8d8c8b). Start ABINITv10.1.2 (cb7b376b95), for further new developments.
 
-[DONE]
-April 13, 2024:\\
-Start ABINITv10.1.0 (commit e832a301), for new developments, from v10.0.3. Several initial developments in ABINITv10.1 were bug fixes and have been backported to v10.0, so that the commit not to be included in v10.0 is actually commit 9d372e73 . 
+[DONE] April 13, 2024:
+Start ABINITv10.1.0 (commit e832a301), for new developments, from v10.0.3. Several initial developments in ABINITv10.1 were bug fixes and have been backported to v10.0, so that the commit not to be included in v10.0 is actually commit 9d372e73 .
 
 
-===== ABINITv10.0 planning =====
-** For release/hotfixes  **
+### ABINITv10.0 planning 
+**For release/hotfixes**
+ [DONE] September 12, 2024:
+Merge ABINITv10.0.8 contributions, to reach frozen v10.0.9, a production version released on the Web. The last of the v10.0 series.
 
-<color red>
-When appropriate, 2024:\\
-Merge ABINITv10.0.8 contributions, to reach frozen v10.0.9, a production version released on the Web. Likely the last of the v10.0 series.
-</color>
-
-[DONE]
-June 22, 2024:\\
+[DONE] June 22, 2024:
 Merge ABINITv10.0.6 contributions, to reach frozen v10.0.7 (2d3c493b), a production version released on the Web. Start ABINITv10.0.8 (59722102).
 
-[DONE]
-April 28, 2024:\\
+[DONE] April 28, 2024:
 Merge ABINITv10.0.4 contributions, to reach frozen v10.0.5 (bf5b360), a production version released on the Web. Start ABINITv10.0.6 (716b0d1).
 
-[DONE]
-April 13, 2024:\\
+[DONE] April 13, 2024:
 Merge ABINITv10.0.2 contributions, to reach frozen v10.0.3 (f77dbb12), a production version released on the Web. Fork : start ABINITv10.1.0, for new developments and ABINITv10.0.4 (346017a8) for further debugging and hotfixes.
 
-
-[DONE] March 18, 2024:\\
-Merged ABINITv9.11.6 and v10.0.0 contributions, to reach frozen v10.0.1, available as beta release on Github (commit bf9f102a). Start ABINITv10.0.2 (6b059baf), for examination of release notes, improvement of documentation, fixing bugs, and also normal development.
-
-
-===== ABINITv9.11 planning =====
-** For new developments **
+[DONE] March 18, 2024:
+Merged ABINITv9.11.6 and v10.0.0 contributions, to reach frozen v10.0.1, available as beta release on Github (commit bf9f102a). Start ABINITv10.0.2 (6b059baf), for examination of release notes, improvement of documentation, fixing bugs, and also normal development. 
+### ABINITv9.11 planning 
+**For new developments**
 
 [DONE] March 3, 2024:\\
 Merge ABINITv9.11.6 contributions, and switch smoothly to v10.0.0. 
@@ -99,8 +87,8 @@ Merge ABINITv9.11.0 contributions and ABINITv9.10.0 documentation modification a
  
 [DONE] May 2, 2023 :
 Init v9.11.0, at commit f70104ae, branched from frozen ABINITv9.9.4. 
-===== ABINITv9.10 planning =====
-** For release/hotfixes/production  **
+### ABINITv9.10 planning 
+**For release/hotfixes/production**
 
 [DONE] February 19, 2024 :\\
 Merge ABINITv9.10.4 contributions (documentation modification and bug fixes) to give frozen v9.10.5. v9.10.5 is publicly available on the Web site. This is the last release of the v9.10 series. 
@@ -117,8 +105,8 @@ Merge ABINITv9.10.0 contributions (documentation modification and bug fixes), fr
 
 [DONE] May 2, 2023 :
 Init v9.10.0, for release/hotfixes/production, at commit 1d5efe42, branched from frozen ABINITv9.9.4. Soon, the documentation to be examined by the developers will be provided. Modifications must include commit 1d5efe42 and not f70104ae. 
-===== ABINITv9.9 planning =====
-** For new developments **
+### ABINITv9.9 planning 
+**For new developments**
 
 [DONE] May 2, 2023 :\\
 Merge ABINITv9.9.3 contributions, and 9.8.4 documentation modification and bug fixes. Frozen at commit ca423556. Start ABINITv9.11.0, for new developments and v9.10.0 for future release. 
@@ -134,8 +122,8 @@ Merge ABINITv9.9.0 contributions and 9.8.0 documentation modification and bug fi
 
 [DONE] July 24, 2022 :\\
 Init v9.9.0, at commit d700ee23, branched from frozen ABINITv9.7.5. 
-===== ABINITv9.8 planning =====
-** For release/hotfixes/production  **
+### ABINITv9.8 planning 
+**For release/hotfixes/production**
 
 [DONE]
 April 25, 2023 :\\
@@ -164,8 +152,8 @@ Merge ABINITv9.8.0 contributions (documentation modification and bug fixes), fro
 Init v9.8.0, for release/hotfixes/production, at commit 3320e81d, branched from frozen ABINITv9.7.5. Soon, the documentation to be examined by the developers will be provided. Modifications must include commit 3320e81d and not d700ee23. 
 
 
-===== ABINITv9.7 planning =====
-** For new developments **
+### ABINITv9.7 planning 
+**For new developments**
 
 [DONE] July 24, 2022 :\\
 Merge ABINITv9.7.5, final commit 0ecac95f. Start ABINITv9.9.0, for new developments and v9.8.0 for future release.
@@ -188,8 +176,8 @@ Merge ABINITv9.7.0 contributions and v9.6.1 documentation modification and bug f
 [DONE] September 6, 2021 :\\
 Init v9.7.0, for further developments, at commit 93cc3caa, branched from frozen ABINITv9.5.4.
 
-===== ABINITv9.6 planning =====
-** For release/hotfixes/production **
+### ABINITv9.6 planning 
+**For release/hotfixes/production**
 
 [DONE] March 23, 2022 :\\
 Merge ABINITv9.6.3 contributions inside v9.7.2 . The trunk/release-9.6 had diverged from trunk/develop , so there will be no additional release of v9.6 beyond v9.6.2.
@@ -207,8 +195,8 @@ Merge ABINITv9.6.0 contributions (final commit d094894c). Contains preliminary d
 Init v9.6.0, at commit f7dafb28, branched from frozen ABINITv9.5.3. Soon, the documentation to be examined by the developers will be provided. Modifications must include commit f7dafb28 and not 93cc3caa.
 
 
-===== ABINITv9.5 planning =====
-** For new developments **
+### ABINITv9.5 planning 
+**For new developments**
 
 [DONE] September 6, 2021 :\\
 Merge ABINITv9.5.4 contributions. Final commit c2c94608. Start ABINITv9.7.0, for new developments and v9.6.0 for future release.
@@ -228,8 +216,8 @@ Merge ABINITv9.5.0 contributions, final commit d170ab7b. Start ABINITv9.5.1, for
 [DONE] February 15, 2021 :\\
 Init v9.5.0, for further developments, at commit a68a9e13, branched from frozen ABINITv9.3.4.
 
-===== ABINITv9.4 planning =====
-** For release/hotfixes/production **
+### ABINITv9.4 planning 
+**For release/hotfixes/production**
 
 [DONE] September 6, 2021 :\\ 
 Merged ABINITv9.4.3 hotfixes in trunk/develop v9.5.4 . No frozen v9.4.3 delivered for production. 
@@ -247,8 +235,8 @@ Merge ABINITv9.4.0 contributions. Final commit 48ba35fc. Release for production.
 Init v9.4.0, at commit 6d288cf1, branched from frozen ABINITv9.3.4, with full documentation, to be examined by the developers. Modifications must include commit 6d288cf1 and not a68a9e13.
 
 
-===== ABINITv9.3 planning =====
-** For new developments **
+### ABINITv9.3 planning 
+**For new developments**
 
 [DONE] February 15, 2021 :\\
 Merge ABINITv9.3.4 contributions, commit 322ba0, Start ABINITv9.4.0 (6d288cf1 - for release) and ABINITv9.5.0 (a68a9e13 - for development).
@@ -267,8 +255,8 @@ Merge ABINITv9.3.0 and 9.2.1 contributions, commit ff09d747. Start ABINITv9.3.1,
 
 [DONE] September 1, 2020 :\\
 Init v9.3.0 for further developments, Branched from frozen ABINITv9.1.6. Init at commit a116c3fa. Modifications must include commit a116c3fa. 
-===== ABINITv9.2 planning =====
-** For release/hotfixes/production **
+### ABINITv9.2 planning 
+**For release/hotfixes/production**
 
 [DONE] November 10, 2020 :\\
 Merge ABINITv9.2.2 contributions. Final commit 9b5158b27. Release for production. Likely no ABINITv9.2.3 for bug fixes will be launched, because of the change of reference machines. Only if critical bug fixes are found will a v9.2.3 be delivered.
@@ -282,8 +270,8 @@ Merge ABINITv9.2.0 contributions. Final commit 9ec2ffe5. Start ABINITv9.2.1, for
 [DONE] September 1, 2020 :\\
 Init v9.2.0, Branched from frozen ABINITv9.1.6. Init at commit fbe22c0b. Modifications must include commit fbe22c0b. Release notes of v9.2 are collected, Frozen version 9.2.0 will be a release candidate, with full documentation, to be examined by the developers.
 
-===== ABINITv9.1 planning =====
-** For new developments **
+### ABINITv9.1 planning 
+**For new developments**
 
 [DONE] September 1, 2020 :\\
 Merge ABINITv9.1.6. Launch v9.2.0 (for release) and v9.3.0 (for development).
@@ -310,8 +298,8 @@ Important hotfixes for the test farm. Start ABINITv9.1.1, for new developments
 v9.1.0, for new developments, branched from frozen ABINITv9.0.0. Init at commit d51ce822. New developments must include commit d51ce822.
 
 
-===== ABINITv9.0 planning =====
-** For beta-testing of v9 **
+### ABINITv9.0 planning 
+**For beta-testing of v9**
 
 [DONE] May 18, 2020 :\\
 Merge ABINITv9.0.4 contribs. Release publicly as beta version. ABINITv9.0.4 is the last one of the v9.0 series. Last commit ec28314c.
@@ -333,8 +321,8 @@ Merge ABINITv8.11.14 contribs. Freeze at commit 39784658. Start ABINITv9.0.0.
 New build system: script to convert automatically from the old .ac to the new.ac. New developments must include d4f337a0.
 
 
-===== ABINITv8.11 planning =====
-** For new developments **
+### ABINITv8.11 planning 
+**For new developments**
 
 This version will be the last in the v8 series, but will not be delivered publicly. Its sole purpose is to prepare v9. We will switch to v9 afterwards (v9.0 for initial beta testing, v9.1 for development, then later v9.2 for production). v9 will have new build system without abilint, will need F2003-enabled compiler, will have netcdf4/HDF5 as requirement, will allow the input file to contain all the "files" file information, and other changes that may break backward compatibility (e.g. remove support for old versions of libraries)  ... In this context, modifications that breaks backwards compatibility are already accepted in v8.11.x . The v9.0 is expected early 2020.
 
@@ -387,8 +375,8 @@ Merge ABINITv8.11.0 contribs. Freeze trunk/develop tagged "8.11.0". Start ABINIT
 [DONE] September 12, 2018 :\\
 Initialize trunk/develop for v8.11.0 developement, with tag "start-8.11.0".
 
-===== ABINITv8.10 planning =====
-** For release/hotfixes/production **
+### ABINITv8.10 planning 
+**For release/hotfixes/production**
 
 [DONE] June 24, 2019 :\\
 trunk/release-8.10 tagged "8.10.3". Frozen version 8.10.3 is a production version, with full documentation, delivered on the Web. With respect to v8.10.2, only critical bug fixes, and improved documentation. Final release of v8.10.
@@ -406,8 +394,8 @@ trunk/release-8.10 tagged "8.10.0". Frozen version 8.10.0 is a release candidate
 [DONE] September 12, 2018 :\\
 Create trunk/release-8.10 branch, tagged "start-8.10.0".
 
-===== ABINITv8.9 planning =====
-** For new developments **
+### ABINITv8.9 planning 
+**For new developments**
 
 [DONE] Sept 12, 2018 :\\
 Merge ABINITv8.9.4 contribs. Freeze trunk/develop tagged "8.9.4". 
@@ -429,8 +417,8 @@ Merge ABINITv8.9.0 contribs. Freeze trunk/develop tagged "8.9.0". Start ABINITv8
 Initialize trunk/develop for v8.9.0 developement, with tag "start-8.9.0".
 
 
-===== ABINITv8.8 planning =====
-** For release/production **
+### ABINITv8.8 planning 
+**For release/production**
 
 [DONE] July 27, 2018 :\\
 trunk/release-8.8 tagged "8.8.4". Frozen version 8.8.4 is a production version, with full documentation. Final release of v8.8.
@@ -449,8 +437,8 @@ Freeze trunk/release-8.8.0 tagged "8.8.0". trunk/release-8.8 started, tagged "st
 
 [DONE] April 2, 2018 :\\
 Create trunk/release-8.8.0 branch, tagged "start-8.8.0".
-===== ABINITv8.7 planning =====
-** For new developments **
+### ABINITv8.7 planning 
+**For new developments**
 
 [DONE] April 2, 2018 (or earlier, if possible) :\\
 Freeze trunk/develop tagged "8.7.7" as soon as the doc html files are under full control of abirules. End of v8.7. A branch “release-8.8.0” is then prepared for release, with tag “release-8.8.0”. Further developments (in trunk/develop) should include the tag “start-8.9.0”.
@@ -481,8 +469,8 @@ Initialize trunk/develop for v8.7.0 developement, with tag "start-8.7.0".
 
 
 
-===== ABINITv8.6 planning =====
-** For release/production **
+### ABINITv8.6 planning 
+**For release/production**
 
 [DONE] Due the release of 8.8.1 in March, ABINITv8.6.4 will not be delivered ... \\
 Freeze trunk/hotfix-8.6 and tag it "8.6.4". Frozen version 8.6.4 is a production version, available on the Web, likely the last of the v8.6 series.
@@ -503,8 +491,8 @@ Freeze trunk/release-8.6.0 tagged "8.6.0". trunk/release-8.6.1 started, tagged "
 Create trunk/release-8.6.0 branch, tagged "start-8.6.0".
 
 
-===== ABINITv8.5 planning =====
-** For new developments **
+### ABINITv8.5 planning 
+**For new developments**
 
 
 [DONE] September 23, 2017 :\\
@@ -524,8 +512,8 @@ The trunk/develop initialized for v8.5.0 developement, with tag "start-8.5.0".
 
 
 
-===== ABINITv8.4 planning =====
-** For release/production **
+### ABINITv8.4 planning 
+**For release/production**
 
 [DONE] September 20, 2017 :\\
 trunk/hotfix-8.4 tagged "8.4.4". Frozen version 8.4.4 delivered on the Web is a production version, with full documentation, placed on the Web.
