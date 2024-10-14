@@ -66,5 +66,6 @@ Also, some bots provide unique services :
 |        |                | ubu_intel_16.0_openmp        | yes      | intel-16.0   |               | mkl 11.3           | A              | OpenMP / dfti                              |
 
 *Caption for external fallbacks : A= AtomPAW, B= BigDFT, P= PSML+XMLF90, W= Wannier90
+
 *Mandatory fallbacks : linalg, netCDF-C/netCDF-Fortran with HDF5 support and 
 libXC 
